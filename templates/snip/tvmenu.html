@@ -1,0 +1,12 @@
+<ul class="tvIndex inblock" id="tvIndex">
+{% for catClient in catClients %}
+    <li class="tvIndex" value="cat{{ catClient.pk }}" onclick="zapChannel({{ catClient.pk }},'{{ catClient.nom }}');return false;">
+        <p class="tvIndex alignL">{{ catClient.nom }}</p>
+        <div class="hidden" id="cat{{ catClient.pk }}">
+ {% for client in catClient.clients.all %}
+            <span>{{ client.logoURL }}</span><img src="" />
+ {% endfor %}
+        </div>
+    </li>
+{% endfor %}
+</ul>

@@ -1,0 +1,12 @@
+{% load tags %}
+<nav>
+    <a class="inblock valignC logo" href="/"><img src="{{ STATIC_URL}}img/logo.nobg.gif" /></a>
+    <!--Menu nav : LOGO | Agence | Portfolio | Equipe | Clients | Contact-->
+    <ul class="inblock">
+        <li class="inline {% active request "^/agence" %}"><a href="/agence/">agence</a></li>
+        <li class="inline {% active request "^/portfolio" %}"><a href="/portfolio/">portfolio</a></li>
+        <li class="inline {% active request "^/equipe" %}"><a href="/equipe/">équipe</a></li>
+        <li class="inline {% active request "^/clients" %}"><a href="/clients/">clients</a></li>
+        <li class="inline {% active request "^/contact" %}"><a href="/contact/">contact</a></li>
+    </ul>
+</nav>

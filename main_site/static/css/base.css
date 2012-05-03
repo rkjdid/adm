@@ -1,0 +1,229 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    border: 1px dotted gray;
+}
+
+body
+{
+    color: #696969;
+    font-family: "Bitstream Vera Sans Mono", Arial, sans-serif;
+    text-align: center;
+    font-size: 100%;
+    width: 100%;
+    height: 100%;
+    margin-top: 0px;
+}
+
+ul
+{
+    list-style: none;
+}
+
+#bodyContainer
+{
+    height: 494px;
+    min-height: 494px;
+    /*display: inline-block;*/
+    /*vertical-align: middle;*/
+}
+
+#body
+{
+    width: 100%;
+    height: 100%;
+}
+
+a
+{
+    color: gray;
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: #ff69b4;
+}
+
+/** Rounded div popups **/
+div.pop
+{
+    border-color: #AAAAAA;
+    border:2px solid;
+    border-radius:25px;
+    -moz-border-radius:25px; /* Firefox 3.6 and earlier */
+    box-shadow: 4px 3px 2px #AAAAAA;
+}
+
+/** TV **/
+@font-face {
+    font-family: 'digital';
+    src: url('/static/font/digital.ttf');
+}
+
+#tvScreen
+{
+
+}
+
+
+
+#body
+{
+    min-height: 480px;
+    vertical-align: middle;
+}
+
+#tv
+{
+    background: url("http://192.168.1.253/ateliers.media/resources/img.pdf/tv+lcd-450.png")
+                no-repeat top left;
+    min-height: 450px;
+    min-width:  662px;
+}
+
+canvas#tvScreen
+{
+    position: relative;
+    float: left;
+    left: 65px;
+    top: 53px;
+    /*border: 1px solid pink;*/
+}
+
+canvas#tvLcd
+{
+    font-family: digital, sans-serif;
+    color: #1f2f2f;
+    position: relative;
+    float: left;
+    left: 108px;
+    top: 44px;
+}
+
+
+
+p.tvIndex
+{
+    font-family: 'Lucida Grande', serif;
+    font-weight: bold;
+    font-size: 80%;
+    color: black;
+}
+
+li.tvIndex:hover,
+p.tvIndex:hover
+{
+    color: #ff69b4;
+    cursor: default;
+}
+
+/*#body{*/
+
+    /*perspective:500px;*/
+    /*-webkit-perspective:500px;*/
+    /*-moz-perspective:500px;*/
+    /*-ms-perspective:500px;*/
+/*}*/
+/*#tv{*/
+    /*transform: rotateY(0deg);*/
+    /*-webkit-transform: rotateY(0deg);*/
+    /*-moz-transform: rotateY(0deg);*/
+    /*-ms-transform: rotateY(0deg);*/
+
+    /*transition:all 1s ease;*/
+    /*-webkit-transition:all 1s ease;*/
+    /*-moz-transition:all 1s ease;*/
+    /*-ms-transition:all 1s ease;*/
+/*}*/
+/*#body:hover #tv{*/
+    /*transform: rotate3d(-100,100,0,180deg);*/
+    /*-webkit-transform: rotate3d(-100,100,0,180deg);*/
+    /*-moz-transform: rotate3d(-100,100,0,180deg);*/
+    /*-ms-transform: rotate3d(-100,100,0,180deg);*/
+/*}*/
+/*#tv div{*/
+    /*position:absolute;*/
+    /*background:red;*/
+    /*backface-visibility:hidden;*/
+    /*-webkit-backface-visibility: hidden;*/
+
+/*}*/
+/*#tv div:last-child{*/
+    /*background:green;*/
+    /*transform: rotateY(180deg);*/
+    /*-webkit-transform: rotateY(180deg);*/
+    /*-moz-transform: rotateY(180deg);*/
+    /*-ms-transform: rotateY(180deg);*/
+/*}*/
+
+/** Header **/
+nav
+{
+    font-variant: small-caps;
+    font-size: 1.3em;
+    border-bottom: 1px solid gray;
+    min-height: 50px;
+    background-color: #d3d3d3;
+}
+nav > ul > li > a
+{
+    padding: 0.2em 0.8em 0.2em 0.8em;
+    /*background-color: #FAFAFA;*/
+}
+nav > ul > li > a:hover
+{
+    background-color: #AFAFAF;
+}
+
+nav > .logo
+{
+    position:relative;
+    /*left: -0.5em;*/
+}
+
+/** Footer **/
+footer
+{
+    text-align: center;
+    /*position: relative;*/
+    min-height: 2em;
+}
+footer > p
+{
+    position:absolute;
+    height: 2em;
+    margin-top: -1em;
+    top: 50%;
+}
+footer > img
+{
+    position: absolute;
+    height: 5em;
+    right: 10%;
+}
+
+/** Align **/
+.alignC             {text-align: center;}
+.alignR             {text-align: right;}
+.alignL             {text-align: left;}
+
+.valignC            {vertical-align: middle;}
+.valignT            {vertical-align: top;}
+.valignB            {vertical-align: bottom;}
+
+/** Display **/
+.inblock            {display: inline-block;}
+.inline             {display: inline;}
+.block              {display: block;}
+.hidden             {display: none; position: absolute; top:-5000px; left:-5000px; z-index: -999;}
+
+/** Float **/
+.floatR             {float: right;}
+
+/** Fonts **/
+.small              {font-size: 0.55em;}
+
+/** Fixes **/
+img                 {border: none;} /* IE blue border fix */

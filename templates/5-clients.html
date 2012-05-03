@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block extrahead %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/tv.js"></script>
+{% endblock %}
+
+{% block body %}
+    <div id="btvContainer inblockiner inblock">
+        {% include 'snip/tv.html' %}
+
+        {% include 'snip/tvmenu.html' %}
+    </div>
+{% endblock %}

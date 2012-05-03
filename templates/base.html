@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Les Ateliers des Marques - {% block title %}{% endblock %}</title>
+
+    <link rel="shortcut icon" href="/static/img/(c)nobg.png" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/base.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/pageflip.css" />
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/base.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/pageflip.js"></script>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="{{ STATIC_URL }}js/excanvas.js"></script>
+    <![endif]-->
+    {% block extrahead %}{% endblock %}
+</head>
+<body>
+{% if pageN != 'index' %}
+    <header>
+        {% include 'snip/nav.html' %}
+    </header>
+{% endif %}
+
+    <div id="bodyContainer">
+{% if pageFlip == 'flip' %}{% include 'snip/flip.html' %}{% endif %}
+{% block body %}{% endblock %}
+    </div>
+
+    <footer>
+        <div class="inblock valignC small">
+            <p>1 rue de l'espérance, 59100 Roubaix - Tél : +33(0)3.20.72.00.40</p>
+            <p>Copyright (c) 2012 - Tous droits réservés - <a href="/contact/">Contact</a></p>
+        </div>
+{% if pageN == 'index' %}<img class="inblock valignC logo" src="{{ STATIC_URL}}img/logo.gif" />{% endif %}
+    </footer>
+
+</body>
+</html>
