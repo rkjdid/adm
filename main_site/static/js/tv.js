@@ -1,7 +1,23 @@
+var tvScreen, tvContext;
+var lcdScreen, lcdContext;
+
 window.onload = function ()
 {
-    preloadImages()
+    defaultDisplay();
+    preloadImages();
+
+//    alert('Images loaded');
 }
+
+$(document).ready(function () {
+    tvScreen = document.getElementById("tvScreen");
+    lcdScreen = document.getElementById("tvLcd");
+    tvContext = tvScreen.getContext("2d");
+    lcdContext = lcdScreen.getContext("2d");
+    drawMire();
+    defaultDisplay();
+//    alert('Mire drawn');
+});
 
 function preloadImages()
 {
@@ -28,42 +44,58 @@ function preloadImages()
     }
 }
 
-function digitalDisplay(text)
+function drawMire()
 {
-    var lcd = document.getElementById("tvLcd");
-    var lcdContext = lcd.getContext("2d");
-
-    lcdContext.clearRect(0, 0, lcd.width, lcd.height);
-    lcdContext.font = "14px digital";
-    lcdContext.fillText(text, 2, 12);
-
+    var mire = new Image();
+    mire.src = "http://192.168.1.253/ateliers.media/resources/img.pdf/tvScreen.png";
+    mire.onload = function(){
+        tvContext.drawImage(mire, 0, 0);
+    }
 }
 
-function zapChannel(id, nom)
+function defaultDisplay ()
 {
-    digitalDisplay(nom);
-    drawLogos(id);
+    lcdContext.clearRect(0, 0, lcdScreen.width, lcdScreen.height);
+    lcdContext.font = "14px digital";
+    lcdContext.fillText("/!\\FATAL ERROR", 2, 22);
+    lcdContext.font = "12px digital";
+    lcdContext.fillText("select a channel",10, 42);
+}
+
+function digitalDisplay(nb, text)
+{
+    // font = 14px -> 13char max
+    // 10 px hauteur (saut de ligne) minimum
+
+    if (text.length > 12)
+    {
+        text = text.substring(0, 12) + '-';
+    }
+
+    lcdContext.clearRect(0, 0, lcdScreen.width, lcdScreen.height);
+    lcdContext.font = "36px digital";
+    lcdContext.fillText(nb, 70, 28);
+    lcdContext.font = "14px digital";
+    lcdContext.fillText(text, 2, 49);
+}
+
+function zapChannel(nb, nom)
+{
+    digitalDisplay(nb, nom);
+    drawLogos(nb);
 }
 
 function drawLogos(cat)
 {
-    var screen = document.getElementById("tvScreen");
-    var screenContext = screen.getContext("2d");
-
 //    var step = document.getElementById(cat);
     var images = document.getElementsByClassName('cli-cat' + cat)
 
     var x = 15;
     var y = -20;
-    screenContext.clearRect(0, 0, screen.width, screen.height);
+    tvContext.clearRect(0, 0, screen.width, screen.height);
     for (var i = 0; i < images.length; i++)
     {
-        screenContext.drawImage(images[i], x, y, 50, 50);
+        tvContext.drawImage(images[i], x, y, 50, 50);
         y += 50;
     }
-
 }
-
-
-
-

@@ -1,3 +1,25 @@
 todo :)
 
-This file was modified by PyCharm 2.0.2 for binding GitHub repository
+First commit done on github, état du projet :
+
+-Menu /
+    add good effects (active in place)
+    beautifulize overall look4
+-Footer /
+    ok
+-Index /
+    todo
+-Agence /
+    todo
+-Portfolio /
+    In the way of getting good animations
+-Equipe /
+    todo
+-Clients /
+    TV OK
+    TV Menu OK
+    Menu link to TV OK
+    Redraw border of screen TV in canvas, to avoid changing
+      #tv -> background = tvskin, and no control over z-index.
+-Contact /
+    todo

@@ -62,18 +62,11 @@ div.pop
     src: url('/static/font/digital.ttf');
 }
 
-#tvScreen
-{
-
-}
-
-
-
-#body
-{
-    min-height: 480px;
-    vertical-align: middle;
-}
+/*#body*/
+/*{*/
+    /*min-height: 480px;*/
+    /*vertical-align: middle;*/
+/*}*/
 
 #tv
 {
