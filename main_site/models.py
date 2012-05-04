@@ -1,8 +1,15 @@
 ##-*- coding: utf-8 -*-
 from django.db import models
 from main_site.widgets import AdminImageWidget
-from django.db.models.signals import post_save, pre_save
+from django.db.models.signals import  post_save, pre_save
+import os
+import tempfile
 import settings
+
+###################################################################
+#-Général----------------------------------------------------
+###################################################################
+
 
 ###################################################################
 #-Page CONTACT----------------------------------------------------
@@ -40,11 +47,13 @@ class Client (models.Model):
 
     nom = models.CharField (max_length=20, default='Client')
 
-    logo = models.ImageField(upload_to= settings.MEDIA_ROOT + 'clients/')
-    logoURL = models.CharField(max_length=150, default=settings.MEDIA_URL + 'clients/')
+    logo = models.ImageField(upload_to= 'clients/')
+    logoURL_base = models.CharField(editable=False, max_length=150, default=settings.MEDIA_URL + 'clients/')
+    logoURL = models.CharField(editable=False, max_length=150)
 
     def setImgURL(self):
-        self.logoURL += self.logo.name
+        _, self.logo.name = uniqueFile(settings.MEDIA_ROOT + 'clients/' + self.logo.name)
+        self.logoURL = self.logoURL_base + self.logo.name
 
     def __unicode__(self):
         return self.nom
@@ -70,11 +79,13 @@ class PhotoMembre (models.Model):
     """
     membre = models.ForeignKey('MembreEquipe', related_name='photos')
 
-    photo = models.ImageField(upload_to= settings.MEDIA_ROOT + 'equipe/')
-    photoURL = models.CharField(max_length=150, default= settings.MEDIA_URL + 'equipe/')
+    photo = models.ImageField(upload_to='equipe/')
+    photoURL_base = models.CharField(editable=False, max_length=150, default= settings.MEDIA_URL + 'equipe/')
+    photoURL = models.CharField(editable=False, max_length=150)
 
     def setImgURL(self):
-        self.photoURL += self.photo.name
+        _, self.photo.name = uniqueFile(settings.MEDIA_ROOT + 'equipe/' + self.photo.name)
+        self.photoURL = self.photoURL_base + self.photo.name
 
     def __unicode__(self):
         return self.photo.path
@@ -98,14 +109,18 @@ class PageBook (models.Model):
     """
     book = models.ForeignKey('Book', related_name='pagebook')
 
-    pageGauche = models.ImageField(upload_to= settings.MEDIA_ROOT + 'books/')
-    pageGaucheURL = models.CharField(max_length=150, default=settings.MEDIA_URL + 'books/')
-    pageDroite = models.ImageField(upload_to= settings.MEDIA_ROOT + 'books/')
-    pageDroiteURL = models.CharField(max_length=150, default=settings.MEDIA_URL + 'books/')
+    pageGauche = models.ImageField(upload_to='books/')
+    pageDroite = models.ImageField(upload_to='books/')
 
-#    def setImgURL(self):
-#        self.pageGaucheURL += self.pageGauche.name
-#        self.pageDroiteURL += self.pageDroite.name
+    pageGaucheURL = models.CharField(editable=False, max_length=150)
+    pageDroiteURL = models.CharField(editable=False, max_length=150)
+    pageURL_base = models.CharField(editable=False, default=settings.MEDIA_URL + 'books/', max_length=150)
+
+    def setImgURL(self):
+        _, self.pageGauche.name = uniqueFile(settings.MEDIA_ROOT + 'books/' + self.pageGaucheURL.name)
+        _, self.pageDroite.name = uniqueFile(settings.MEDIA_ROOT + 'books/' + self.pageDroiteURL.name)
+        self.pageGaucheURL = self.pageURL_base + self.pageGauche.name
+        self.pageDroiteURL = self.pageURL_base + self.pageDroite.name
 
     def __unicode__(self):
         return self.pageDroiteURL
@@ -117,29 +132,48 @@ class FicheRecette (models.Model):
     book = models.OneToOneField('Book', related_name='fiche')
 
     imagefond = models.ImageField(upload_to= settings.MEDIA_ROOT + 'fichesRecette/')
-    imagefondURL = models.CharField(max_length=150, default=settings.MEDIA_URL + 'fichesRecette/')
+    imagefondURL_base = models.CharField(editable=False, max_length=150, default=settings.MEDIA_URL + 'fichesRecette/')
+    imagefondURL = models.CharField(editable=False, max_length=150)
+    titre = models.CharField(max_length=100, default='titre')
+    description = models.TextField(default="description")
 
-    titre = models.CharField(max_length=100, default='La recette du bonheur')
-    description = models.TextField(default="Faire l'amour")
-
-#    def setImgURL(self):
-#        self.imagefondURL += self.imagefond.name
+    def setImgURL(self):
+        _, self.imagefond.name = uniqueFile(settings.MEDIA_ROOT + 'fichesRecette/' + self.imagefond.name)
+        self.imagefondURL = self.imagefondURL_base + self.imagefond.name
 
     def __unicode__(self):
         return self.titre
 
 ###################################################################
-#-Signaux----------------------------------------------------------
+#-Divers/Signaux---------------------------------------------------
 ###################################################################
 
-#def buildImgURL(sender, instance, **kwargs):
-#    if (instance.b_setURL):
-#        instance.setImgURL()
-#        instance.b_setURL = False
-#
-#    instance.save()
-#
+def uniqueFile(path):
+    """
+    From path to file :
+        returns filedescriptor (as in os.open)
+        returns new_Dir
+        returns new_FileName
+    """
+    dir, fileName = os.path.split(path)
+    name, ext = os.path.splitext(fileName)
+
+    fd, newPath = tempfile.mkstemp(ext, name+"_", dir)
+    os.close(fd)
+    os.remove(newPath)
+    dir, fileName = os.path.split(newPath)
+
+    return dir, fileName
+
+def buildImgURL(sender, instance, **kwargs):
+    instance.setImgURL()
+
 ## Build image URLs before saving
+pre_save.connect(buildImgURL, sender=PageBook)
+pre_save.connect(buildImgURL, sender=Client)
+pre_save.connect(buildImgURL, sender=FicheRecette)
+pre_save.connect(buildImgURL, sender=PageBook)
+
 #post_save.connect(buildImgURL, sender=PageBook)
 #post_save.connect(buildImgURL, sender=Client)
 #post_save.connect(buildImgURL, sender=FicheRecette)
