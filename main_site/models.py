@@ -117,8 +117,8 @@ class PageBook (models.Model):
     pageURL_base = models.CharField(editable=False, default=settings.MEDIA_URL + 'books/', max_length=150)
 
     def setImgURL(self):
-        _, self.pageGauche.name = uniqueFile(settings.MEDIA_ROOT + 'books/' + self.pageGaucheURL.name)
-        _, self.pageDroite.name = uniqueFile(settings.MEDIA_ROOT + 'books/' + self.pageDroiteURL.name)
+        _, self.pageGauche.name = uniqueFile(settings.MEDIA_ROOT + 'books/' + self.pageGauche.name)
+        _, self.pageDroite.name = uniqueFile(settings.MEDIA_ROOT + 'books/' + self.pageDroite.name)
         self.pageGaucheURL = self.pageURL_base + self.pageGauche.name
         self.pageDroiteURL = self.pageURL_base + self.pageDroite.name
 
