@@ -1,24 +1,24 @@
 var tvScreen, tvContext;
 var lcdScreen, lcdContext;
+var displayed;
+var imgLoaded = new Array();
 
 window.onload = function ()
 {
     defaultDisplay();
     preloadImages();
-
-//    alert('Images loaded');
 }
 
 $(document).ready(function () {
-    tvScreen = document.getElementById("tvScreen");
-    lcdScreen = document.getElementById("tvLcd");
+    tvScreen = $('#tvScreen')[0];
+    lcdScreen = $('#tvLcd')[0];
     tvContext = tvScreen.getContext("2d");
     lcdContext = lcdScreen.getContext("2d");
     drawMire();
     defaultDisplay();
-//    alert('Mire drawn');
 });
 
+//TODO: JQuery this
 function preloadImages()
 {
     var menu = document.getElementById("tvIndex");
@@ -42,15 +42,19 @@ function preloadImages()
                 }
         }
     }
+
+//    alert('Images loaded');
 }
 
 function drawMire()
 {
     var mire = new Image();
-    mire.src = "http://192.168.1.253/ateliers.media/resources/img.pdf/tvScreen.png";
+    mire.src = "http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/tvScreen.png";
     mire.onload = function(){
         tvContext.drawImage(mire, 0, 0);
     }
+
+//    alert('Mire drawn');
 }
 
 function defaultDisplay ()
@@ -87,15 +91,22 @@ function zapChannel(nb, nom)
 
 function drawLogos(cat)
 {
-//    var step = document.getElementById(cat);
-    var images = document.getElementsByClassName('cli-cat' + cat)
+    var images = $('.cli-cat' + cat);
 
-    var x = 15;
-    var y = -20;
-    tvContext.clearRect(0, 0, screen.width, screen.height);
+    var logoW = 60;
+    var logoH = 60;
+
+    var x = 25;
+    var y = tvScreen.height / 2 - logoH / 2;
+    tvContext.clearRect(0, 0, tvScreen.width, tvScreen.height);
     for (var i = 0; i < images.length; i++)
     {
-        tvContext.drawImage(images[i], x, y, 50, 50);
-        y += 50;
+        tvContext.drawImage(images[i], x, y, logoW, logoH);
+//        // Write brand name below logo
+//        tvContext.font("sans-serif 12px");
+//        tvContext.fontcolor("green");
+//        tvContext.measureText("...")
+//
+        x += logoW*1.5;
     }
 }

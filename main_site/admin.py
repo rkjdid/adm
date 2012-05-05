@@ -1,5 +1,4 @@
 from ateliers_a.main_site.models import *
-from ateliers_a.main_site.widgets import AdminImageWidget
 from django.contrib import admin
 
 class PhotoMembreInline(admin.StackedInline):
@@ -14,7 +13,7 @@ class MembreEquipeAdmin(admin.ModelAdmin):
 
 class ClientInline(admin.StackedInline):
     model = Client
-    fields = ['nom', 'logo', 'logoURL']
+    fields = ['nom', 'logo']#, 'logoURL']
     extra = 1
 
 

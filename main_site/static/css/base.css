@@ -2,7 +2,7 @@
 {
     margin: 0;
     padding: 0;
-    border: 1px dotted gray;
+    /*border: 1px dotted gray;*/
 }
 
 body
@@ -23,10 +23,16 @@ ul
 
 #bodyContainer
 {
-    height: 494px;
-    min-height: 494px;
+    height: 500px;
+    min-height: 500px;
     /*display: inline-block;*/
     /*vertical-align: middle;*/
+}
+
+#bodyContainer[class="index"]
+{
+    height: 550px;
+    min-height: 550px;
 }
 
 #body
@@ -53,7 +59,14 @@ div.pop
     border:2px solid;
     border-radius:25px;
     -moz-border-radius:25px; /* Firefox 3.6 and earlier */
-    box-shadow: 4px 3px 2px #AAAAAA;
+    box-shadow: 3px 3px 2px #AAAAAA;
+}
+
+/** Index **/
+div.index
+{
+    /*background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/homepage.png')*/
+                /*center no-repeat;*/
 }
 
 /** TV **/
@@ -62,18 +75,14 @@ div.pop
     src: url('/static/font/digital.ttf');
 }
 
-/*#body*/
-/*{*/
-    /*min-height: 480px;*/
-    /*vertical-align: middle;*/
-/*}*/
-
 #tv
 {
-    background: url("http://192.168.1.253/ateliers.media/resources/img.pdf/tv+lcd-450.png")
+    background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/tv+lcd-450.png")
                 no-repeat top left;
     min-height: 450px;
     min-width:  662px;
+    position: relative;
+    top : 22px;
 }
 
 canvas#tvScreen
@@ -152,6 +161,12 @@ p.tvIndex:hover
 /*}*/
 
 /** Header **/
+header
+{
+    height: 66px;
+    min-height: 66px;
+}
+
 nav
 {
     font-variant: small-caps;
@@ -160,11 +175,13 @@ nav
     min-height: 50px;
     background-color: #d3d3d3;
 }
+
 nav > ul > li > a
 {
     padding: 0.2em 0.8em 0.2em 0.8em;
     /*background-color: #FAFAFA;*/
 }
+
 nav > ul > li > a:hover
 {
     background-color: #AFAFAF;
@@ -181,19 +198,38 @@ footer
 {
     text-align: center;
     /*position: relative;*/
-    min-height: 2em;
+    min-height: 45px;
+    /*border-top: solid 1px #696969;*/
+    box-shadow: 0px -2px 1px gray;
+    background: #cccccc
 }
+
+footer.index
+{
+    min-height: 70px;
+}
+
 footer > p
 {
     position:absolute;
     height: 2em;
-    margin-top: -1em;
-    top: 50%;
 }
+
+footer > div
+{
+    top: 10px;
+    position: relative;
+}
+
+footer.index > div
+{
+    top: 25px;
+}
+
 footer > img
 {
     position: absolute;
-    height: 5em;
+    height: 70px;
     right: 10%;
 }
 
@@ -210,7 +246,7 @@ footer > img
 .inblock            {display: inline-block;}
 .inline             {display: inline;}
 .block              {display: block;}
-.hidden             {display: none; position: absolute; top:-5000px; left:-5000px; z-index: -999;}
+.hidden             { display: none; position: relative; top:-5000px; left:-5000px; z-index: -999;}
 
 /** Float **/
 .floatR             {float: right;}
