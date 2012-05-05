@@ -1,0 +1,172 @@
+/* 100% height layout */
+header, #bodyContainer, footer
+{
+    overflow: hidden;
+    position: absolute;
+    left: 0; right: 0;
+}
+
+header
+{
+    height: 66px;
+    top: 0;
+}
+
+#bodyContainer
+{
+    top: 66px;
+    bottom: 45px;
+    margin: 20px 0 20px;
+}
+
+#bodyContainer.index
+{
+    top: 0;
+    bottom: 70px;
+}
+
+#bodyContainer.scrollY
+{
+    overflow-y: auto;
+}
+
+footer
+{
+    height: 45px;
+    bottom: 0;
+}
+
+footer.index
+{
+    height: 70px;
+}
+/** end layout **/
+
+/** Header **/
+nav
+{
+    font-variant: small-caps;
+    font-size: 1.3em;
+    border-bottom: 1px solid gray;
+    background-color: #d3d3d3;
+}
+
+nav > ul
+{
+    padding-top: 20px;
+    padding-bottom: 15px;
+    top: 5px;
+    min-width: 600px;
+    width: 600px;
+}
+
+nav > ul:hover a.active
+{
+    padding: 16px 20px 30px 20px;
+    background-color: inherit;
+    border: none;
+    box-shadow: none;
+    color: inherit;
+}
+
+nav > ul:hover a.active:hover
+{
+    padding: 16px 19px 30px 19px;
+    background-color: white;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    border-left: 1px solid #808080;
+    border-bottom: none;
+    border-radius: 5px;
+    box-shadow: -2px -1px 3px #888;
+    color: #ff69b4;
+}
+
+nav > ul > li
+{
+    margin-right: -4px;
+}
+
+nav > ul > li > a
+{
+    padding: 16px 20px 30px 20px;
+}
+nav  ul > li > a.active:hover
+{
+    padding: 16px 20px 30px 20px;
+}
+
+nav > ul > li > a.active
+{
+    padding: 16px 19px 30px 19px;
+    background-color: white;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    border-left: 1px solid #808080;
+    border-bottom: none;
+    border-radius: 5px;
+    box-shadow: -2px -1px 3px #888;
+    color: #ff69b4;
+    -webkit-transition-property: background-color, box-shadow;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-property: background-color, box-shadow;
+    -moz-transition-duration: 0.3s;
+    -ms-transition-property: background-color, box-shadow;
+    -ms-transition-duration: 0.3s;
+}
+
+nav > ul > li > a:hover
+{
+    cursor: default;
+    padding: 16px 19px 30px 19px;
+    background-color: white;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    border-left: 1px solid #808080;
+    border-bottom: none;
+    border-radius: 5px;
+    box-shadow: -2px -1px 3px #888;
+    -webkit-transition-property: background-color, box-shadow;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-property: background-color, box-shadow;
+    -moz-transition-duration: 0.5s;
+    -ms-transition-property: background-color, box-shadow;
+    -ms-transition-duration: 0.5s;
+}
+
+nav > .logo
+{
+    position:relative;
+}
+
+/** Footer **/
+footer
+{
+    text-align: center;
+    box-shadow: 0px -2px 1px gray;
+    background: #cccccc;
+}
+
+footer > p
+{
+    position:absolute;
+    height: 2em;
+}
+
+footer > div
+{
+    top: 10px;
+    position: relative;
+}
+
+footer.index > div
+{
+    top: 25px;
+}
+
+footer > img
+{
+    position: absolute;
+    height: 70px;
+    right: 10%;
+}

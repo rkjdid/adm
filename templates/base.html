@@ -5,6 +5,7 @@
 
     <link rel="shortcut icon" href="/static/img/(c)nobg.png" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/base.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/headfoot.css" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/pageflip.css" />
 
     <script type="text/javascript" src="{{ STATIC_URL }}js/base.js"></script>
@@ -24,10 +25,9 @@
     </header>
 {% endif %}
 
-    <div id="bodyContainer" class="{{ pageN }}">
+    <div id="bodyContainer" class="scrollY {{ pageN }}">
 {% block body %}{% endblock %}
     </div>
-
 
     <footer class="{{ pageN }}">
         <div class="inblock small">

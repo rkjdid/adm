@@ -16,7 +16,7 @@ def index(request):
     base(request)
     arguments = {
         'pageN'         : 'index',
-        'pageFlip'      : 'flip',
+        'pageFlip'      : 'nope',
         'request'       : request,
     }
     return render_to_response('1-index.html',
@@ -27,7 +27,7 @@ def agence(request):
     base(request)
     arguments = {
         'pageN'         : 'agence',
-        'pageFlip'      : 'flip',
+        'pageFlip'      : 'nope',
         'request'       : request,
     }
     return render_to_response('2-agence.html',
@@ -38,7 +38,7 @@ def portfolio(request):
     base(request)
     arguments = {
         'pageN'         : 'portfolio',
-        'pageFlip'      : 'flip',
+        'pageFlip'      : 'nope',
         'request'       : request,
     }
     return render_to_response('3-portfolio.html',
@@ -49,7 +49,7 @@ def equipe(request):
     base(request)
     arguments = {
         'pageN'         : 'equipe',
-        'pageFlip'      : 'flip',
+        'pageFlip'      : 'nope',
         'request'       : request,
     }
     return render_to_response('4-equipe.html',

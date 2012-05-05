@@ -23,11 +23,11 @@
     -webkit-transition-duration: 1s;
     -moz-transform-origin: 1315px 500px;
     -moz-transform: translate(-1030px, -500px) rotate(-32deg);
-    -moz-transition-property: -webkit-transform, -webkit-transform-origin;
+    -moz-transition-property: -moz-transform, -moz-transform-origin;
     -moz-transition-duration: 1s;
     -ms-transform-origin: 1315px 500px;
     -ms-transform: translate(-1030px, -500px) rotate(-32deg);
-    -ms-transition-property: -webkit-transform, -webkit-transform-origin;
+    -ms-transition-property: -ms-transform, -ms-transform-origin;
     -ms-transition-duration: 1s;
 }
 
@@ -44,11 +44,11 @@
     -webkit-transition-duration: 1s;
     -moz-transform-origin: 285px 0;
     -moz-transform: translate(1030px, 500px) rotate(32deg);
-    -moz-transition-property: -webkit-transform, -webkit-transform-origin;
+    -moz-transition-property: -moz-transform, -moz-transform-origin;
     -moz-transition-duration: 1s;
     -ms-transform-origin: 285px 0;
     -ms-transform: translate(1030px, 500px) rotate(32deg);
-    -ms-transition-property: -webkit-transform, -webkit-transform-origin;
+    -ms-transition-property: -ms-transform, -ms-transform-origin;
     -ms-transition-duration: 1s;
     width: 285px;
     height: 388px;
@@ -59,6 +59,8 @@
     width: 10px;
     height: 388px;
     background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .25)), to(rgba(0,0,0,0)));
+    background: -moz-gradient(linear, left top, right top, from(rgba(0, 0, 0, .25)), to(rgba(0,0,0,0)));
+    background: -ms-gradient(linear, left top, right top, from(rgba(0, 0, 0, .25)), to(rgba(0,0,0,0)));
 }
 
 #p2 > div {
@@ -79,11 +81,11 @@
     -webkit-transition-duration: 1s;
     -moz-transform-origin: 1315px 500px;
     -moz-transform: translate(-1030px, -500px) rotate(-32deg);
-    -moz-transition-property: -webkit-transform, -webkit-transform-origin;
+    -moz-transition-property: -moz-transform, -moz-transform-origin;
     -moz-transition-duration: 1s;
     -ms-transform-origin: 1315px 500px;
     -ms-transform: translate(-1030px, -500px) rotate(-32deg);
-    -ms-transition-property: -webkit-transform, -webkit-transform-origin;
+    -ms-transition-property: -ms-transform, -ms-transform-origin;
     -ms-transition-duration: 1s;
     position: absolute;
     z-index: 2;
@@ -96,11 +98,11 @@
     -webkit-transition-duration: 1s;
     -moz-transform-origin: 70px 500px;
     -moz-transform: translate(215px, -500px) rotate(-32deg) translate(40px, 0);
-    -moz-transition-property: -webkit-transform, -webkit-transform-origin;
+    -moz-transition-property: -moz-transform, -moz-transform-origin;
     -moz-transition-duration: 1s;
     -ms-transform-origin: 70px 500px;
     -ms-transform: translate(215px, -500px) rotate(-32deg) translate(40px, 0);
-    -ms-transition-property: -webkit-transform, -webkit-transform-origin;
+    -ms-transition-property: -ms-transform, -ms-transform-origin;
     -ms-transition-duration: 1s;
     position: absolute;
     z-index: 1;
@@ -138,11 +140,11 @@
     -webkit-transition-duration: 1s;
     -moz-transform-origin: 45px 500px;
     -moz-transform: translate(240px, -500px) rotate(-32deg);
-    -moz-transition-property: -webkit-transform, -webkit-transform-origin;
+    -moz-transition-property: -moz-transform, -moz-transform-origin;
     -moz-transition-duration: 1s;
     -ms-transform-origin: 45px 500px;
     -ms-transform: translate(240px, -500px) rotate(-32deg);
-    -ms-transition-property: -webkit-transform, -webkit-transform-origin;
+    -ms-transition-property: -ms-transform, -ms-transform-origin;
     -ms-transition-duration: 1s;
     position: absolute;
 }
@@ -177,12 +179,12 @@
     -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5);
     -moz-transform-origin: 0 0;
     -moz-transform: translate(1255px, 500px) rotate(-32deg);
-    -moz-transition-property: -webkit-transform, -webkit-transform-origin;
+    -moz-transition-property: -moz-transform, -moz-transform-origin;
     -moz-transition-duration: 1s;
     -moz-box-shadow: 0 0 11px rgba(0, 0, 0, .5);
     -ms-transform-origin: 0 0;
     -ms-transform: translate(1255px, 500px) rotate(-32deg);
-    -ms-transition-property: -webkit-transform, -webkit-transform-origin;
+    -ms-transition-property: -ms-transform, -ms-transform-origin;
     -ms-transition-duration: 1s;
     -ms-box-shadow: 0 0 11px rgba(0, 0, 0, .5);
     width: 285px;

@@ -3,7 +3,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <div class="pop contact inblock">
-        <p class="strong">Benoît Luizet</p>
-    </div>
+    {% if pageFlip == 'flip' %}
+        {% include 'snip/flip.html' %}
+    {% endif %}
 {% endblock %}

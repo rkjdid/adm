@@ -2,11 +2,11 @@
 <nav>
     <a class="inblock valignC logo" href="/"><img src="{{ STATIC_URL}}img/logo.nobg.gif" /></a>
     <!--Menu nav : LOGO | Agence | Portfolio | Equipe | Clients | Contact-->
-    <ul class="inblock">
-        <li class="inline {% active request "^/agence" %}"><a href="/agence/">agence</a></li>
-        <li class="inline {% active request "^/portfolio" %}"><a href="/portfolio/">portfolio</a></li>
-        <li class="inline {% active request "^/equipe" %}"><a href="/equipe/">équipe</a></li>
-        <li class="inline {% active request "^/clients" %}"><a href="/clients/">clients</a></li>
-        <li class="inline {% active request "^/contact" %}"><a href="/contact/">contact</a></li>
+    <ul class="inblock valignC">
+        <li class="inline {% active request "^/agence" %}"><a class="{% active request "^/agence" %}" href="/agence/">agence</a></li>
+        <li class="inline {% active request "^/portfolio" %}"><a class="{% active request "^/portfolio" %}" href="/portfolio/">portfolio</a></li>
+        <li class="inline {% active request "^/equipe" %}"><a class="{% active request "^/equipe" %}" href="/equipe/">équipe</a></li>
+        <li class="inline {% active request "^/clients" %}"><a class="{% active request "^/clients" %}" href="/clients/">clients</a></li>
+        <li class="inline {% active request "^/contact" %}"><a class="{% active request "^/contact" %}" href="/contact/">contact</a></li>
     </ul>
 </nav>

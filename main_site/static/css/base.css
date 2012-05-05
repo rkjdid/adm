@@ -11,34 +11,11 @@ body
     font-family: "Bitstream Vera Sans Mono", Arial, sans-serif;
     text-align: center;
     font-size: 100%;
-    width: 100%;
-    height: 100%;
-    margin-top: 0px;
 }
 
 ul
 {
     list-style: none;
-}
-
-#bodyContainer
-{
-    height: 500px;
-    min-height: 500px;
-    /*display: inline-block;*/
-    /*vertical-align: middle;*/
-}
-
-#bodyContainer[class="index"]
-{
-    height: 550px;
-    min-height: 550px;
-}
-
-#body
-{
-    width: 100%;
-    height: 100%;
 }
 
 a
@@ -69,7 +46,7 @@ div.index
                 /*center no-repeat;*/
 }
 
-/** TV **/
+/** /TV\ **/
 @font-face {
     font-family: 'digital';
     src: url('/static/font/digital.ttf');
@@ -82,7 +59,7 @@ div.index
     min-height: 450px;
     min-width:  662px;
     position: relative;
-    top : 22px;
+    top : 14px;
 }
 
 canvas#tvScreen
@@ -91,7 +68,6 @@ canvas#tvScreen
     float: left;
     left: 65px;
     top: 53px;
-    /*border: 1px solid pink;*/
 }
 
 canvas#tvLcd
@@ -103,8 +79,6 @@ canvas#tvLcd
     left: 108px;
     top: 44px;
 }
-
-
 
 p.tvIndex
 {
@@ -120,118 +94,7 @@ p.tvIndex:hover
     color: #ff69b4;
     cursor: default;
 }
-
-/*#body{*/
-
-    /*perspective:500px;*/
-    /*-webkit-perspective:500px;*/
-    /*-moz-perspective:500px;*/
-    /*-ms-perspective:500px;*/
-/*}*/
-/*#tv{*/
-    /*transform: rotateY(0deg);*/
-    /*-webkit-transform: rotateY(0deg);*/
-    /*-moz-transform: rotateY(0deg);*/
-    /*-ms-transform: rotateY(0deg);*/
-
-    /*transition:all 1s ease;*/
-    /*-webkit-transition:all 1s ease;*/
-    /*-moz-transition:all 1s ease;*/
-    /*-ms-transition:all 1s ease;*/
-/*}*/
-/*#body:hover #tv{*/
-    /*transform: rotate3d(-100,100,0,180deg);*/
-    /*-webkit-transform: rotate3d(-100,100,0,180deg);*/
-    /*-moz-transform: rotate3d(-100,100,0,180deg);*/
-    /*-ms-transform: rotate3d(-100,100,0,180deg);*/
-/*}*/
-/*#tv div{*/
-    /*position:absolute;*/
-    /*background:red;*/
-    /*backface-visibility:hidden;*/
-    /*-webkit-backface-visibility: hidden;*/
-
-/*}*/
-/*#tv div:last-child{*/
-    /*background:green;*/
-    /*transform: rotateY(180deg);*/
-    /*-webkit-transform: rotateY(180deg);*/
-    /*-moz-transform: rotateY(180deg);*/
-    /*-ms-transform: rotateY(180deg);*/
-/*}*/
-
-/** Header **/
-header
-{
-    height: 66px;
-    min-height: 66px;
-}
-
-nav
-{
-    font-variant: small-caps;
-    font-size: 1.3em;
-    border-bottom: 1px solid gray;
-    min-height: 50px;
-    background-color: #d3d3d3;
-}
-
-nav > ul > li > a
-{
-    padding: 0.2em 0.8em 0.2em 0.8em;
-    /*background-color: #FAFAFA;*/
-}
-
-nav > ul > li > a:hover
-{
-    background-color: #AFAFAF;
-}
-
-nav > .logo
-{
-    position:relative;
-    /*left: -0.5em;*/
-}
-
-/** Footer **/
-footer
-{
-    text-align: center;
-    /*position: relative;*/
-    min-height: 45px;
-    /*border-top: solid 1px #696969;*/
-    box-shadow: 0px -2px 1px gray;
-    background: #cccccc
-}
-
-footer.index
-{
-    min-height: 70px;
-}
-
-footer > p
-{
-    position:absolute;
-    height: 2em;
-}
-
-footer > div
-{
-    top: 10px;
-    position: relative;
-}
-
-footer.index > div
-{
-    top: 25px;
-}
-
-footer > img
-{
-    position: absolute;
-    height: 70px;
-    right: 10%;
-}
+/** \TV/ **/
 
 /** Align **/
 .alignC             {text-align: center;}
