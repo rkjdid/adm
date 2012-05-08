@@ -4,7 +4,7 @@
         <p class="tvIndex alignL">< {{ catClient.nom }}</p>
         <div class="hidden" id="cat{{ forloop.counter }}">
  {% for client in catClient.clients.all %}
-            <span>{{ client.logoURL }}</span><img src="" />
+            <span>{{ client.logoURL }}</span><img title="{{ client.nom }}" src="" />
  {% endfor %}
         </div>
     </li>
