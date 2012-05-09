@@ -69,11 +69,7 @@ class Client (models.Model):
         if im.size[0] <= logoWidth and im.size[1] <= logoHeight:
             return
 
-#        wdiff = im.size[0] - logoWidth
-#        hdiff = im.size[1] - logoHeight
-
         imratio = float(im.size[0]) / float(im.size[1])
-#        newratio = logoWidth / logoHeight
 
         wdiff_h = logoWidth / imratio
         hdiff_w = logoHeight * imratio
