@@ -64,8 +64,7 @@ div.index
 
 canvas#tvScreen
 {
-    position: relative;
-    float: left;
+    position: absolute;
     left: 65px;
     top: 53px;
 }
@@ -74,10 +73,64 @@ canvas#tvLcd
 {
     font-family: digital, sans-serif;
     color: #1f2f2f;
-    position: relative;
-    float: left;
-    left: 108px;
+    position: absolute;
+    left: 500px;
     top: 44px;
+}
+
+div#tvButton, div#tvButton2
+{
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/(c)nobg-off.png')
+                no-repeat center;
+    cursor: default;
+}
+
+div#tvButton.active, div#tvButton2.active
+{
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/(c)nobg-on.png')
+    no-repeat center;
+    cursor: pointer;
+}
+
+div#tvButton.active:hover, div#tvButton2.active:hover
+{
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/(c)nobg-hover.png')
+                no-repeat center;
+    cursor: pointer;
+}
+
+div#tvButton, div#tvButton2
+{
+    position: absolute;
+
+    height: 30px;
+    width: 30px;
+}
+
+div#tvButton
+{
+    left: 402px;
+    top: 297px;
+}
+
+div#tvButton2
+{
+    left: 533px;
+    top: 148px;
+}
+
+div#clientPageNb
+{
+    font-family: 'digital', sans-serif;
+    cursor: default;
+    position: absolute;
+    /*border: solid 1px gray;*/
+    right: 260px;
+    top: 305px;
+
+
+    height: 15px;
+    width: auto;
 }
 
 p.tvIndex

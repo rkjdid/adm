@@ -1,15 +1,28 @@
 ##-*- coding: utf-8 -*-
+
 from django.db import models
-from main_site.widgets import AdminImageWidget
+#from main_site.widgets import AdminImageWidget
 from django.db.models.signals import  post_save, pre_save
+
+# PIL resizing
+import urllib
+import Image
+
+# File saving
 import os
 import tempfile
-import settings
+
+# Settings
+from ateliers_a import settings
+
+logoWidth = 110
+logoHeight = 84
 
 ###################################################################
 #-Général----------------------------------------------------
 ###################################################################
-
+#def resize (image, max_height, max_width):
+#    im = Image.open(urllib.urlopen())
 
 ###################################################################
 #-Page CONTACT----------------------------------------------------
@@ -50,6 +63,30 @@ class Client (models.Model):
     logo = models.ImageField(upload_to= 'clients/')
     logoURL_base = models.CharField(editable=False, max_length=150, default=settings.MEDIA_URL + 'clients/')
     logoURL = models.CharField(editable=False, max_length=150)
+
+    def resizeImg(self):
+        im = Image.open(self.logo.path)
+        if im.size[0] <= logoWidth and im.size[1] <= logoHeight:
+            return
+
+#        wdiff = im.size[0] - logoWidth
+#        hdiff = im.size[1] - logoHeight
+
+        imratio = float(im.size[0]) / float(im.size[1])
+#        newratio = logoWidth / logoHeight
+
+        wdiff_h = logoWidth / imratio
+        hdiff_w = logoHeight * imratio
+
+        imrsz = None
+
+        if wdiff_h <= logoHeight:
+            imrsz = im.resize((logoWidth, int(wdiff_h)), Image.ANTIALIAS)
+        elif hdiff_w <= logoWidth:
+            imrsz = im.resize((int(hdiff_w), logoHeight), Image.ANTIALIAS)
+
+        os.remove(self.logo.path)
+        imrsz.save(self.logo.path)
 
     def setImgURL(self):
         _, self.logo.name = uniqueFile(settings.MEDIA_ROOT + 'clients/' + self.logo.name)
@@ -151,7 +188,6 @@ class FicheRecette (models.Model):
 def uniqueFile(path):
     """
     From path to file :
-        returns filedescriptor (as in os.open)
         returns new_Dir
         returns new_FileName
     """
@@ -168,6 +204,9 @@ def uniqueFile(path):
 def buildImgURL(sender, instance, **kwargs):
     instance.setImgURL()
 
+def resizeImg(sender, instance, **kwargs):
+    instance.resizeImg()
+
 ## Build image URLs before saving
 pre_save.connect(buildImgURL, sender=PageBook)
 pre_save.connect(buildImgURL, sender=Client)
@@ -175,6 +214,6 @@ pre_save.connect(buildImgURL, sender=FicheRecette)
 pre_save.connect(buildImgURL, sender=PageBook)
 
 #post_save.connect(buildImgURL, sender=PageBook)
-#post_save.connect(buildImgURL, sender=Client)
+post_save.connect(resizeImg, sender=Client)
 #post_save.connect(buildImgURL, sender=FicheRecette)
 #post_save.connect(buildImgURL, sender=PageBook)

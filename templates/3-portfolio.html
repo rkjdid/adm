@@ -1,6 +1,9 @@
-<!DOCTYPE html>
-
 {% extends 'base.html' %}
 
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/book.css" />
+{% endblock %}
+
 {% block body %}
+    {% include 'snip/book.html' %}
 {% endblock %}

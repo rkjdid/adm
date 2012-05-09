@@ -1,4 +1,4 @@
-/* 100% height layout */
+/** Layout **/
 header, #bodyContainer, footer
 {
     overflow: hidden;
@@ -16,7 +16,7 @@ header
 {
     top: 66px;
     bottom: 45px;
-    margin: 20px 0 20px;
+    margin: 1px 0 1px;
 }
 
 #bodyContainer.index
@@ -40,7 +40,6 @@ footer.index
 {
     height: 70px;
 }
-/** end layout **/
 
 /** Header **/
 nav
@@ -143,7 +142,7 @@ nav > .logo
 footer
 {
     text-align: center;
-    box-shadow: 0px -2px 1px gray;
+    border-top: 1px solid gray;
     background: #cccccc;
 }
 

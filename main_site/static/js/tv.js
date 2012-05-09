@@ -3,6 +3,8 @@ var lcdScreen, lcdContext;
 var displayed;
 var imgLoaded = new Array();
 
+var contourDrawn = false;
+
 window.onload = function ()
 {
     defaultDisplay();
@@ -42,7 +44,6 @@ function preloadImages()
                 }
         }
     }
-
 //    alert('Images loaded');
 }
 
@@ -54,6 +55,7 @@ function drawMire()
         tvContext.drawImage(mire, 0, 0);
     }
 
+    contourDrawn = false;
 //    alert('Mire drawn');
 }
 
@@ -86,27 +88,122 @@ function digitalDisplay(nb, text)
 function zapChannel(nb, nom)
 {
     digitalDisplay(nb, nom);
-    drawLogos(nb);
+    drawLogos(nb, 0, false);
 }
 
-function drawLogos(cat)
+function drawContour()
+{
+    var contour = new Image();
+    contour.src = "http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/contour_o.png";
+    contour.onload = function(){
+        tvContext.drawImage(contour, 0, 0);
+    }
+
+    contourDrawn = true;
+}
+
+function drawLogos(cat, firstIndex, yoffset)
 {
     var images = $('.cli-cat' + cat);
 
-    var logoW = 60;
-    var logoH = 60;
+    var logoW = 110;
+    var logoH = 84;
 
     var x = 25;
-    var y = tvScreen.height / 2 - logoH / 2;
-    tvContext.clearRect(0, 0, tvScreen.width, tvScreen.height);
-    for (var i = 0; i < images.length; i++)
+    var y = 12 + 30;
+
+    if (yoffset)
+        y += logoH + 30;
+
+    // Draw contour ombré (only once)
+    if (!contourDrawn) // TODO: fadein
     {
-        tvContext.drawImage(images[i], x, y, logoW, logoH);
+        tvContext.clearRect(0, 0, tvScreen.width, tvScreen.height);
+        drawContour();
+    } else // TODO: fadeout
+        tvContext.clearRect(18, 18, tvScreen.width - 36, tvScreen.height - 36);
+
+    // Draw page number
+    if (images.length > 3)
+    {
+        var totalPNB;
+        if (images.length%3 != 0)
+            totalPNB = Math.round(images.length/3 + 0.3)
+        else
+            totalPNB = images.length / 3;
+        $('#clientPageNb')[0].innerHTML =  "" + (firstIndex/3 + 1) + "/" + totalPNB;
+    }
+    else
+        $('#clientPageNb')[0].innerHTML =  "1/1";
+
+    var nbLoop = 3;
+    for (var i = firstIndex; i < images.length && i < firstIndex + nbLoop; i++)
+    {
+        // TODO: fadein
+        tvContext.drawImage(images[i],
+                            x + (logoW - images[i].width)/2,
+                            y + (logoH - images[i].height)/2);
 //        // Write brand name below logo
 //        tvContext.font("sans-serif 12px");
 //        tvContext.fontcolor("green");
 //        tvContext.measureText("...")
-//
-        x += logoW*1.5;
+
+//        // Debug rect
+//        tvContext.fillStyle = "rgb(150,29,28)";
+//        tvContext.fillRect(x, y, logoW, logoH);
+        x += logoW + 2;
+
+        if (y > logoH)
+            y -= (logoH + 30);
+        else
+            y += (logoH + 30);
+    }
+
+    // Set buttons values according to the categorie
+    if (images.length > firstIndex + 3)
+    {
+        $('#tvButton')[0].setAttribute(
+            "class",
+            "active");
+        $('#tvButton')[0].setAttribute(
+            "onclick",
+            "drawLogos(" + cat + "," + (firstIndex + 3) + "," + (!yoffset) + ");");
+        $('#tvButton2')[0].setAttribute(
+            "class",
+            "active");
+        $('#tvButton2')[0].setAttribute(
+            "onclick",
+            "drawLogos(" + cat + "," + (firstIndex + 3) + "," + (!yoffset) + ");");
+
+    }
+    else if (images.length > 3)
+    {
+        $('#tvButton')[0].setAttribute(
+            "class",
+            "active");
+        $('#tvButton')[0].setAttribute(
+            "onclick",
+            "drawLogos(" + cat + ",0 ," + (!yoffset) + ");");
+        $('#tvButton2')[0].setAttribute(
+            "class",
+            "active");
+        $('#tvButton2')[0].setAttribute(
+            "onclick",
+            "drawLogos(" + cat + ",0 ," + (!yoffset) + ");");
+    }
+    else
+    {
+        $('#tvButton')[0].setAttribute(
+            "class",
+            "");
+        $('#tvButton')[0].setAttribute(
+            "onclick",
+            "");
+        $('#tvButton2')[0].setAttribute(
+            "class",
+            "");
+        $('#tvButton2')[0].setAttribute(
+            "onclick",
+            "");
     }
 }
