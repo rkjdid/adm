@@ -65,7 +65,7 @@ function defaultDisplay ()
     lcdContext.font = "14px digital";
     lcdContext.fillText("/!\\FATAL ERROR", 2, 22);
     lcdContext.font = "12px digital";
-    lcdContext.fillText("select a channel",10, 42);
+    lcdContext.fillText("select a channel",6, 42);
 }
 
 function digitalDisplay(nb, text)
@@ -139,10 +139,11 @@ function drawLogos(cat, firstIndex, yoffset)
     var nbLoop = 3;
     for (var i = firstIndex; i < images.length && i < firstIndex + nbLoop; i++)
     {
+
         // TODO: fadein
         tvContext.drawImage(images[i],
-                            x + (logoW - images[i].width)/2,
-                            y + (logoH - images[i].height)/2);
+                            x + (logoW - images[i].naturalWidth)/2,
+                            y + (logoH - images[i].naturalHeight)/2);
 //        // Write brand name below logo
 //        tvContext.font("sans-serif 12px");
 //        tvContext.fontcolor("green");
