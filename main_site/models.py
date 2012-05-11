@@ -5,8 +5,8 @@ from django.db import models
 from django.db.models.signals import  post_save, pre_save
 
 # PIL resizing
-import urllib
-import Image
+#import urllib
+from PIL import Image
 
 # File saving
 import os
