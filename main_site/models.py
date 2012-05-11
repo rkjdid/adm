@@ -15,8 +15,13 @@ import tempfile
 # Settings
 from ateliers_a import settings
 
+# Static dimensions
 logoWidth = 110
 logoHeight = 84
+
+#photo
+
+
 
 ###################################################################
 #-Général----------------------------------------------------
