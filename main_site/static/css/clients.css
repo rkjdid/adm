@@ -29,7 +29,7 @@
     z-index: 1;
 }
 
-#whitebg
+#whitebg /* same as canvas#tvScreen */
 {
     background: white;
     width: 387px;
