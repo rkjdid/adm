@@ -63,9 +63,9 @@ function defaultDisplay ()
 {
     lcdContext.clearRect(0, 0, lcdScreen.width, lcdScreen.height);
     lcdContext.font = "14px digital";
-    lcdContext.fillText("/!\\FATAL ERROR", 2, 22);
+    lcdContext.fillText("/!\\ ERREUR", 17, 28);
     lcdContext.font = "12px digital";
-    lcdContext.fillText("select a channel",6, 42);
+    lcdContext.fillText("---------->",20, 48);
 }
 
 function digitalDisplay(nb, text)

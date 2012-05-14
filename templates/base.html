@@ -25,13 +25,15 @@
     </header>
 {% endif %}
 
+{% block prebody %}{% endblock %}
     <div id="bodyContainer" class="scrollY {{ pageN }}">
 {% block body %}{% endblock %}
     </div>
+{% block postbody %}{% endblock %}
 
     <footer class="{{ pageN }}">
         <div class="inblock small">
-            <p>1 rue de l'espérance, 59100 Roubaix - Tél : +33(0)3.20.72.00.40</p>
+            <p>1 rue de l'espérance, 59100 Roubaix - Tél : 03.20.72.00.40</p>
             <p>Copyright (c) 2012 - Tous droits réservés - <a href="/contact/">Contact</a></p>
         </div>
 {% if pageN == 'index' %}<img class="inblock valignC logo" src="{{ STATIC_URL}}img/logo.nobg.gif" />{% endif %}

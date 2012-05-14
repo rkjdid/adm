@@ -1,10 +1,32 @@
 {% extends 'base.html' %}
 
 {% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/index.css" />
     <script type="text/javascript" src="{{ STATIC_URL }}js/index.js"></script>
 {% endblock %}
 
 {% block body %}
-{#    <canvas id="index" width="696" height="520"></canvas>#}
+    <div id="indexbg">
+        <div id="nuage1"></div>
+        <div id="playground">
+            <div id="copyright"></div>
 
+            <div id="unFlamandDerriereUnBuisson">
+                <div id="buisson"></div>
+                <div id="cache"></div>
+                <div id="flamand"></div>
+                <div id="uh"></div>
+                <a href="/clients/">
+                    <span class="bulle" id="bactu"></span>
+                </a>
+            </div>
+
+            <a href="/portfolio/"><span class="bulle" id="bportfolio"></span></a>
+            <a href="/agence/"><span class="bulle" id="bagence"></span></a>
+            <a href="/equipe/"><span class="bulle" id="bcontact"></span></a>
+            <a href="/clients/"><span class="bulle" id="bclients"></span></a>
+            <a href="/equipe/"><span class="bulle" id="bequipe"></span></a>
+        </div>
+        <div id="nuage2"></div>
+    </div>
 {% endblock %}

@@ -16,7 +16,7 @@ header
 {
     top: 66px;
     bottom: 45px;
-    margin: 1px 0 1px;
+    margin: 0px 0 0px 0;
 }
 
 #bodyContainer.index
@@ -27,7 +27,7 @@ header
 
 #bodyContainer.scrollY
 {
-    overflow-y: auto;
+    overflow: auto;
 }
 
 footer
@@ -55,8 +55,8 @@ nav > ul
     padding-top: 20px;
     padding-bottom: 15px;
     top: 5px;
-    min-width: 600px;
-    width: 600px;
+    min-width: 650px;
+    width: 650px;
 }
 
 nav > ul:hover a.active

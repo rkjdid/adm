@@ -29,125 +29,19 @@ a:hover
     color: #ff69b4;
 }
 
+#bodyContainer
+{
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/graybg.png') no-repeat top;
+}
 /** Rounded div popups **/
-div.pop
-{
-    border-color: #AAAAAA;
-    border:2px solid;
-    border-radius:25px;
-    -moz-border-radius:25px; /* Firefox 3.6 and earlier */
-    box-shadow: 3px 3px 2px #AAAAAA;
-}
-
-/** Index **/
-div.index
-{
-    /*background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/homepage.png')*/
-                /*center no-repeat;*/
-}
-
-/** /TV\ **/
-@font-face {
-    font-family: 'digital';
-    src: url('/static/font/digital.ttf');
-}
-
-#tv
-{
-    background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/tv+lcd-450.png")
-                no-repeat top left;
-    min-height: 450px;
-    min-width:  662px;
-    position: relative;
-    top : 14px;
-}
-
-canvas#tvScreen
-{
-    position: absolute;
-    left: 65px;
-    top: 53px;
-}
-
-canvas#tvLcd
-{
-    font-family: digital, sans-serif;
-    color: #1f2f2f;
-    position: absolute;
-    left: 500px;
-    top: 44px;
-}
-
-div#tvButton, div#tvButton2
-{
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/(c)nobg-off.png')
-                no-repeat center;
-    cursor: default;
-}
-
-div#tvButton.active, div#tvButton2.active
-{
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/(c)nobg-on.png')
-    no-repeat center;
-    cursor: pointer;
-}
-
-div#tvButton.active:hover, div#tvButton2.active:hover
-{
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/(c)nobg-hover.png')
-                no-repeat center;
-    cursor: pointer;
-}
-
-div#tvButton, div#tvButton2
-{
-    position: absolute;
-
-    height: 30px;
-    width: 30px;
-}
-
-div#tvButton
-{
-    left: 402px;
-    top: 297px;
-}
-
-div#tvButton2
-{
-    left: 533px;
-    top: 148px;
-}
-
-div#clientPageNb
-{
-    font-family: 'digital', sans-serif;
-    cursor: default;
-    position: absolute;
-    /*border: solid 1px gray;*/
-    right: 260px;
-    top: 305px;
-
-
-    height: 15px;
-    width: auto;
-}
-
-p.tvIndex
-{
-    font-family: 'Lucida Grande', serif;
-    font-weight: bold;
-    font-size: 80%;
-    color: black;
-}
-
-li.tvIndex:hover,
-p.tvIndex:hover
-{
-    color: #ff69b4;
-    cursor: default;
-}
-/** \TV/ **/
+/*div.pop*/
+/*{*/
+    /*border-color: #AAAAAA;*/
+    /*border:2px solid;*/
+    /*border-radius:25px;*/
+    /*-moz-border-radius:25px; *//* Firefox 3.6 and earlier */
+    /*box-shadow: 3px 3px 2px #AAAAAA;*/
+/*}*/
 
 /** Align **/
 .alignC             {text-align: center;}
@@ -162,13 +56,13 @@ p.tvIndex:hover
 .inblock            {display: inline-block;}
 .inline             {display: inline;}
 .block              {display: block;}
-.hidden             { display: none; position: relative; top:-5000px; left:-5000px; z-index: -999;}
+.hidden             { display: none; position: absolute; top:-5000px; left:-5000px; z-index: -999;}
 
 /** Float **/
 .floatR             {float: right;}
 
 /** Fonts **/
-.small              {font-size: 0.55em;}
+.small              {font-size: 0.65em;}
 
 /** Fixes **/
 img                 {border: none;} /* IE blue border fix */
