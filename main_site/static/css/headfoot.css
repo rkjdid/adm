@@ -18,7 +18,7 @@ header
 {
     top: 66px;
     bottom: 45px;
-    margin: 0px 0 0px 0;
+    margin: 0;
 }
 
 #bodyContainer.index
@@ -60,7 +60,7 @@ nav:hover {
 
 nav > ul
 {
-    font-family: "Quicksand";
+    font-family: "Quicksand" sans-serif;
     /*font-variant: small-caps;*/
     /*font-weight: bold;*/
     font-size: 1.3em;

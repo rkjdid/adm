@@ -1,19 +1,18 @@
 # Create your views here.
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
-from django.http import HttpRequest
 
 from ateliers_a.main_site.models    import *
 
 from django.core import serializers
 
 
-def base(request):
-    True
+#def base(request):
+#    True
 
 
 def index(request):
-    base(request)
+#    base(request)
     arguments = {
         'pageN'         : 'index',
         'pageFlip'      : 'nope',
@@ -24,7 +23,7 @@ def index(request):
                               context_instance=RequestContext(request))
 
 def agence(request):
-    base(request)
+#    base(request)
     arguments = {
         'pageN'         : 'agence',
         'pageFlip'      : 'nope',
@@ -35,7 +34,7 @@ def agence(request):
                               context_instance=RequestContext(request))
 
 def portfolio(request):
-    base(request)
+#    base(request)
     arguments = {
         'pageN'         : 'portfolio',
         'pageFlip'      : 'nope',
@@ -46,7 +45,7 @@ def portfolio(request):
                               context_instance=RequestContext(request))
 
 def equipe(request):
-    base(request)
+#    base(request)
     arguments = {
         'pageN'         : 'equipe',
         'pageFlip'      : 'nope',
@@ -57,7 +56,7 @@ def equipe(request):
                               context_instance=RequestContext(request))
 
 def clients(request):
-    base(request)
+#    base(request)
     catClients = CategorieClient.objects.all()
     tvURL = "http://192.168.1.253/ateliers.media/resources/img.pdf/tv+lcd-450.png"
 #    tvURL = "http://192.168.1.253/ateliers.media/books/orange.png"
@@ -77,7 +76,7 @@ def clients(request):
                               context_instance=RequestContext(request))
 
 def contact(request):
-    base(request)
+#    base(request)
     arguments = {
         'pageN'         : 'contact',
         'pageFlip'      : 'flip',

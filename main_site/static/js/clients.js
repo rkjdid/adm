@@ -1,7 +1,5 @@
 var tvScreen, tvContext;
 var lcdScreen, lcdContext;
-var displayed;
-var imgLoaded = new Array();
 
 var contourDrawn = false;
 
@@ -9,7 +7,7 @@ window.onload = function ()
 {
     defaultDisplay();
     preloadImages();
-}
+};
 
 $(document).ready(function () {
     tvScreen = $('#tvScreen')[0];
@@ -53,7 +51,7 @@ function drawMire()
     mire.src = "http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/tvScreen.png";
     mire.onload = function(){
         tvContext.drawImage(mire, 0, 0);
-    }
+    };
 
     contourDrawn = false;
 //    alert('Mire drawn');
@@ -97,7 +95,7 @@ function drawContour()
     contour.src = "http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/contour_o.png";
     contour.onload = function(){
         tvContext.drawImage(contour, 0, 0);
-    }
+    };
 
     contourDrawn = true;
 }
@@ -128,7 +126,7 @@ function drawLogos(cat, firstIndex, yoffset)
     {
         var totalPNB;
         if (images.length%3 != 0)
-            totalPNB = Math.round(images.length/3 + 0.3)
+            totalPNB = Math.round(images.length/3 + 0.3);
         else
             totalPNB = images.length / 3;
         $('#clientPageNb')[0].innerHTML =  "" + (firstIndex/3 + 1) + "/" + totalPNB;
