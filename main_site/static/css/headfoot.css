@@ -44,10 +44,15 @@ footer.index
 /** Header **/
 nav
 {
+    cursor: default;
     font-variant: small-caps;
     font-size: 1.3em;
     border-bottom: 1px solid gray;
     background-color: #d3d3d3;
+}
+
+nav:hover {
+    cursor: default;
 }
 
 nav > ul

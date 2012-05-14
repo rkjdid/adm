@@ -6,7 +6,6 @@
     background: none;
 }
 
-
 /*** Transformations - std ***/
 @keyframes pendule1 {
     0%, 100% {
@@ -86,6 +85,29 @@
     -ms-animation-delay: .5s;
     -o-animation-delay: .5s;
     animation-delay: .5s;
+}
+
+#uh {
+    -webkit-transition-delay: 0s;
+    -webkit-transition: opacity .6s;
+    -moz-transition-delay: 0s;
+    -moz-transition: opacity .6s;
+    -ms-transition-delay: 0s;
+    -ms-transition: opacity .6s;
+    -o-transition-delay: 0s;
+    -o-transition: opacity .6s;
+    transition-delay: 0s;
+    transition: opacity .6s;
+}
+
+#uh.what
+{
+    opacity: 1;
+    -webkit-transition-delay: 2s;
+    -moz-transition-delay: 2s;
+    -ms-transition-delay: 2s;
+    -o-transition-delay: 2s;
+    transition-delay: 2s;
 }
 
 #nuage1
@@ -231,27 +253,6 @@
     left: 740px;
     top: 293px;
     opacity: 0;
-
-    -webkit-transition-delay: 0s;
-    -webkit-transition: opacity .6s;
-    -moz-transition-delay: 0s;
-    -moz-transition: opacity .6s;
-    -ms-transition-delay: 0s;
-    -ms-transition: opacity .6s;
-    -o-transition-delay: 0s;
-    -o-transition: opacity .6s;
-    transition-delay: 0s;
-    transition: opacity .6s;
-}
-
-#uh.what
-{
-    opacity: 1;
-    -webkit-transition-delay: 2s;
-    -moz-transition-delay: 2s;
-    -ms-transition-delay: 2s;
-    -o-transition-delay: 2s;
-    transition-delay: 2s;
 }
 
 .bulle
