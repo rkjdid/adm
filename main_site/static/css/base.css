@@ -34,14 +34,18 @@ a:hover
     background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/graybg.png') no-repeat top;
 }
 /** Rounded div popups **/
-/*div.pop*/
-/*{*/
-    /*border-color: #AAAAAA;*/
-    /*border:2px solid;*/
-    /*border-radius:25px;*/
-    /*-moz-border-radius:25px; *//* Firefox 3.6 and earlier */
-    /*box-shadow: 3px 3px 2px #AAAAAA;*/
-/*}*/
+div.roundedPop
+{
+    border-color: #AAAAAA;
+    border:2px solid;
+    box-shadow: 3px 3px 2px #AAAAAA;
+
+    -webkit-border-radius:25px;
+    -moz-border-radius:25px;
+    -ms-border-radius:25px;
+    -o-border-radius:25px;
+    border-radius:25px;
+}
 
 /** Align **/
 .alignC             {text-align: center;}
