@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Quicksand Bold'), local('Quicksand-Bold'), url('http://themes.googleusercontent.com/static/fonts/quicksand/v2/32nyIRHyCu6iqEka_hbKsnhCUOGz7vYGh680lGh-uXM.woff') format('woff');
+}
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Quicksand Regular'), local('Quicksand-Regular'), url('http://themes.googleusercontent.com/static/fonts/quicksand/v2/sKd0EMYPAh5PYCRKSryvWz8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
+}
+
 /** Layout **/
 header, #bodyContainer, footer
 {
@@ -10,13 +23,13 @@ header, #bodyContainer, footer
 
 header
 {
-    height: 66px;
+    height: 64px;
     top: 0;
 }
 
 #bodyContainer
 {
-    top: 66px;
+    top: 64px;
     bottom: 45px;
     margin: 0;
 }
@@ -62,14 +75,14 @@ nav > ul
 {
     font-family: "Quicksand" sans-serif;
     /*font-variant: small-caps;*/
-    /*font-weight: bold;*/
+    font-weight: 100;
     font-size: 1.3em;
 
     padding-top: 20px;
     padding-bottom: 15px;
     top: 5px;
-    min-width: 650px;
-    width: 650px;
+    min-width: 700px;
+    /*width: 650px;*/
 }
 
 nav > ul:hover a.active
@@ -84,7 +97,7 @@ nav > ul:hover a.active
 nav > ul:hover a.active:hover
 {
     padding: 16px 19px 30px 19px;
-    background-color: #e0e1e2;
+    background-color: #fadce9;
     border-top: 1px solid gray;
     border-right: 1px solid gray;
     border-left: 1px solid #808080;
@@ -111,7 +124,7 @@ nav  ul > li > a.active:hover
 nav > ul > li > a.active
 {
     padding: 16px 19px 30px 19px;
-    background-color: #e0e1e2;
+    background-color: #fadce9;
     border-top: 1px solid gray;
     border-right: 1px solid gray;
     border-left: 1px solid #808080;
@@ -125,13 +138,17 @@ nav > ul > li > a.active
     -moz-transition-duration: 0.3s;
     -ms-transition-property: background-color, box-shadow;
     -ms-transition-duration: 0.3s;
+    -o-transition-property: background-color, box-shadow;
+    -o-transition-duration: 0.3s;
+    transition-property: background-color, box-shadow;
+    transition-duration: 0.3s;
 }
 
 nav > ul > li > a:hover
 {
     cursor: default;
     padding: 16px 19px 30px 19px;
-    background-color: #e0e1e2;
+    background-color: #fadce9;
     border-top: 1px solid gray;
     border-right: 1px solid gray;
     border-left: 1px solid #808080;
@@ -161,7 +178,7 @@ footer
 {
     text-align: center;
     border-top: 1px solid gray;
-    background: #cccccc;
+    background: #dddddd;
 }
 
 footer > p
