@@ -1,12 +1,6 @@
 @font-face {
     font-family: 'Quicksand';
     font-style: normal;
-    font-weight: bold;
-    src: local('Quicksand Bold'), local('Quicksand-Bold'), url('http://themes.googleusercontent.com/static/fonts/quicksand/v2/32nyIRHyCu6iqEka_hbKsnhCUOGz7vYGh680lGh-uXM.woff') format('woff');
-}
-@font-face {
-    font-family: 'Quicksand';
-    font-style: normal;
     font-weight: normal;
     src: local('Quicksand Regular'), local('Quicksand-Regular'), url('http://themes.googleusercontent.com/static/fonts/quicksand/v2/sKd0EMYPAh5PYCRKSryvWz8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
 }
@@ -73,7 +67,7 @@ nav:hover {
 
 nav > ul
 {
-    font-family: "Quicksand" sans-serif;
+    font-family: "Quicksand", sans-serif;
     /*font-variant: small-caps;*/
     font-weight: 100;
     font-size: 1.3em;

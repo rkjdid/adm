@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: 'digital';
-    src: url('/static/font/digital.ttf');
+    src: url('/static/font/digital.woff'), url('/static/font/digital.ttf');
 }
 
 #bodyContainer.clients

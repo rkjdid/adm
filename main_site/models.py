@@ -79,15 +79,17 @@ class Client (models.Model):
         wdiff_h = logoWidth / imratio
         hdiff_w = logoHeight * imratio
 
-        imrsz = None
+#        imrsz = None
 
         if wdiff_h <= logoHeight:
-            imrsz = im.resize((logoWidth, int(wdiff_h)), Image.ANTIALIAS)
+            im = im.resize((logoWidth, int(wdiff_h)), Image.ANTIALIAS)
         elif hdiff_w <= logoWidth:
-            imrsz = im.resize((int(hdiff_w), logoHeight), Image.ANTIALIAS)
+            im = im.resize((int(hdiff_w), logoHeight), Image.ANTIALIAS)
 
-        os.remove(self.logo.path)
-        imrsz.save(self.logo.path)
+#        im.
+
+#        os.remove(self.logo.path)
+        im.save(self.logo.path)
 
     def setImgURL(self):
         _, self.logo.name = uniqueFile(settings.MEDIA_ROOT + 'clients/' + self.logo.name)
