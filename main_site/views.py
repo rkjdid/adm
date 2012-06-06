@@ -15,7 +15,7 @@ def index(request):
 #    base(request)
     arguments = {
         'pageN'         : 'index',
-        'pageFlip'      : 'nope',
+#        'pageFlip'      : 'nope',
         'request'       : request,
     }
     return render_to_response('1-index.html',
@@ -26,7 +26,7 @@ def agence(request):
 #    base(request)
     arguments = {
         'pageN'         : 'agence',
-        'pageFlip'      : 'nope',
+#        'pageFlip'      : 'nope',
         'request'       : request,
     }
     return render_to_response('2-agence.html',
@@ -37,7 +37,7 @@ def portfolio(request):
 #    base(request)
     arguments = {
         'pageN'         : 'portfolio',
-        'pageFlip'      : 'nope',
+#        'pageFlip'      : 'nope',
         'request'       : request,
     }
     return render_to_response('3-portfolio.html',
@@ -48,7 +48,7 @@ def equipe(request):
 #    base(request)
     arguments = {
         'pageN'         : 'equipe',
-        'pageFlip'      : 'nope',
+#        'pageFlip'      : 'nope',
         'request'       : request,
     }
     return render_to_response('4-equipe.html',
@@ -58,16 +58,16 @@ def equipe(request):
 def clients(request):
 #    base(request)
     catClients = CategorieClient.objects.all()
-    tvURL = "http://192.168.1.253/ateliers.media/resources/img.pdf/tv+lcd-450.png"
+#    tvURL = "http://192.168.1.253/ateliers.media/resources/img.pdf/tv+lcd-450.png"
 #    tvURL = "http://192.168.1.253/ateliers.media/books/orange.png"
 #    tvURL = "/static/img/tv.empty.png"
-    catClientsJSON = serializers.serialize('json', catClients)
+#    catClientsJSON = serializers.serialize('json', catClients)
     arguments = {
         'pageN'      : 'clients',
-        'catClients' : catClients,
-        'catClientsJSON' : catClientsJSON,
-        'tvURL'      : tvURL,
-        'pageFlip'   : 'nope',
+        'catClients'     : catClients,
+#        'catClientsJSON' : catClientsJSON,
+#        'tvURL'      : tvURL,
+#        'pageFlip'   : 'nope',
         'request'    : request,
     }
 
@@ -79,7 +79,7 @@ def contact(request):
 #    base(request)
     arguments = {
         'pageN'         : 'contact',
-        'pageFlip'      : 'flip',
+#        'pageFlip'      : 'flip',
         'request'       : request,
     }
     return render_to_response('6-contact.html',

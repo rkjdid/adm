@@ -74,11 +74,11 @@
 }
 
 #flamand.flampop {
-    -webkit-animation: flampop 1.2s linear forwards alternate;
-    -moz-animation: flampop 1.2s linear forwards alternate;
-    -ms-animation: flampop 1.2s linear forwards alternate;
-    -o-animation: flampop 1.2s linear forwards alternate;
-    animation: flampop 1.2s linear forwards alternate;
+    -webkit-animation: flampop 0.9s linear forwards alternate;
+    -moz-animation: flampop 0.9s linear forwards alternate;
+    -ms-animation: flampop 0.9s linear forwards alternate;
+    -o-animation: flampop 0.9s linear forwards alternate;
+    animation: flampop 0.9s linear forwards alternate;
 
     -webkit-animation-delay: .5s;
     -moz-animation-delay: .5s;
@@ -103,11 +103,11 @@
 #uh.what
 {
     opacity: 1;
-    -webkit-transition-delay: 2s;
-    -moz-transition-delay: 2s;
-    -ms-transition-delay: 2s;
-    -o-transition-delay: 2s;
-    transition-delay: 2s;
+    -webkit-transition-delay: 1.8s;
+    -moz-transition-delay: 1.8s;
+    -ms-transition-delay: 1.8s;
+    -o-transition-delay: 1.8s;
+    transition-delay: 1.8s;
 }
 
 #nuage1
