@@ -46,8 +46,10 @@ def portfolio(request):
 
 def equipe(request):
 #    base(request)
+    members = MembreEquipe.objects.all();
     arguments = {
         'pageN'         : 'equipe',
+        'members'       : members,
 #        'pageFlip'      : 'nope',
         'request'       : request,
     }

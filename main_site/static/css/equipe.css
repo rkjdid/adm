@@ -1,0 +1,187 @@
+#bubbleArea
+{
+    min-height: 500px;
+    min-width: 967px;
+    max-height: 500px;
+    max-width: 967px;
+
+    position: relative;
+}
+
+.photoBooth
+{
+    width: 383px;
+    height: 420px;
+}
+
+#pbox
+{
+    position: relative;
+    left: 206px;
+    top: 85px;
+}
+
+#photoOut
+{
+
+}
+
+#pb1 {display: none;}
+#pb1.flash {display: block;}
+
+.pblayer{position: absolute; left: 0; top: 0;}
+
+.smallPhotoOut {
+    z-index: 12;
+    position: absolute;
+    width: 26px;
+    left: 543px;
+    top: 120px;
+    transition: top 1s linear;
+}
+
+.smallPhotoOut.print {
+    top: 240px;
+    /*transition: none;*/
+}
+
+.smallPhotoOut.out {
+    animation: fadeOut 2s;
+}
+
+@keyframes fadeOut {
+    0% {transform: translate(0px, 0px);}
+    50% {opacity: 1; transform: translate(0px, 120px);}
+    100% {opacity: 0; transform: translate(0px, 155px);}
+}
+
+/*@keyframes fadeOut {*/
+    /*0% {opacity: 1;}*/
+    /*50% {opacity: 1;}*/
+    /*100% {opacity: 0;}*/
+/*}*/
+
+.smallPhotoOut.out {
+    animation: fadeOut 1s linear forwards alternate;
+    /*transition: none;*/
+}
+
+.bigPhotoOutContainer {
+    transition: opacity 0.8s;
+    transition-delay: 0.3s;
+    opacity: 0;
+}
+
+.bigPhotoOutContainer.pop {
+    opacity: 1;
+    transition: opacity 0.3s;
+    transition-delay: 0;
+}
+
+.bigPhotoOutContainer {
+    position: absolute;
+    z-index: 19;
+    right: 50px;
+    top: 50px;
+    width: 80px;
+}
+
+.bigPhotoOut {
+    width: 80px;
+}
+
+.photoMore {
+    position: absolute;
+    bottom: 8px;
+    text-align: center;
+
+    font-size: 0.6em;
+}
+
+#pb0 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.0.png"); z-index: 10;}
+#pb3 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.3.bottomOut.png"); z-index: 11;}
+#pb4 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.4.photo.png"); z-index: 12;}
+#pb5 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.5.glass.png"); z-index: 13; opacity: 0.75;}
+#pb6 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.6.filler.png"); z-index: 14;}
+#pb1 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.1.flash.png"); z-index: 16;}
+#pb2 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.2.curtain.png"); z-index: 17;}
+#pb7 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.7.top.png"); z-index: 15;}
+
+.bubble{
+    /*-webkit-border-radius:100px 50px;*/
+    /*-moz-border-radius:100px 50px;*/
+    /*-ms-border-radius:100px 50px;*/
+    /*-o-border-radius:100px 50px;*/
+    border-bottom-right-radius: 100px 50px;
+    border-top-left-radius: 100px 50px;
+    border-top-right-radius: 100px 50px;
+    border-bottom-left-radius: 100px 50px;
+
+    padding: 13px 13px 6px 13px;
+    /*border-radius: 100px 50px 50px 100px 100px 50px 50px 100px;*/
+
+    box-shadow: 4px 2px 4px gray;
+
+    /*width: 100px;*/
+    height: 50px;
+    background: white;
+
+    position: absolute;
+
+    font-family: 'Coming Soon', sans-serif;
+
+    z-index: 20;
+}
+
+h2 {font-size: 1em; font-weight: bold;}
+.bubble {font-size: 0.9em;}
+
+/* bubble area : minh=556px; minw=967px;*/
+#bubble1{right: 750px; top: 420px;}   /*gb*/
+#bubble2{right: 750px; top: 320px;}   /*g1*/
+#bubble3{right: 750px; top: 220px;}   /*g2*/
+#bubble4{right: 750px; top: 120px;}   /*gh*/
+#bubble5{left: 150px; top: 35px;}   /*hg*/
+#bubble6{left: 340px; top: 35px;}   /*hm*/
+#bubble7{left: 530px; top: 35px;}  /*hd*/
+#bubble8{left: 580px; top: 120px;}   /*dh*/
+#bubble9{left: 580px; top: 220px;}   /*d1*/
+#bubble10{left: 580px; top: 320px;}  /*d2*/
+#bubble11{left: 580px; top: 420px;}  /*db*/
+
+/***** Animation ******/
+@keyframes shake {
+    0% {transform: rotate(0deg) scale(1);}
+    20% {transform: rotate(15deg) scale(1.1);}
+    40%, 80% {transform: rotate(-15deg) scale(1.3);}
+    60% {transform: rotate(15deg) scale(1.5);}
+    100% {transform: rotate(0deg) scale(1.15);}
+}
+
+.bubble
+{
+    opacity: 0.6;
+    /*-webkit-transition: opacity .8s;*/
+    /*-moz-transition: opacity .8s;*/
+    /*-ms-transition: opacity .8s;*/
+    /*-o-transition: opacity .8s;*/
+    transition: opacity .8s;
+    cursor: default;
+}
+
+.bubble.focus
+{
+    opacity: 1;
+    transition: none;
+    animation: none;
+}
+
+.bubble:hover
+{
+    opacity: 1;
+    /*-webkit-animation: shake .4s ease-out;*/
+    /*-moz-animation: shake .4s ease-out;*/
+    /*-ms-animation: shake .4s ease-out;*/
+    /*-o-animation: shake .4s ease-out;*/
+    animation: shake .5s ease-out;
+}

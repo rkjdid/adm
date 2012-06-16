@@ -59,11 +59,19 @@ function drawMire()
 
 function defaultDisplay ()
 {
-    lcdContext.clearRect(0, 0, lcdScreen.width, lcdScreen.height);
+    clearDisplay();
     lcdContext.font = "14px digital";
-    lcdContext.fillText("/!\\ ERREUR", 17, 28);
-    lcdContext.font = "12px digital";
-    lcdContext.fillText("---------->",20, 48);
+    setTimeout (function (){
+        lcdContext.fillText("/!\\ ERREUR", 17, 28);
+        lcdContext.font = "12px";
+        lcdContext.fillText("---------->",20, 48);
+    }, 0);
+
+}
+
+function clearDisplay()
+{
+    lcdContext.clearRect(0, 0, lcdScreen.width, lcdScreen.height);
 }
 
 function digitalDisplay(nb, text)

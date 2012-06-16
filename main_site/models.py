@@ -101,14 +101,31 @@ class Client (models.Model):
 ###################################################################
 #-Page EQUIPE----------------------------------------------------
 ###################################################################
+BUBBLE_POSITION = (
+    (0, u'0-Caché'),
+    (1, u'1-BasGauche'),
+    (2, u'2-Gauche1'),
+    (3, u'3-Gauche2'),
+    (4, u'4-GaucheHaut'),
+    (5, u'5-HautGauche'),
+    (6, u'6-Haut'),
+    (7, u'7-HautDroite'),
+    (8, u'8-DroiteHaut'),
+    (9, u'9-Droite1'),
+    (10, u'10-Droite2'),
+    (11, u'11-BasDroite'),
+)
+
 class MembreEquipe (models.Model):
     """
     Salariés des AdM (page EQUIPE)
     """
-    nom = models.CharField (max_length=20, default='Prenom Nom')
-    statut = models.CharField (max_length=20, default='Salarié')
+    nom = models.CharField (max_length=30, default='Prenom Nom')
+    statut = models.CharField (max_length=30, default='Job title')
 
-    description = models.TextField(default='Parcours du salarié')
+    visible = models.BooleanField (default=True)
+    position = models.IntegerField (default=None, choices=BUBBLE_POSITION, null=True)
+    description = models.TextField(default='Parcours personnel')
 
     def __unicode__(self):
         return self.nom
@@ -117,7 +134,7 @@ class PhotoMembre (models.Model):
     """
     Photo (photomaton) des membres (page EQUIPE)
     """
-    membre = models.ForeignKey('MembreEquipe', related_name='photos')
+    membre = models.OneToOneField('MembreEquipe', related_name='photo')
 
     photo = models.ImageField(upload_to='equipe/')
     photoURL_base = models.CharField(editable=False, max_length=150, default= settings.MEDIA_URL + 'equipe/')
@@ -215,6 +232,7 @@ pre_save.connect(buildImgURL, sender=PageBook)
 pre_save.connect(buildImgURL, sender=Client)
 pre_save.connect(buildImgURL, sender=FicheRecette)
 pre_save.connect(buildImgURL, sender=PageBook)
+pre_save.connect(buildImgURL, sender=PhotoMembre)
 
 #post_save.connect(buildImgURL, sender=PageBook)
 post_save.connect(resizeImg, sender=Client)

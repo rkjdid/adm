@@ -40,12 +40,27 @@ div.roundedPop
     border:2px solid;
     box-shadow: 3px 3px 2px #AAAAAA;
 
-    -webkit-border-radius:25px;
-    -moz-border-radius:25px;
-    -ms-border-radius:25px;
-    -o-border-radius:25px;
+    /*-webkit-border-radius:25px;*/
+    /*-moz-border-radius:25px;*/
+    /*-ms-border-radius:25px;*/
+    /*-o-border-radius:25px;*/
     border-radius:25px;
 }
+
+#glassPane {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    background-color: #add8e6;
+    z-index: 999;
+}
+
+
 
 /** Align **/
 .alignC             {text-align: center;}
@@ -60,7 +75,7 @@ div.roundedPop
 .inblock            {display: inline-block;}
 .inline             {display: inline;}
 .block              {display: block;}
-.hidden             { display: none; position: absolute; top:-5000px; left:-5000px; z-index: -999;}
+.hidden             {display: none;}
 
 /** Float **/
 .floatR             {float: right;}
