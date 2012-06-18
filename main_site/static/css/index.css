@@ -7,28 +7,6 @@
 }
 
 /*** Transformations - std ***/
-@keyframes pendule1 {
-    0%, 100% {
-        transform: rotate(14deg);
-        transform-origin: 67px 0px;
-    }
-    50% {
-        transform: rotate(-14deg);
-        transform-origin: 67px 0px;
-    }
-}
-
-@keyframes pendule2 {
-    0%, 100% {
-        transform: rotate(-8deg);
-        transform-origin: 60px 0px;
-    }
-    50% {
-        transform: rotate(8deg);
-        transform-origin: 60px 0px;
-    }
-}
-
 @keyframes rotaz {
     0%, 100% {transform: rotate3d(0, 1, 0, 0deg);}
     50% {transform: rotate3d(0, 1, 0, -40deg);}
@@ -110,24 +88,6 @@
     transition-delay: 1.8s;
 }
 
-#nuage1
-{
-    /*-webkit-animation: pendule1 7s infinite ease-in-out;*/
-    /*-moz-animation: pendule1 7s infinite ease-in-out;*/
-    /*-ms-animation: pendule1 7s infinite ease-in-out;*/
-    /*-o-animation: pendule1 7s infinite ease-in-out;*/
-    animation: pendule1 7s infinite ease-in-out;
-}
-
-#nuage2
-{
-    /*-webkit-animation: pendule2 9s infinite ease-in-out;*/
-    /*-moz-animation: pendule2 9s infinite ease-in-out;*/
-    /*-ms-animation: pendule2 9s infinite ease-in-out;*/
-    /*-o-animation: pendule2 9s infinite ease-in-out;*/
-    animation: pendule2 9s infinite ease-in-out;
-}
-
 #copyright
 {
     /*-webkit-animation: rotaz 5s infinite ease-in-out;*/
@@ -168,26 +128,6 @@
     overflow-x: hidden;
     text-align: center;
     position: relative;
-}
-
-#nuage1
-{
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/nuage1.png') top center no-repeat;
-    position: absolute;
-    top: 0;
-    left: 12%;
-    width: 110px;
-    height: 155px;
-}
-
-#nuage2
-{
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/nuage2.png') top center no-repeat;
-    position: absolute;
-    top: 0;
-    right: 8%;
-    width: 115px;
-    height: 208px;
 }
 
 #playground

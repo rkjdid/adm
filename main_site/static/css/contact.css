@@ -1,0 +1,85 @@
+#variousStuffL {
+    position: absolute;
+    background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/contact.playgroundLeft.png");
+    min-width: 340px;
+    min-height: 182px;
+
+    bottom: 25px;
+    left: 160px;
+}
+
+#variousStuffR {
+    position: absolute;
+    background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/contact.playgroundRight.png");
+    min-width: 318px;
+    min-height: 221px;
+
+    bottom: 1px;
+    right: 200px;
+}
+
+#contactBubble {
+    position: relative;
+    top: 75px;
+    min-width: 650px;
+    min-height: 360px;
+
+    background: white;
+}
+
+#dove {
+    background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/contact-dove.png");
+    width: 148px;
+    height: 136px;
+
+    position: absolute;
+    left: -35px;
+    top: -25px;
+}
+
+#sendButton {
+    position: absolute;
+    display: block;
+    bottom: 22px;
+    left: 275px;
+
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+
+    background: #dda0dd;
+    border-radius: 15px 3px;
+
+    opacity: 0.6;
+
+    transition: opacity 0.5s;
+}
+
+#sendButton:hover {
+    opacity: 1;
+}
+
+#sendButton a {
+    display: block;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+#variousStuff {
+
+}
+
+.aContacter {
+    margin: 40px auto;
+}
+
+.aContacter h1 {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.aContacter h2 {
+    font-weight: normal;
+    font-size: 0.8em;
+}

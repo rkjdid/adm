@@ -1,16 +1,12 @@
-/** sound urls **/
-
-
-
 $(document).ready(function(){
 
     $('.bubble').click(function() {
+        // C'est laid et ça peut bugger -- todo
         var i = $(this).attr('id').split('e')[1];
 
         if($(this).hasClass('focus'))
             return;
 
-        $('#flashSnd')[0].src = '/static/snd/click.mp3';
         $('#flashSnd')[0].play();
 
         $('.bubble.focus').removeClass('focus');
@@ -30,13 +26,29 @@ $(document).ready(function(){
         $('#smallPhoto' + i).addClass('print');
 
         $('#pb1').addClass('flash');
-        setTimeout(function(){$('#pb1').removeClass('flash');}, 150);
+        setTimeout(function(){$('#pb1').removeClass('flash');}, 400);
     });
+
+
     $('.bigPhotoOutContainer').click(function(){
-        alert('test');
+        var i = $(this).attr('id').split('Container')[1];
+        glassPane(i);
     });
 });
 
+function glassPane (i) {
+    $('#glassPane').addClass('fadeIn');
+    $('#knowMore' + i).addClass('pop');
+
+    $('#glassPane').click(function () {
+        // close popup + fadeout
+        $('#glassPane').removeClass('fadeIn');
+        $('#knowMore' + i).removeClass('pop');
+
+        $('#glassPane').click(function(){}); // reset glassPane click handler
+    });
+
+}
 
 
 function toggleFlash () {

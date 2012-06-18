@@ -16,6 +16,7 @@ $(document).ready(function () {
     lcdContext = lcdScreen.getContext("2d");
     drawMire();
     defaultDisplay();
+    //TODO: make default display flash (avoid unloaded font and not working default display)
 });
 
 //TODO: JQuery this
@@ -65,7 +66,7 @@ function defaultDisplay ()
         lcdContext.fillText("/!\\ ERREUR", 17, 28);
         lcdContext.font = "12px";
         lcdContext.fillText("---------->",20, 48);
-    }, 0);
+    }, 800);
 
 }
 

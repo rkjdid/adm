@@ -2,8 +2,26 @@
 
 {% extends 'base.html' %}
 
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/contact.css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}js/contact.js"></script>
+{% endblock %}
+
 {% block body %}
-    <!--{% if pageFlip == 'flip' %}-->
-        <!--{% include 'snip/flip.html' %}-->
-    <!--{% endif %}-->
+    <div id="contactBubble" class="inblock valignC roundedPop">
+        <div id="dove"></div>
+        {# Display contacts #}
+{% for c in contacts %}
+        <div class="aContacter">
+            <h1>{{ c.nom }}</h1>
+            <h2>Tél: {{ c.contact1 }}</h2>
+        </div>
+{% endfor %}
+        <div id="sendButton"><a href="mailto:tmp@test.com">e-mail</a></div>
+    </div>
+
+    <div id="variousStuffL"></div>
+    <div id="variousStuffR"></div>
+
+
 {% endblock %}

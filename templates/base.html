@@ -4,32 +4,32 @@
     <title>Les Ateliers des Marques - {% block title %}{% endblock %}</title>
 
     <link rel="shortcut icon" href="/static/img/(c)nobg.png" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/base.css" />
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/headfoot.css" />
-    <!--<link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/pageflip.css" />-->
 
+    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/jquery.min.js"></script>
+    {% if modernized == True %}
+        <script type="text/javascript" src="{{ STATIC_URL }}js/extra/modernizr.custom.27088.js"></script>
+    {% endif %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/prefixfree.min.js"></script>
+    {#    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/jquery.sound.js"></script>#}
     <script type="text/javascript" src="{{ STATIC_URL }}js/base.js"></script>
     <!--<script type="text/javascript" src="{{ STATIC_URL }}js/pageflip.js"></script>-->
-
-    {# Some GOOGLEFONTS #}
-    <link href='http://fonts.googleapis.com/css?family=Chau+Philomene+One' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Bubblegum+Sans|Droid+Sans|Just+Another+Hand|Unkempt|Delius+Swash+Caps|Quicksand:400,700|Sofia|Ubuntu:400,500,700|Concert+One|Coming+Soon|Droid+Sans+Mono|Walter+Turncoat|Gloria+Hallelujah|Monofett|Nunito|Happy+Monkey|Vibur|Delius+Unicase|Delius|Mountains+of+Christmas' rel='stylesheet' type='text/css'>
-
-{% if modernized == True %}
-    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/modernizr.custom.27088.js"></script>
-{% endif %}
-    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/prefixfree.min.js"></script>
-{#    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/jquery.sound.js"></script>#}
-
     <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <script src="{{ STATIC_URL }}js/extra/excanvas_r3/excanvas.compiled.js"></script>
     <![endif]-->
+
     {% block extrahead %}{% endblock %}
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/base.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/headfoot.css" />
+    <!--<link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/pageflip.css" />-->
+
+    {# Some GOOGLEFONTS #}
+    <link href='http://fonts.googleapis.com/css?family=Chau+Philomene+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bubblegum+Sans|Droid+Sans|Just+Another+Hand|Unkempt|Delius+Swash+Caps|Quicksand:400,700|Sofia|Ubuntu:400,500,700|Concert+One|Coming+Soon|Droid+Sans+Mono|Walter+Turncoat|Gloria+Hallelujah|Monofett|Nunito|Happy+Monkey|Vibur|Delius+Unicase|Delius|Mountains+of+Christmas' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <div id="glassPane" class="hidden"></div>
 {% if pageN != 'index' %}
     <header>
         {% include 'snip/nav.html' %}
@@ -38,7 +38,8 @@
 
 {% block prebody %}{% endblock %}
     <div id="bodyContainer" class="scrollY {{ pageN }}">
-{% block body %}{% endblock %}
+        <div id="glassPane">{% block glassPane %}{% endblock %}</div>
+        {% block body %}{% endblock %}
     </div>
 {% block postbody %}{% endblock %}
 
@@ -49,6 +50,5 @@
         </div>
 {% if pageN == 'index' %}<img class="inblock valignC logo" src="{{ STATIC_URL}}img/logo.nobg.gif" />{% endif %}
     </footer>
-
 </body>
 </html>

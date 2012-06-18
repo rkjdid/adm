@@ -1,3 +1,13 @@
+$(document).ready(function () {
+    $('.closePop').click(function () {
+       closePop();
+    });
+});
+
+function closePop() {
+    caller
+}
+
 function loadjscssfile(filename, filetype){
     var fileref;
     if (filetype=="js"){ //if filename is a external JavaScript file

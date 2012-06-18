@@ -79,10 +79,12 @@ def clients(request):
 
 def contact(request):
 #    base(request)
+    contact = Contact.objects.all()
     arguments = {
         'pageN'         : 'contact',
 #        'pageFlip'      : 'flip',
         'request'       : request,
+        'contacts'      : contact,
     }
     return render_to_response('6-contact.html',
                               arguments,

@@ -2,9 +2,15 @@
 /****** /TV\ ***********/
 /***********************/
 
+/*@font-face {*/
+    /*font-family: 'digital';*/
+    /*src: url('/static/font/digital.woff') , url('/static/font/digital.ttf');*/
+/*}*/
+
 @font-face {
     font-family: 'digital';
-    src: url('/static/font/digital.woff'), url('/static/font/digital.ttf');
+    src: local('☺'),
+    url('/static/font/digital.woff') format('woff'), url('/static/font/digital.ttf') format('truetype');
 }
 
 #bodyContainer.clients
