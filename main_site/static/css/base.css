@@ -47,6 +47,11 @@ div.roundedPop
     border-radius:25px;
 }
 
+/*.pop {*/
+    /*display: block;*/
+    /*z-index: 999;*/
+/*}*/
+
 .closePop
 {
 
@@ -79,6 +84,15 @@ div.roundedPop
     height: 100%;
     width: 100%;
     position: absolute;
+}
+
+.link {
+    color: #ff69b4;
+    cursor: pointer;
+}
+
+.link:hover {
+    color: #696969;
 }
 
 /** Align **/
@@ -147,6 +161,11 @@ img                 {border: none;} /* IE blue border fix */
 
 
 /*** Common animations ***/
+@keyframes rotaz {
+    0%, 100% {transform: rotate3d(0, 1, 0, 0deg);}
+    50% {transform: rotate3d(0, 1, 0, -40deg);}
+}
+
 @keyframes pendule1 {
     0%, 100% {
         transform: rotate(14deg);
@@ -168,3 +187,4 @@ img                 {border: none;} /* IE blue border fix */
         transform-origin: 60px 0px;
     }
 }
+

@@ -2,6 +2,39 @@
 
 {% extends 'base.html' %}
 
-{% block body %}
+{% block extrajs %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/agence.js"></script>
+{% endblock %}
+{% block extracss %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/agence.css" />
+{% endblock %}
 
+{% block body %}
+    <div id="copyright"></div>
+    <div id="nuage3"></div>
+    <div id="agencePop" class="roundedPop inblock valignC alignL">
+        <div id="buisson"></div>
+        <p>
+            <h1>Les Ateliers des Marques</h1><br>
+        </p>
+        <p>
+            Texte sur l'agence, il ne sera pas modifiable dans le panneau admin <br> (à part si vraiment nécessaire, on trouvera quelquechose)<br>
+            A cause des liens notament : <span id="integre" class="link">intégré</span>-<span id="secteurs" class="link">secteurs d'activité</span>-<span id="poles" class="link">6 pôles</span>
+        </p>
+    </div>
+    <div id="popIntegre" class="roundedPop">
+        <p>Texte integre<br> <br> fkekek <br> kekek <br> kekeé</p>
+        <div id="cochon"></div>
+    </div>
+    <div id="popSecteurs" class="roundedPop alignL">
+        <div class="secteur"><div id="poleAgro"></div><span>Agroalimentaire</span></div>
+        <div class="secteur"><div id="poleTextile"></div><span>Textile</span></div>
+        <div class="secteur"><div id="poleLuxe"></div><span>Luxe</span></div>
+        <div class="secteur"><div id="poleBTP"></div><span>BTP</span></div>
+        <div class="secteur"><div id="poleDistribution"></div><span>Distribution</span></div>
+        <div class="secteur"><div id="poleFinances"></div><span>Finances</span></div>
+    </div>
+    <div id="popPole" class="roundedPop">
+        {# fiche recette #}
+    </div>
 {% endblock %}

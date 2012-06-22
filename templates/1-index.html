@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
-{% block extrahead %}
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/index.css" />
+{% block extrajs %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/index.js"></script>
+{% endblock %}
+{% block extracss %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/index.css" />
 {% endblock %}
 
 {% block body %}
@@ -22,6 +24,7 @@
                 </a>
             </div>
 
+{#            TODO: ugly ugly wrapping span into an anchor, see CONTACT page for proper method (e-mail) button #}
             <a href="/portfolio/"><span class="bulle" id="bportfolio"></span></a>
             <a href="/agence/"><span class="bulle" id="bagence"></span></a>
             <a href="/equipe/"><span class="bulle" id="bcontact"></span></a>

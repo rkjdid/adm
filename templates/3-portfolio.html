@@ -1,9 +1,33 @@
 {% extends 'base.html' %}
 
-{% block extrahead %}
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/book.css" />
+{% block extrajs %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/portfolio.js"></script>
+{% endblock %}
+{% block extracss %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/portfolio.css" />
 {% endblock %}
 
 {% block body %}
-    {% include 'snip/book.html' %}
+    <div id="playground">
+        <div id="fouetMain"></div>
+        <div id="book"></div>
+        <div id="bookWrapper">
+            <div id="openBook" class="inblock valignC">
+                <canvas id="pageG"></canvas>
+                <canvas id="pageD"></canvas>
+                <div id="btnG" class=""></div>
+                <div id="btnD" class=""></div>
+            </div>
+        </div>
+        <img id="oeuf" src="http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.oeuf.png"/>
+        <div id="fiche0" class="fiche">
+            <h1>Test first</h1>
+            <div>Then we'll see what happen</div>
+        </div>
+        <div id="fiche1" class="fiche"></div>
+        <div id="fiche2" class="fiche"></div>
+        <div id="fiche3" class="fiche"></div>
+        <div id="fiche4" class="fiche"></div>
+        <div id="fiche5" class="fiche"></div>
+    </div>
 {% endblock %}

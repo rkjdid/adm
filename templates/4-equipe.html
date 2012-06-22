@@ -2,9 +2,11 @@
 
 {% extends 'base.html' %}
 
-{% block extrahead %}
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/equipe.css" />
+{% block extrajs %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/equipe.js"></script>
+{% endblock %}
+{% block extracss %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/equipe.css" />
 {% endblock %}
 
 {% block body %}
@@ -19,19 +21,19 @@
             <img class="preload bigPhotoOut" id="bigPhoto{{ m.position }}" src="{{ m.photo.photoURL }}" />
             <span id="photoMore{{ m.position }}" class="photoMore">En savoir plus...</span>
         </div>
-{% block glassPane %}
+{#{% block glassPane %}#}
         <div id="knowMore{{ m.position }}" class="roundedPop knowMore">
-{#            <a class="closePop"></a>#}
+            <a class="closePop"></a>
             <div class="wrapDesc">
                 <h1>{{ m.nom }}</h1>
                 <h2>{{ m.statut }}</h2><br/>
                 <div id="membreDescription{{ m.position }}" class="membreDescription">
-                    {{ m.description }}
+                    {{ m.description|linebreaks }}
                 </div>
             </div>
             <img class="mediumPhotoDesc" id="mediumPhotoDesc{{ m.position }}" src="{{ m.photo.photoURL }}" />
         </div>
-{% endblock %}
+{#{% endblock %}#}
     {% endif %}
 {% endfor %}
         <div id="pbox" class="pbox photoBooth">

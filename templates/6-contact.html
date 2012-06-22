@@ -2,9 +2,11 @@
 
 {% extends 'base.html' %}
 
-{% block extrahead %}
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/contact.css" />
+{% block extrajs %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/contact.js"></script>
+{% endblock %}
+{% block extracss %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/contact.css" />
 {% endblock %}
 
 {% block body %}

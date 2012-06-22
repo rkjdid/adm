@@ -13,6 +13,10 @@
     url('/static/font/digital.woff') format('woff'), url('/static/font/digital.ttf') format('truetype');
 }
 
+.preload {
+    display: none;
+}
+
 #bodyContainer.clients
 {
     line-height: 500px; /*Centrage vertical sur 50pix de + que min-height de notre enfant*/

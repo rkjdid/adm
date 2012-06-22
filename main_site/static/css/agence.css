@@ -1,0 +1,172 @@
+#copyright {
+    /*-webkit-animation: rotaz 5s infinite ease-in-out;*/
+    /*-moz-animation: rotaz 5s infinite ease-in-out;*/
+    /*-ms-animation: rotaz 5s infinite ease-in-out;*/
+    /*-o-animation: rotaz 5s infinite ease-in-out;*/
+    animation: rotaz 5s infinite ease-in-out;
+}
+
+#copyright {
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/agence.copyright.png') top center no-repeat;
+    width:129px;
+    height:219px;
+    position: absolute;
+    top: 0;
+    left: 50px;
+}
+
+#nuage3 {
+    /*-webkit-animation: pendule2 9s infinite ease-in-out;*/
+    /*-moz-animation: pendule2 9s infinite ease-in-out;*/
+    /*-ms-animation: pendule2 9s infinite ease-in-out;*/
+    /*-o-animation: pendule2 9s infinite ease-in-out;*/
+    animation: pendule2 9s infinite ease-in-out;
+}
+
+#nuage3 {
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/cloud-softbg2.png') top center no-repeat;
+    position: absolute;
+    top: 0;
+    right: 8%;
+    width: 115px;
+    height: 208px;
+}
+
+#agencePop {
+    position: relative;
+    top: 75px;
+    min-width: 650px;
+    min-height: 320px;
+
+    max-width: 650px;
+    max-height: 320px;
+
+    background: white;
+
+    padding: 40px;
+}
+
+#buisson {
+    background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/agence.buissons.png");
+    width: 164px;
+    height: 78px;
+
+    position: absolute;
+    right: -35px;
+    bottom: -35px;
+}
+
+#popSecteurs {
+    position: absolute;
+    top: 110px;
+    right: 250px;
+
+    min-width: 200px;
+
+    background: white;
+
+    padding: 25px;
+
+    /*display: none;*/
+}
+
+#popSecteurs.pop {
+    display: block;
+    z-index: 20;
+}
+
+.secteur {
+    height: 55px;
+    line-height: 55px;
+}
+
+.secteur > div {
+    position: absolute;
+    left: 20px;
+    margin-right: 70px;
+    min-height: 55px;
+    min-width: 64px;
+}
+
+.secteur span {
+    margin-left: 60px;
+}
+
+#popIntegre {
+    position: absolute;
+    top: 65px;
+    left: 444px;
+    background: white;
+
+    padding: 25px;
+    min-height: 135px;
+
+    display: none;
+}
+
+#popIntegre.pop {
+    display: block;
+    z-index: 999;
+}
+
+#popIntegre p {
+    text-align: left;
+    margin-bottom: 85px;
+}
+
+#cochon {
+    width: 85px;
+    height: 95px;
+
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/agence.cochon.png') center no-repeat;
+}
+
+
+#popSecteurs {
+    position: absolute;
+    top: 110px;
+    right: 250px;
+
+    min-width: 200px;
+
+    background: white;
+
+    padding: 25px;
+
+    display: none;
+}
+
+#popSecteurs.pop {
+    display: block;
+    z-index: 999;
+}
+
+#poleAgro{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minilegumes.png') center no-repeat;}
+#poleTextile {background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/miniceintre.png') center no-repeat;}
+#poleLuxe{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minidiams.png') center no-repeat;}
+#poleBTP{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minicaissaout.png') center no-repeat;}
+#poleDistribution{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minicaddi.png') center no-repeat;}
+#poleFinances{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minipancake.png') center no-repeat;}
+
+
+#popPole {
+    position: absolute;
+    top: 250px;
+    left: 125px;
+
+    min-width: 200px;
+    background: white;
+
+    padding: 25px;
+
+    display: none;
+}
+
+#popPole.pop {
+    display: block;
+    z-index: 999;
+}

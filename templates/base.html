@@ -12,17 +12,15 @@
     <script type="text/javascript" src="{{ STATIC_URL }}js/extra/prefixfree.min.js"></script>
     {#    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/jquery.sound.js"></script>#}
     <script type="text/javascript" src="{{ STATIC_URL }}js/base.js"></script>
-    <!--<script type="text/javascript" src="{{ STATIC_URL }}js/pageflip.js"></script>-->
     <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <script src="{{ STATIC_URL }}js/extra/excanvas_r3/excanvas.compiled.js"></script>
     <![endif]-->
-
-    {% block extrahead %}{% endblock %}
+    {% block extrajs %}{% endblock %}
 
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/base.css" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/headfoot.css" />
-    <!--<link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/pageflip.css" />-->
+    {% block extracss %}{% endblock %}
 
     {# Some GOOGLEFONTS #}
     <link href='http://fonts.googleapis.com/css?family=Chau+Philomene+One' rel='stylesheet' type='text/css'>

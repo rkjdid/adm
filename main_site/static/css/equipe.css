@@ -221,7 +221,7 @@
 
     padding: 20px;
 
-    height: 280px;
+    min-height: 280px;
 }
 
 .knowMore.pop {

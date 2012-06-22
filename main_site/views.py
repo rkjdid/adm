@@ -35,10 +35,12 @@ def agence(request):
 
 def portfolio(request):
 #    base(request)
+    books = Book.objects.all()
     arguments = {
         'pageN'         : 'portfolio',
 #        'pageFlip'      : 'nope',
         'request'       : request,
+        'books'         : books,
     }
     return render_to_response('3-portfolio.html',
                               arguments,

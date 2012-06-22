@@ -153,7 +153,7 @@ class PhotoMembre (models.Model):
 ###################################################################
 class Book (models.Model):
     """
-    Secteur d'activité, book (page PORTFOLIO)
+    Pole d'activité, book (page PORTFOLIO)
     """
     theme = models.CharField(max_length=75)
 

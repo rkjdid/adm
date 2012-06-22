@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
     $('.bubble').click(function() {
-        // C'est laid et ça peut bugger -- todo
         var i = $(this).attr('id').split('e')[1];
 
         if($(this).hasClass('focus'))
