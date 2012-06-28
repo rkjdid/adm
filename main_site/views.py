@@ -34,13 +34,19 @@ def agence(request):
                               context_instance=RequestContext(request))
 
 def portfolio(request):
-#    base(request)
+    # View limits displaying of 6 items, 6 first chosen
+
     books = Book.objects.all()
     arguments = {
         'pageN'         : 'portfolio',
 #        'pageFlip'      : 'nope',
         'request'       : request,
         'books'         : books,
+#        'book1'         : books[1],
+#        'book2'         : books[2],
+#        'book3'         : books[3],
+#        'book4'         : books[4],
+#        'book5'         : books[5],
     }
     return render_to_response('3-portfolio.html',
                               arguments,

@@ -1,10 +1,17 @@
+#playground {
+    position: relative;
+    min-height: 530px;
+
+    margin: auto;
+}
+
 #variousStuffL {
     position: absolute;
     background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/contact.playgroundLeft.png");
     min-width: 340px;
     min-height: 182px;
 
-    top: 322px;
+    top: 302px;
     left: 160px;
 }
 
@@ -14,13 +21,13 @@
     min-width: 318px;
     min-height: 221px;
 
-    top: 322px;
+    top: 302px;
     right: 200px;
 }
 
 #contactBubble {
     position: relative;
-    top: 75px;
+    top: 55px;
     min-width: 650px;
     min-height: 360px;
 

@@ -31,7 +31,7 @@ class PageBookInline(admin.StackedInline):
 
 class FicheRecetteInline(admin.StackedInline):
     model = FicheRecette
-    fields = ['imagefond', 'titre', 'description']
+    fields = ['titre', 'description']
 
 class BookAdmin(admin.ModelAdmin):
     fields = ['theme']

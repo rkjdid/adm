@@ -5,7 +5,7 @@ var contourDrawn = false;
 
 window.onload = function ()
 {
-    defaultDisplay();
+//    defaultDisplay();
     preloadImages();
 };
 
@@ -109,8 +109,7 @@ function drawContour()
     contourDrawn = true;
 }
 
-function drawLogos(cat, firstIndex, yoffset)
-{
+function drawLogos(cat, firstIndex, yoffset) {
     var images = $('.cli-cat' + cat);
 
     var logoW = 110;

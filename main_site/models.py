@@ -15,13 +15,32 @@ import tempfile
 # Settings
 from ateliers_a import settings
 
-# Static dimensions
+# Static dimensions - (logo == logos clients - will be resized)
 logoWidth = 110
 logoHeight = 84
+# Photo membre - won't be resized
+# PageBook - won't be resized (232*432)
+pagebookWidth = 299
+pagebookHeight = 423
 
 #photo
 
+def scaleImg (path, wantedWidth, wantedHeight):
+    im = Image.open(path)
+    if im.size[0] <= wantedWidth and im.size[1] <= wantedHeight:
+        return
 
+    imratio = float(im.size[0]) / float(im.size[1])
+
+    wdiff_h = wantedWidth / imratio
+    hdiff_w = wantedHeight * imratio
+
+    if wdiff_h <= wantedHeight:
+        im = im.resize((wantedWidth, int(wdiff_h)), Image.ANTIALIAS)
+    elif hdiff_w <= wantedWidth:
+        im = im.resize((int(hdiff_w), wantedHeight), Image.ANTIALIAS)
+
+    im.save(path)
 
 ###################################################################
 #-Général----------------------------------------------------
@@ -36,11 +55,11 @@ class Contact (models.Model):
     """
     Contacts (page CONTACT)
     """
-    nom = models.CharField (max_length=50, default='Personne à contacter')
+    nom = models.CharField (max_length=75, default='Personne à contacter')
 
     # Numéro(s) de contact, contact2 facultatif
-    contact1 = models.CharField (max_length=50, default='Tel')
-    contact2 = models.CharField (max_length=50, null=True)
+    contact1 = models.CharField (max_length=75, default='Tel')
+    contact2 = models.CharField (max_length=75, default='Mail', blank=True)
 
     def __unicode__(self):
         return self.nom
@@ -70,26 +89,22 @@ class Client (models.Model):
     logoURL = models.CharField(editable=False, max_length=150)
 
     def resizeImg(self):
-        im = Image.open(self.logo.path)
-        if im.size[0] <= logoWidth and im.size[1] <= logoHeight:
-            return
-
-        imratio = float(im.size[0]) / float(im.size[1])
-
-        wdiff_h = logoWidth / imratio
-        hdiff_w = logoHeight * imratio
-
-#        imrsz = None
-
-        if wdiff_h <= logoHeight:
-            im = im.resize((logoWidth, int(wdiff_h)), Image.ANTIALIAS)
-        elif hdiff_w <= logoWidth:
-            im = im.resize((int(hdiff_w), logoHeight), Image.ANTIALIAS)
-
-#        im.
-
-#        os.remove(self.logo.path)
-        im.save(self.logo.path)
+        scaleImg(self.logo.path, logoWidth, logoHeight)
+#        im = Image.open(self.logo.path)
+#        if im.size[0] <= logoWidth and im.size[1] <= logoHeight:
+#            return
+#
+#        imratio = float(im.size[0]) / float(im.size[1])
+#
+#        wdiff_h = logoWidth / imratio
+#        hdiff_w = logoHeight * imratio
+#
+#        if wdiff_h <= logoHeight:
+#            im = im.resize((logoWidth, int(wdiff_h)), Image.ANTIALIAS)
+#        elif hdiff_w <= logoWidth:
+#            im = im.resize((int(hdiff_w), logoHeight), Image.ANTIALIAS)
+#
+#        im.save(self.logo.path)
 
     def setImgURL(self):
         _, self.logo.name = uniqueFile(settings.MEDIA_ROOT + 'clients/' + self.logo.name)
@@ -164,14 +179,37 @@ class PageBook (models.Model):
     """
     Double page du book, correspondant à un secteur (fiche recette)
     """
-    book = models.ForeignKey('Book', related_name='pagebook')
+
+    book = models.ForeignKey('Book', related_name='pagebooks')
 
     pageGauche = models.ImageField(upload_to='books/')
     pageDroite = models.ImageField(upload_to='books/')
+    pageGauche.short_description = 'Page Gauche (299*423)px'
+    pageDroite.short_description = 'Page Droite (299*423)px'
 
     pageGaucheURL = models.CharField(editable=False, max_length=150)
     pageDroiteURL = models.CharField(editable=False, max_length=150)
     pageURL_base = models.CharField(editable=False, default=settings.MEDIA_URL + 'books/', max_length=150)
+
+    def resizeImg(self):
+        scaleImg(self.pageGauche.path, pagebookWidth, pagebookHeight)
+        scaleImg(self.pageDroite.path, pagebookWidth, pagebookWidth)
+
+#        im = Image.open(self.pageGauche.path)
+#        if im.size[0] <= pagebookWidth and im.size[1] <= logoHeight:
+#            return
+#
+#        imratio = float(im.size[0]) / float(im.size[1])
+#
+#        wdiff_h = pagebookWidth / imratio
+#        hdiff_w = pagebookHeight * imratio
+#
+#        if wdiff_h <= pagebookHeight:
+#            im = im.resize((pagebookWidth, int(wdiff_h)), Image.ANTIALIAS)
+#        elif hdiff_w <= pagebookWidth:
+#            im = im.resize((int(hdiff_w), pagebookHeight), Image.ANTIALIAS)
+#
+#        im.save(self.pageGauche.path)
 
     def setImgURL(self):
         _, self.pageGauche.name = uniqueFile(settings.MEDIA_ROOT + 'books/' + self.pageGauche.name)
@@ -188,15 +226,15 @@ class FicheRecette (models.Model):
     """
     book = models.OneToOneField('Book', related_name='fiche')
 
-    imagefond = models.ImageField(upload_to= settings.MEDIA_ROOT + 'fichesRecette/')
-    imagefondURL_base = models.CharField(editable=False, max_length=150, default=settings.MEDIA_URL + 'fichesRecette/')
-    imagefondURL = models.CharField(editable=False, max_length=150)
-    titre = models.CharField(max_length=100, default='titre')
-    description = models.TextField(default="description")
+    #    imagefond = models.ImageField(upload_to= settings.MEDIA_ROOT + 'fichesRecette/')
+    #    imagefondURL_base = models.CharField(editable=False, max_length=150, default=settings.MEDIA_URL + 'fichesRecette/')
+    #    imagefondURL = models.CharField(editable=False, max_length=150)
+    titre = models.CharField(max_length=100, default='titre fiche')
+    description = models.TextField(default="description fiche (recette 100g..)")
 
-    def setImgURL(self):
-        _, self.imagefond.name = uniqueFile(settings.MEDIA_ROOT + 'fichesRecette/' + self.imagefond.name)
-        self.imagefondURL = self.imagefondURL_base + self.imagefond.name
+#    def setImgURL(self):
+#        _, self.imagefond.name = uniqueFile(settings.MEDIA_ROOT + 'fichesRecette/' + self.imagefond.name)
+#        self.imagefondURL = self.imagefondURL_base + self.imagefond.name
 
     def __unicode__(self):
         return self.titre
@@ -230,11 +268,12 @@ def resizeImg(sender, instance, **kwargs):
 ## Build image URLs before saving
 pre_save.connect(buildImgURL, sender=PageBook)
 pre_save.connect(buildImgURL, sender=Client)
-pre_save.connect(buildImgURL, sender=FicheRecette)
+#pre_save.connect(buildImgURL, sender=FicheRecette)
 pre_save.connect(buildImgURL, sender=PageBook)
 pre_save.connect(buildImgURL, sender=PhotoMembre)
 
 #post_save.connect(buildImgURL, sender=PageBook)
 post_save.connect(resizeImg, sender=Client)
+post_save.connect(resizeImg, sender=PageBook)
 #post_save.connect(buildImgURL, sender=FicheRecette)
 #post_save.connect(buildImgURL, sender=PageBook)

@@ -7,13 +7,23 @@
 }
 
 #copyright {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/agence.copyright.png') top center no-repeat;
-    width:129px;
-    height:219px;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/copytournant.png') top center no-repeat;
+    width:114px;
+    height:191px;
     position: absolute;
     top: 0;
     left: 50px;
+    opacity: 0.25;
 }
+/*#copyright*/
+/*{*/
+    /*background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/copytournant.png') top center no-repeat;*/
+    /*width:114px;*/
+    /*height:191px;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 299px;*/
+/*}*/
 
 #nuage3 {
     /*-webkit-animation: pendule2 9s infinite ease-in-out;*/

@@ -12,7 +12,7 @@
 #playground {
     margin-left: auto;
     margin-right: auto;
-    height: 560px;
+    height: 520px;
     width: 886px;
     position: relative;
 }
@@ -33,16 +33,35 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    line-height: 560px;
+    line-height: 530px;
 }
 
 #openBook {
     transform: scale(0);
-    width: 579px;
+    width: 713px;
     height: 480px;
     position: relative;
     z-index: 999;
     background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.openbook.png') left no-repeat;
+}
+
+#pageG, #pageD {
+    width: 299px;
+    height: 423px;
+    transition: opacity 0.5s;
+    z-index: 1;
+}
+
+#pageG {position: absolute; left: 28px; top: 28px;}
+#pageD {position: absolute; left: 382px; top: 28px;}
+
+#openBook.grow {
+    animation: grow cubic-bezier(1,0,1,1) forwards 0.9s 0.7s;
+    transition: opacity 0.5s;
+}
+
+#openBook.fadeOut, #pageG.fadeOut, #pageD.fadeOut {
+    opacity: 0;
 }
 
 #btnG, #btnD {
@@ -51,6 +70,7 @@
     height: 22px;
     bottom: 16px;
     background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.arrows.22.png');
+    z-index: 2;
 }
 
 #btnG {left: 18px;}
@@ -65,21 +85,19 @@
 #btnD.active        {background-position: 44px 0;}
 #btnD.active:hover  {background-position: 22px 0;}
 
-#openBook.grow {
-    animation: grow cubic-bezier(1,0,1,1) forwards 0.9s 0.7s;
-    transition: opacity 0.5s;
+#pgNbG {left: 45px;}
+#pgNbD {right: 45px;}
+
+#pgNbG, #pgNbD {
+    opacity: 0.8;
+    position: absolute;
+    bottom: 16px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 0.7em;
+    z-index: 3;
+    cursor: default;
 }
-
-#openBook.fadeOut {
-    opacity: 0;
-}
-
-#pageG, #pageD {width: 232px; height: 423px; opacity: 0; transition: opacity 0.5s;}
-#pageG.fadeIn, #pageD.fadeIn {opacity: 1;}
-
-
-#pageG {position: absolute; left: 28px; top: 28px;}
-#pageD {position: absolute; left: 315px; top: 28px;}
 
 #book {
     z-index: 1;
@@ -116,6 +134,10 @@
     top: 375px;
 }
 
+.preload {
+    display: none;
+}
+
 .fiche h1 {
     font-size: 1em;
     margin: 37px 5px 5px 5px;
@@ -127,7 +149,6 @@
     text-align: left;
     font-size: 0.8em;
     margin: 15px;
-
 }
 
 .fiche {
@@ -179,7 +200,7 @@
     background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.3.png');
 
     left: 155px;
-    top: 235px;
+    top: 258px;
 
     transform: rotate(8deg) translate3d( 0, 0, 0);
 }
@@ -197,7 +218,7 @@
     background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.5.png');
 
     left: 310px;
-    top: 245px;
+    top: 273px;
 
     transform: rotate(-2deg) translate3d( 0, 0, 0);
 }

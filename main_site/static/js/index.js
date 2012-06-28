@@ -11,7 +11,7 @@ $(document).ready(function () {
 });
 
 function init() {
-    $('#bactu').hover(
+    $('#bclients').hover(
         function(){
 
             $('#buisson').addClass("shake");

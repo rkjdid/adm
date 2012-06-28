@@ -13,21 +13,43 @@
         <div id="book"></div>
         <div id="bookWrapper">
             <div id="openBook" class="inblock valignC">
-                <canvas id="pageG"></canvas>
-                <canvas id="pageD"></canvas>
+                <canvas id="pageG" width="299" height="423"></canvas>
+                <canvas id="pageD" width="299" height="423"></canvas>
                 <div id="btnG" class=""></div>
+                <div id="pgNbG"></div>
+                <div id="pgNbD"></div>
                 <div id="btnD" class=""></div>
             </div>
         </div>
         <img id="oeuf" src="http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.oeuf.png"/>
-        <div id="fiche0" class="fiche">
-            <h1>Test first</h1>
-            <div>Then we'll see what happen</div>
+{% for b in books|slice:":6" %}
+        <div id="fiche{{ forloop.counter0 }}" class="fiche">
+            <h1>{{ b.fiche.titre }}</h1>
+            <div>{{ b.fiche.description|linebreaks }}</div>
+            <div class="preload">
+  {% for pb in b.pagebooks.all %}
+                <img class="preload gauche book-{{ forloop.parentloop.counter0 }}" src="{{ pb.pageGaucheURL }}" id="pageG-{{ forloop.parentloop.counter0 }}-{{ forloop.counter0 }}" />
+                <img class="preload droite book-{{ forloop.parentloop.counter0 }}" src="{{ pb.pageDroiteURL }}" id="pageD-{{ forloop.parentloop.counter0 }}-{{ forloop.counter0 }}" />
+  {% endfor %}
+            </div>
         </div>
-        <div id="fiche1" class="fiche"></div>
-        <div id="fiche2" class="fiche"></div>
-        <div id="fiche3" class="fiche"></div>
-        <div id="fiche4" class="fiche"></div>
-        <div id="fiche5" class="fiche"></div>
+{% endfor %}
+
+
+
+
+
+{#       <div id="fihe0" class="fiche">#}
+{#            <h1>Test first</h1>#}
+{#            <div>Then we'll see what happen</div>#}
+{#        </div>#}
+{#        <div id="fiche1" class="fiche">#}
+{#            <h1>{{ books[1].fiche.titre }}</h1>#}
+{#            <div>{{ books[1].fiche.description|linebreaks }}</div>#}
+{#        </div>#}
+{#        <div id="fiche2" class="fiche"></div>#}
+{#        <div id="fiche3" class="fiche"></div>#}
+{#        <div id="fiche4" class="fiche"></div>#}
+{#        <div id="fiche5" class="fiche"></div>#}
     </div>
 {% endblock %}
