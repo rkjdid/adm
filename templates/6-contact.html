@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-
 {% extends 'base.html' %}
+
+{% block title %} - contact{% endblock %}
 
 {% block extrajs %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/contact.js"></script>
@@ -13,14 +13,13 @@
     <div id="playground">
         <div id="contactBubble" class="inblock valignC roundedPop">
             <div id="dove"></div>
-            {# Display contacts #}
 {% for c in contacts %}
             <div class="aContacter">
                 <h1>{{ c.nom }}</h1>
                 <h2>{{ c.contact1 }}</h2>
-{% if c.contact2 != "" %}
+  {% if c.contact2 != "" %}
                 <h2>{{ c.contact2 }}</h2>
-{% endif %}
+  {% endif %}
             </div>
 {% endfor %}
             <div id="sendButton"><a href="mailto:tmp@test.com">e-mail</a></div>

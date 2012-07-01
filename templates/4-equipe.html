@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-
 {% extends 'base.html' %}
+
+{% block title %} - l'équipe{% endblock %}
 
 {% block extrajs %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/equipe.js"></script>
@@ -21,7 +21,6 @@
             <img class="preload bigPhotoOut" id="bigPhoto{{ m.position }}" src="{{ m.photo.photoURL }}" />
             <span id="photoMore{{ m.position }}" class="photoMore">En savoir plus...</span>
         </div>
-{#{% block glassPane %}#}
         <div id="knowMore{{ m.position }}" class="roundedPop knowMore">
             <a class="closePop"></a>
             <div class="wrapDesc">
@@ -33,7 +32,6 @@
             </div>
             <img class="mediumPhotoDesc" id="mediumPhotoDesc{{ m.position }}" src="{{ m.photo.photoURL }}" />
         </div>
-{#{% endblock %}#}
     {% endif %}
 {% endfor %}
         <div id="pbox" class="pbox photoBooth">
@@ -41,11 +39,9 @@
             <div id="pb1" class="photoBooth pblayer"></div>
             <div id="pb2" class="photoBooth pblayer"></div>
             <div id="pb3" class="photoBooth pblayer"></div>
-{#            <div id="pb4" class="photoBooth pblayer"></div>#}
             <div id="pb5" class="photoBooth pblayer"></div>
             <div id="pb6" class="photoBooth pblayer"></div>
             <div id="pb7" class="photoBooth pblayer"></div>
-{#            <div id="small_photoOut" class="photoOutput"></div>#}
         </div>
     </div>
     <div id="photoOut" class="photoOutput">

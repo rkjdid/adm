@@ -4,7 +4,6 @@
     height: 520px;
     width: 1000px;
     position: relative;
-    /*line-height: 1000px;*/
 }
 
 #flamand {
@@ -19,10 +18,6 @@
 }
 
 #copyright {
-    /*-webkit-animation: rotaz 5s infinite ease-in-out;*/
-    /*-moz-animation: rotaz 5s infinite ease-in-out;*/
-    /*-ms-animation: rotaz 5s infinite ease-in-out;*/
-    /*-o-animation: rotaz 5s infinite ease-in-out;*/
     animation: rotaz 5s infinite ease-in-out;
 }
 
@@ -33,21 +28,8 @@
     position: absolute;
     opacity: 0.25;
 }
-/*#copyright*/
-/*{*/
-    /*background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/copytournant.png') top center no-repeat;*/
-    /*width:114px;*/
-    /*height:191px;*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*right: 299px;*/
-/*}*/
 
 #nuage3 {
-    /*-webkit-animation: pendule2 9s infinite ease-in-out;*/
-    /*-moz-animation: pendule2 9s infinite ease-in-out;*/
-    /*-ms-animation: pendule2 9s infinite ease-in-out;*/
-    /*-o-animation: pendule2 9s infinite ease-in-out;*/
     animation: pendule2 9s infinite ease-in-out;
 }
 
@@ -93,8 +75,6 @@
     background: white;
 
     padding: 25px;
-
-    /*display: none;*/
 }
 
 #popSecteurs.pop {

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %} - portfolio{% endblock %}
+
 {% block extrajs %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/portfolio.js"></script>
 {% endblock %}
@@ -34,22 +36,5 @@
             </div>
         </div>
 {% endfor %}
-
-
-
-
-
-{#       <div id="fihe0" class="fiche">#}
-{#            <h1>Test first</h1>#}
-{#            <div>Then we'll see what happen</div>#}
-{#        </div>#}
-{#        <div id="fiche1" class="fiche">#}
-{#            <h1>{{ books[1].fiche.titre }}</h1>#}
-{#            <div>{{ books[1].fiche.description|linebreaks }}</div>#}
-{#        </div>#}
-{#        <div id="fiche2" class="fiche"></div>#}
-{#        <div id="fiche3" class="fiche"></div>#}
-{#        <div id="fiche4" class="fiche"></div>#}
-{#        <div id="fiche5" class="fiche"></div>#}
     </div>
 {% endblock %}

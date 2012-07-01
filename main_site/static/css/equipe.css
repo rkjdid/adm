@@ -38,7 +38,6 @@
 
 .smallPhotoOut.print {
     top: 240px;
-    /*transition: none;*/
 }
 
 .smallPhotoOut.out {
@@ -51,16 +50,9 @@
     100% {opacity: 0; transform: translate(0px, 155px);}
 }
 
-/*@keyframes fadeOut {*/
-    /*0% {opacity: 1;}*/
-    /*50% {opacity: 1;}*/
-    /*100% {opacity: 0;}*/
-/*}*/
-
 .smallPhotoOut.out {
     animation: fadeOut 1s linear forwards alternate;
     overflow: hidden;
-    /*transition: none;*/
 }
 
 .bigPhotoOutContainer {
@@ -69,12 +61,6 @@
     opacity: 0;
 
     position: absolute;
-
-    /*right: 50px;*/
-    /*top: 50px;*/
-    /*width: 80px;*/
-    /*height: 434px;*/
-    /*z-index: 99;*/
 
     width: 0;
     height: 0;
@@ -134,21 +120,15 @@
 #pb7 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.7.top.png"); z-index: 15;}
 
 .bubble {
-    /*-webkit-border-radius:100px 50px;*/
-    /*-moz-border-radius:100px 50px;*/
-    /*-ms-border-radius:100px 50px;*/
-    /*-o-border-radius:100px 50px;*/
     border-bottom-right-radius: 100px 50px;
     border-top-left-radius: 100px 50px;
     border-top-right-radius: 100px 50px;
     border-bottom-left-radius: 100px 50px;
 
     padding: 13px 13px 6px 13px;
-    /*border-radius: 100px 50px 50px 100px 100px 50px 50px 100px;*/
 
     box-shadow: 4px 2px 4px gray;
 
-    /*width: 100px;*/
     height: 50px;
     background: white;
 
@@ -162,7 +142,6 @@
 .bubble h2 {font-size: 1em; font-weight: bold;}
 .bubble {font-size: 0.9em;}
 
-/* bubble area : minh=556px; minw=967px;*/
 #bubble1{right: 750px; top: 420px;}   /*gb*/
 #bubble2{right: 750px; top: 320px;}   /*g1*/
 #bubble3{right: 750px; top: 220px;}   /*g2*/
@@ -187,10 +166,6 @@
 .bubble
 {
     opacity: 0.6;
-    /*-webkit-transition: opacity .8s;*/
-    /*-moz-transition: opacity .8s;*/
-    /*-ms-transition: opacity .8s;*/
-    /*-o-transition: opacity .8s;*/
     transition: opacity .8s;
     cursor: default;
 }
@@ -205,11 +180,6 @@
 .bubble:hover
 {
     opacity: 1;
-    /*-webkit-animation: shake .4s ease-out;*/
-    /*-moz-animation: shake .4s ease-out;*/
-    /*-ms-animation: shake .4s ease-out;*/
-    /*-o-animation: shake .4s ease-out;*/
-    /*animation: shake .5s ease-out;*/
 }
 
 .knowMore {

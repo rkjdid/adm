@@ -2,7 +2,6 @@
 {
     margin: 0;
     padding: 0;
-    /*border: 1px dotted gray;*/
 }
 
 body
@@ -39,18 +38,8 @@ div.roundedPop
     border-color: #AAAAAA;
     border:1px solid;
     box-shadow: 3px 3px 2px #AAAAAA;
-
-    /*-webkit-border-radius:25px;*/
-    /*-moz-border-radius:25px;*/
-    /*-ms-border-radius:25px;*/
-    /*-o-border-radius:25px;*/
     border-radius:25px;
 }
-
-/*.pop {*/
-    /*display: block;*/
-    /*z-index: 999;*/
-/*}*/
 
 .closePop
 {
@@ -123,19 +112,11 @@ img                 {border: none;} /* IE blue border fix */
 /** Common elements **/
 #nuage1
 {
-    /*-webkit-animation: pendule1 7s infinite ease-in-out;*/
-    /*-moz-animation: pendule1 7s infinite ease-in-out;*/
-    /*-ms-animation: pendule1 7s infinite ease-in-out;*/
-    /*-o-animation: pendule1 7s infinite ease-in-out;*/
     animation: pendule1 7s infinite ease-in-out;
 }
 
 #nuage2
 {
-    /*-webkit-animation: pendule2 9s infinite ease-in-out;*/
-    /*-moz-animation: pendule2 9s infinite ease-in-out;*/
-    /*-ms-animation: pendule2 9s infinite ease-in-out;*/
-    /*-o-animation: pendule2 9s infinite ease-in-out;*/
     animation: pendule2 9s infinite ease-in-out;
 }
 
