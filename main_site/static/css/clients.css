@@ -6,7 +6,6 @@
     /*font-family: 'digital';*/
     /*src: url('/static/font/digital.woff') , url('/static/font/digital.ttf');*/
 /*}*/
-
 @font-face {
     font-family: 'digital';
     src: local('☺'),
@@ -17,14 +16,26 @@
     display: none;
 }
 
-#bodyContainer.clients
-{
-    line-height: 500px; /*Centrage vertical sur 50pix de + que min-height de notre enfant*/
+#playground {
+    margin-left: auto;
+    margin-right: auto;
+    height: 520px;
+    width: 1000px;
+    position: relative;
+    /*line-height: 1000px;*/
 }
 
-#bodyContainer.clients > *
-{
-    line-height: normal;
+#roiReine {
+    width: 190px;
+    height: 248px;
+
+    top: 275px;
+    left: 0;
+
+    position: absolute;
+
+    background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/clients.roireine.png");
+    z-index: 64;
 }
 
 #tv
@@ -33,10 +44,35 @@
     no-repeat top left;
     min-height: 450px;
     min-width:  662px;
-    position: relative;
-    top : 14px;
+    position: absolute;
+    top : 44px;
+    left: 145px;
 
     z-index: 1;
+}
+
+#tvIndex
+/*p.tvIndex*/
+{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 110%;
+    color: black;
+    position: absolute;
+
+    left: 820px;
+    top: 100px;
+    z-index: 1;
+}
+
+#bodyContainer.clients
+{
+    line-height: 540px; /*Centrage vertical sur 50pix de + que min-height de notre enfant*/
+}
+
+#bodyContainer.clients > *
+{
+    line-height: normal;
 }
 
 #whitebg /* same as canvas#tvScreen */
@@ -73,6 +109,7 @@ div#tvButton, div#tvButton2
     background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/(c)nobg-off.png')
     no-repeat center;
     cursor: default;
+    opacity: 0.2;
 }
 
 div#tvButton.active, div#tvButton2.active
@@ -80,6 +117,7 @@ div#tvButton.active, div#tvButton2.active
     background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/(c)nobg-on.png')
     no-repeat center;
     cursor: pointer;
+    opacity: 1;
 }
 
 div#tvButton.active:hover, div#tvButton2.active:hover
@@ -119,14 +157,6 @@ div#clientPageNb
     top: 305px;
     height: 15px;
     width: auto;
-}
-
-p.tvIndex
-{
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-    font-size: 110%;
-    color: black;
 }
 
 li.tvIndex:hover,

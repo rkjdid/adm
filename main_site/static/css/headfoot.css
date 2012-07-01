@@ -19,6 +19,8 @@ header
 {
     height: 64px;
     top: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 #bodyContainer

@@ -10,26 +10,26 @@
 
 {% block body %}
     <div class="preload dummy" style="font-family: 'digital'; z-index:-1; position: absolute; top: -999px;">.</div>
+    <div id="playground">
+        <div id="roiReine"></div>
+        <div class="inblock valignC" id="tv">
+            <div id="whitebg"></div>
+            <canvas id="tvScreen" width="387" height="290"></canvas>
+            <canvas id="tvLcd" width="95" height="60"></canvas>
+            <div id="tvButton"></div><div id="tvButton2"></div><div id="clientPageNb"></div>
+        </div>
 
-{#    {% include 'snip/tv.html' %}#}
-    <div class="inblock valignC" id="tv">
-        <div id="whitebg"></div>
-        <canvas id="tvScreen" width="387" height="290"></canvas>
-        <canvas id="tvLcd" width="95" height="60"></canvas>
-        <div id="tvButton"></div><div id="tvButton2"></div><div id="clientPageNb"></div>
+        <ul class="tvIndex inblock" id="tvIndex">
+            {% for catClient in catClients %}
+                <li class="tvIndex" value="cat{{ forloop.counter }}" onclick="zapChannel('{{ forloop.counter }}','{{ catClient.nom }}');return false;">
+                    <p class="tvIndex alignL">< {{ catClient.nom }}</p>
+                    <div class="preload" style="z-index:-99;" id="cat{{ forloop.counter }}">
+                        {% for client in catClient.clients.all %}
+                            <span>{{ client.logoURL }}</span><img title="{{ client.nom }}" src="" />
+                        {% endfor %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
     </div>
-
-{#    {% include 'snip/tvmenu.html' %}#}
-    <ul class="tvIndex inblock" id="tvIndex">
-        {% for catClient in catClients %}
-            <li class="tvIndex" value="cat{{ forloop.counter }}" onclick="zapChannel('{{ forloop.counter }}','{{ catClient.nom }}');return false;">
-                <p class="tvIndex alignL">< {{ catClient.nom }}</p>
-                <div class="preload" style="z-index:-99;" id="cat{{ forloop.counter }}">
-                    {% for client in catClient.clients.all %}
-                        <span>{{ client.logoURL }}</span><img title="{{ client.nom }}" src="" />
-                    {% endfor %}
-                </div>
-            </li>
-        {% endfor %}
-    </ul>
 {% endblock %}

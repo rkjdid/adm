@@ -1,3 +1,23 @@
+#playground {
+    margin-left: auto;
+    margin-right: auto;
+    height: 520px;
+    width: 1000px;
+    position: relative;
+    /*line-height: 1000px;*/
+}
+
+#flamand {
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/agence.flam.png') top center no-repeat;
+    position: absolute;
+    top:350px;
+    left: 58px;
+    width: 145px;
+    height: 154px;
+
+    z-index: 3;
+}
+
 #copyright {
     /*-webkit-animation: rotaz 5s infinite ease-in-out;*/
     /*-moz-animation: rotaz 5s infinite ease-in-out;*/
@@ -11,8 +31,6 @@
     width:114px;
     height:191px;
     position: absolute;
-    top: 0;
-    left: 50px;
     opacity: 0.25;
 }
 /*#copyright*/
@@ -36,8 +54,7 @@
 #nuage3 {
     background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/cloud-softbg2.png') top center no-repeat;
     position: absolute;
-    top: 0;
-    right: 8%;
+    right: 0;
     width: 115px;
     height: 208px;
 }
@@ -105,7 +122,7 @@
 #popIntegre {
     position: absolute;
     top: 65px;
-    left: 444px;
+    left: 333px;
     background: white;
 
     padding: 25px;
@@ -139,7 +156,7 @@
 #popSecteurs {
     position: absolute;
     top: 110px;
-    right: 250px;
+    right: 125px;
 
     min-width: 200px;
 

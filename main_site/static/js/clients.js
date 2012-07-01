@@ -3,6 +3,8 @@ var lcdScreen, lcdContext;
 
 var contourDrawn = false;
 
+var runningInterval;
+
 window.onload = function ()
 {
 //    defaultDisplay();
@@ -10,6 +12,7 @@ window.onload = function ()
 };
 
 $(document).ready(function () {
+    breakDisp = false;
     tvScreen = $('#tvScreen')[0];
     lcdScreen = $('#tvLcd')[0];
     tvContext = tvScreen.getContext("2d");
@@ -58,20 +61,28 @@ function drawMire()
 //    alert('Mire drawn');
 }
 
+
 function defaultDisplay ()
 {
-    clearDisplay();
-    lcdContext.font = "14px digital";
-    setTimeout (function (){
+    var cnt = 0;
+    runningInterval = setInterval(function() {
+        if (cnt > 40) {
+            clearInterval(runningInterval);
+            return;
+        }
+
+        cnt++;
+        clearDisplay();
+        lcdContext.font = "14px digital";
+        //        setTimeout (function (){
         lcdContext.fillText("/!\\ ERREUR", 17, 28);
         lcdContext.font = "12px";
         lcdContext.fillText("---------->",20, 48);
-    }, 800);
-
+        //        }, 800);
+    }, 50);
 }
 
-function clearDisplay()
-{
+function clearDisplay() {
     lcdContext.clearRect(0, 0, lcdScreen.width, lcdScreen.height);
 }
 
@@ -84,16 +95,25 @@ function digitalDisplay(nb, text)
     {
         text = text.substring(0, 12) + '-';
     }
+    var cnt = 0;
+    runningInterval = setInterval(function() {
+        if (cnt > 40) {
+            clearInterval(runningInterval);
+            return;
+        }
 
-    lcdContext.clearRect(0, 0, lcdScreen.width, lcdScreen.height);
-    lcdContext.font = "36px digital";
-    lcdContext.fillText(nb, 70, 28);
-    lcdContext.font = "14px digital";
-    lcdContext.fillText(text, 2, 49);
+        cnt++;
+        lcdContext.clearRect(0, 0, lcdScreen.width, lcdScreen.height);
+        lcdContext.font = "36px digital";
+        lcdContext.fillText(nb, 70, 28);
+        lcdContext.font = "14px digital";
+        lcdContext.fillText(text, 2, 49);
+    }, 50);
 }
 
 function zapChannel(nb, nom)
 {
+    clearInterval(runningInterval);
     digitalDisplay(nb, nom);
     drawLogos(nb, 0, false);
 }
