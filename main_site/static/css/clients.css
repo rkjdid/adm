@@ -17,7 +17,7 @@
 }
 
 #roiReine {
-    width: 190px;
+    width: 188px;
     height: 248px;
 
     top: 275px;
@@ -33,8 +33,8 @@
 {
     background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/tv+lcd-450.png")
     no-repeat top left;
-    min-height: 450px;
-    min-width:  662px;
+    min-height: 447px;
+    min-width:  659px;
     position: absolute;
     top : 44px;
     left: 145px;
@@ -122,8 +122,8 @@ div#tvButton, div#tvButton2
 {
     position: absolute;
 
-    height: 30px;
-    width: 30px;
+    width: 22px;
+    height: 24px;
 }
 
 div#tvButton

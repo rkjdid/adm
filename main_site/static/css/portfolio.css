@@ -152,8 +152,8 @@
 }
 
 .fiche {
-    width: 163px;
-    height: 193px;
+    width: 164px;
+    height: 196px;
     opacity: 0.75;
     transition: opacity 0.5s;
 
@@ -169,7 +169,7 @@
 
 #fiche0 {
     z-index: 2;
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.0.png');
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.0.png') no-repeat;
 
     left: 630px;
     top: 230px;
@@ -178,7 +178,7 @@
 }
 #fiche1 {
     z-index: 4;
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.1.png');
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.1.png') no-repeat;
 
     left: 595px;
     top: 310px;
@@ -187,7 +187,7 @@
 }
 #fiche2 {
     z-index: 5;
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.2.png');
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.2.png') no-repeat;
 
     left: 80px;
     top: 200px;
@@ -196,7 +196,7 @@
 }
 #fiche3 {
     z-index: 6;
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.3.png');
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.3.png') no-repeat;
 
     left: 155px;
     top: 258px;
@@ -205,7 +205,7 @@
 }
 #fiche4 {
     z-index: 8;
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.4.png');
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.4.png') no-repeat;
 
     left: 210px;
     top: 325px;
@@ -214,7 +214,7 @@
 }
 #fiche5 {
     z-index: 7;
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.5.png');
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.5.png') no-repeat;
 
     left: 310px;
     top: 273px;

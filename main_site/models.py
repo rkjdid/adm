@@ -22,8 +22,10 @@ logoHeight = 84
 # PageBook - won't be resized (232*432)
 pagebookWidth = 299
 pagebookHeight = 423
+#photoMembrme - will be resized
+photoMembreWidth = 80
+photoMembreHeight = 428
 
-#photo
 
 def scaleImg (path, wantedWidth, wantedHeight):
     im = Image.open(path)
@@ -159,6 +161,9 @@ class PhotoMembre (models.Model):
         _, self.photo.name = uniqueFile(settings.MEDIA_ROOT + 'equipe/' + self.photo.name)
         self.photoURL = self.photoURL_base + self.photo.name
 
+    def resizeImg(self):
+        scaleImg(self.photo.path, photoMembreWidth, photoMembreHeight)
+
     def __unicode__(self):
         return self.photo.path
 
@@ -275,5 +280,6 @@ pre_save.connect(buildImgURL, sender=PhotoMembre)
 #post_save.connect(buildImgURL, sender=PageBook)
 post_save.connect(resizeImg, sender=Client)
 post_save.connect(resizeImg, sender=PageBook)
+post_save.connect(resizeImg, sender=PhotoMembre)
 #post_save.connect(buildImgURL, sender=FicheRecette)
 #post_save.connect(buildImgURL, sender=PageBook)

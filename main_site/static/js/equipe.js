@@ -6,7 +6,7 @@ $(document).ready(function(){
         if($(this).hasClass('focus'))
             return;
 
-        $('#flashSnd')[0].play();
+//        $('#flashSnd')[0].play();
 
         $('.bubble.focus').removeClass('focus');
         $(this).addClass('focus');
