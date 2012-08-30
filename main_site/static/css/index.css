@@ -93,9 +93,33 @@
     position: relative;
 }
 
+#nuage1
+{
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/1.index.png') -866px 0 no-repeat;
+    position: absolute;
+    top: 0;
+    left: 12%;
+    width: 110px;
+    height: 155px;
+
+    animation: pendule1 7s infinite ease-in-out;
+}
+
+#nuage2
+{
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/1.index.png') -976px 0 no-repeat;
+    position: absolute;
+    top: 0;
+    right: 8%;
+    width: 115px;
+    height: 208px;
+
+    animation: pendule2 9s infinite ease-in-out;
+}
+
 #copyright
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/copytournant.png') top center no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/1.index.png') -358px 0 no-repeat;
     width:114px;
     height:191px;
     position: absolute;
@@ -105,7 +129,7 @@
 
 #buisson
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/buisson-semicacheur.png') top center no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/1.index.png') -94px 0 no-repeat;
     position: absolute;
     left: 678px;
     bottom: 115px;
@@ -117,7 +141,7 @@
 
 #cache
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/cache.png') top center no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/1.index.png') -226px 0 no-repeat;
     position: absolute;
     left: 678px;
     bottom: 0;
@@ -129,9 +153,9 @@
 
 #flamand
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/flamand.png') top center no-repeat;
-    width: 85px;
-    height: 128px;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/1.index.png') -10px 0 no-repeat;
+    width: 84px;
+    height: 123px;
     position: absolute;
     bottom: 35px;
     left: 718px;
@@ -140,11 +164,11 @@
 
 #uh
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/uh3.png') top center no-repeat;
-    width: 36px;
-    height: 32px;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/1.index.png') 0 0 no-repeat;
+    width: 10px;
+    height: 19px;
     position: absolute;
-    left: 740px;
+    left: 748px;
     top: 293px;
     opacity: 0;
 }
@@ -164,7 +188,7 @@
 
 #bclients.bulle
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/bulle.clients.png') top center no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/1.index.png') -551px 0 no-repeat;
     width: 73px;
     height: 59px;
     left: 556px;
@@ -173,7 +197,7 @@
 
 #bportfolio.bulle
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/bulle.portfolio.png') top center no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/1.index.png') -778px 0 no-repeat;
     width: 88px;
     height: 78px;
     left: 214px;
@@ -182,7 +206,7 @@
 
 #bagence.bulle
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/bulle.agence.png') top center no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/1.index.png') -472px 0 no-repeat;
     width: 79px;
     height: 70px;
     left: 598px;
@@ -191,7 +215,7 @@
 
 #bcontact.bulle
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/bulle.contact.png') top center no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/1.index.png') -624px 0 no-repeat;
     width: 85px;
     height: 60px;
     left: 449px;
@@ -200,7 +224,7 @@
 
 #bequipe.bulle
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/bulle.equipe.png') top center no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/1.index.png') -709px 0 no-repeat;
     width: 69px;
     height: 66px;
     left: 23px;
