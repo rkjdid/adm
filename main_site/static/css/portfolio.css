@@ -19,14 +19,25 @@
 
 #fouetMain {
     z-index: 0;
-    width: 693px;
-    height: 483px;
+    width: 397px;
+    height: 480px;
 
     position: absolute;
     top: 15px;
-    /*left: 125px;*/
 
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fouetmain.png') left no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/3.portfolio.png') 0 0 no-repeat;
+}
+
+#oeuf {
+    z-index: 2;
+    width: 166px;
+    height: 121px;
+
+    position: absolute;
+    left: 735px;
+    top: 375px;
+
+    background: url("http://rk.dyndns-server.com/ateliers.media/resources/3.portfolio.png") -2346px -362px no-repeat;
 }
 
 #bookWrapper {
@@ -42,7 +53,7 @@
     height: 480px;
     position: relative;
     z-index: 999;
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.openbook.png') left no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/3.portfolio.png') -397px 0 no-repeat;
 }
 
 #pageG, #pageD {
@@ -69,21 +80,21 @@
     width: 22px;
     height: 22px;
     bottom: 16px;
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.arrows.22.png');
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/3.portfolio.png') -1110px 0 no-repeat;
     z-index: 2;
 }
 
 #btnG {left: 18px;}
 
-#btnG               {background-position: 0px 22px;}
-#btnG.active        {background-position: 44px 22px;}
-#btnG.active:hover  {background-position: 22px 22px;}
+#btnG               {background-position: -1110px -22px;}
+#btnG.active        {background-position: -1132px -22px;}
+#btnG.active:hover  {background-position: -1154px -22px;}
 
 #btnD {right: 18px;}
 
-#btnD               {background-position: 0px 0px;}
-#btnD.active        {background-position: 44px 0;}
-#btnD.active:hover  {background-position: 22px 0;}
+#btnD               {background-position: -1110px 0;}
+#btnD.active        {background-position: -1132px 0;}
+#btnD.active:hover  {background-position: -1154px 0;}
 
 #pgNbG {left: 45px;}
 #pgNbD {right: 45px;}
@@ -101,14 +112,14 @@
 
 #book {
     z-index: 1;
-    width: 397px;
-    height: 483px;
+    width: 360px;
+    height: 430px;
 
     position: absolute;
-    top: 40px;
-    left: 248px;
+    top: 60px;
+    left: 288px;
 
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.bookrose.png') no-repeat center;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/3.portfolio.png') -1176px 0 no-repeat;
 }
 
 #book.shrink {
@@ -122,16 +133,6 @@
 
 #book.fadeIn {
     opacity: 1;
-}
-
-#oeuf {
-    z-index: 2;
-    width: 166px;
-    height: 122px;
-
-    position: absolute;
-    left: 735px;
-    top: 375px;
 }
 
 .preload {
@@ -169,7 +170,7 @@
 
 #fiche0 {
     z-index: 2;
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.0.png') no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/3.portfolio.png') -1536px 0 no-repeat;
 
     left: 630px;
     top: 230px;
@@ -178,7 +179,7 @@
 }
 #fiche1 {
     z-index: 4;
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.1.png') no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/3.portfolio.png') -1700px 0 no-repeat;
 
     left: 595px;
     top: 310px;
@@ -187,7 +188,7 @@
 }
 #fiche2 {
     z-index: 5;
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.2.png') no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/3.portfolio.png') -1862px 0 no-repeat;
 
     left: 80px;
     top: 200px;
@@ -196,7 +197,7 @@
 }
 #fiche3 {
     z-index: 6;
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.3.png') no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/3.portfolio.png') -2026px 0 no-repeat;
 
     left: 155px;
     top: 258px;
@@ -205,7 +206,7 @@
 }
 #fiche4 {
     z-index: 8;
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.4.png') no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/3.portfolio.png') -2187px 0 no-repeat;
 
     left: 210px;
     top: 325px;
@@ -214,10 +215,10 @@
 }
 #fiche5 {
     z-index: 7;
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/portfolio.fiche.vierge.5.png') no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/3.portfolio.png') -2350px 0 no-repeat;
 
     left: 310px;
-    top: 273px;
+    top: 248px;
 
     transform: rotate(-2deg) translate3d( 0, 0, 0);
 }

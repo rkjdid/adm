@@ -81,7 +81,7 @@
     transition-delay: 0;
 
     right: 50px;
-    top: 50px;
+    top: 65px;
     width: 80px;
     height: 434px;
     z-index: 99;
@@ -113,6 +113,7 @@
     cursor: default;
 
     color: inherit;
+    font-weight: bold;
 }
 
 #pb0 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.0.png"); z-index: 10;}
