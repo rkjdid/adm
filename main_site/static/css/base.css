@@ -30,20 +30,15 @@ a:hover
 
 #bodyContainer
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/bg3.png') no-repeat top;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/0.commonbg.jpg') no-repeat top;
 }
+
 /** Rounded div popups **/
 div.roundedPop
 {
-    border-color: #AAAAAA;
-    border:1px solid;
+    border: #AAAAAA 1px solid;
     box-shadow: 3px 3px 2px #AAAAAA;
-    border-radius:25px;
-}
-
-.closePop
-{
-
+    border-radius: 25px;
 }
 
 /***GlassPane***/

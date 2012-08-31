@@ -7,12 +7,12 @@
 }
 
 #flamand {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/agence.flam.png') top center no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/2.agence.png') 0 0 no-repeat;
     position: absolute;
     top:350px;
     left: 58px;
-    width: 145px;
-    height: 154px;
+    width: 131px;
+    height: 150px;
 
     z-index: 3;
 }
@@ -22,7 +22,7 @@
 }
 
 #copyright {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/ps/copytournant.png') top center no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/2.agence.png') -131px 0 no-repeat;
     width:114px;
     height:191px;
     position: absolute;
@@ -30,15 +30,16 @@
 }
 
 #nuage3 {
-    animation: pendule2 9s infinite ease-in-out;
+
 }
 
 #nuage3 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/cloud-softbg2.png') top center no-repeat;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/2.agence.png') -245px 0 no-repeat;
     position: absolute;
     right: 0;
-    width: 115px;
-    height: 208px;
+    width: 111px;
+    height: 187px;
+    animation: pendule2 9s infinite ease-in-out;
 }
 
 #agencePop {
@@ -56,7 +57,7 @@
 }
 
 #buisson {
-    background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/agence.buissons.png");
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/2.agence.png') -356px 0 no-repeat;
     width: 164px;
     height: 78px;
 
@@ -65,115 +66,115 @@
     bottom: -35px;
 }
 
-#popSecteurs {
-    position: absolute;
-    top: 110px;
-    right: 250px;
+/*#popSecteurs {*/
+    /*position: absolute;*/
+    /*top: 110px;*/
+    /*right: 250px;*/
 
-    min-width: 200px;
+    /*min-width: 200px;*/
 
-    background: white;
+    /*background: white;*/
 
-    padding: 25px;
-}
+    /*padding: 25px;*/
+/*}*/
 
-#popSecteurs.pop {
-    display: block;
-    z-index: 20;
-}
+/*#popSecteurs.pop {*/
+    /*display: block;*/
+    /*z-index: 20;*/
+/*}*/
 
-.secteur {
-    height: 55px;
-    line-height: 55px;
-}
+/*.secteur {*/
+    /*height: 55px;*/
+    /*line-height: 55px;*/
+/*}*/
 
-.secteur > div {
-    position: absolute;
-    left: 20px;
-    margin-right: 70px;
-    min-height: 55px;
-    min-width: 64px;
-}
+/*.secteur > div {*/
+    /*position: absolute;*/
+    /*left: 20px;*/
+    /*margin-right: 70px;*/
+    /*min-height: 55px;*/
+    /*min-width: 64px;*/
+/*}*/
 
-.secteur span {
-    margin-left: 65px;
-}
+/*.secteur span {*/
+    /*margin-left: 65px;*/
+/*}*/
 
-#popIntegre {
-    position: absolute;
-    top: 65px;
-    left: 333px;
-    background: white;
+/*#popIntegre {*/
+    /*position: absolute;*/
+    /*top: 65px;*/
+    /*left: 333px;*/
+    /*background: white;*/
 
-    padding: 25px;
-    min-height: 135px;
+    /*padding: 25px;*/
+    /*min-height: 135px;*/
 
-    display: none;
-}
+    /*display: none;*/
+/*}*/
 
-#popIntegre.pop {
-    display: block;
-    z-index: 999;
-}
+/*#popIntegre.pop {*/
+    /*display: block;*/
+    /*z-index: 999;*/
+/*}*/
 
-#popIntegre p {
-    text-align: left;
-    margin-bottom: 85px;
-}
+/*#popIntegre p {*/
+    /*text-align: left;*/
+    /*margin-bottom: 85px;*/
+/*}*/
 
-#cochon {
-    width: 85px;
-    height: 95px;
+/*#cochon {*/
+    /*width: 85px;*/
+    /*height: 95px;*/
 
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+    /*position: absolute;*/
+    /*bottom: 10px;*/
+    /*right: 10px;*/
 
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/agence.cochon.png') center no-repeat;
-}
-
-
-#popSecteurs {
-    position: absolute;
-    top: 110px;
-    right: 125px;
-
-    min-width: 200px;
-
-    background: white;
-
-    padding: 25px;
-
-    display: none;
-}
-
-#popSecteurs.pop {
-    display: block;
-    z-index: 999;
-}
-
-#poleAgro{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minilegumes.png') center no-repeat;}
-#poleTextile {background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/miniceintre.png') center no-repeat;}
-#poleLuxe{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minidiams.png') center no-repeat;}
-#poleBTP{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minicaissaout.png') center no-repeat;}
-#poleDistribution{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minicaddi.png') center no-repeat;}
-#poleFinances{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minipancake.png') center no-repeat;}
+    /*background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/agence.cochon.png') center no-repeat;*/
+/*}*/
 
 
-#popPole {
-    position: absolute;
-    top: 250px;
-    left: 125px;
+/*#popSecteurs {*/
+    /*position: absolute;*/
+    /*top: 110px;*/
+    /*right: 125px;*/
 
-    min-width: 200px;
-    background: white;
+    /*min-width: 200px;*/
 
-    padding: 25px;
+    /*background: white;*/
 
-    display: none;
-}
+    /*padding: 25px;*/
 
-#popPole.pop {
-    display: block;
-    z-index: 999;
-}
+    /*display: none;*/
+/*}*/
+
+/*#popSecteurs.pop {*/
+    /*display: block;*/
+    /*z-index: 999;*/
+/*}*/
+
+/*#poleAgro{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minilegumes.png') center no-repeat;}*/
+/*#poleTextile {background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/miniceintre.png') center no-repeat;}*/
+/*#poleLuxe{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minidiams.png') center no-repeat;}*/
+/*#poleBTP{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minicaissaout.png') center no-repeat;}*/
+/*#poleDistribution{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minicaddi.png') center no-repeat;}*/
+/*#poleFinances{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minipancake.png') center no-repeat;}*/
+
+
+/*#popPole {*/
+    /*position: absolute;*/
+    /*top: 250px;*/
+    /*left: 125px;*/
+
+    /*min-width: 200px;*/
+    /*background: white;*/
+
+    /*padding: 25px;*/
+
+    /*display: none;*/
+/*}*/
+
+/*#popPole.pop {*/
+    /*display: block;*/
+    /*z-index: 999;*/
+/*}*/
