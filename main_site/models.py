@@ -53,6 +53,17 @@ def scaleImg (path, wantedWidth, wantedHeight):
 ###################################################################
 #-Page CONTACT----------------------------------------------------
 ###################################################################
+class Accueil (models.Model):
+    """
+    Accueil (texte)
+    """
+    content = models.TextField (default='Texte de la page d\'accueil')
+    def __unicode__(self):
+        return 'accueil'
+
+###################################################################
+#-Page CONTACT----------------------------------------------------
+###################################################################
 class Contact (models.Model):
     """
     Contacts (page CONTACT)

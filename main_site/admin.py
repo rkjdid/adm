@@ -14,6 +14,7 @@ class MembreEquipeAdmin(admin.ModelAdmin):
     list_editable = ['nom', 'statut', 'position', 'visible']
     inlines = [PhotoMembreInline]
 
+
 class ClientInline(admin.StackedInline):
     model = Client
     fields = ['nom', 'logo']#, 'logoURL']
@@ -37,11 +38,17 @@ class BookAdmin(admin.ModelAdmin):
     fields = ['theme']
     inlines = [FicheRecetteInline, PageBookInline]
 
+class AccueilAdmin(admin.ModelAdmin):
+    fields = ['content']
+    max_num = 1
+    extra = 0
+
 
 admin.site.register(CategorieClient, CategorieClientAdmin)
 admin.site.register(MembreEquipe, MembreEquipeAdmin)
 admin.site.register(Book, BookAdmin)
 admin.site.register(Contact)
+admin.site.register(Accueil, AccueilAdmin)
 
 
 
