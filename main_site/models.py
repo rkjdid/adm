@@ -11,6 +11,7 @@ from PIL import Image
 # File saving
 import os
 import tempfile
+from datetime import datetime
 
 # Settings
 from ateliers_a import settings
@@ -44,24 +45,31 @@ def scaleImg (path, wantedWidth, wantedHeight):
     im.save(path)
 
 ###################################################################
-#-Général----------------------------------------------------
+#-Général---------------------------------------------------------#
 ###################################################################
 #def resize (image, max_height, max_width):
 #    im = Image.open(urllib.urlopen())
 
 ###################################################################
-#-Page CONTACT----------------------------------------------------
+#-Page ACCUEIL----------------------------------------------------#
 ###################################################################
 class Accueil (models.Model):
     """
     Accueil (texte)
     """
-    content = models.TextField (default='Texte de la page d\'accueil')
+    class Meta:
+        ordering = ['-date']
+
+    content = models.TextField (default='Bienvenue sur le site des ateliers des marques(c).')
+    date    = models.DateField (default=datetime.now)
+    author  = models.CharField (max_length=75, default='')
+    display = models.BooleanField (default=True)
+
     def __unicode__(self):
-        return 'accueil'
+        return self.author + '#' + str(self.id) + '@' + str(self.date)
 
 ###################################################################
-#-Page CONTACT----------------------------------------------------
+#-Page CONTACT----------------------------------------------------#
 ###################################################################
 class Contact (models.Model):
     """

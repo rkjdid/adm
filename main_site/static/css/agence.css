@@ -1,23 +1,13 @@
 #agencePop p {
     margin-bottom: 1.5em;
+    text-align: justify;
 }
 #playground {
     margin-left: auto;
     margin-right: auto;
-    height: 520px;
+    min-height: 520px;
     width: 1000px;
     position: relative;
-}
-
-#flamand {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/2.agence.png') 0 0 no-repeat;
-    position: absolute;
-    top:350px;
-    left: 58px;
-    width: 131px;
-    height: 150px;
-
-    z-index: 3;
 }
 
 #copyright {
@@ -28,18 +18,12 @@
     background: url('http://rk.dyndns-server.com/ateliers.media/resources/2.agence.png') -131px 0 no-repeat;
     width:114px;
     height:191px;
-    position: absolute;
     opacity: 0.25;
 }
 
 #nuage3 {
-
-}
-
-#nuage3 {
     background: url('http://rk.dyndns-server.com/ateliers.media/resources/2.agence.png') -245px 0 no-repeat;
-    position: absolute;
-    right: 0;
+    right: 115px;
     width: 111px;
     height: 187px;
     animation: pendule2 9s infinite ease-in-out;
@@ -47,16 +31,43 @@
 
 #agencePop {
     position: relative;
-    top: 75px;
+    top: 45px;
     min-width: 650px;
     min-height: 320px;
 
     max-width: 650px;
-    max-height: 320px;
 
     background: white;
 
     padding: 40px;
+    margin-bottom: 115px;
+
+    font-family: 'Quicksand', 'Bitstream Vera Sans', sans-serif;
+    font-size: 1.2em;
+}
+
+.sign {
+    font-size: 0.7em;
+    text-align: right;
+}
+
+.news {
+    margin-bottom: 2em;
+    background: #f8f8f8;
+    padding: 25px;
+    border-radius: 25px;
+}
+
+#flamand {
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/2.agence.png') 0 0 no-repeat;
+    width: 131px;
+    height: 150px;
+
+    position: absolute;
+    bottom:-35px;
+    left: -78px;
+
+    z-index: 3;
 }
 
 #buisson {
@@ -69,115 +80,330 @@
     bottom: -35px;
 }
 
-/*#popSecteurs {*/
-    /*position: absolute;*/
-    /*top: 110px;*/
-    /*right: 250px;*/
 
-    /*min-width: 200px;*/
+/************************************************************************************************************/
+/************************************************************************************************************/
+/**************************************BASE.CSS**************************************************************/
+/************************************************************************************************************/
+/************************************************************************************************************/
+*
+{
+    margin: 0;
+    padding: 0;
+}
 
-    /*background: white;*/
+body
+{
+    color: #696969;
+    font-family: "Bitstream Vera Sans Mono", Arial, sans-serif;
+    text-align: center;
+    font-size: 100%;
+}
 
-    /*padding: 25px;*/
-/*}*/
+ul
+{
+    list-style: none;
+}
 
-/*#popSecteurs.pop {*/
-    /*display: block;*/
-    /*z-index: 20;*/
-/*}*/
+a
+{
+    color: #b8a6b2;
+    text-decoration: none;
+}
 
-/*.secteur {*/
-    /*height: 55px;*/
-    /*line-height: 55px;*/
-/*}*/
+a:hover
+{
+    color: #ff69b4;
+}
 
-/*.secteur > div {*/
-    /*position: absolute;*/
-    /*left: 20px;*/
-    /*margin-right: 70px;*/
-    /*min-height: 55px;*/
-    /*min-width: 64px;*/
-/*}*/
+#bodyContainer
+{
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/0.commonbg.jpg') no-repeat top;
+}
 
-/*.secteur span {*/
-    /*margin-left: 65px;*/
-/*}*/
+/** Rounded div popups **/
+div.roundedPop
+{
+    border: #AAAAAA 1px solid;
+    box-shadow: 3px 3px 2px #AAAAAA;
+    border-radius: 25px;
+}
 
-/*#popIntegre {*/
-    /*position: absolute;*/
-    /*top: 65px;*/
-    /*left: 333px;*/
-    /*background: white;*/
+/***GlassPane***/
+#glassPane {
+    position: fixed;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: gray;
+    z-index: 0;
 
-    /*padding: 25px;*/
-    /*min-height: 135px;*/
+    transition: opacity 0.5s linear;
+}
 
-    /*display: none;*/
-/*}*/
+#glassPane.fadeIn {
+    width: 100%;
+    height: 100%;
+    z-index: 128;
+    opacity: 0.6;
+}
 
-/*#popIntegre.pop {*/
-    /*display: block;*/
-    /*z-index: 999;*/
-/*}*/
+#topOfTheWarp {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
 
-/*#popIntegre p {*/
-    /*text-align: left;*/
-    /*margin-bottom: 85px;*/
-/*}*/
+.link {
+    color: #ff69b4;
+    cursor: pointer;
+}
 
-/*#cochon {*/
-    /*width: 85px;*/
-    /*height: 95px;*/
+.link:hover {
+    color: #696969;
+}
 
-    /*position: absolute;*/
-    /*bottom: 10px;*/
-    /*right: 10px;*/
+/** Align **/
+.alignC             {text-align: center;}
+.alignR             {text-align: right;}
+.alignL             {text-align: left;}
 
-    /*background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/agence.cochon.png') center no-repeat;*/
-/*}*/
+.valignC            {vertical-align: middle;}
+.valignT            {vertical-align: top;}
+.valignB            {vertical-align: bottom;}
 
+/** Display **/
+.inblock            {display: inline-block;}
+.inline             {display: inline;}
+.block              {display: block;}
+.hidden             {display: none;}
+.fixed              {position: fixed;}
 
-/*#popSecteurs {*/
-    /*position: absolute;*/
-    /*top: 110px;*/
-    /*right: 125px;*/
+/** Float **/
+.floatR             {float: right;}
 
-    /*min-width: 200px;*/
+/** Fonts **/
+.small              {font-size: 0.65em;}
 
-    /*background: white;*/
-
-    /*padding: 25px;*/
-
-    /*display: none;*/
-/*}*/
-
-/*#popSecteurs.pop {*/
-    /*display: block;*/
-    /*z-index: 999;*/
-/*}*/
-
-/*#poleAgro{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minilegumes.png') center no-repeat;}*/
-/*#poleTextile {background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/miniceintre.png') center no-repeat;}*/
-/*#poleLuxe{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minidiams.png') center no-repeat;}*/
-/*#poleBTP{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minicaissaout.png') center no-repeat;}*/
-/*#poleDistribution{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minicaddi.png') center no-repeat;}*/
-/*#poleFinances{background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/minipancake.png') center no-repeat;}*/
+/** Fixes **/
+img                 {border: none;} /* IE blue border fix */
 
 
-/*#popPole {*/
-    /*position: absolute;*/
-    /*top: 250px;*/
-    /*left: 125px;*/
+/*** Common animations ***/
+@keyframes rotaz {
+    0%, 100% {transform: rotate3d(0, 1, 0, 0deg);}
+    50% {transform: rotate3d(0, 1, 0, -40deg);}
+}
 
-    /*min-width: 200px;*/
-    /*background: white;*/
+@keyframes pendule1 {
+    0%, 100% {
+        transform: rotate(14deg);
+        transform-origin: 67px 0px;
+    }
+    50% {
+        transform: rotate(-14deg);
+        transform-origin: 67px 0px;
+    }
+}
 
-    /*padding: 25px;*/
+@keyframes pendule2 {
+    0%, 100% {
+        transform: rotate(-8deg);
+        transform-origin: 60px 0px;
+    }
+    50% {
+        transform: rotate(8deg);
+        transform-origin: 60px 0px;
+    }
+}
 
-    /*display: none;*/
-/*}*/
 
-/*#popPole.pop {*/
-    /*display: block;*/
-    /*z-index: 999;*/
-/*}*/
+/* HEADFOOT */
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Quicksand Regular'), local('Quicksand-Regular'), url('http://themes.googleusercontent.com/static/fonts/quicksand/v2/sKd0EMYPAh5PYCRKSryvWz8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
+}
+
+/** Layout **/
+header, #bodyContainer, footer
+{
+    position: absolute;
+    left: 0; right: 0;
+
+    z-index: 11;
+}
+
+header
+{
+    height: 64px;
+    top: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#bodyContainer
+{
+    top: 64px;
+    bottom: 45px;
+    margin: 0;
+}
+
+#bodyContainer.index
+{
+    top: 0;
+    bottom: 70px;
+}
+
+#bodyContainer.scrollY
+{
+    overflow: auto;
+}
+
+footer
+{
+    height: 45px;
+    bottom: 0;
+    z-index: 10;
+}
+
+footer.index
+{
+    height: 70px;
+}
+
+/** Header **/
+nav
+{
+    cursor: default;
+
+    border-bottom: 1px solid gray;
+    background-color: white;
+}
+
+nav:hover {
+    cursor: default;
+}
+
+nav > ul
+{
+    font-family: "Quicksand", sans-serif;
+    font-weight: 100;
+    font-size: 1.3em;
+
+    padding-top: 20px;
+    padding-bottom: 15px;
+    top: 5px;
+    min-width: 700px;
+}
+
+nav > ul:hover a.active
+{
+    padding: 16px 20px 30px 20px;
+    background-color: inherit;
+    border: none;
+    box-shadow: none;
+    color: inherit;
+}
+
+nav > ul:hover a.active:hover
+{
+    padding: 16px 19px 30px 19px;
+    background-color: #fadce9;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    border-left: 1px solid #808080;
+    border-bottom: none;
+    border-radius: 5px;
+    box-shadow: -2px -1px 3px #888;
+    color: #ff69b4;
+}
+
+nav > ul > li
+{
+    margin-right: -4px;
+}
+
+nav > ul > li > a
+{
+    padding: 16px 20px 30px 20px;
+}
+nav  ul > li > a.active:hover
+{
+    padding: 16px 20px 30px 20px;
+}
+
+nav > ul > li > a.active
+{
+    padding: 16px 19px 30px 19px;
+    background-color: #fadce9;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    border-left: 1px solid #808080;
+    border-bottom: none;
+    border-radius: 5px;
+    box-shadow: -2px -1px 3px #888;
+    color: #ff69b4;
+
+    transition-property: background-color, box-shadow;
+    transition-duration: 0.3s;
+}
+
+nav > ul > li > a:hover
+{
+    cursor: default;
+    padding: 16px 19px 30px 19px;
+    background-color: #fadce9;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    border-left: 1px solid #808080;
+    border-bottom: none;
+    border-radius: 5px;
+    box-shadow: -2px -1px 3px #888;
+
+    transition-property: background-color, box-shadow;
+    transition-duration: 0.5s;
+}
+
+nav > .logo
+{
+    position:relative;
+}
+
+/** Footer **/
+footer
+{
+    text-align: center;
+    border-top: 1px solid gray;
+    background: #dddddd;
+}
+
+footer > p
+{
+    position:absolute;
+    height: 2em;
+}
+
+footer > div
+{
+    top: 10px;
+    position: relative;
+}
+
+footer.index > div
+{
+    top: 25px;
+}
+
+footer > img
+{
+    position: absolute;
+    height: 70px;
+    right: 10%;
+}
+/* HEADFOOT */

@@ -9,25 +9,21 @@
 
     <link rel="shortcut icon" href="/static/img/(c)nobg.png" type="image/x-icon" />
 
-    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/jquery.min.js"></script>
-    {% if modernized == True %}
-        <script type="text/javascript" src="{{ STATIC_URL }}js/extra/modernizr.custom.27088.js"></script>
-    {% endif %}
-    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/prefixfree.min.js"></script>
-    {#    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/jquery.sound.js"></script>#}
-    <script type="text/javascript" src="{{ STATIC_URL }}js/base.js"></script>
+    {# Some GOOGLEFONTS #}
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:400|Coming+Soon' rel='stylesheet' type='text/css'>
+    {% block extracss %}{% endblock %}
+
+    {# jquery.min.js + prefixfree.min.js + (modernizr.custom.27088.js #}
+{% if modernized == True %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/merged.js"></script>
+{% else %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/merged.noMdrnzr.js"></script>
+{% endif %}
     <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <script src="{{ STATIC_URL }}js/extra/excanvas_r3/excanvas.compiled.js"></script>
     <![endif]-->
     {% block extrajs %}{% endblock %}
-
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/base.css" />
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/headfoot.css" />
-    {% block extracss %}{% endblock %}
-
-    {# Some GOOGLEFONTS #}
-    <link href='http://fonts.googleapis.com/css?family=Quicksand:400|Coming+Soon' rel='stylesheet' type='text/css'>
 </head>
 <body>
 {% if pageN != 'index' %}
