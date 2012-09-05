@@ -1,3 +1,15 @@
+/*******FONTS*******/
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/static/font/quicksand/quicksand.eot');
+    src: local('Quicksand Regular'), local('Quicksand-Regular'),
+         url('/static/font/quicksand/quicksand.ttf') format('truetype'),
+         url('/static/font/quicksand/quicksand.woff') format('woff');
+}
+/*******FONTS*******/
+
 /***Animations***/
 @keyframes shrink {
     0% {transform: scale(1);}
@@ -364,15 +376,7 @@ img                 {border: none;} /* IE blue border fix */
     }
 }
 
-
 /* HEADFOOT */
-@font-face {
-    font-family: 'Quicksand';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Quicksand Regular'), local('Quicksand-Regular'), url('http://themes.googleusercontent.com/static/fonts/quicksand/v2/sKd0EMYPAh5PYCRKSryvWz8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
-}
-
 /** Layout **/
 header, #bodyContainer, footer
 {

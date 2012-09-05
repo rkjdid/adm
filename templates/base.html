@@ -9,21 +9,7 @@
 
     <link rel="shortcut icon" href="/static/img/(c)nobg.png" type="image/x-icon" />
 
-    {# Some GOOGLEFONTS #}
-    <link href='http://fonts.googleapis.com/css?family=Quicksand:400|Coming+Soon' rel='stylesheet' type='text/css'>
     {% block extracss %}{% endblock %}
-
-    {# jquery.min.js + prefixfree.min.js + (modernizr.custom.27088.js #}
-{% if modernized == True %}
-    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/merged.js"></script>
-{% else %}
-    <script type="text/javascript" src="{{ STATIC_URL }}js/extra/merged.noMdrnzr.js"></script>
-{% endif %}
-    <!--[if lt IE 9]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <script src="{{ STATIC_URL }}js/extra/excanvas_r3/excanvas.compiled.js"></script>
-    <![endif]-->
-    {% block extrajs %}{% endblock %}
 </head>
 <body>
 {% if pageN != 'index' %}
@@ -46,5 +32,17 @@
         </div>
 {% if pageN == 'index' %}<img class="inblock valignC logo" src="{{ STATIC_URL}}img/logo.nobg.gif" />{% endif %}
     </footer>
+
+{# jquery.min.js + prefixfree.min.js + (modernizr.custom.27088.js #}
+{% if modernized == True %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/merged.js"></script>
+{% else %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/merged.noMdrnzr.js"></script>
+{% endif %}
+<!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="{{ STATIC_URL }}js/extra/excanvas_r3/excanvas.compiled.js"></script>
+    <![endif]-->
+{% block extrajs %}{% endblock %}
 </body>
 </html>

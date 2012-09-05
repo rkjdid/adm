@@ -266,11 +266,6 @@ a:hover
     color: #ff69b4;
 }
 
-#bodyContainer
-{
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/0.commonbg.png') no-repeat top;
-}
-
 /** Rounded div popups **/
 div.roundedPop
 {
@@ -373,13 +368,6 @@ img                 {border: none;} /* IE blue border fix */
 
 
 /* HEADFOOT */
-@font-face {
-    font-family: 'Quicksand';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Quicksand Regular'), local('Quicksand-Regular'), url('http://themes.googleusercontent.com/static/fonts/quicksand/v2/sKd0EMYPAh5PYCRKSryvWz8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
-}
-
 /** Layout **/
 header, #bodyContainer, footer
 {
@@ -442,7 +430,7 @@ nav:hover {
 
 nav > ul
 {
-    font-family: "Quicksand", sans-serif;
+    font-family: sans-serif;
     font-weight: 100;
     font-size: 1.3em;
 

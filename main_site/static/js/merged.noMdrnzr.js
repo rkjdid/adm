@@ -15,3 +15,53 @@
     params:"1px + 5%"},element:{property:"backgroundImage",params:"#foo"},"cross-fade":{property:"backgroundImage",params:"url(a.png), url(b.png), 50%"}};c["repeating-linear-gradient"]=c["repeating-radial-gradient"]=c["radial-gradient"]=c["linear-gradient"];var f={initial:"color","zoom-in":"cursor","zoom-out":"cursor",box:"display",flexbox:"display","inline-flexbox":"display",flex:"display","inline-flex":"display"};a.functions=[];a.keywords=[];var e=document.createElement("div").style,d;for(d in c){var g=
     c[d],h=g.property,g=d+"("+g.params+")";!b(g,h)&&b(a.prefix+g,h)&&a.functions.push(d)}for(var j in f)h=f[j],!b(j,h)&&b(a.prefix+j,h)&&a.keywords.push(j)})();(function(){function b(a){e.textContent=a+"{}";return!!e.sheet.cssRules.length}var c={":read-only":null,":read-write":null,":any-link":null,"::selection":null},f={keyframes:"name",viewport:null,document:'regexp(".")'};a.selectors=[];a.atrules=[];var e=h.appendChild(document.createElement("style")),d;for(d in c){var g=d+(c[d]?"("+c[d]+")":"");!b(g)&&
     b(a.prefixSelector(g))&&a.selectors.push(d)}for(var k in f)g=k+" "+(f[k]||""),!b("@"+g)&&b("@"+a.prefix+g)&&a.atrules.push(k);h.removeChild(e)})();a.valueProperties=["transition","transition-property"];h.className+=" "+a.prefix;StyleFix.register(a.prefixCSS)}})(document.documentElement);
+/** Single Finger scroll (ipad) Fix -- test **/
+/* This function makes a div scrollable with android and iphone */
+
+function isTouchDevice(){
+    /* Added Android 3.0 honeycomb detection because touchscroll.js breaks
+     the built in div scrolling of android 3.0 mobile safari browser */
+    if((navigator.userAgent.match(/android 3/i)) ||
+        (navigator.userAgent.match(/honeycomb/i)))
+        return false;
+    try{
+        document.createEvent("TouchEvent");
+        return true;
+    }catch(e){
+        return false;
+    }
+}
+
+function touchScroll(id){
+    if(isTouchDevice()){ //if touch events exist...
+        var el=document.getElementsByClassName(id)[0];
+        var scrollStartPosY=0;
+        var scrollStartPosX=0;
+
+        el.addEventListener("touchstart", function(event) {
+            scrollStartPosY=this.scrollTop+event.touches[0].pageY;
+            scrollStartPosX=this.scrollLeft+event.touches[0].pageX;
+            //event.preventDefault(); // Keep this remarked so you can click on buttons and links in the div
+        },false);
+
+        el.addEventListener("touchmove", function(event) {
+            // These if statements allow the full page to scroll (not just the div) if they are
+            // at the top of the div scroll or the bottom of the div scroll
+            // The -5 and +5 below are in case they are trying to scroll the page sideways
+            // but their finger moves a few pixels down or up.  The event.preventDefault() function
+            // will not be called in that case so that the whole page can scroll.
+            if ((this.scrollTop < this.scrollHeight-this.offsetHeight &&
+                this.scrollTop+event.touches[0].pageY < scrollStartPosY-5) ||
+                (this.scrollTop != 0 && this.scrollTop+event.touches[0].pageY > scrollStartPosY+5))
+                event.preventDefault();
+            if ((this.scrollLeft < this.scrollWidth-this.offsetWidth &&
+                this.scrollLeft+event.touches[0].pageX < scrollStartPosX-5) ||
+                (this.scrollLeft != 0 && this.scrollLeft+event.touches[0].pageX > scrollStartPosX+5))
+                event.preventDefault();
+            this.scrollTop=scrollStartPosY-event.touches[0].pageY;
+            this.scrollLeft=scrollStartPosX-event.touches[0].pageX;
+        },false);
+    }
+}
+
+touchScroll('scrollFix');

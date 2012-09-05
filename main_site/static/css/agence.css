@@ -1,3 +1,15 @@
+/*******FONTS*******/
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/static/font/quicksand/quicksand.eot');
+    src: local('Quicksand Regular'), local('Quicksand-Regular'),
+         url('/static/font/quicksand/quicksand.ttf') format('truetype'),
+         url('/static/font/quicksand/quicksand.woff') format('woff');
+}
+/*******FONTS*******/
+
 #agencePop p {
     margin-bottom: 1.5em;
     text-align: justify;
@@ -6,6 +18,7 @@
     margin-left: auto;
     margin-right: auto;
     min-height: 520px;
+
     width: 1000px;
     position: relative;
 }
@@ -23,7 +36,7 @@
 
 #nuage3 {
     background: url('http://rk.dyndns-server.com/ateliers.media/resources/2.agence.png') -245px 0 no-repeat;
-    right: 115px;
+    right: 50px;
     width: 111px;
     height: 187px;
     animation: pendule2 9s infinite ease-in-out;
@@ -32,10 +45,9 @@
 #agencePop {
     position: relative;
     top: 45px;
-    min-width: 650px;
-    min-height: 320px;
 
-    max-width: 650px;
+    width: 650px;
+    min-height: 320px;
 
     background: white;
 
@@ -223,13 +235,6 @@ img                 {border: none;} /* IE blue border fix */
 
 
 /* HEADFOOT */
-@font-face {
-    font-family: 'Quicksand';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Quicksand Regular'), local('Quicksand-Regular'), url('http://themes.googleusercontent.com/static/fonts/quicksand/v2/sKd0EMYPAh5PYCRKSryvWz8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
-}
-
 /** Layout **/
 header, #bodyContainer, footer
 {

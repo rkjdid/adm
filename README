@@ -1,23 +1,11 @@
-todo :)
+ToDo :::
 
+iPad -> handle double touch for index page (see animations before entering page)
+iPad -> handle 1-finger scrolling for page Agence
 
--Menu /
-    ok
--Footer /
-    ok
--Index /
-    todo
--Agence /
-    todo
--Portfolio /
-    In the way of getting good animations
--Equipe /
-    todo
--Clients /
-    ToDo:
-    animation,
-    sons (voir fabitoun's PdB),
-    ombres contour écran,
-    disposition/resolution logos
--Contact /
-    todo
+deployer -> se renseigner sérieusement
+
+facturer :)
+
+compresser -> css & js, have a look at django-pipeline - looks fresh
+compresser -> coté webserver, rien à faire en dév (pensé-je)

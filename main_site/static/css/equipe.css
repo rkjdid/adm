@@ -1,3 +1,25 @@
+/*******FONTS*******/
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/static/font/quicksand/quicksand.eot');
+    src: local('Quicksand Regular'), local('Quicksand-Regular'),
+         url('/static/font/quicksand/quicksand.ttf') format('truetype'),
+         url('/static/font/quicksand/quicksand.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'ComingSoon';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/static/font/comingsoon/comingsoon.eot');
+    src: local('ComingSoon'), local('ComingSoon'),
+         url('/static/font/comingsoon/comingsoon.ttf') format('truetype'),
+         url('/static/font/comingsoon/comingsoon.woff') format('woff');
+}
+/*******FONTS*******/
+
 #playground {
     position: relative;
     min-height: 500px;
@@ -140,7 +162,7 @@
 
     position: absolute;
 
-    font-family: 'Coming Soon', sans-serif;
+    font-family: 'ComingSoon', sans-serif;
 
     z-index: 20;
 }
@@ -377,15 +399,7 @@ img                 {border: none;} /* IE blue border fix */
     }
 }
 
-
 /* HEADFOOT */
-@font-face {
-    font-family: 'Quicksand';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Quicksand Regular'), local('Quicksand-Regular'), url('http://themes.googleusercontent.com/static/fonts/quicksand/v2/sKd0EMYPAh5PYCRKSryvWz8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
-}
-
 /** Layout **/
 header, #bodyContainer, footer
 {
