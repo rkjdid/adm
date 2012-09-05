@@ -3,6 +3,9 @@ var lcdScreen, lcdContext;
 
 var contourDrawn = false;
 
+var mireURL =       "http://rk.dyndns-server.com/ateliers.media/resources/5.clients.tvMire.png";
+var contourURL =    "http://rk.dyndns-server.com/ateliers.media/resources/5.clients.tvShade.png";
+
 var runningInterval;
 
 window.onload = function ()
@@ -12,7 +15,6 @@ window.onload = function ()
 };
 
 $(document).ready(function () {
-    breakDisp = false;
     tvScreen = $('#tvScreen')[0];
     lcdScreen = $('#tvLcd')[0];
     tvContext = tvScreen.getContext("2d");
@@ -52,7 +54,7 @@ function preloadImages()
 function drawMire()
 {
     var mire = new Image();
-    mire.src = "http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/tvScreen.png";
+    mire.src = mireURL;
     mire.onload = function(){
         tvContext.drawImage(mire, 0, 0);
     };
@@ -121,7 +123,7 @@ function zapChannel(nb, nom)
 function drawContour()
 {
     var contour = new Image();
-    contour.src = "http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/contour_o.png";
+    contour.src = contourURL;
     contour.onload = function(){
         tvContext.drawImage(contour, 0, 0);
     };

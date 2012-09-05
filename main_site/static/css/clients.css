@@ -25,14 +25,13 @@
 
     position: absolute;
 
-    background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/clients.roireine.png");
+    background: url("http://rk.dyndns-server.com/ateliers.media/resources/5.clients.png") 0 0 no-repeat;
     z-index: 64;
 }
 
 #tv
 {
-    background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/tv+lcd-450.png")
-    no-repeat top left;
+    background: url("http://rk.dyndns-server.com/ateliers.media/resources/5.clients.png") -188px 0 no-repeat;
     min-height: 447px;
     min-width:  659px;
     position: absolute;
@@ -43,7 +42,6 @@
 }
 
 #tvIndex
-/*p.tvIndex*/
 {
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
@@ -97,24 +95,21 @@ canvas#tvLcd
 
 div#tvButton, div#tvButton2
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/(c)nobg-off.png')
-    no-repeat center;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/5.clients.png') -847px 0 no-repeat;
     cursor: default;
     opacity: 0.2;
 }
 
 div#tvButton.active, div#tvButton2.active
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/(c)nobg-on.png')
-    no-repeat center;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/5.clients.png') -869px 0 no-repeat;
     cursor: pointer;
     opacity: 1;
 }
 
 div#tvButton.active:hover, div#tvButton2.active:hover
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/(c)nobg-hover.png')
-    no-repeat center;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/5.clients.png') -891px 0 no-repeat;
     cursor: pointer;
 }
 
@@ -128,14 +123,14 @@ div#tvButton, div#tvButton2
 
 div#tvButton
 {
-    left: 402px;
-    top: 297px;
+    left: 407px;
+    top: 300px;
 }
 
 div#tvButton2
 {
-    left: 533px;
-    top: 148px;
+    left: 537px;
+    top: 152px;
 }
 
 div#clientPageNb
