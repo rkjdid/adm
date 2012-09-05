@@ -19,10 +19,10 @@
             <p>
                 <img id="logoTitle" src="http://rk.dyndns-server.com/ateliers.media/resources/logo.png" alt="Les ateliers des marques" />
             </p>
-            <br >
-            <p>
-                Texte descriptif de l'agence, sous forme de news ?
-            </p>
+            {{ texte_accueil|linebreaks }}
+{% if displayDate %}
+            <div id="date">{{ date.day }}/{{ date.month }}/{{ date.year }}</div>
+{% endif %}
         </div>
 {#        <div id="popIntegre" class="roundedPop">#}
 {#            <p>Texte integre<br> <br> fkekek <br> kekek <br> kekeé</p>#}

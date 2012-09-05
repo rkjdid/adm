@@ -18,8 +18,7 @@ from ateliers_a import settings
 # Static dimensions - (logo == logos clients - will be resized)
 logoWidth = 110
 logoHeight = 84
-# Photo membre - won't be resized
-# PageBook - won't be resized (232*432)
+# PageBook - will be resized (232*432)
 pagebookWidth = 299
 pagebookHeight = 423
 #photoMembrme - will be resized

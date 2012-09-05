@@ -2,14 +2,11 @@
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 
+from datetime import datetime
+
 from ateliers_a.main_site.models    import *
 
-from django.core import serializers
-
-
-#def base(request):
-#    True
-
+from constance import config
 
 def index(request):
 #    base(request)
@@ -27,7 +24,11 @@ def agence(request):
     arguments = {
         'pageN'         : 'agence',
 #        'pageFlip'      : 'nope',
+        'texte_accueil' : config.Accueil,
+        'date'          : config.Date,
+        'displayDate'   : config.AfficherDate,
         'request'       : request,
+
     }
     return render_to_response('2-agence.html',
                               arguments,
