@@ -102,35 +102,35 @@ div#tvButton, div#tvButton2
 
 div#tvButton.active, div#tvButton2.active
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/5.clients.png') -869px 0 no-repeat;
-    cursor: pointer;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/5.clients.png') -864px 0 no-repeat;
+    cursor: default;
     opacity: 1;
 }
 
 div#tvButton.active:hover, div#tvButton2.active:hover
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/5.clients.png') -891px 0 no-repeat;
-    cursor: pointer;
+    background: url('http://rk.dyndns-server.com/ateliers.media/resources/5.clients.png') -881px 0 no-repeat;
+    cursor: default;
 }
 
 div#tvButton, div#tvButton2
 {
     position: absolute;
 
-    width: 22px;
-    height: 24px;
+    width: 17px;
+    height: 22px;
 }
 
 div#tvButton
 {
-    left: 407px;
+    left: 409px;
     top: 300px;
 }
 
 div#tvButton2
 {
     left: 537px;
-    top: 152px;
+    top: 150px;
 }
 
 div#clientPageNb
