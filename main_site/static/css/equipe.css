@@ -116,14 +116,14 @@
     font-weight: bold;
 }
 
-#pb0 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.0.png"); z-index: 10;}
-#pb3 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.3.bottomOut.png"); z-index: 11;}
-#pb4 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.4.photo.png"); z-index: 12;}
-#pb5 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.5.glass.png"); z-index: 13; opacity: 0.75;}
-#pb6 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.6.filler.png"); z-index: 14;}
-#pb1 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.1.flash.png"); z-index: 16;}
-#pb2 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.2.curtain.png"); z-index: 17;}
-#pb7 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/img.pdf/photobooth.7.top.png"); z-index: 15;}
+#pb0 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") 0 0 no-repeat; z-index: 10;}
+#pb3 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") -2681px 0 no-repeat; z-index: 11;}
+#pb4 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") -1149px 0 no-repeat; z-index: 12;}
+#pb5 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") -1532px 0 no-repeat; z-index: 13; opacity: 0.75;}
+#pb6 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") -1915px 0 no-repeat; z-index: 14;}
+#pb1 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") -383px 0 no-repeat; z-index: 16;}
+#pb2 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") -768px 0 no-repeat; z-index: 17;}
+#pb7 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") -2298px 0 no-repeat; z-index: 15;}
 
 .bubble {
     border-bottom-right-radius: 100px 50px;
