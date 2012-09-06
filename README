@@ -8,4 +8,6 @@ deployer -> se renseigner sérieusement
 facturer :)
 
 compresser -> css & js, have a look at django-pipeline - looks fresh
-compresser -> coté webserver, rien à faire en dév (pensé-je)
+compresser -> coté webserver (compression gzip blabla, wsgi), rien à faire en dév (pensé-je)
+
+manuel imagé pour les naabs
