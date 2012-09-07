@@ -104,7 +104,7 @@ class Client (models.Model):
 
     nom = models.CharField (max_length=20, default='Client')
 
-    logo = models.ImageField(upload_to= 'clients/')
+    logo = models.ImageField(upload_to= settings.MEDIA_ROOT + 'clients/')
     logoURL_base = models.CharField(editable=False, max_length=150, default=settings.MEDIA_URL + 'clients/')
     logoURL = models.CharField(editable=False, max_length=150)
 
@@ -171,7 +171,7 @@ class PhotoMembre (models.Model):
     """
     membre = models.OneToOneField('MembreEquipe', related_name='photo')
 
-    photo = models.ImageField(upload_to='equipe/')
+    photo = models.ImageField(upload_to=settings.MEDIA_ROOT + 'equipe/')
     photoURL_base = models.CharField(editable=False, max_length=150, default= settings.MEDIA_URL + 'equipe/')
     photoURL = models.CharField(editable=False, max_length=150)
 
@@ -205,8 +205,8 @@ class PageBook (models.Model):
 
     book = models.ForeignKey('Book', related_name='pagebooks')
 
-    pageGauche = models.ImageField(upload_to='books/')
-    pageDroite = models.ImageField(upload_to='books/')
+    pageGauche = models.ImageField(upload_to=settings.MEDIA_ROOT + 'books/')
+    pageDroite = models.ImageField(upload_to=settings.MEDIA_ROOT + 'books/')
     pageGauche.short_description = 'Page Gauche (299*423)px'
     pageDroite.short_description = 'Page Droite (299*423)px'
 
@@ -216,7 +216,7 @@ class PageBook (models.Model):
 
     def resizeImg(self):
         scaleImg(self.pageGauche.path, pagebookWidth, pagebookHeight)
-        scaleImg(self.pageDroite.path, pagebookWidth, pagebookWidth)
+        scaleImg(self.pageDroite.path, pagebookWidth, pagebookHeight)
 
 #        im = Image.open(self.pageGauche.path)
 #        if im.size[0] <= pagebookWidth and im.size[1] <= logoHeight:

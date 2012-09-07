@@ -50,7 +50,7 @@ def clients(request):
     catClients = CategorieClient.objects.all()
     arguments = {
         'pageN'      : 'clients',
-        'catClients'     : catClients,
+        'catClients' : catClients,
         'request'    : request,
     }
 

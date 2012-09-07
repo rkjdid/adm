@@ -131,7 +131,7 @@ ul
 a
 {
     color: #b8a6b2;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 a:hover
@@ -244,6 +244,7 @@ img                 {border: none;} /* IE blue border fix */
     }
 }
 
+
 /* HEADFOOT */
 /** Layout **/
 header, #bodyContainer, footer
@@ -308,18 +309,18 @@ nav:hover {
 nav > ul
 {
     font-family: "Quicksand", sans-serif;
-    font-weight: 100;
+    /*font-weight: 100;*/
     font-size: 1.3em;
 
     padding-top: 20px;
     padding-bottom: 15px;
     top: 5px;
-    min-width: 700px;
+    /*min-width: 700px;*/
 }
 
 nav > ul:hover a.active
 {
-    padding: 16px 20px 30px 20px;
+    padding: 16px 10px 30px 10px;
     background-color: inherit;
     border: none;
     box-shadow: none;
@@ -328,7 +329,7 @@ nav > ul:hover a.active
 
 nav > ul:hover a.active:hover
 {
-    padding: 16px 19px 30px 19px;
+    padding: 16px 9px 30px 9px;
     background-color: #fadce9;
     border-top: 1px solid gray;
     border-right: 1px solid gray;
@@ -341,21 +342,22 @@ nav > ul:hover a.active:hover
 
 nav > ul > li
 {
-    margin-right: -4px;
+    /*margin-right: 75px;*/
 }
 
 nav > ul > li > a
 {
-    padding: 16px 20px 30px 20px;
+    padding: 16px 10px 30px 10px;
+    /*padding: 5px;*/
 }
 nav  ul > li > a.active:hover
 {
-    padding: 16px 20px 30px 20px;
+    padding: 16px 10px 30px 10px;
 }
 
 nav > ul > li > a.active
 {
-    padding: 16px 19px 30px 19px;
+    padding: 16px 9px 30px 9px;
     background-color: #fadce9;
     border-top: 1px solid gray;
     border-right: 1px solid gray;
@@ -372,7 +374,7 @@ nav > ul > li > a.active
 nav > ul > li > a:hover
 {
     cursor: default;
-    padding: 16px 19px 30px 19px;
+    padding: 16px 9px 30px 9px;
     background-color: #fadce9;
     border-top: 1px solid gray;
     border-right: 1px solid gray;
@@ -422,3 +424,7 @@ footer > img
     right: 10%;
 }
 /* HEADFOOT */
+
+nav a, #mailContact {
+    text-decoration: none;
+}
