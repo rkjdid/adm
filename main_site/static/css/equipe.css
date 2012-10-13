@@ -87,6 +87,10 @@
     overflow: hidden;
 }
 
+.bigPhotoOutContainer:hover {
+    cursor: pointer;
+}
+
 .bigPhotoOutContainer.pop {
     opacity: 0.7;
     transition: opacity 0.3s;
@@ -126,6 +130,10 @@
 
     color: inherit;
     font-weight: bold;
+}
+
+.photoMore:hover {
+    cursor: pointer;
 }
 
 #pb0 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") 0 0 no-repeat; z-index: 10;}
@@ -198,19 +206,23 @@
 .bubble:hover
 {
     opacity: 1;
+    cursor: pointer;
 }
 
 .knowMore {
     display: none;
     position: fixed;
     left: 30%;
-    top: 27%;
+    right: 30%;
+    top: 20%;
+    bottom: 20%;
+    margin: auto;
+
     background-color: white;
 
-    padding: 20px;
+    padding: 2.5em;
 
-    min-height: 280px;
-    max-width: 500px;
+    max-width: 40%;
 }
 
 .knowMore.pop {
@@ -219,7 +231,7 @@
 }
 
 .wrapDesc {
-    text-align: left;
+    text-align: justify;
     margin-right: 80px;
     color: black;
 }
@@ -242,334 +254,15 @@
     font-weight: lighter;
 }
 
+/*.membreDescription > p {*/
+    /*margin-top: 1em;*/
+/*}*/
+
 .mediumPhotoDesc {
     width: 50px;
     position: absolute;
     right: 25px;
-    top: 25px;
-}
-
-/************************************************************************************************************/
-/************************************************************************************************************/
-/**************************************BASE.CSS**************************************************************/
-/************************************************************************************************************/
-/************************************************************************************************************/
-*
-{
-    margin: 0;
-    padding: 0;
-}
-
-body
-{
-    color: #696969;
-    font-family: "Bitstream Vera Sans Mono", Arial, sans-serif;
-    text-align: center;
-    font-size: 100%;
-}
-
-ul
-{
-    list-style: none;
-}
-
-a
-{
-    color: #b8a6b2;
-    text-decoration: underline;
-}
-
-a:hover
-{
-    color: #ff69b4;
-}
-
-#bodyContainer
-{
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/0.commonbg.png') no-repeat top;
-}
-
-/** Rounded div popups **/
-div.roundedPop
-{
-    border: #AAAAAA 1px solid;
-    box-shadow: 3px 3px 2px #AAAAAA;
-    border-radius: 25px;
-}
-
-/***GlassPane***/
-#glassPane {
-    position: fixed;
-    width: 0;
-    height: 0;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    background-color: gray;
-    z-index: 0;
-
-    transition: opacity 0.5s linear;
-}
-
-#glassPane.fadeIn {
-    width: 100%;
-    height: 100%;
-    z-index: 128;
-    opacity: 0.6;
-}
-
-#topOfTheWarp {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-}
-
-.link {
-    color: #ff69b4;
-    cursor: pointer;
-}
-
-.link:hover {
-    color: #696969;
-}
-
-/** Align **/
-.alignC             {text-align: center;}
-.alignR             {text-align: right;}
-.alignL             {text-align: left;}
-
-.valignC            {vertical-align: middle;}
-.valignT            {vertical-align: top;}
-.valignB            {vertical-align: bottom;}
-
-/** Display **/
-.inblock            {display: inline-block;}
-.inline             {display: inline;}
-.block              {display: block;}
-.hidden             {display: none;}
-.fixed              {position: fixed;}
-
-/** Float **/
-.floatR             {float: right;}
-
-/** Fonts **/
-.small              {font-size: 0.65em;}
-
-/** Fixes **/
-img                 {border: none;} /* IE blue border fix */
-
-
-/*** Common animations ***/
-@keyframes rotaz {
-    0%, 100% {transform: rotate3d(0, 1, 0, 0deg);}
-    50% {transform: rotate3d(0, 1, 0, -40deg);}
-}
-
-@keyframes pendule1 {
-    0%, 100% {
-        transform: rotate(14deg);
-        transform-origin: 67px 0px;
-    }
-    50% {
-        transform: rotate(-14deg);
-        transform-origin: 67px 0px;
-    }
-}
-
-@keyframes pendule2 {
-    0%, 100% {
-        transform: rotate(-8deg);
-        transform-origin: 60px 0px;
-    }
-    50% {
-        transform: rotate(8deg);
-        transform-origin: 60px 0px;
-    }
-}
-
-
-/* HEADFOOT */
-/** Layout **/
-header, #bodyContainer, footer
-{
-    position: absolute;
-    left: 0; right: 0;
-
-    z-index: 11;
-}
-
-header
-{
-    height: 64px;
-    top: 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-}
-
-#bodyContainer
-{
-    top: 64px;
-    bottom: 45px;
-    margin: 0;
-}
-
-#bodyContainer.index
-{
-    top: 0;
-    bottom: 70px;
-}
-
-#bodyContainer.scrollY
-{
-    overflow: auto;
-}
-
-footer
-{
-    height: 45px;
     bottom: 0;
-    z-index: 10;
-}
-
-footer.index
-{
-    height: 70px;
-}
-
-/** Header **/
-nav
-{
-    cursor: default;
-
-    border-bottom: 1px solid gray;
-    background-color: white;
-}
-
-nav:hover {
-    cursor: default;
-}
-
-nav > ul
-{
-    font-family: "Quicksand", sans-serif;
-    /*font-weight: 100;*/
-    font-size: 1.3em;
-
-    padding-top: 20px;
-    padding-bottom: 15px;
-    top: 5px;
-    /*min-width: 700px;*/
-}
-
-nav > ul:hover a.active
-{
-    padding: 16px 10px 30px 10px;
-    background-color: inherit;
-    border: none;
-    box-shadow: none;
-    color: inherit;
-}
-
-nav > ul:hover a.active:hover
-{
-    padding: 16px 9px 30px 9px;
-    background-color: #fadce9;
-    border-top: 1px solid gray;
-    border-right: 1px solid gray;
-    border-left: 1px solid #808080;
-    border-bottom: none;
-    border-radius: 5px;
-    box-shadow: -2px -1px 3px #888;
-    color: #ff69b4;
-}
-
-nav > ul > li
-{
-    /*margin-right: 75px;*/
-}
-
-nav > ul > li > a
-{
-    padding: 16px 10px 30px 10px;
-    /*padding: 5px;*/
-}
-nav  ul > li > a.active:hover
-{
-    padding: 16px 10px 30px 10px;
-}
-
-nav > ul > li > a.active
-{
-    padding: 16px 9px 30px 9px;
-    background-color: #fadce9;
-    border-top: 1px solid gray;
-    border-right: 1px solid gray;
-    border-left: 1px solid #808080;
-    border-bottom: none;
-    border-radius: 5px;
-    box-shadow: -2px -1px 3px #888;
-    color: #ff69b4;
-
-    transition-property: background-color, box-shadow;
-    transition-duration: 0.3s;
-}
-
-nav > ul > li > a:hover
-{
-    cursor: default;
-    padding: 16px 9px 30px 9px;
-    background-color: #fadce9;
-    border-top: 1px solid gray;
-    border-right: 1px solid gray;
-    border-left: 1px solid #808080;
-    border-bottom: none;
-    border-radius: 5px;
-    box-shadow: -2px -1px 3px #888;
-
-    transition-property: background-color, box-shadow;
-    transition-duration: 0.5s;
-}
-
-nav > .logo
-{
-    position:relative;
-}
-
-/** Footer **/
-footer
-{
-    text-align: center;
-    border-top: 1px solid gray;
-    background: #dddddd;
-}
-
-footer > p
-{
-    position:absolute;
-    height: 2em;
-}
-
-footer > div
-{
-    top: 10px;
-    position: relative;
-}
-
-footer.index > div
-{
-    top: 25px;
-}
-
-footer > img
-{
-    position: absolute;
-    height: 70px;
-    right: 10%;
-}
-/* HEADFOOT */
-
-nav a {
-    text-decoration: none;
+    top: 0;
+    margin: auto 0 auto 0;
 }

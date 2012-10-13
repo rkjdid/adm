@@ -143,7 +143,6 @@ function ficheClick0() {
     //        $('.bubble.focus').removeClass('focus');
     //        $(this).addClass('focus');
 
-
     $('#book').addClass('shrink');
     $('#openBook').addClass('grow');
 
@@ -160,7 +159,7 @@ function ficheClick0() {
         $('#book').addClass('fadeIn');
 
         setTimeout(function() {
-//            $('#book').removeClass('fadeIn loadFade');
+            setTimeout(function() {$('#book').removeClass('fadeIn loadFade');}, 1000);
             $('#openBook').removeClass('grow fadeOut');
 //            $('#pageG').removeClass('grow fadeOut');
 //            $('#pageD').removeClass('grow fadeOut');
@@ -185,9 +184,9 @@ function glassPane (i) {
     $('#glassPane').click(function () {
         // close popup + fadeout
         $('#glassPane').removeClass('fadeIn');
-        $('#knowMore' + i).removeClass('grow');
         $('#book').removeClass('shrink');
 
         $('#glassPane').click(function(){}); // reset glassPane click handler
     });
 }
+

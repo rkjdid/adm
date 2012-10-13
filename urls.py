@@ -19,3 +19,10 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 )
+
+from ateliers_a import settings
+
+if settings.DEBUG :
+    urlpatterns += patterns('',
+        (r'^adm.media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT }),
+    )

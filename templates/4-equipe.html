@@ -12,27 +12,16 @@
 {% block body %}
     <div id ="playground">
         <div id="bubbleArea" class="inblock valignC">
-    {% for m in members %}
-        {% if m.visible and m.position != 0 %}
+{% for m in members %}
+    {% if m.visible and m.position != 0 %}
             <div id="bubble{{ m.position }}" class="bubble"><h2>{{ m.nom }}</h2><span>{{ m.statut }}</span></div>
-            <img class="preload smallPhotoOut" id="smallPhoto{{ m.position }}" src="{{ m.photo.photoURL }}" />
+            <img class="preload smallPhotoOut" id="smallPhoto{{ m.position }}" src="{{ m.photo.photo.url }}" alt="Photo {{ m.prenom }}"/>
             <div id="bigPhotoContainer{{ m.position }}" class="bigPhotoOutContainer">
-                <img class="preload bigPhotoOut" id="bigPhoto{{ m.position }}" src="{{ m.photo.photoURL }}" />
+                <img class="preload bigPhotoOut" id="bigPhoto{{ m.position }}" src="{{ m.photo.photo.url }}" alt="Photo {{ m.prenom }}"/>
                 <span id="photoMore{{ m.position }}" class="photoMore">En savoir plus...</span>
             </div>
-            <div id="knowMore{{ m.position }}" class="roundedPop knowMore">
-                <a class="closePop"></a>
-                <div class="wrapDesc">
-                    <h1>{{ m.nom }}</h1>
-                    <h2>{{ m.statut }}</h2><br/>
-                    <div id="membreDescription{{ m.position }}" class="membreDescription">
-                        {{ m.description|linebreaks }}
-                    </div>
-                </div>
-                <img class="mediumPhotoDesc" id="mediumPhotoDesc{{ m.position }}" src="{{ m.photo.photoURL }}" />
-            </div>
-        {% endif %}
-    {% endfor %}
+    {% endif %}
+{% endfor %}
             <div id="pbox" class="pbox photoBooth">
                 <div id="pb0" class="photoBooth pblayer"></div>
                 <div id="pb1" class="photoBooth pblayer"></div>
@@ -43,5 +32,19 @@
                 <div id="pb7" class="photoBooth pblayer"></div>
             </div>
         </div>
+{% for m in members %}
+    {% if m.visible and m.position != 0 %}
+        <div id="knowMore{{ m.position }}" class="roundedPop knowMore">
+            <div class="wrapDesc">
+                <h1>{{ m.nom }}</h1>
+                <h2>{{ m.statut }}</h2><br/>
+                <div id="membreDescription{{ m.position }}" class="membreDescription">
+                    {{ m.description|linebreaksbr }}
+                </div>
+                <img class="mediumPhotoDesc" id="mediumPhotoDesc{{ m.position }}" src="{{ m.photo.photo.url }}" alt="Photo {{ m.prenom }}"/>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
     </div>
 {% endblock %}

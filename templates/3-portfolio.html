@@ -13,15 +13,13 @@
     <div id="playground">
         <div id="fouetMain"></div>
         <div id="book"></div>
-        <div id="bookWrapper">
-            <div id="openBook" class="inblock valignC">
-                <canvas id="pageG" width="299" height="423"></canvas>
-                <canvas id="pageD" width="299" height="423"></canvas>
-                <div id="btnG" class=""></div>
-                <div id="pgNbG"></div>
-                <div id="pgNbD"></div>
-                <div id="btnD" class=""></div>
-            </div>
+        <div id="openBook" class="inblock valignC">
+            <canvas id="pageG" width="299" height="423"></canvas>
+            <canvas id="pageD" width="299" height="423"></canvas>
+            <div id="btnG" class=""></div>
+            <div id="pgNbG"></div>
+            <div id="pgNbD"></div>
+            <div id="btnD" class=""></div>
         </div>
         <div id="oeuf"></div>
 {% for b in books|slice:":6" %}
@@ -30,8 +28,8 @@
             <div>{{ b.fiche.description|linebreaks }}</div>
             <div class="preload">
   {% for pb in b.pagebooks.all %}
-                <img class="preload gauche book-{{ forloop.parentloop.counter0 }}" src="{{ pb.pageGaucheURL }}" id="pageG-{{ forloop.parentloop.counter0 }}-{{ forloop.counter0 }}" />
-                <img class="preload droite book-{{ forloop.parentloop.counter0 }}" src="{{ pb.pageDroiteURL }}" id="pageD-{{ forloop.parentloop.counter0 }}-{{ forloop.counter0 }}" />
+                <img class="preload gauche book-{{ forloop.parentloop.counter0 }}" src="{{ pb.pageGauche.url }}" id="pageG-{{ forloop.parentloop.counter0 }}-{{ forloop.counter0 }}" alt="Page Gauche #{{ forloop.counter0 }}" />
+                <img class="preload droite book-{{ forloop.parentloop.counter0 }}" src="{{ pb.pageDroite.url }}" id="pageD-{{ forloop.parentloop.counter0 }}-{{ forloop.counter0 }}" alt="Page Droite #{{ forloop.counter0 }}" />
   {% endfor %}
             </div>
         </div>

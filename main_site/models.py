@@ -13,9 +13,6 @@ import os
 import tempfile
 from datetime import datetime
 
-# Settings
-from ateliers_a import settings
-
 # Static dimensions - (logo == logos clients - will be resized)
 logoWidth = 110
 logoHeight = 84
@@ -27,29 +24,6 @@ photoMembreWidth = 80
 photoMembreHeight = 428
 
 
-def scaleImg (path, wantedWidth, wantedHeight):
-    im = Image.open(path)
-    if im.size[0] <= wantedWidth and im.size[1] <= wantedHeight:
-        return
-
-    imratio = float(im.size[0]) / float(im.size[1])
-
-    wdiff_h = wantedWidth / imratio
-    hdiff_w = wantedHeight * imratio
-
-    if wdiff_h <= wantedHeight:
-        im = im.resize((wantedWidth, int(wdiff_h)), Image.ANTIALIAS)
-    elif hdiff_w <= wantedWidth:
-        im = im.resize((int(hdiff_w), wantedHeight), Image.ANTIALIAS)
-
-    im.save(path)
-
-###################################################################
-#-Général---------------------------------------------------------#
-###################################################################
-#def resize (image, max_height, max_width):
-#    im = Image.open(urllib.urlopen())
-
 ###################################################################
 #-Page ACCUEIL----------------------------------------------------#
 ###################################################################
@@ -59,6 +33,7 @@ class Accueil (models.Model):
     """
     class Meta:
         ordering = ['-date']
+        verbose_name_plural = '(p1/Agence) News'
 
     content = models.TextField (default='Bienvenue sur le site des ateliers des marques(c).')
     date    = models.DateField (default=datetime.now)
@@ -75,6 +50,9 @@ class Contact (models.Model):
     """
     Contacts (page CONTACT)
     """
+    class Meta:
+        verbose_name_plural = "(p5/Contact) Contacts"
+
     nom = models.CharField (max_length=75, default='Personne à contacter')
 
     # Numéro(s) de contact, contact2 facultatif
@@ -91,6 +69,9 @@ class CategorieClient (models.Model):
     """
     Catégories de clients, à droite de la TV (page CLIENT)
     """
+    class Meta:
+        verbose_name_plural = "(p4/Clients) Catégories client"
+
     nom = models.CharField (max_length=20, default='Catégorie client')
 
     def __unicode__(self):
@@ -104,31 +85,10 @@ class Client (models.Model):
 
     nom = models.CharField (max_length=20, default='Client')
 
-    logo = models.ImageField(upload_to= settings.MEDIA_ROOT + 'clients/')
-    logoURL_base = models.CharField(editable=False, max_length=150, default=settings.MEDIA_URL + 'clients/')
-    logoURL = models.CharField(editable=False, max_length=150)
+    logo = models.ImageField(upload_to= 'clients/')
 
     def resizeImg(self):
         scaleImg(self.logo.path, logoWidth, logoHeight)
-#        im = Image.open(self.logo.path)
-#        if im.size[0] <= logoWidth and im.size[1] <= logoHeight:
-#            return
-#
-#        imratio = float(im.size[0]) / float(im.size[1])
-#
-#        wdiff_h = logoWidth / imratio
-#        hdiff_w = logoHeight * imratio
-#
-#        if wdiff_h <= logoHeight:
-#            im = im.resize((logoWidth, int(wdiff_h)), Image.ANTIALIAS)
-#        elif hdiff_w <= logoWidth:
-#            im = im.resize((int(hdiff_w), logoHeight), Image.ANTIALIAS)
-#
-#        im.save(self.logo.path)
-
-    def setImgURL(self):
-        _, self.logo.name = uniqueFile(settings.MEDIA_ROOT + 'clients/' + self.logo.name)
-        self.logoURL = self.logoURL_base + self.logo.name
 
     def __unicode__(self):
         return self.nom
@@ -155,6 +115,9 @@ class MembreEquipe (models.Model):
     """
     Salariés des AdM (page EQUIPE)
     """
+    class Meta:
+        verbose_name_plural = "(p3/Equipe) Membres des ateliers"
+
     nom = models.CharField (max_length=30, default='Prenom Nom')
     statut = models.CharField (max_length=30, default='Job title')
 
@@ -171,13 +134,7 @@ class PhotoMembre (models.Model):
     """
     membre = models.OneToOneField('MembreEquipe', related_name='photo')
 
-    photo = models.ImageField(upload_to=settings.MEDIA_ROOT + 'equipe/')
-    photoURL_base = models.CharField(editable=False, max_length=150, default= settings.MEDIA_URL + 'equipe/')
-    photoURL = models.CharField(editable=False, max_length=150)
-
-    def setImgURL(self):
-        _, self.photo.name = uniqueFile(settings.MEDIA_ROOT + 'equipe/' + self.photo.name)
-        self.photoURL = self.photoURL_base + self.photo.name
+    photo = models.ImageField(upload_to= 'equipe/')
 
     def resizeImg(self):
         scaleImg(self.photo.path, photoMembreWidth, photoMembreHeight)
@@ -193,6 +150,9 @@ class Book (models.Model):
     """
     Pole d'activité, book (page PORTFOLIO)
     """
+    class Meta:
+        verbose_name_plural = "(p2/Portfolio) Fiches recette/Books"
+
     theme = models.CharField(max_length=75)
 
     def __unicode__(self):
@@ -205,43 +165,17 @@ class PageBook (models.Model):
 
     book = models.ForeignKey('Book', related_name='pagebooks')
 
-    pageGauche = models.ImageField(upload_to=settings.MEDIA_ROOT + 'books/')
-    pageDroite = models.ImageField(upload_to=settings.MEDIA_ROOT + 'books/')
+    pageGauche = models.ImageField(upload_to= 'books/')
+    pageDroite = models.ImageField(upload_to= 'books/')
     pageGauche.short_description = 'Page Gauche (299*423)px'
     pageDroite.short_description = 'Page Droite (299*423)px'
-
-    pageGaucheURL = models.CharField(editable=False, max_length=150)
-    pageDroiteURL = models.CharField(editable=False, max_length=150)
-    pageURL_base = models.CharField(editable=False, default=settings.MEDIA_URL + 'books/', max_length=150)
 
     def resizeImg(self):
         scaleImg(self.pageGauche.path, pagebookWidth, pagebookHeight)
         scaleImg(self.pageDroite.path, pagebookWidth, pagebookHeight)
 
-#        im = Image.open(self.pageGauche.path)
-#        if im.size[0] <= pagebookWidth and im.size[1] <= logoHeight:
-#            return
-#
-#        imratio = float(im.size[0]) / float(im.size[1])
-#
-#        wdiff_h = pagebookWidth / imratio
-#        hdiff_w = pagebookHeight * imratio
-#
-#        if wdiff_h <= pagebookHeight:
-#            im = im.resize((pagebookWidth, int(wdiff_h)), Image.ANTIALIAS)
-#        elif hdiff_w <= pagebookWidth:
-#            im = im.resize((int(hdiff_w), pagebookHeight), Image.ANTIALIAS)
-#
-#        im.save(self.pageGauche.path)
-
-    def setImgURL(self):
-        _, self.pageGauche.name = uniqueFile(settings.MEDIA_ROOT + 'books/' + self.pageGauche.name)
-        _, self.pageDroite.name = uniqueFile(settings.MEDIA_ROOT + 'books/' + self.pageDroite.name)
-        self.pageGaucheURL = self.pageURL_base + self.pageGauche.name
-        self.pageDroiteURL = self.pageURL_base + self.pageDroite.name
-
     def __unicode__(self):
-        return self.pageDroiteURL
+        return self.pageGauche.url
 
 class FicheRecette (models.Model):
     """
@@ -249,15 +183,8 @@ class FicheRecette (models.Model):
     """
     book = models.OneToOneField('Book', related_name='fiche')
 
-    #    imagefond = models.ImageField(upload_to= settings.MEDIA_ROOT + 'fichesRecette/')
-    #    imagefondURL_base = models.CharField(editable=False, max_length=150, default=settings.MEDIA_URL + 'fichesRecette/')
-    #    imagefondURL = models.CharField(editable=False, max_length=150)
     titre = models.CharField(max_length=100, default='titre fiche')
     description = models.TextField(default="description fiche (recette 100g..)")
-
-#    def setImgURL(self):
-#        _, self.imagefond.name = uniqueFile(settings.MEDIA_ROOT + 'fichesRecette/' + self.imagefond.name)
-#        self.imagefondURL = self.imagefondURL_base + self.imagefond.name
 
     def __unicode__(self):
         return self.titre
@@ -265,6 +192,22 @@ class FicheRecette (models.Model):
 ###################################################################
 #-Divers/Signaux---------------------------------------------------
 ###################################################################
+def scaleImg (path, wantedWidth, wantedHeight):
+    im = Image.open(path)
+    #    imgInfo = im.info
+
+    if im.size[0] <= wantedWidth and im.size[1] <= wantedHeight:
+        return
+
+    imratio = float(im.size[0]) / float(im.size[1])
+
+    wdiff_h = wantedWidth / imratio
+    hdiff_w = wantedHeight * imratio
+
+    if wdiff_h <= wantedHeight:
+        im.convert("RGBA").resize((wantedWidth, int(wdiff_h)), Image.ANTIALIAS).save(path)
+    elif hdiff_w <= wantedWidth:
+        im.convert("RGBA").resize((int(hdiff_w), wantedHeight), Image.ANTIALIAS).save(path)
 
 def uniqueFile(path):
     """
@@ -272,7 +215,9 @@ def uniqueFile(path):
         returns new_Dir
         returns new_FileName
     """
+    import re
     dir, fileName = os.path.split(path)
+    fileName = re.sub('[^A-Za-z0-9_.-]', '', fileName)
     name, ext = os.path.splitext(fileName)
 
     fd, newPath = tempfile.mkstemp(ext, name+"_", dir)
@@ -289,12 +234,12 @@ def resizeImg(sender, instance, **kwargs):
     instance.resizeImg()
 
 ## Build image URLs before saving
-pre_save.connect(buildImgURL, sender=PageBook)
-pre_save.connect(buildImgURL, sender=Client)
-#pre_save.connect(buildImgURL, sender=FicheRecette)
-pre_save.connect(buildImgURL, sender=PageBook)
-pre_save.connect(buildImgURL, sender=PhotoMembre)
+#pre_save.connect(buildImgURL, sender=PageBook)
+#pre_save.connect(buildImgURL, sender=Client)
+#pre_save.connect(buildImgURL, sender=PageBook)
+#pre_save.connect(buildImgURL, sender=PhotoMembre)
 
+## Resize images after saving
 #post_save.connect(buildImgURL, sender=PageBook)
 post_save.connect(resizeImg, sender=Client)
 post_save.connect(resizeImg, sender=PageBook)
