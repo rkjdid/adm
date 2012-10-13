@@ -35,7 +35,7 @@ a:hover
 
 #bodyContainer
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/0.commonbg.png') no-repeat top;
+    background: url('/static/img/0.commonbg.png') no-repeat top;
 }
 
 /** Rounded div popups **/

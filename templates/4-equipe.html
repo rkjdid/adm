@@ -22,15 +22,8 @@
             </div>
     {% endif %}
 {% endfor %}
-            <div id="pbox" class="pbox photoBooth">
-                <div id="pb0" class="photoBooth pblayer"></div>
-                <div id="pb1" class="photoBooth pblayer"></div>
-                <div id="pb2" class="photoBooth pblayer"></div>
-                <div id="pb3" class="photoBooth pblayer"></div>
-                <div id="pb5" class="photoBooth pblayer"></div>
-                <div id="pb6" class="photoBooth pblayer"></div>
-                <div id="pb7" class="photoBooth pblayer"></div>
-            </div>
+            {% include 'snip/photobooth.html' %}
+
         </div>
 {% for m in members %}
     {% if m.visible and m.position != 0 %}

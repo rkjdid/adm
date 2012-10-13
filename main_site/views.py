@@ -5,9 +5,12 @@ from django.template.context import RequestContext
 from ateliers_a.main_site.models    import *
 
 def index(request):
+    members = MembreEquipe.objects.all();
+
     arguments = {
         'pageN'         : 'index',
         'request'       : request,
+        'membres'       : members,
     }
     return render_to_response('1-index.html',
                               arguments,

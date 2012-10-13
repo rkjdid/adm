@@ -14,7 +14,7 @@
         <div id="nuage1"></div>
         <div id="nuage2"></div>
         <div id="playground">
-            <div id="copyright"></div>
+            <div id="copyright" class="rotaz"></div>
 
             <div id="unFlamandDerriereUnBuisson">
                 <div id="buisson"></div>
@@ -25,6 +25,22 @@
                     <span class="bulle" id="bclients"></span>
                 </a>
             </div>
+
+            <div id="cupcake">
+                <div id="cupcake0"></div>
+                <div id="cupcake1"></div>
+                <div id="cupcake2"></div>
+            </div>
+
+            <div id="cupcopy"></div>
+
+            {% include 'snip/photobooth.html' %}
+
+            {% for m in membres %}
+                {% if m.visible and m.position != 0 %}
+                    <img class="preload smallPhotoOut" id="smallPhoto{{ forloop.counter }}" src="{{ m.photo.photo.url }}" alt="Photo {{ m.prenom }}"/>
+                {% endif %}
+            {% endfor %}
 
 {#            TODO: ugly ugly wrapping span into an anchor, see CONTACT page for proper method (e-mail) button #}
             <a href="/portfolio/"><span class="bulle" id="bportfolio"></span></a>
