@@ -35,7 +35,7 @@ a:hover
 
 #bodyContainer
 {
-    background: url('/static/img/0.commonbg.png') no-repeat top;
+    background: url('../img/0.commonbg.png') no-repeat top;
 }
 
 /** Rounded div popups **/

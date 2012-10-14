@@ -21,9 +21,6 @@
                 <div id="cache"></div>
                 <div id="flamand"></div>
                 <div id="uh"></div>
-                <a href="/clients/">
-                    <span class="bulle" id="bclients"></span>
-                </a>
             </div>
 
             <div id="cupcake">
@@ -42,12 +39,11 @@
                 {% endif %}
             {% endfor %}
 
-{#            TODO: ugly ugly wrapping span into an anchor, see CONTACT page for proper method (e-mail) button #}
-            <a href="/portfolio/"><span class="bulle" id="bportfolio"></span></a>
-            <a href="/agence/"><span class="bulle" id="bagence"></span></a>
-            <a href="/contact/"><span class="bulle" id="bcontact"></span></a>
-{#            <a href="/clients/"><span class="bulle" id="bclients"></span></a>#}
-            <a href="/equipe/"><span class="bulle" id="bequipe"></span></a>
+            <span class="bulle" id="bclients"><a href="/clients/"></a></span>
+            <span class="bulle" id="bportfolio"><a href="/portfolio/"></a></span>
+            <span class="bulle" id="bagence"><a href="/agence/"></a></span>
+            <span class="bulle" id="bcontact"><a href="/contact/"></a></span>
+            <span class="bulle" id="bequipe"><a href="/equipe/"></a></span>
         </div>
     </div>
 {% endblock %}

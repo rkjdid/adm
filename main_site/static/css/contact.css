@@ -3,10 +3,10 @@
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: normal;
-    src: url('/static/font/quicksand/quicksand.eot');
+    src: url('../font/quicksand/quicksand.eot');
     src: local('Quicksand Regular'), local('Quicksand-Regular'),
-         url('/static/font/quicksand/quicksand.ttf') format('truetype'),
-         url('/static/font/quicksand/quicksand.woff') format('woff');
+         url('../font/quicksand/quicksand.ttf') format('truetype'),
+         url('../font/quicksand/quicksand.woff') format('woff');
 }
 /*******FONTS*******/
 
@@ -20,7 +20,7 @@
 
 #variousStuffL {
     position: absolute;
-    background: url("http://rk.dyndns-server.com/ateliers.media/resources/6.contact.png") 0 0 no-repeat;
+    background: url("../img/6.contact.png") 0 0 no-repeat;
     width: 340px;
     height: 182px;
 
@@ -30,7 +30,7 @@
 
 #variousStuffR {
     position: absolute;
-    background: url("http://rk.dyndns-server.com/ateliers.media/resources/6.contact.png") -340px 0 no-repeat;
+    background: url("../img/6.contact.png") -340px 0 no-repeat;
     width: 318px;
     height: 221px;
 
@@ -48,7 +48,7 @@
 }
 
 #dove {
-    background: url("http://rk.dyndns-server.com/ateliers.media/resources/6.contact.png") -658px 0 no-repeat;
+    background: url("../img/6.contact.png") -658px 0 no-repeat;
     width: 148px;
     height: 136px;
 

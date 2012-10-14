@@ -3,8 +3,9 @@ var lcdScreen, lcdContext;
 
 var contourDrawn = false;
 
-var mireURL =       "http://rk.dyndns-server.com/ateliers.media/resources/5.clients.tvMire.png";
-var contourURL =    "http://rk.dyndns-server.com/ateliers.media/resources/5.clients.tvShade.png";
+// TODO : something else
+var mireURL =       "/static/img/5.clients.tvMire.png";
+var contourURL =    "/static/img/5.clients.tvShade.png";
 
 var runningInterval;
 
@@ -21,7 +22,6 @@ $(document).ready(function () {
     lcdContext = lcdScreen.getContext("2d");
     drawMire();
     defaultDisplay();
-    //TODO: make default display flash (avoid unloaded font and not working default display)
 });
 
 //TODO: JQuery this

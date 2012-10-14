@@ -3,10 +3,10 @@
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: normal;
-    src: url('/static/font/quicksand/quicksand.eot');
+    src: url('../font/quicksand/quicksand.eot');
     src: local('Quicksand Regular'), local('Quicksand-Regular'),
-         url('/static/font/quicksand/quicksand.ttf') format('truetype'),
-         url('/static/font/quicksand/quicksand.woff') format('woff');
+         url('../font/quicksand/quicksand.ttf') format('truetype'),
+         url('../font/quicksand/quicksand.woff') format('woff');
 }
 /*******FONTS*******/
 
@@ -48,7 +48,7 @@
     z-index: 12;
     position: absolute;
     width: 26px;
-    left: 543px;
+    left: 541px;
     top: 120px;
     transition: top 1s linear;
 }
@@ -136,14 +136,14 @@
     cursor: pointer;
 }
 
-#pb0 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") 0 0 no-repeat; z-index: 10;}
-#pb3 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") -2681px 0 no-repeat; z-index: 11;}
-#pb4 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") -1149px 0 no-repeat; z-index: 12;}
-#pb5 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") -1532px 0 no-repeat; z-index: 13; opacity: 0.75;}
-#pb6 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") -1915px 0 no-repeat; z-index: 14;}
-#pb1 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") -383px 0 no-repeat; z-index: 16;}
-#pb2 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") -768px 0 no-repeat; z-index: 17;}
-#pb7 {background: url("http://rk.dyndns-server.com/ateliers.media/resources/4.equipe.png") -2298px 0 no-repeat; z-index: 15;}
+#pb0 {background: url("../img/4.equipe.png") 0 0 no-repeat; z-index: 10;}
+#pb3 {background: url("../img/4.equipe.png") -2681px 0 no-repeat; z-index: 11;}
+#pb4 {background: url("../img/4.equipe.png") -1149px 0 no-repeat; z-index: 12;}
+#pb5 {background: url("../img/4.equipe.png") -1532px 0 no-repeat; z-index: 13; opacity: 0.75;}
+#pb6 {background: url("../img/4.equipe.png") -1915px 0 no-repeat; z-index: 14;}
+#pb1 {background: url("../img/4.equipe.png") -383px 0 no-repeat; z-index: 16;}
+#pb2 {background: url("../img/4.equipe.png") -768px 0 no-repeat; z-index: 17;}
+#pb7 {background: url("../img/4.equipe.png") -2298px 0 no-repeat; z-index: 15;}
 
 .bubble {
     border-bottom-right-radius: 100px 50px;

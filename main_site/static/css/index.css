@@ -22,6 +22,11 @@
     100% {transform: rotate(0deg) translate(0, -95px);}
 }
 
+@keyframes flamhide {
+    0% {transform: translate(0, 0);}
+    100% {transform: translate(0, 250px);}
+}
+
 @keyframes hshake {
     0%, 100% {transform: translate(0, 0);}
     20% {transform: translate(3px, 0);}
@@ -42,6 +47,11 @@
 #flamand.flampop {
     animation: flampop 0.9s linear forwards alternate;
     animation-delay: .5s;
+}
+
+#flamand.flamhide {
+    animation: flamhide 0.5s linear forwards;
+    animation-delay: 1s;
 }
 
 #uh {
@@ -86,7 +96,7 @@
 /***** Layout *****/
 #indexbg
 {
-    background: url('/static/img/1.index.bg.jpg') top center no-repeat;
+    background: url('../img/1.index.bg.jpg') top center no-repeat;
     top: 0;
     height: 560px;
     min-height: 560px;
@@ -106,7 +116,7 @@
 
 #nuage1
 {
-    background: url('/static/img/1.index.png') -866px 0 no-repeat;
+    background: url('../img/1.index.png') -866px 0 no-repeat;
     position: absolute;
     top: 0;
     left: 12%;
@@ -118,7 +128,7 @@
 
 #nuage2
 {
-    background: url('/static/img/1.index.png') -976px 0 no-repeat;
+    background: url('../img/1.index.png') -976px 0 no-repeat;
     position: absolute;
     top: 0;
     right: 8%;
@@ -130,7 +140,7 @@
 
 #copyright
 {
-    background: url('/static/img/1.index.png') -358px 0 no-repeat;
+    background: url('../img/1.index.png') -358px 0 no-repeat;
     width:114px;
     height:191px;
     position: absolute;
@@ -140,7 +150,7 @@
 
 #buisson
 {
-    background: url('/static/img/1.index.png') -94px 0 no-repeat;
+    background: url('../img/1.index.png') -94px 0 no-repeat;
     position: absolute;
     left: 678px;
     bottom: 115px;
@@ -152,7 +162,7 @@
 
 #cache
 {
-    background: url('/static/img/1.index.png') -226px 0 no-repeat;
+    background: url('../img/1.index.png') -226px 0 no-repeat;
     position: absolute;
     left: 678px;
     bottom: 0;
@@ -164,18 +174,20 @@
 
 #flamand
 {
-    background: url('/static/img/1.index.png') -10px 0 no-repeat;
+    background: url('../img/1.index.png') -10px 0 no-repeat;
     width: 84px;
     height: 123px;
     position: absolute;
     bottom: 35px;
     left: 718px;
     z-index: 1;
+
+    overflow: hidden;
 }
 
 #uh
 {
-    background: url('/static/img/1.index.png') 0 0 no-repeat;
+    background: url('../img/1.index.png') 0 0 no-repeat;
     width: 10px;
     height: 19px;
     position: absolute;
@@ -190,16 +202,15 @@
     z-index: 3;
 }
 
-#playground a
-{
-    height: 100%;
-    width: 100%;
+.bulle a {
+    display: block;
+    height: 100%; width: 100%;
     cursor: default;
 }
 
 #bclients.bulle
 {
-    background: url('/static/img/1.index.png') -551px 0 no-repeat;
+    background: url('../img/1.index.png') -551px 0 no-repeat;
     width: 73px;
     height: 59px;
     left: 556px;
@@ -208,7 +219,7 @@
 
 #bportfolio.bulle
 {
-    background: url('/static/img/1.index.png') -778px 0 no-repeat;
+    background: url('../img/1.index.png') -778px 0 no-repeat;
     width: 88px;
     height: 78px;
     left: 214px;
@@ -217,7 +228,7 @@
 
 #bagence.bulle
 {
-    background: url('/static/img/1.index.png') -472px 0 no-repeat;
+    background: url('../img/1.index.png') -472px 0 no-repeat;
     width: 79px;
     height: 70px;
     left: 598px;
@@ -226,7 +237,7 @@
 
 #bcontact.bulle
 {
-    background: url('/static/img/1.index.png') -624px 0 no-repeat;
+    background: url('../img/1.index.png') -624px 0 no-repeat;
     width: 85px;
     height: 60px;
     left: 449px;
@@ -235,7 +246,7 @@
 
 #bequipe.bulle
 {
-    background: url('/static/img/1.index.png') -709px 0 no-repeat;
+    background: url('../img/1.index.png') -709px 0 no-repeat;
     width: 69px;
     height: 66px;
     left: 23px;
@@ -261,15 +272,15 @@
 }
 
 #cupcake0 {
-    background: url('/static/img/1.index.cupcake.png') 0 0 no-repeat;
+    background: url('../img/1.index.cupcake.png') 0 0 no-repeat;
 }
 
 #cupcake1 {
-    background: url('/static/img/1.index.cupcake.png') -94px 0 no-repeat;
+    background: url('../img/1.index.cupcake.png') -94px 0 no-repeat;
 }
 
 #cupcake2 {
-    background: url('/static/img/1.index.cupcake.png') -188px 0 no-repeat;
+    background: url('../img/1.index.cupcake.png') -188px 0 no-repeat;
 }
 
 /********** CopyCup ********/
@@ -280,7 +291,7 @@
     top: 488px;
     left: 413px;
 
-    background: url('/static/img/1.index.copycup.png');
+    background: url('../img/1.index.copycup.png');
 
     opacity: 0;
     transition: opacity .5s;
@@ -322,7 +333,7 @@
     width: 12px;
     left: 191px;
     top: 275px;
-    transition: top 1s linear;
+    transition: top .7s linear;
 }
 
 .smallPhotoOut.print {
@@ -330,7 +341,7 @@
 }
 
 .smallPhotoOut.out {
-    animation: fadeOut 1s linear forwards normal;
+    animation: fadeOut .7s linear forwards normal;
     overflow: hidden;
 }
 
@@ -341,11 +352,11 @@
 }
 
 /*** Layering ***/
-#pb0 {background: url("/static/img/1.index.photobooth.png") 0 0 no-repeat; z-index: 10;}
-#pb3 {background: url("/static/img/1.index.photobooth.png") -1155px 0 no-repeat; z-index: 11;}
-#pb4 {background: url("/static/img/1.index.photobooth.png") -495px 0 no-repeat; z-index: 12;}
-#pb5 {background: url("/static/img/1.index.photobooth.png") -660px 0 no-repeat; z-index: 13; opacity: 0.75;}
-#pb6 {background: url("/static/img/1.index.photobooth.png") -825px 0 no-repeat; z-index: 14;}
-#pb1 {background: url("/static/img/1.index.photobooth.png") -165px 0 no-repeat; z-index: 16;}
-#pb2 {background: url("/static/img/1.index.photobooth.png") -330px 0 no-repeat; z-index: 17;}
-#pb7 {background: url("/static/img/1.index.photobooth.png") -990px 0 no-repeat; z-index: 15;}
+#pb0 {background: url("../img/1.index.photobooth.png") 0 0 no-repeat; z-index: 10;}
+#pb3 {background: url("../img/1.index.photobooth.png") -1155px 0 no-repeat; z-index: 11;}
+#pb4 {background: url("../img/1.index.photobooth.png") -495px 0 no-repeat; z-index: 12;}
+#pb5 {background: url("../img/1.index.photobooth.png") -660px 0 no-repeat; z-index: 13; opacity: 0.75;}
+#pb6 {background: url("../img/1.index.photobooth.png") -825px 0 no-repeat; z-index: 14;}
+#pb1 {background: url("../img/1.index.photobooth.png") -165px 0 no-repeat; z-index: 16;}
+#pb2 {background: url("../img/1.index.photobooth.png") -330px 0 no-repeat; z-index: 17;}
+#pb7 {background: url("../img/1.index.photobooth.png") -990px 0 no-repeat; z-index: 15;}

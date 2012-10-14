@@ -5,17 +5,45 @@ $(document).ready(function () {
     var rdm = 0;
     var nbPhotos = $('.smallPhotoOut').length;
 
+    var pauseAnimMap = {
+        '-webkit-animation-play-state' : 'paused',
+        '-moz-animation-play-state' : 'paused',
+        '-ms-animation-play-state' : 'paused',
+        'animation-play-state' : 'paused'};
+
+    var bclientTimerHandle;
     $('#bclients').hover(
         function(){
-            $('#buisson').addClass("shake");
-            $('#flamand').addClass("flampop");
+            var noTimer = false;
+
+            if (!$('#flamand').is(':animated')) {
+                $('#buisson').addClass("shake");
+                noTimer = true;
+            }
+
+
+            // Dummy timer to check if flam has started moving (delay .5s)
+            if (noTimer)
+                bclientTimerHandle = setTimeout(function (){bclientTimerHandle = null;}, 650);
+
+            $('#flamand').stop().removeAttr("style").removeClass('flampop').addClass("flampop");
             if (!jQuery.browser.msie)
                 $('#uh').addClass("what");
         },
         function(){
             $('#buisson').removeClass("shake");
             $('#uh').removeClass("what");
-            $('#flamand').removeClass("flampop");
+
+            if (bclientTimerHandle) {
+                clearTimeout(bclientTimerHandle);
+                $('#flamand').removeAttr("style").removeClass('flampop');
+            } else {
+                $('#flamand').css(pauseAnimMap).animate(
+                    {bottom: '-20'},
+                    500,
+                    function () {$('#flamand').removeAttr("style").removeClass('flampop');}
+                );
+            }
         }
     );
 
@@ -32,7 +60,6 @@ $(document).ready(function () {
     );
 
     var timeOutHandle;
-
     $('#bportfolio').hover(
         function(){
             $('#cupcake1').addClass("hidden");
@@ -54,25 +81,42 @@ $(document).ready(function () {
         }
     );
 
+    var timerHandle;
     // todo: almost mais à travailler
     $('#bequipe').hover(
         function(){
-            var newRdm = Math.ceil(Math.random()* nbPhotos) - 1;
-            if (nbPhotos >= 2)
-                while(newRdm == rdm)
+            var newRdm = Math.ceil(Math.random()* nbPhotos);
+            if (nbPhotos >= 2) {
+                while(newRdm == rdm) {
                     newRdm = Math.ceil(Math.random()* $('.smallPhotoOut').length);
-
-            rdm = newRdm;
-
-            $('#smallPhoto' + rdm).removeClass('hidden').addClass('print');
+                }
+            }
 
             $('#pb1').addClass('flash');
             setTimeout(function(){$('#pb1').removeClass('flash');}, 400);
+
+            if (timeOutHandle) {
+                clearTimeout(timeOutHandle);
+                $('#smallPhoto' + rdm).attr('style',
+                                            "-webkit-transition: none; " +
+                                            "-moz-transition:none; " +
+                                            "-ms-transition:none; " +
+                                            "-o-transition:none; transition:none;")
+                                      .removeClass('print out');
+            }
+
+            $('#smallPhoto' + newRdm).removeAttr('style').addClass('print');
+
+            rdm = newRdm;
         },
         function() {
-            $('.smallPhotoOut.print.out').removeClass('print out').addClass('hidden');
-            $('.smallPhotoOut.print').addClass('out');
-            setTimeout(function(){$('.smallPhotoOut.hidden').removeClass('hidden print out');}, 1000);
+            $('#smallPhoto' + rdm).addClass('out');
+            timeOutHandle = setTimeout(function(){$('#smallPhoto' + rdm).attr('style',
+                                           "-webkit-transition: none; " +
+                                           "-moz-transition:none; " +
+                                           "-ms-transition:none; " +
+                                           "-o-transition:none; transition:none;")
+                                      .removeClass('print out');}, 700);
         }
     );
 });

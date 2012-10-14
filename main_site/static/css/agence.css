@@ -3,10 +3,10 @@
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: normal;
-    src: url('/static/font/quicksand/quicksand.eot');
+    src: url('../font/quicksand/quicksand.eot');
     src: local('Quicksand Regular'), local('Quicksand-Regular'),
-         url('/static/font/quicksand/quicksand.ttf') format('truetype'),
-         url('/static/font/quicksand/quicksand.woff') format('woff');
+         url('../font/quicksand/quicksand.ttf') format('truetype'),
+         url('../font/quicksand/quicksand.woff') format('woff');
 }
 /*******FONTS*******/
 
@@ -29,14 +29,14 @@
 }
 
 #copyright {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/2.agence.png') -131px 0 no-repeat;
+    background: url("../img/2.agence.png") -131px 0 no-repeat;
     width:114px;
     height:191px;
     opacity: 0.25;
 }
 
 #nuage3 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/2.agence.png') -245px 0 no-repeat;
+    background: url('../img/2.agence.png') -245px 0 no-repeat;
     right: 50px;
     width: 111px;
     height: 187px;
@@ -72,7 +72,7 @@
 }
 
 #flamand {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/2.agence.png') 0 0 no-repeat;
+    background: url('../img/2.agence.png') 0 0 no-repeat;
     width: 131px;
     height: 150px;
 
@@ -84,7 +84,7 @@
 }
 
 #buisson {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/2.agence.png') -356px 0 no-repeat;
+    background: url('../img/2.agence.png') -356px 0 no-repeat;
     width: 164px;
     height: 78px;
 

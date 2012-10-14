@@ -4,18 +4,18 @@
     font-style: normal;
     font-weight: normal;
     src: local('Digital'),
-         url('/static/font/digital/digital.ttf')  format('truetype'),
-         url('/static/font/digital/digital.woff') format('woff');
+         url('../font/digital/digital.ttf')  format('truetype'),
+         url('../font/digital/digital.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: normal;
-    src: url('/static/font/quicksand/quicksand.eot');
+    src: url('../font/quicksand/quicksand.eot');
     src: local('Quicksand Regular'), local('Quicksand-Regular'),
-         url('/static/font/quicksand/quicksand.ttf') format('truetype'),
-         url('/static/font/quicksand/quicksand.woff') format('woff');
+         url('../font/quicksand/quicksand.ttf') format('truetype'),
+         url('../font/quicksand/quicksand.woff') format('woff');
 }
 /*******FONTS*******/
 
@@ -40,13 +40,13 @@
 
     position: absolute;
 
-    background: url("http://rk.dyndns-server.com/ateliers.media/resources/5.clients.png") 0 0 no-repeat;
+    background: url("../img/5.clients.png") 0 0 no-repeat;
     z-index: 64;
 }
 
 #tv
 {
-    background: url("http://rk.dyndns-server.com/ateliers.media/resources/5.clients.png") -188px 0 no-repeat;
+    background: url("../img/5.clients.png") -188px 0 no-repeat;
     min-height: 447px;
     min-width:  659px;
     position: absolute;
@@ -110,21 +110,21 @@ canvas#tvLcd
 
 div#tvButton, div#tvButton2
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/5.clients.png') -847px 0 no-repeat;
+    background: url('../img/5.clients.png') -847px 0 no-repeat;
     cursor: default;
     opacity: 0.2;
 }
 
 div#tvButton.active, div#tvButton2.active
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/5.clients.png') -864px 0 no-repeat;
+    background: url('../img/5.clients.png') -864px 0 no-repeat;
     cursor: default;
     opacity: 1;
 }
 
 div#tvButton.active:hover, div#tvButton2.active:hover
 {
-    background: url('http://rk.dyndns-server.com/ateliers.media/resources/5.clients.png') -881px 0 no-repeat;
+    background: url('../img/5.clients.png') -881px 0 no-repeat;
     cursor: default;
 }
 
