@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+    $('#spritesPreload').load(function(){
+        $('.smallPhotoOut.preload').removeClass('preload');
+    });
+
     $('.bubble').click(function() {
         var i = $(this).attr('id').split('e')[1];
 

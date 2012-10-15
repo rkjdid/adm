@@ -155,10 +155,6 @@
     transition: opacity 0.5s 0.5s;
 }
 
-.preload {
-    display: none;
-}
-
 .fiche h1 {
     font-size: 0.9em;
     margin: 42px 5px 5px 5px;

@@ -25,4 +25,5 @@ from ateliers_a import settings
 if settings.DEBUG :
     urlpatterns += patterns('',
         (r'^adm.media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT }),
+        (r'^adm.admin.media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.ADMIN_MEDIA_ROOT }),
     )

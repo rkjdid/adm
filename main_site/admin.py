@@ -1,5 +1,15 @@
 from ateliers_a.main_site.models import *
 from django.contrib import admin
+from ateliers_a import settings
+
+class CommonMedia:
+    js = (
+        'http://ajax.googleapis.com/ajax/libs/dojo/1.8.0/dojo/dojo.js',
+        settings.ADMIN_MEDIA_PREFIX + 'js/editor.js',
+    )
+    css = {
+        'all': (settings.ADMIN_MEDIA_PREFIX + 'css/editor.css',),
+    }
 
 class PhotoMembreInline(admin.StackedInline):
     model = PhotoMembre
@@ -43,4 +53,4 @@ admin.site.register(CategorieClient, CategorieClientAdmin)
 admin.site.register(MembreEquipe, MembreEquipeAdmin)
 admin.site.register(Book, BookAdmin)
 admin.site.register(Contact)
-admin.site.register(Accueil)
+admin.site.register(Accueil, Media = CommonMedia)

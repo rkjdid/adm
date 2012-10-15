@@ -12,6 +12,7 @@ $(document).ready(function () {
         'animation-play-state' : 'paused'};
 
     var bclientTimerHandle;
+
     $('#bclients').hover(
         function(){
             var noTimer = false;
@@ -81,8 +82,8 @@ $(document).ready(function () {
         }
     );
 
-    var timerHandle;
-    // todo: almost mais à travailler
+    $('#photoPreload').load(function() {$('.smallPhotoOut.preload').removeClass('preload');});
+
     $('#bequipe').hover(
         function(){
             var newRdm = Math.ceil(Math.random()* nbPhotos);
@@ -97,6 +98,7 @@ $(document).ready(function () {
 
             if (timeOutHandle) {
                 clearTimeout(timeOutHandle);
+                timeOutHandle = null;
                 $('#smallPhoto' + rdm).attr('style',
                                             "-webkit-transition: none; " +
                                             "-moz-transition:none; " +

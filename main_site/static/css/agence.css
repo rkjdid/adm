@@ -33,6 +33,7 @@
     width:114px;
     height:191px;
     opacity: 0.25;
+    position: absolute;
 }
 
 #nuage3 {
@@ -41,6 +42,7 @@
     width: 111px;
     height: 187px;
     animation: pendule2 9s infinite ease-in-out;
+    position: absolute;
 }
 
 #agencePop {

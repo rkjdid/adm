@@ -96,7 +96,7 @@
 /***** Layout *****/
 #indexbg
 {
-    background: url('../img/1.index.bg.jpg') top center no-repeat;
+    background: url('../img/1.index.bg.png') top center no-repeat;
     top: 0;
     height: 560px;
     min-height: 560px;
@@ -285,11 +285,11 @@
 
 /********** CopyCup ********/
 #cupcopy {
-    width: 22px;
+    width: 21px;
     height: 23px;
     position: absolute;
-    top: 488px;
-    left: 413px;
+    top: 489px;
+    left: 414px;
 
     background: url('../img/1.index.copycup.png');
 
