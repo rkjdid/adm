@@ -1,13 +1,4 @@
 /*******FONTS*******/
-/*@font-face {*/
-    /*font-family: 'Quicksand';*/
-    /*font-style: normal;*/
-    /*font-weight: normal;*/
-    /*src: url('../font/quicksand/quicksand.eot');*/
-    /*src: local('Quicksand Regular'), local('Quicksand-Regular'),*/
-         /*url('../font/quicksand/quicksand.ttf') format('truetype'),*/
-         /*url('../font/quicksand/quicksand.woff') format('woff');*/
-/*}*/
 /*******FONTS*******/
 
 #agencePop p {
@@ -57,7 +48,7 @@
     padding: 40px;
     margin-bottom: 115px;
 
-    font-family: 'Quicksand', 'Bitstream Vera Sans', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     font-size: 1.2em;
 }
 

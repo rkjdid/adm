@@ -1,17 +1,13 @@
 /*******FONTS*******/
-/*@import url(http://fonts.googleapis.com/css?family=Great+Vibes);*/
-/*@import url(http://fonts.googleapis.com/css?family=Quicksand);*/
-
-/*@font-face {*/
-    /*font-family: 'Quicksand';*/
-    /*font-style: normal;*/
-    /*font-weight: normal;*/
-    /*src: url('../font/quicksand/quicksand.eot');*/
-    /*src: local('Quicksand Regular'), local('Quicksand-Regular'),*/
-         /*url('../font/quicksand/quicksand.ttf') format('truetype'),*/
-         /*url('../font/quicksand/quicksand.woff') format('woff');*/
-/*}*/
-
+@font-face {
+    font-family: 'MarketingScript';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../font/marketingscript/marketingscript.eot');
+    src: local('MarketingScript'),
+    url('../font/marketingscript/marketingscript.ttf') format('truetype'),
+    url('../font/marketingscript/marketingscript.woff') format('woff');
+}
 
 /*******FONTS*******/
 
@@ -34,25 +30,38 @@
     position: relative;
 }
 
-#fouetMain {
+#fouet {
     z-index: 0;
     width: 397px;
     height: 480px;
 
     position: absolute;
     top: 15px;
+    left: 125px;
 
-    background: url('../img/3.portfolio.png') 0 0 no-repeat;
+    background: url('../img/3.fouet.png') 0 0 no-repeat;
+}
+
+#cupcake {
+    z-index: 0;
+    width: 150px;
+    height: 163px;
+
+    position: absolute;
+    top: 350px;
+    left: 120px;
+
+    background: url('../img/3.cupcake.png') 0 0 no-repeat;
 }
 
 #oeuf {
-    z-index: 2;
+    z-index: 0;
     width: 166px;
     height: 121px;
 
     position: absolute;
-    left: 735px;
-    top: 375px;
+    left: 625px;
+    top: 376px;
 
     background: url("../img/3.portfolio.png") -2346px -362px no-repeat;
 }
@@ -135,16 +144,22 @@
 }
 
 #bookTitle {
-    font-family: "Great Vibes", cursive;
-    font-size: 2.2em;
-    color: #e36a9e;
+    font-family: "MarketingScript", serif;
+    font-size: 1.8em;
 
-    width: 129px;
-    height: 82px;
+    color: #e31c79;
+
+    width: 151px;
+    height: 97px;
 
     position: absolute;
-    left: 152px;
-    top: 112px;
+    left: 173px;
+    top: 122px;
+}
+
+#bookTitle > p {
+    position: absolute;
+    top: 8px;
 }
 
 #bookTitle:hover {
@@ -153,14 +168,13 @@
 
 #book {
     z-index: 1;
-    width: 360px;
-    height: 430px;
+    width: 400px;
+    height: 477px;
 
-    position: absolute;
-    top: 60px;
-    left: 288px;
-
-    background: url('../img/3.portfolio.png') -1176px 0 no-repeat;
+    position: relative;
+    top: 30px;
+    margin: auto;
+    background: url('../img/3.bookrose.png') no-repeat;
 }
 
 #book.shrink {
@@ -178,7 +192,7 @@
 }
 
 .fiche h1 {
-    font-size: 1.6em;
+    font-size: 1em;
     margin: 42px 5px 5px 5px;
 
     line-height: 15px;
@@ -187,7 +201,7 @@
 }
 
 .fiche div {
-    font-size: 1.2em;
+    font-size: .8em;
     margin: 17px 15px 15px 15px;
     line-height: 16px;
 
@@ -195,7 +209,7 @@
 }
 
 .fiche {
-    font-family: "Great Vibes", cursive;
+    font-family: "MarketingScript", cursive;
     width: 164px;
     height: 196px;
     opacity: 0.75;

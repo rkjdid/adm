@@ -83,7 +83,7 @@
 
 .bulle
 {
-    opacity: 0.6;
+    opacity: 1;
     transition: opacity .8s;
 }
 
@@ -210,47 +210,47 @@
 
 #bclients.bulle
 {
-    background: url('../img/1.index.png') -551px 0 no-repeat;
-    width: 73px;
-    height: 59px;
-    left: 556px;
+    background: url('../img/1.index.bclient.png') no-repeat;
+    width: 98px;
+    height: 79px;
+    left: 680px;
     top: 407px;
 }
 
 #bportfolio.bulle
 {
-    background: url('../img/1.index.png') -778px 0 no-repeat;
-    width: 88px;
-    height: 78px;
+    background: url('../img/1.index.bportfolio.png') no-repeat;
+    width: 120px;
+    height: 104px;
     left: 214px;
     top: 431px;
 }
 
 #bagence.bulle
 {
-    background: url('../img/1.index.png') -472px 0 no-repeat;
-    width: 79px;
-    height: 70px;
+    background: url('../img/1.index.bagence.png') no-repeat;
+    width: 105px;
+    height: 93px;
     left: 598px;
     top: 114px;
 }
 
 #bcontact.bulle
 {
-    background: url('../img/1.index.png') -624px 0 no-repeat;
-    width: 85px;
-    height: 60px;
+    background: url('../img/1.index.bcontact.png') no-repeat;
+    width: 114px;
+    height: 80px;
     left: 449px;
     top: 403px;
 }
 
 #bequipe.bulle
 {
-    background: url('../img/1.index.png') -709px 0 no-repeat;
-    width: 69px;
-    height: 66px;
-    left: 23px;
-    top: 224px;
+    background: url('../img/1.index.bequipe.png')no-repeat;
+    width: 91px;
+    height: 90px;
+    left: 0px;
+    top: 220px;
 
     z-index: 20;
 }

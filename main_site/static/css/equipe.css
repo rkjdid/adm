@@ -1,13 +1,14 @@
 /*******FONTS*******/
-/*@font-face {*/
-    /*font-family: 'Quicksand';*/
-    /*font-style: normal;*/
-    /*font-weight: normal;*/
-    /*src: url('../font/quicksand/quicksand.eot');*/
-    /*src: local('Quicksand Regular'), local('Quicksand-Regular'),*/
-         /*url('../font/quicksand/quicksand.ttf') format('truetype'),*/
-         /*url('../font/quicksand/quicksand.woff') format('woff');*/
-/*}*/
+@font-face {
+    font-family: 'SoupBone';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../font/soupbone/soupbone.eot');
+    src: local('SoupBone-Regular'),
+    url('../font/quicksand/quicksand.ttf') format('truetype'),
+    url('../font/quicksand/quicksand.woff') format('woff');
+}
+
 /*******FONTS*******/
 
 #playground {
@@ -160,7 +161,7 @@
 
     position: absolute;
 
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'SoupBone', sans-serif;
 
     z-index: 20;
 }
