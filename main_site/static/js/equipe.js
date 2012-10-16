@@ -4,6 +4,9 @@ $(document).ready(function(){
         $('.smallPhotoOut.preload').removeClass('preload');
     });
 
+    // Backup in case .load is not fired on #spritesPreload
+    setTimeout (function () {$('.smallPhotoOut.preload').removeClass('preload');}, 700);
+
     $('.bubble').click(function() {
         var i = $(this).attr('id').split('e')[1];
 

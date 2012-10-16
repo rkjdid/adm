@@ -41,7 +41,7 @@ class Accueil (models.Model):
     display = models.BooleanField (default=True)
 
     def __unicode__(self):
-        return self.author + '#' + str(self.id) + '@' + str(self.date)
+        return '#' + str(self.id) + '.' + self.author + '@' + str(self.date)
 
 ###################################################################
 #-Page CONTACT----------------------------------------------------#
@@ -60,7 +60,7 @@ class Contact (models.Model):
     contact2 = models.CharField (max_length=75, default='Mail', blank=True)
 
     def __unicode__(self):
-        return self.nom
+        return '#' + str(self.id) + '.' + self.nom
 
 ###################################################################
 #-Page CLIENT----------------------------------------------------
@@ -75,7 +75,7 @@ class CategorieClient (models.Model):
     nom = models.CharField (max_length=20, default='Catégorie client')
 
     def __unicode__(self):
-        return self.nom
+        return '#' + str(self.id) + '.' + self.nom
 
 class Client (models.Model):
     """
@@ -91,7 +91,7 @@ class Client (models.Model):
         scaleImg(self.logo.path, logoWidth, logoHeight)
 
     def __unicode__(self):
-        return self.nom
+        return '#' + str(self.id) + '.' + self.nom + '@' + self.categorie.nom
 
 ###################################################################
 #-Page EQUIPE----------------------------------------------------
@@ -126,7 +126,7 @@ class MembreEquipe (models.Model):
     description = models.TextField(default='Parcours personnel')
 
     def __unicode__(self):
-        return self.nom
+        return '#' + str(self.id) + '.' + self.nom
 
 class PhotoMembre (models.Model):
     """
@@ -156,7 +156,7 @@ class Book (models.Model):
     theme = models.CharField(max_length=75)
 
     def __unicode__(self):
-        return self.theme
+        return '#' + str(self.id) + '.' + self.theme
 
 class PageBook (models.Model):
     """
@@ -187,7 +187,7 @@ class FicheRecette (models.Model):
     description = models.TextField(default="description fiche (recette 100g..)")
 
     def __unicode__(self):
-        return self.titre
+        return '#' + str(self.id) + '.' + self.titre
 
 ###################################################################
 #-Divers/Signaux---------------------------------------------------

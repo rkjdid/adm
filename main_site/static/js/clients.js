@@ -20,6 +20,15 @@ $(document).ready(function () {
     lcdScreen = $('#tvLcd')[0];
     tvContext = tvScreen.getContext("2d");
     lcdContext = lcdScreen.getContext("2d");
+
+    $('.tvIndex').click(function() {
+        if ($(this).is('.tvIndex.active'))
+            return;
+
+        $('.tvIndex.active').removeClass('active');
+        $(this).addClass('active');
+    });
+
     drawMire();
     defaultDisplay();
 });
@@ -191,6 +200,7 @@ function drawLogos(cat, firstIndex, yoffset) {
     // Set buttons values according to the categorie
     if (images.length > firstIndex + 3)
     {
+
         $('#tvButton')[0].setAttribute(
             "class",
             "active");
@@ -235,4 +245,18 @@ function drawLogos(cat, firstIndex, yoffset) {
             "onclick",
             "");
     }
+
+//    if (images.length > firstIndex + 3) {
+//        $('.tvButton').not('.active').addClass('active');
+//        $('#tvButton').click(function(){drawLogos(cat, firstIndex + 3, !yoffset);});
+//        $('#tvButton2').click(function(){drawLogos(cat, firstIndex + 3, !yoffset);});
+//    }
+//    else if (images.length > 3){  // Last page && more than 3 logos
+//        $('.tvButton').not('.active').addClass('active');
+//        $('#tvButton').bind('click', function(){drawLogos(cat, 0, !yoffset);});
+//        $('#tvButton2').bind('click', function(){drawLogos(cat, 0, !yoffset);});
+//    }
+//    else {
+//        $('.tvButton').removeClass('active').click(function(){});
+//    }
 }

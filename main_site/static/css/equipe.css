@@ -1,13 +1,13 @@
 /*******FONTS*******/
-@font-face {
-    font-family: 'Quicksand';
-    font-style: normal;
-    font-weight: normal;
-    src: url('../font/quicksand/quicksand.eot');
-    src: local('Quicksand Regular'), local('Quicksand-Regular'),
-         url('../font/quicksand/quicksand.ttf') format('truetype'),
-         url('../font/quicksand/quicksand.woff') format('woff');
-}
+/*@font-face {*/
+    /*font-family: 'Quicksand';*/
+    /*font-style: normal;*/
+    /*font-weight: normal;*/
+    /*src: url('../font/quicksand/quicksand.eot');*/
+    /*src: local('Quicksand Regular'), local('Quicksand-Regular'),*/
+         /*url('../font/quicksand/quicksand.ttf') format('truetype'),*/
+         /*url('../font/quicksand/quicksand.woff') format('woff');*/
+/*}*/
 /*******FONTS*******/
 
 #playground {

@@ -15,6 +15,10 @@ $(document).ready(function () {
 
     $('#bclients').hover(
         function(){
+            if (jQuery.browser.msie)
+                return;
+
+
             var noTimer = false;
 
             if (!$('#flamand').is(':animated')) {
@@ -28,10 +32,12 @@ $(document).ready(function () {
                 bclientTimerHandle = setTimeout(function (){bclientTimerHandle = null;}, 650);
 
             $('#flamand').stop().removeAttr("style").removeClass('flampop').addClass("flampop");
-            if (!jQuery.browser.msie)
-                $('#uh').addClass("what");
+            $('#uh').addClass("what");
         },
         function(){
+            if (jQuery.browser.msie)
+                return;
+
             $('#buisson').removeClass("shake");
             $('#uh').removeClass("what");
 

@@ -1,13 +1,18 @@
 /*******FONTS*******/
-@font-face {
-    font-family: 'Quicksand';
-    font-style: normal;
-    font-weight: normal;
-    src: url('../font/quicksand/quicksand.eot');
-    src: local('Quicksand Regular'), local('Quicksand-Regular'),
-         url('../font/quicksand/quicksand.ttf') format('truetype'),
-         url('../font/quicksand/quicksand.woff') format('woff');
-}
+/*@import url(http://fonts.googleapis.com/css?family=Great+Vibes);*/
+/*@import url(http://fonts.googleapis.com/css?family=Quicksand);*/
+
+/*@font-face {*/
+    /*font-family: 'Quicksand';*/
+    /*font-style: normal;*/
+    /*font-weight: normal;*/
+    /*src: url('../font/quicksand/quicksand.eot');*/
+    /*src: local('Quicksand Regular'), local('Quicksand-Regular'),*/
+         /*url('../font/quicksand/quicksand.ttf') format('truetype'),*/
+         /*url('../font/quicksand/quicksand.woff') format('woff');*/
+/*}*/
+
+
 /*******FONTS*******/
 
 /***Animations***/
@@ -129,6 +134,23 @@
     cursor: default;
 }
 
+#bookTitle {
+    font-family: "Great Vibes", cursive;
+    font-size: 2.2em;
+    color: #e36a9e;
+
+    width: 129px;
+    height: 82px;
+
+    position: absolute;
+    left: 152px;
+    top: 112px;
+}
+
+#bookTitle:hover {
+    cursor: default;
+}
+
 #book {
     z-index: 1;
     width: 360px;
@@ -156,7 +178,7 @@
 }
 
 .fiche h1 {
-    font-size: 0.9em;
+    font-size: 1.6em;
     margin: 42px 5px 5px 5px;
 
     line-height: 15px;
@@ -165,14 +187,15 @@
 }
 
 .fiche div {
-    font-size: 0.6em;
+    font-size: 1.2em;
     margin: 17px 15px 15px 15px;
     line-height: 16px;
 
-    text-align: justify;
+    text-align: left;
 }
 
 .fiche {
+    font-family: "Great Vibes", cursive;
     width: 164px;
     height: 196px;
     opacity: 0.75;
