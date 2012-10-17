@@ -67,10 +67,10 @@
     height: 50px;
     line-height: 50px;
 
-    background: #dda0dd;
+    background: #e31c79;
     border-radius: 15px 3px;
 
-    opacity: 0.6;
+    opacity: 0.8;
 
     transition: opacity 0.5s;
 }

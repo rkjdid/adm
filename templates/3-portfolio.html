@@ -4,6 +4,7 @@
 
 {% block extrajs %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/portfolio.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/turn.js/turn.js"></script>
 {% endblock %}
 {% block extracss %}
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/portfolio.css" />
@@ -14,15 +15,20 @@
         <div id="fouet"></div>
         <div id="cupcake"></div>
         <div id="book">
-            <div id="bookTitle"><p>La recette des Ateliers</p></div>
+{#            <div id="bookTitle"><p>La recette des Ateliers</p></div>#}
         </div>
-        <div id="openBook" class="inblock valignC">
-            <canvas id="pageG" width="299" height="423"></canvas>
-            <canvas id="pageD" width="299" height="423"></canvas>
-            <div id="btnG" class=""></div>
-            <div id="pgNbG"></div>
-            <div id="pgNbD"></div>
-            <div id="btnD" class=""></div>
+{#        <div id="openBook" class="inblock valignC">#}
+{#            <canvas id="pageG" width="299" height="423"></canvas>#}
+{#            <canvas id="pageD" width="299" height="423"></canvas>#}
+{#            <div id="btnG" class=""></div>#}
+{#            <div id="pgNbG"></div>#}
+{#            <div id="pgNbD"></div>#}
+{#            <div id="btnD" class=""></div>#}
+{#        </div>#}
+        <div id="flipbook">
+            <div id="cover">
+                <div id="bookTitle"><p>La recette des Ateliers</p></div>
+            </div>
         </div>
         <div id="oeuf"></div>
 {% for b in books|slice:":6" %}

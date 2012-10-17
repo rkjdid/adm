@@ -38,9 +38,7 @@
             {% include 'snip/photobooth.html' %}
 
             {% for m in membres %}
-                {% if m.visible and m.position != 0 %}
                     <img class="preload smallPhotoOut" id="smallPhoto{{ forloop.counter }}" src="{{ m.photo.photo.url }}" alt="Photo {{ m.prenom }}"/>
-                {% endif %}
             {% endfor %}
 
             <span class="bulle" id="bclients"><a href="/clients/"></a></span>

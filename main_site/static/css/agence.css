@@ -16,6 +16,10 @@
 }
 
 #copyright {
+    /*-webkit-animation: rotaz 5s infinite ease-in-out;*/
+    /*-moz-animation: rotaz 5s infinite ease-in-out;*/
+    /*-ms-animation: rotaz 5s infinite ease-in-out;*/
+    /*-o-animation: rotaz 5s infinite ease-in-out;*/
     animation: rotaz 5s infinite ease-in-out;
 }
 
@@ -23,7 +27,7 @@
     background: url("../img/2.agence.png") -131px 0 no-repeat;
     width:114px;
     height:191px;
-    opacity: 0.25;
+    opacity: .8;
     position: absolute;
 }
 
@@ -32,8 +36,13 @@
     right: 50px;
     width: 111px;
     height: 187px;
-    animation: pendule2 9s infinite ease-in-out;
     position: absolute;
+
+    /*-webkit-animation: pendule2 9s infinite ease-in-out;*/
+    /*-moz-animation: pendule2 9s infinite ease-in-out;*/
+    /*-ms-animation: pendule2 9s infinite ease-in-out;*/
+    /*-o-animation: pendule2 9s infinite ease-in-out;*/
+    animation: pendule2 9s infinite ease-in-out;
 }
 
 #agencePop {

@@ -20,8 +20,8 @@ logoHeight = 84
 pagebookWidth = 299
 pagebookHeight = 423
 #photoMembrme - will be resized
-photoMembreWidth = 80
-photoMembreHeight = 428
+photoMembreWidth = 94
+photoMembreHeight = 500
 
 
 ###################################################################
@@ -32,16 +32,16 @@ class Accueil (models.Model):
     Accueil (texte)
     """
     class Meta:
-        ordering = ['-date']
+#        ordering = ['-date']
         verbose_name_plural = '(p1/Agence) News'
 
     content = models.TextField (default='Bienvenue sur le site des ateliers des marques(c).')
-    date    = models.DateField (default=datetime.now)
-    author  = models.CharField (max_length=75, default='')
-    display = models.BooleanField (default=True)
+#    date    = models.DateField (default=datetime.now)
+#    author  = models.CharField (max_length=75, default='')
+#    display = models.BooleanField (default=True)
 
     def __unicode__(self):
-        return '#' + str(self.id) + '.' + self.author + '@' + str(self.date)
+        return '#' + str(self.id)
 
 ###################################################################
 #-Page CONTACT----------------------------------------------------#
@@ -97,18 +97,13 @@ class Client (models.Model):
 #-Page EQUIPE----------------------------------------------------
 ###################################################################
 BUBBLE_POSITION = (
-    (0, u'0-Caché'),
-    (1, u'1-BasGauche'),
-    (2, u'2-Gauche1'),
-    (3, u'3-Gauche2'),
-    (4, u'4-GaucheHaut'),
-    (5, u'5-HautGauche'),
-    (6, u'6-Haut'),
-    (7, u'7-HautDroite'),
-    (8, u'8-DroiteHaut'),
-    (9, u'9-Droite1'),
-    (10, u'10-Droite2'),
-    (11, u'11-BasDroite'),
+    (0, u'0-Caché'), (1, u'1-Haut'), (2, u'2'),
+    (3, u'3'),       (4, u'4'),      (5, u'5'),
+    (6, u'6'),       (7, u'7'),      (8, u'8'),
+    (9, u'9'),       (10, u'10'),    (11, u'11'),
+    (12, u'12'),     (13, u'13'),    (14, u'14'),
+    (15, u'15'),     (16, u'16'),    (17, u'17'),
+    (18, u'18'),     (19, u'19'),    (20, u'20-Bas'),
 )
 
 class MembreEquipe (models.Model):
@@ -116,12 +111,12 @@ class MembreEquipe (models.Model):
     Salariés des AdM (page EQUIPE)
     """
     class Meta:
+        ordering = ['position']
         verbose_name_plural = "(p3/Equipe) Membres des ateliers"
 
     nom = models.CharField (max_length=30, default='Prenom Nom')
     statut = models.CharField (max_length=30, default='Job title')
 
-    visible = models.BooleanField (default=True)
     position = models.IntegerField (default=None, choices=BUBBLE_POSITION, null=True)
     description = models.TextField(default='Parcours personnel')
 

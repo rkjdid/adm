@@ -88,7 +88,7 @@ function defaultDisplay ()
         //        setTimeout (function (){
         lcdContext.fillText("/!\\ ERREUR", 17, 28);
         lcdContext.font = "12px";
-        lcdContext.fillText("---------->",20, 48);
+        lcdContext.fillText("---------->", 16, 48);
         //        }, 800);
     }, 50);
 }

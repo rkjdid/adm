@@ -205,7 +205,7 @@
 .bulle a {
     display: block;
     height: 100%; width: 100%;
-    cursor: default;
+    cursor: pointer;
 }
 
 #bclients.bulle
@@ -223,7 +223,7 @@
     width: 120px;
     height: 104px;
     left: 214px;
-    top: 431px;
+    top: 410px;
 }
 
 #bagence.bulle

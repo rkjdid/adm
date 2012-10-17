@@ -18,10 +18,10 @@ class PhotoMembreInline(admin.StackedInline):
 
 
 class MembreEquipeAdmin(admin.ModelAdmin):
-    fields = ['nom', 'statut', 'description', 'position', 'visible']
-    list_display = ['nom', 'statut', 'position', 'visible', 'description']
+    fields = ['nom', 'statut', 'description', 'position']
+    list_display = ['nom', 'statut', 'position', 'description']
     list_display_links = ['description']
-    list_editable = ['nom', 'statut', 'position', 'visible']
+    list_editable = ['nom', 'statut', 'position']
     inlines = [PhotoMembreInline]
 
 

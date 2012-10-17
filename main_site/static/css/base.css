@@ -43,7 +43,13 @@ a:hover
 div.roundedPop
 {
     border: #AAAAAA 1px solid;
+
+    /*-webkit-box-shadow: 3px 3px 2px #AAAAAA;*/
+    /*-moz-box-shadow: 3px 3px 2px #AAAAAA;*/
+    /*-ms-box-shadow: 3px 3px 2px #AAAAAA;*/
+    /*-o-box-shadow: 3px 3px 2px #AAAAAA;*/
     box-shadow: 3px 3px 2px #AAAAAA;
+
     border-radius: 25px;
 }
 
@@ -113,28 +119,75 @@ img                 {border: none;} /* IE blue border fix */
 
 /*** Common animations ***/
 @keyframes rotaz {
-    0%, 100% {transform: rotate3d(0, 1, 0, 0deg);}
-    50% {transform: rotate3d(0, 1, 0, -40deg);}
+    0%, 100% {
+        /*-webkit-transform: rotate3d(0, 1, 0, 0deg);*/
+        /*-moz-transform: rotate3d(0, 1, 0, 0deg);*/
+        /*-ms-transform: rotate3d(0, 1, 0, 0deg);*/
+        /*-o-transform: rotate3d(0, 1, 0, 0deg);*/
+        transform: rotate3d(0, 1, 0, 0deg);
+    }
+    50% {
+        /*-webkit-transform: rotate3d(0, 1, 0, -40deg);*/
+        /*-moz-transform: rotate3d(0, 1, 0, -40deg);*/
+        /*-ms-transform: rotate3d(0, 1, 0, -40deg);*/
+        /*-o-transform: rotate3d(0, 1, 0, -40deg);*/
+        transform: rotate3d(0, 1, 0, -40deg);
+    }
 }
 
 @keyframes pendule1 {
     0%, 100% {
+        /*-webkit-transform: rotate(14deg);*/
+        /*-moz-transform: rotate(14deg);*/
+        /*-ms-transform: rotate(14deg);*/
+        /*-o-transform: rotate(14deg);*/
         transform: rotate(14deg);
+
+        /*-webkit-transform-origin: 67px 0px;*/
+        /*-moz-transform-origin: 67px 0px;*/
+        /*-ms-transform-origin: 67px 0px;*/
+        /*-o-transform-origin: 67px 0px;*/
         transform-origin: 67px 0px;
     }
     50% {
+        /*-webkit-transform: rotate(-14deg);*/
+        /*-moz-transform: rotate(-14deg);*/
+        /*-ms-transform: rotate(-14deg);*/
+        /*-o-transform: rotate(-14deg);*/
         transform: rotate(-14deg);
+
+        /*-webkit-transform-origin: 67px 0px;*/
+        /*-moz-transform-origin: 67px 0px;*/
+        /*-ms-transform-origin: 67px 0px;*/
+        /*-o-transform-origin: 67px 0px;*/
         transform-origin: 67px 0px;
     }
 }
 
 @keyframes pendule2 {
     0%, 100% {
+        /*-webkit-transform: rotate(-8deg);*/
+        /*-moz-transform: rotate(-8deg);*/
+        /*-ms-transform: rotate(-8deg);*/
+        /*-o-transform: rotate(-8deg);*/
         transform: rotate(-8deg);
+        /*-webkit-transform-origin: 60px 0px;*/
+        /*-moz-transform-origin: 60px 0px;*/
+        /*-ms-transform-origin: 60px 0px;*/
+        /*-o-transform-origin: 60px 0px;*/
         transform-origin: 60px 0px;
     }
     50% {
+        /*-webkit-transform: rotate(8deg);*/
+        /*-moz-transform: rotate(8deg);*/
+        /*-ms-transform: rotate(8deg);*/
+        /*-o-transform: rotate(8deg);*/
         transform: rotate(8deg);
+
+        /*-webkit-transform-origin: 60px 0px;*/
+        /*-moz-transform-origin: 60px 0px;*/
+        /*-ms-transform-origin: 60px 0px;*/
+        /*-o-transform-origin: 60px 0px;*/
         transform-origin: 60px 0px;
     }
 }
@@ -142,55 +195,47 @@ img                 {border: none;} /* IE blue border fix */
 
 /* HEADFOOT */
 /** Layout **/
-header, #bodyContainer, footer
-{
+header, #bodyContainer, footer {
     position: absolute;
     left: 0; right: 0;
 
     z-index: 11;
 }
 
-header
-{
+header {
     height: 64px;
     top: 0;
     overflow-x: auto;
     overflow-y: hidden;
 }
 
-#bodyContainer
-{
+#bodyContainer {
     top: 64px;
     bottom: 45px;
     margin: 0;
 }
 
-#bodyContainer.index
-{
+#bodyContainer.index {
     top: 0;
     bottom: 70px;
 }
 
-.scrollY, .scrollAuto, .overflow
-{
+.scrollY, .scrollAuto, .overflow {
     overflow: auto;
 }
 
-footer
-{
+footer {
     height: 45px;
     bottom: 0;
     z-index: 10;
 }
 
-footer.index
-{
+footer.index {
     height: 70px;
 }
 
 /** Header **/
-nav
-{
+nav {
     cursor: default;
 
     border-bottom: 1px solid gray;
@@ -203,12 +248,11 @@ nav:hover {
 
 nav > ul {
     font-family: "Helvetica", sans-serif;
-    font-weight: bold;
+    font-weight: normal;
     text-transform: uppercase;
     font-size: 1em;
 
     padding-top: 20px;
-    padding-bottom: 15px;
     top: 5px;
 }
 
@@ -217,8 +261,9 @@ nav > ul:hover a.active
     padding: 16px 10px 30px 10px;
     background-color: inherit;
     border: none;
-    box-shadow: none;
     color: inherit;
+
+    box-shadow: none;
 }
 
 nav > ul:hover a.active:hover
@@ -227,9 +272,14 @@ nav > ul:hover a.active:hover
     background-color: #dfe0e1;
     border-top: 1px solid gray;
     border-right: 1px solid gray;
-    border-left: 1px solid #808080;
+    border-left: 1px solid gray;
     border-bottom: none;
     border-radius: 5px;
+
+    -webkit-box-shadow: -2px -1px 3px #888;
+    -moz-box-shadow: -2px -1px 3px #888;
+    -ms-box-shadow: -2px -1px 3px #888;
+    -o-box-shadow: -2px -1px 3px #888;
     box-shadow: -2px -1px 3px #888;
     color: #e31c79;
 }
@@ -258,10 +308,25 @@ nav > ul > li > a.active
     border-left: 1px solid #808080;
     border-bottom: none;
     border-radius: 5px;
+
+    -webkit-box-shadow: -2px -1px 3px #888;
+    -moz-box-shadow: -2px -1px 3px #888;
+    -ms-box-shadow:-2px -1px 3px #888;
+    -o-box-shadow: -2px -1px 3px #888;
     box-shadow: -2px -1px 3px #888;
+
     color: #e31c79;
 
+    -webkit-transition-property: background-color, box-shadow;
+    -moz-transition-property: background-color, box-shadow;
+    -ms-transition-property: background-color, box-shadow;
+    -o-transition-property: background-color, box-shadow;
     transition-property: background-color, box-shadow;
+
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -ms-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
     transition-duration: 0.3s;
 }
 
@@ -276,9 +341,23 @@ nav > ul > li > a:hover
     border-bottom: none;
 
     border-radius: 5px;
+
+    -webkit-box-shadow: -2px -1px 3px #888;
+    -moz-box-shadow: -2px -1px 3px #888;
+    -ms-box-shadow: -2px -1px 3px #888;
+    -o-box-shadow: -2px -1px 3px #888;
     box-shadow: -2px -1px 3px #888;
 
+    -webkit-transition-property: background-color, box-shadow;
+    -moz-transition-property: background-color, box-shadow;
+    -ms-transition-property: background-color, box-shadow;
+    -o-transition-property: background-color, box-shadow;
     transition-property: background-color, box-shadow;
+
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -ms-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
     transition-duration: 0.5s;
 }
 
@@ -291,8 +370,8 @@ nav > .logo
 footer
 {
     text-align: center;
-    border-top: 1px solid gray;
-    background: #dfe0e1;
+    /*border-top: 1px solid gray;*/
+    /*background: #dfe0e1;*/
 }
 
 footer > p

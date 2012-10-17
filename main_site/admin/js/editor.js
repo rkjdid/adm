@@ -1,6 +1,6 @@
 dojo.require("dijit.Editor");
 
-// extra plugins
+// lib plugins
 dojo.require("dijit._editor.plugins.FontChoice");
 dojo.require("dojox.editor.plugins.TextColor");
 dojo.require("dojox.editor.plugins.Blockquote");

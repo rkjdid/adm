@@ -5,7 +5,7 @@ from django.template.context import RequestContext
 from ateliers_a.main_site.models    import *
 
 def index(request):
-    members = MembreEquipe.objects.all();
+    members = MembreEquipe.objects.filter(position__gt = 0)
 
     arguments = {
         'pageN'         : 'index',
@@ -39,7 +39,7 @@ def portfolio(request):
                               context_instance=RequestContext(request))
 
 def equipe(request):
-    members = MembreEquipe.objects.all();
+    members = MembreEquipe.objects.filter(position__gt = 0)
     arguments = {
         'pageN'         : 'equipe',
         'members'       : members,

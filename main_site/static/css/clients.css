@@ -7,16 +7,6 @@
          url('../font/digital/digital.ttf')  format('truetype'),
          url('../font/digital/digital.woff') format('woff');
 }
-
-@font-face {
-    font-family: 'Quicksand';
-    font-style: normal;
-    font-weight: normal;
-    src: url('../font/quicksand/quicksand.eot');
-    src: local('Quicksand Regular'), local('Quicksand-Regular'),
-         url('../font/quicksand/quicksand.ttf') format('truetype'),
-         url('../font/quicksand/quicksand.woff') format('woff');
-}
 /*******FONTS*******/
 
 .preload {
@@ -153,17 +143,21 @@ div#clientPageNb
     font-family: 'digital', sans-serif;
     cursor: default;
     position: absolute;
-    /*border: solid 1px gray;*/
+
     right: 260px;
     top: 305px;
     height: 15px;
     width: auto;
 }
 
+li.tvIndex {
+    margin-bottom: 10px;
+}
+
 li.tvIndex:hover,
 p.tvIndex:hover
 {
-    color: #ff69b4;
+    color: #e31c79;
     cursor: default;
 }
 /** \TV/ **/
