@@ -18,7 +18,9 @@
         <div id="nuage1"></div>
         <div id="nuage2"></div>
         <div id="playground">
-            <div id="copyright" class="rotaz"></div>
+            <div id="copyright" class="rotaz bagence"></div>
+
+            <div id="client" class="bclient"></div>
 
             <div id="unFlamandDerriereUnBuisson">
                 <div id="buisson"></div>
@@ -27,25 +29,35 @@
                 <div id="uh"></div>
             </div>
 
-            <div id="cupcake">
+            <div id="cupcake" class="bportfolio">
                 <div id="cupcake0"></div>
                 <div id="cupcake1"></div>
                 <div id="cupcake2"></div>
             </div>
 
-            <div id="cupcopy"></div>
+            <div id="mug" class="bcontact">
+                <div id="cupcopy"></div>
+            </div>
 
-            {% include 'snip/photobooth.html' %}
+            <div id="pbox" class="pbox photoBooth bequipe">
+                <div id="pb0" class="photoBooth pblayer"></div>
+                <div id="pb1" class="photoBooth pblayer"></div>
+                <div id="pb2" class="photoBooth pblayer"></div>
+                <div id="pb3" class="photoBooth pblayer"></div>
+                <div id="pb5" class="photoBooth pblayer"></div>
+                <div id="pb6" class="photoBooth pblayer"></div>
+                <div id="pb7" class="photoBooth pblayer"></div>
+            </div>
 
             {% for m in membres %}
-                    <img class="preload smallPhotoOut" id="smallPhoto{{ forloop.counter }}" src="{{ m.photo.photo.url }}" alt="Photo {{ m.prenom }}"/>
+                <img class="preload smallPhotoOut" id="smallPhoto{{ forloop.counter }}" src="{{ m.photo.photo.url }}" alt="Photo {{ m.prenom }}"/>
             {% endfor %}
 
-            <span class="bulle" id="bclients"><a href="/clients/"></a></span>
-            <span class="bulle" id="bportfolio"><a href="/portfolio/"></a></span>
-            <span class="bulle" id="bagence"><a href="/agence/"></a></span>
-            <span class="bulle" id="bcontact"><a href="/contact/"></a></span>
-            <span class="bulle" id="bequipe"><a href="/equipe/"></a></span>
+            <span class="bulle bclients" id="bclients"><a href="/clients/"></a></span>
+            <span class="bulle bportfolio" id="bportfolio"><a href="/portfolio/"></a></span>
+            <span class="bulle bagence" id="bagence"><a href="/agence/"></a></span>
+            <span class="bulle bcontact" id="bcontact"><a href="/contact/"></a></span>
+            <span class="bulle bequipe" id="bequipe"><a href="/equipe/"></a></span>
         </div>
     </div>
 {% endblock %}

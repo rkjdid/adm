@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     var bclientTimerHandle;
 
-    $('#bclients').hover(
+    $('.bclients').hover(
         function(){
             if (jQuery.browser.msie)
                 return;
@@ -54,7 +54,7 @@ $(document).ready(function () {
         }
     );
 
-    $('#bagence').hover(
+    $('.bagence').hover(
         function(){
             $("#copyright").addClass("twist");
             setTimeout(function(){
@@ -67,7 +67,7 @@ $(document).ready(function () {
     );
 
     var timeOutHandle;
-    $('#bportfolio').hover(
+    $('.bportfolio').hover(
         function(){
             $('#cupcake1').addClass("hidden");
             timeOutHandle = setTimeout(function(){$('#cupcake2').addClass('hidden');}, 900);
@@ -79,7 +79,7 @@ $(document).ready(function () {
         }
     );
 
-    $('#bcontact').hover(
+    $('.bcontact').hover(
         function(){
             $('#cupcopy').addClass("copypop");
         },
@@ -90,7 +90,7 @@ $(document).ready(function () {
 
     $('#photoPreload').load(function() {$('.smallPhotoOut.preload').removeClass('preload');});
 
-    $('#bequipe').hover(
+    $('.bequipe').hover(
         function(){
             var newRdm = Math.ceil(Math.random()* nbPhotos);
             if (nbPhotos >= 2) {

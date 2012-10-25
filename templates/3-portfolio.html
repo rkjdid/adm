@@ -14,9 +14,9 @@
     <div id="playground">
         <div id="fouet"></div>
         <div id="cupcake"></div>
-        <div id="book">
+{#        <div id="book">#}
 {#            <div id="bookTitle"><p>La recette des Ateliers</p></div>#}
-        </div>
+{#        </div>#}
 {#        <div id="openBook" class="inblock valignC">#}
 {#            <canvas id="pageG" width="299" height="423"></canvas>#}
 {#            <canvas id="pageD" width="299" height="423"></canvas>#}
@@ -25,8 +25,8 @@
 {#            <div id="pgNbD"></div>#}
 {#            <div id="btnD" class=""></div>#}
 {#        </div>#}
-        <div id="flipbook">
-            <div id="cover">
+        <div id="flipbook" class="first">
+            <div id="front" class="cover">
                 <div id="bookTitle"><p>La recette des Ateliers</p></div>
             </div>
         </div>
@@ -34,7 +34,6 @@
 {% for b in books|slice:":6" %}
         <div id="fiche{{ forloop.counter0 }}" class="fiche">
             <h1>{{ b.fiche.titre }}</h1>
-            <div>{{ b.fiche.description|linebreaks }}</div>
             <div class="preload">
   {% for pb in b.pagebooks.all %}
                 <img class="preload gauche book-{{ forloop.parentloop.counter0 }}" src="{{ pb.pageGauche.url }}" id="pageG-{{ forloop.parentloop.counter0 }}-{{ forloop.counter0 }}" alt="Page Gauche #{{ forloop.counter0 }}" />

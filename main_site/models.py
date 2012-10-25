@@ -17,8 +17,8 @@ from datetime import datetime
 logoWidth = 110
 logoHeight = 84
 # PageBook - will be resized (232*432)
-pagebookWidth = 299
-pagebookHeight = 423
+pagebookWidth = 372
+pagebookHeight = 450
 #photoMembrme - will be resized
 photoMembreWidth = 94
 photoMembreHeight = 500

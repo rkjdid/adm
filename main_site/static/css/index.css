@@ -284,12 +284,20 @@
 }
 
 /********** CopyCup ********/
+#mug {
+    position: absolute;
+    top: 453px;
+    left: 387px;
+    width: 90px;
+    height: 94px;
+}
+
 #cupcopy {
     width: 21px;
     height: 23px;
     position: absolute;
-    top: 489px;
-    left: 414px;
+    top: 35px;
+    left: 25px;
 
     background: url('../img/1.index.copycup.png');
 

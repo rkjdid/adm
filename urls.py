@@ -4,6 +4,9 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+from dajaxice.core import dajaxice_autodiscover, dajaxice_config
+dajaxice_autodiscover()
+
 
 urlpatterns = patterns('',
     # Main pages
@@ -18,12 +21,15 @@ urlpatterns = patterns('',
     # Admin stuff
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+
+    # DajaxIce
+    url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
 )
 
 from ateliers_a import settings
 
-if settings.DEBUG :
-    urlpatterns += patterns('',
-        (r'^adm.media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT }),
-        (r'^adm.admin.media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.ADMIN_MEDIA_ROOT }),
-    )
+#if settings.DEBUG :
+urlpatterns += patterns('',
+    (r'^adm.media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT }),
+    (r'^adm.admin.media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.ADMIN_MEDIA_ROOT }),
+)
