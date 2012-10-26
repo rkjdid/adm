@@ -27,7 +27,8 @@ def agence(request):
                               arguments,
                               context_instance=RequestContext(request))
 
-def portfolio(request):
+def portfolio(request, tab):
+    test = tab
     books = Book.objects.all()
     arguments = {
         'pageN'         : 'portfolio',

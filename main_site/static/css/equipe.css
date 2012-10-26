@@ -70,7 +70,7 @@
 
 .descriptionPhoto {
     width: 94px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     z-index: 33;
     height: 510px;
     right: -216px;
@@ -84,6 +84,7 @@
     position: absolute;
     right: 72%;
     height: 90%;
+    width: 225px;
     bottom: 0;
 }
 
@@ -102,7 +103,7 @@
     z-index: 20;
 }
 
-.bubble h2 {font-size: 1.1em; font-weight: bold;}
+.bubble h2 {font-size: 1.1em; font-weight: normal;}
 .bubble {
     font-size: 1.1em;
 }

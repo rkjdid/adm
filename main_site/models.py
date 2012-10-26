@@ -150,6 +150,9 @@ class Book (models.Model):
 
     theme = models.CharField(max_length=75)
 
+    def nbPages (self):
+        return self.pagebooks.count
+
     def __unicode__(self):
         return '#' + str(self.id) + '.' + self.theme
 

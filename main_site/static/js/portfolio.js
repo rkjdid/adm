@@ -52,13 +52,30 @@ $(document).ready(function(){
                 $('#flipbook').turn('previous');
             else if (e.keyCode==39)
                 $('#flipbook').turn('next');
-
     });
+
+    // TODO : add category pages
 });
 
-function callback(data) {
-    return data.message;
-}
+//function alertMsg(data) {
+//    alert(data.message);
+//}
+//
+//function setTitle(data) {
+//    $('#bookTitle').html(data.message);
+//}
+//
+//function wrapSetTitle() {
+//    Dajaxice.ateliers_a.main_site.sayhello(setTitle);
+//    return '';
+//}
+//
+//function wrapAlertMsg() {
+//    Dajaxice.ateliers_a.main_site.sayhello(alertMsg);
+//    return '';
+//}
+
+
 
 function addPage(page, book) {
     // 	First check if the page is already in the book
@@ -74,11 +91,18 @@ function addPage(page, book) {
         // If not then add the page
         book.turn('addPage', element, page);
 
-        // Let's assum that the data is comming from the server and the request takes 1s.
+        // Let's assum that the data is comming from the server and the request takes 3s.
         if (page != book.turn('pages'))
             setTimeout(function(){
-                element.html('<div class="data">' + Dajaxice.main_site.sayhello(callback) + ' ' + page +'</div>');
-            }, 1000);
+                Dajaxice.ateliers_a.main_site.getImage
+                    (Dajax.process,
+                     {
+                         'selector': element.attr('id'),
+                         'pageId': (page%2==0)?1:2,
+                         'bEven': (page%2==0)
+                     }
+                );
+            }, 3000);
     }
 }
 
