@@ -1,10 +1,5 @@
 /*******FONTS*******/
 /*******FONTS*******/
-
-#agencePop p {
-    margin-bottom: 1.5em;
-    text-align: justify;
-}
 #playground {
     margin-left: auto;
     margin-right: auto;
@@ -12,30 +7,30 @@
 
     width: 1000px;
     position: relative;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 
-#copyright {
+#ruban {
     /*-webkit-animation: rotaz 5s infinite ease-in-out;*/
     /*-moz-animation: rotaz 5s infinite ease-in-out;*/
     /*-ms-animation: rotaz 5s infinite ease-in-out;*/
     /*-o-animation: rotaz 5s infinite ease-in-out;*/
-    animation: rotaz 5s infinite ease-in-out;
-}
+    /*animation: rotaz 5s infinite ease-in-out;*/
 
-#copyright {
-    background: url("../img/2.agence.png") -131px 0 no-repeat;
-    width:114px;
-    height:191px;
-    opacity: .8;
+    background: url("../img/2.agence.ruban.png") no-repeat;
+    width:350px;
+    height:330px;
     position: absolute;
+
+    right: 58px;
+    top: 25px;
 }
 
 #nuage3 {
-    background: url('../img/2.agence.png') -245px 0 no-repeat;
-    right: 50px;
-    width: 111px;
-    height: 187px;
+    background: url('../img/2.agence.nuage.png') no-repeat;
+    left: 0;
+    width: 170px;
+    height: 279px;
     position: absolute;
 
     /*-webkit-animation: pendule2 9s infinite ease-in-out;*/
@@ -46,19 +41,85 @@
 }
 
 #agencePop {
+    z-index: 10;
     position: relative;
-    top: 45px;
+    top: 95px;
 
-    width: 650px;
-    min-height: 320px;
+    width: 525px;
+    min-height: 150px;
 
     background: white;
 
-    padding: 40px;
+    padding: 75px;
     margin-bottom: 115px;
 
     font-family: 'Helvetica', sans-serif;
-    font-size: 1.2em;
+    font-size: 1em;
+
+    border-radius: 65px;
+}
+
+#agencePop p {
+    margin-bottom: 1.5em;
+    text-align: justify;
+}
+
+#ulPoles {
+    position: relative;
+    width: 675px;
+    font-size: .8em;
+    left: 0; right: 0;
+    margin-left: auto; margin-right: auto;
+}
+
+#ulPoles li {
+    display: inline-block;
+    width: 90px;
+    height: 85px;
+    margin-right: 15px;
+}
+
+#ulPoles li:hover {
+    cursor: pointer;
+}
+
+#ulPoles li:hover p {
+    color: #e31c79;
+}
+
+#ulPoles li:hover div {
+    animation: shake .4s linear;
+}
+
+#ulPoles a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#ulPoles li.marginTop p {
+    /*line-height: 2em;*/
+}
+
+#poleDesign {background: url('../img/2.agence.poleDesign.png') top no-repeat;}
+#polePhoto {background: url('../img/2.agence.polePhoto.png') top no-repeat;}
+#poleWeb {background: url('../img/2.agence.poleWeb.png') top no-repeat;}
+#poleCom {background: url('../img/2.agence.poleCommunication.png') top no-repeat;}
+#poleMarkOp {background: url('../img/2.agence.poleMarkOpe.png') top no-repeat;}
+#poleMarkDirect {background: url('../img/2.agence.poleMarkDirect.png') top no-repeat;}
+
+.liPoles div {
+    width: 64px;
+    height: 53px;
+    top: 0; left: 0; right: 0;
+    margin-left: auto; margin-right: auto; margin-bottom: 2px;
+}
+
+.liPoles p {
+    bottom: 0;
+}
+
+#newsWrap{
+    text-align: justify;
 }
 
 .sign {
@@ -93,4 +154,14 @@
     position: absolute;
     right: -35px;
     bottom: -35px;
+}
+
+
+/*** Transformations - std ***/
+@keyframes shake {
+    0% {transform: rotate(0deg) scale(1);}
+    25% {transform: rotate(15deg) scale(1.1);}
+    50% {transform: rotate(-15deg) scale(1.2);}
+    75% {transform: rotate(15deg) scale(1.3);}
+    100% {transform: rotate(0deg) scale(1.15);}
 }

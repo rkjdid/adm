@@ -8,23 +8,63 @@
 
 {% block body %}
     <div id="playground">
-        <div id="copyright"></div>
+        <div id="ruban"></div>
         <div id="nuage3"></div>
-        <div id="agencePop" class="roundedPop inblock valignC alignL">
-            <div id="flamand"></div>
-            <div id="buisson"></div>
+        <div id="agencePop" class="inblock valignC alignL">
+{#            <div id="flamand"></div>#}
+{#            <div id="buisson"></div>#}
 {% for new in news %}
+            <p id="newsP">
 {#  {% if new.display %}#}
-            <div id="news{{ forloop.counter0 }}" class="news">
-                <div class="overflow">
+{#            <div id="news{{ forloop.counter0 }}" class="news">#}
+{#                <div class="overflow">#}
     {% autoescape off %}
                     {{ new.content }}
     {% endautoescape %}
 {#                    <div id="sign{{ forloop.counter0 }}" class="sign">{{ new.author }} - {{ new.date.day }}/{{ new.date.month }}/{{ new.date.year }}</div>#}
-                </div>
-            </div>
+{#                </div>#}
+{#            </div>#}
+            </p>
 {#  {% endif %}#}
 {% endfor %}
         </div>
+        <ul id="ulPoles">
+            <li class="liPoles marginTop">
+                <a href="/portfolio/design/">
+                    <div id="poleDesign"></div>
+                    <p>Design<br>&nbsp;</p>
+                </a>
+            </li>
+            <li class="liPoles marginTop">
+                <a href="/portfolio/photo/">
+                    <div id="polePhoto"></div>
+                    <p>Photo<br>&nbsp;</p>
+                </a>
+            </li>
+            <li class="liPoles marginTop">
+              <a href="/portfolio/web/">
+                <div id="poleWeb"></div>
+                <p>Web<br>&nbsp;</p>
+              </a>
+            </li>
+            <li class="liPoles marginTop">
+              <a href="/portfolio/com/">
+                <div id="poleCom"></div>
+                <p>Communication<br>&nbsp;</p>
+              </a>
+            </li>
+            <li class="liPoles ">
+              <a href="/portfolio/marketo/">
+                <div id="poleMarkOp"></div>
+                <p>Marketing opérationnel</p>
+              </a>
+            </li>
+            <li class="liPoles ">
+              <a href="/portfolio/marketd/">
+                <div id="poleMarkDirect"></div>
+                <p>Marketing direct</p>
+              </a>
+            </li>
+        </ul>
     </div>
 {% endblock %}
