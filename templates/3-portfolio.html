@@ -3,20 +3,32 @@
 {% block title %} - portfolio{% endblock %}
 
 {% block extrajs %}
-    <script type="text/javascript">
-    var bookArray = new Array(6);
-{% for b in books|slice:":6" %}
-    bookArray[{{ forloop.counter0 }}] = {{ b.pagebooks.count }};
-{% endfor %}
-
-    var firstPageIndex = new Array(6), currentIndex = 3;
-    for (var i = 0; i < 6; i++) {
-        firstPageIndex[i] = currentIndex;
-        currentIndex += (bookArray[i]*2);
-    }
-    </script>
+    {% load dajaxice_templatetags %}{% dajaxice_js_import %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/jquery.dajax.core.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/portfolio.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/turn.js/turn.js"></script>
+<!--[if IE]>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.page.even').addClass('ieEven');
+            $('.page.odd').addClass('ieOdd');
+            $(".hard").addClass("page").removeClass("hard");
+            loadBook();
+        });
+    </script>
+<![endif]-->
+<!--[if lte IE 8]>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/turn.js/turn.html4.min.js"></script>
+<![endif]-->
+<!--[if gt IE 8]>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/turn.js/turn.min.js"></script>
+<![endif]-->
+<!--[if !IE]><!-->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/turn.js/turn.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){loadBook();});
+    </script>
+<!--<![endif]-->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/turn.js/hash.js"></script>
 {% endblock %}
 {% block extracss %}
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/portfolio.css" />
@@ -26,34 +38,72 @@
     <div id="playground">
         <div id="fouet"></div>
         <div id="cupcake"></div>
-{#        <div id="book">#}
-{#            <div id="bookTitle"><p>La recette des Ateliers</p></div>#}
-{#        </div>#}
-{#        <div id="openBook" class="inblock valignC">#}
-{#            <canvas id="pageG" width="299" height="423"></canvas>#}
-{#            <canvas id="pageD" width="299" height="423"></canvas>#}
-{#            <div id="btnG" class=""></div>#}
-{#            <div id="pgNbG"></div>#}
-{#            <div id="pgNbD"></div>#}
-{#            <div id="btnD" class=""></div>#}
-{#        </div>#}
-
         <div id="flipbook" class="first">
-            <div id="front" class="cover">
+            <div id="page-1" class="hard cover">
                 <div id="bookTitle"><p>La recette des Ateliers</p></div>
             </div>
+            <div id="page-2" class="hard cover">
+            </div>
+            <div id="page-3" class="odd page">
+                <img src="{{ STATIC_URL }}img/3.logobig.png" alt="Logo" />
+            </div>
+
+{% load set %}{% set i = 4 %}
+{% for b in books|slice:":6" %}
+    {% if forloop.counter == 1 %}
+        {% set b1 = i %}
+    {% elif forloop.counter == 2 %}
+        {% set b2 = i %}
+    {% elif forloop.counter == 3 %}
+        {% set b3 = i %}
+    {% elif forloop.counter == 4 %}
+        {% set b4 = i %}
+    {% elif forloop.counter == 5 %}
+        {% set b5 = i %}
+    {% elif forloop.counter == 6 %}
+        {% set b6 = i %}
+    {% endif %}
+    {% for pb in b.pagebooks.all %}
+            <div id="page-{{ i }}" class='page even'>
+                <div class="loader"></div>
+                <div class="data">
+                    <div class="dataSelector">{{ i }}</div>
+                    <div class="dataBook">{{ forloop.parentloop.counter0 }}</div>
+                    <div class="dataPage">{{ forloop.counter0 }}</div>
+                    <div class="dataEven">true</div>
+                </div>
+            </div>{% increment i %}
+            <div id="page-{{ i }}" class='page odd'>
+                <div class="loader"></div>
+                <div class="data">
+                    <div class="dataSelector">{{ i }}</div>
+                    <div class="dataBook">{{ forloop.parentloop.counter0 }}</div>
+                    <div class="dataPage">{{ forloop.counter0 }}</div>
+                    <div class="dataEven">false</div>
+                </div>
+            </div>{% increment i %}
+    {% endfor %}
+{% endfor %}
+            <div id="page-{{ i }}" class='page even'></div>{% increment i %}
+            <div id="page-{{ i }}" class="hard cover lastBack"></div>
+            <div id="back" class="hard cover"></div>
+        </div>
+        <ul id="navBook" class="">
+            <li id="liDesign"><a href="#page/{{ b1 }}"><div id="tabDesign" class="tabSprite"></div>Design</a></li>
+            <li id="liPhoto"><a href="#page/{{ b2 }}"><div id="tabPhoto" class="tabSprite"></div>Photo</a></li>
+            <li id="liWeb"><a href="#page/{{ b3 }}"><div id="tabWeb" class="tabSprite"></div>Web</a></li>
+            <li id="liCom"><a href="#page/{{ b4 }}"><div id="tabCom" class="tabSprite"></div>Communication</a></li>
+            <li id="liMarketo"><a href="#page/{{ b5 }}"><div id="tabMarketo" class="tabSprite"></div>Marketing opérationnel</a></li>
+            <li id="liMarketd"><a href="#page/{{ b6 }}"><div id="tabMarketd" class="tabSprite"></div>Marketing direct</a></li>
+        </ul>
+        <div class="data" id="bookHandles">
+            <div id="bookHandle1">{{ b1 }}</div>
+            <div id="bookHandle2">{{ b2 }}</div>
+            <div id="bookHandle3">{{ b3 }}</div>
+            <div id="bookHandle4">{{ b4 }}</div>
+            <div id="bookHandle5">{{ b5 }}</div>
+            <div id="bookHandle6">{{ b6 }}</div>
         </div>
         <div id="oeuf"></div>
-{#{% for b in books|slice:":6" %}#}
-{#        <div id="fiche{{ forloop.counter0 }}" class="fiche">#}
-{#            <h1>{{ b.fiche.titre }}</h1>#}
-{#            <div class="preload">#}
-{#  {% for pb in b.pagebooks.all %}#}
-{#                <img class="preload gauche book-{{ forloop.parentloop.counter0 }}" src="{{ pb.pageGauche.url }}" id="pageG-{{ forloop.parentloop.counter0 }}-{{ forloop.counter0 }}" alt="Page Gauche #{{ forloop.counter0 }}" />#}
-{#                <img class="preload droite book-{{ forloop.parentloop.counter0 }}" src="{{ pb.pageDroite.url }}" id="pageD-{{ forloop.parentloop.counter0 }}-{{ forloop.counter0 }}" alt="Page Droite #{{ forloop.counter0 }}" />#}
-{#  {% endfor %}#}
-{#            </div>#}
-{#        </div>#}
-{#{% endfor %}#}
     </div>
 {% endblock %}

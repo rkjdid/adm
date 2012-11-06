@@ -14,14 +14,14 @@ import tempfile
 from datetime import datetime
 
 # Static dimensions - (logo == logos clients - will be resized)
-logoWidth = 110
-logoHeight = 84
-# PageBook - will be resized (232*432)
-pagebookWidth = 372
+logoWidth = 90
+logoHeight = 90
+# PageBook - will be resized (370*450)
+pagebookWidth = 370
 pagebookHeight = 450
 #photoMembrme - will be resized
-photoMembreWidth = 94
-photoMembreHeight = 500
+photoMembreWidth = 95
+photoMembreHeight = 505
 
 
 ###################################################################
@@ -87,6 +87,8 @@ class Client (models.Model):
 
     logo = models.ImageField(upload_to= 'clients/')
 
+#    pagebook = models.OneToOneField('PageBook', related_name="client", blank=True, null=True)
+
     def resizeImg(self):
         scaleImg(self.logo.path, logoWidth, logoHeight)
 
@@ -151,7 +153,7 @@ class Book (models.Model):
     theme = models.CharField(max_length=75)
 
     def nbPages (self):
-        return self.pagebooks.count
+        return self.pagebooks.count()
 
     def __unicode__(self):
         return '#' + str(self.id) + '.' + self.theme

@@ -1,6 +1,6 @@
-from ateliers_a.main_site.models import *
+from main_site.models import *
 from django.contrib import admin
-from ateliers_a import settings
+import settings
 
 class CommonMedia:
     js = (

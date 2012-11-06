@@ -2,7 +2,7 @@
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 
-from ateliers_a.main_site.models    import *
+from main_site.models    import *
 
 def index(request):
     members = MembreEquipe.objects.filter(position__gt = 0)
@@ -27,9 +27,9 @@ def agence(request):
                               arguments,
                               context_instance=RequestContext(request))
 
-def portfolio(request, tab):
-    test = tab
+def portfolio(request):
     books = Book.objects.all()
+
     arguments = {
         'pageN'         : 'portfolio',
         'request'       : request,

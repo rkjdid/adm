@@ -1,4 +1,3 @@
-{% load dajaxice_templatetags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +21,6 @@
 
 {% block prebody %}{% endblock %}
     <div id="bodyContainer" class="scrollY {{ pageN }}">
-        <div id="glassPane">{% block glassPane %}{% endblock %}</div>
         {% block body %}{% endblock %}
     </div>
 {% block postbody %}{% endblock %}
@@ -37,15 +35,13 @@
 
 <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <script src="{{ STATIC_URL }}js/extra/excanvas_r3/excanvas.compiled.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/excanvas_r3/excanvas.compiled.js"></script>
 <![endif]-->
 {% if modernized == True %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/lib/modernizr.custom.27088.js"></script>
 {% endif %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/lib/prefixfree.min.js"></script>
-{% dajaxice_js_import %}
-    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/jquery.dajax.core.js"></script>
 {% block extrajs %}{% endblock %}
 </body>
 </html>

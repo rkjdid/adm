@@ -100,12 +100,16 @@
     /*line-height: 2em;*/
 }
 
-#poleDesign {background: url('../img/2.agence.poleDesign.png') top no-repeat;}
-#polePhoto {background: url('../img/2.agence.polePhoto.png') top no-repeat;}
-#poleWeb {background: url('../img/2.agence.poleWeb.png') top no-repeat;}
-#poleCom {background: url('../img/2.agence.poleCommunication.png') top no-repeat;}
-#poleMarkOp {background: url('../img/2.agence.poleMarkOpe.png') top no-repeat;}
-#poleMarkDirect {background: url('../img/2.agence.poleMarkDirect.png') top no-repeat;}
+.liPoles a div {
+    background: url('../img/sprites.pole.png') transparent no-repeat;
+}
+
+#poleDesign { width: 36px; height: 46px; background-position: -65px 0; }
+#polePhoto { width: 64px; height: 47px; background-position: 0 0; }
+#poleWeb { width: 47px; height: 51px; background-position: -104px -91px; }
+#poleCom { width: 51px; height: 53px; background-position: -48px -48px; }
+#poleMarkOp  { width: 47px; height: 42px; background-position: 0 -100px; }
+#poleMarkDirect { width: 55px; height: 40px; background-position: -48px -102px; }
 
 .liPoles div {
     width: 64px;

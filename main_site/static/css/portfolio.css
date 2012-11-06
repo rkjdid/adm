@@ -10,18 +10,6 @@
 }
 
 /*******FONTS*******/
-
-/***Animations***/
-@keyframes shrink {
-    0% {transform: scale(1);}
-    100% {transform: scale(0);}
-}
-
-@keyframes grow {
-    0% {transform: scale(0);}
-    100% {transform: scale(1);}
-}
-
 #playground {
     margin-left: auto;
     margin-right: auto;
@@ -31,7 +19,7 @@
 }
 
 #bodyContainer {
-    overflow: hidden;
+    overflow: auto;
 }
 
 #fouet {
@@ -64,10 +52,16 @@
     height: 121px;
 
     position: absolute;
-    left: 625px;
+    left: 585px;
     top: 376px;
 
     background: url("../img/3.portfolio.png") -2346px -362px no-repeat;
+}
+
+.loader {
+    background: url('../img/loader.gif') center center no-repeat;
+    width: 100%;
+    height: 100%;
 }
 
 /************FLIPBOOK************/
@@ -96,217 +90,146 @@
 
 #flipbook {
     z-index: 2;
-    width: 742px;
+    width: 740px;
     height: 450px;
-    position: absolute;
     right: 0; top: 50px; bottom: 0;
     margin:auto;
     left: 0;
 
-    transition: left .2s ease-out;
+    transition: left .25s ease-out;
+
+    position: absolute !important;
 }
 
 #flipbook.first {
-    left: -185px;
+    left: -350px;
 }
 
 #flipbook.last {
-    left: 185px;
+    left: 270px;
 }
 
 
 
-#flipbook .odd{
+#flipbook .even{
     background-image:-webkit-linear-gradient(left, #FFF 95%, #ddd 100%);
     background-image:-moz-linear-gradient(left, #FFF 95%, #ddd 100%);
     background-image:-o-linear-gradient(left, #FFF 95%, #ddd 100%);
     background-image:-ms-linear-gradient(left, #FFF 95%, #ddd 100%);
 }
 
-#flipbook .even{
+#flipbook .odd{
     background-image:-webkit-linear-gradient(right, #FFF 95%, #ddd 100%);
     background-image:-moz-linear-gradient(right, #FFF 95%, #ddd 100%);
     background-image:-o-linear-gradient(right, #FFF 95%, #ddd 100%);
     background-image:-ms-linear-gradient(right, #FFF 95%, #ddd 100%);
 }
 
-#front {
+.page img {
+    position: absolute;
+    top: 0; bottom: 0;
+    margin: auto;
+}
+
+.page.even img {
+    right: 0;
+}
+
+.page.odd img {
+    left: 0;
+}
+
+#page-1 {
     height: 100%;
     width: 100%;
-    /*top: 30px;*/
     background: url('../img/3.bookrose.png') no-repeat !important;
+}
+
+#page-2 {
+    height: 100%;
+    width: 100%;
+    background: url('../img/3.bookrose.coverback.png') no-repeat !important;
+}
+
+#page-3 img {
+    position: absolute;
+    top: 0; bottom: 0;
+    margin: auto;
+}
+
+.lastBack {
+    height: 100%;
+    width: 100%;
+    background: url('../img/3.bookrose.last.coverback.png') no-repeat !important;
 }
 
 #back {
     height: 100%;
     width: 100%;
-    /*top: 30px;*/
     background: url('../img/3.bookrose.last.png') no-repeat !important;
 }
-/********************************/
 
-/*#bookWrapper {*/
-    /*position: absolute;*/
-    /*height: 100%;*/
-    /*width: 100%;*/
-    /*line-height: 530px;*/
-/*}*/
+/****TABS****/
+#navBook {
+    position: absolute;
+    right: -190px;
+    height: 435px;
+    top: 27px; bottom: 0;margin: auto;
+    text-align: left;
+    z-index: 10;
+}
 
-/*#openBook {*/
-    /*transform: scale(0);*/
-    /*width: 713px;*/
-    /*height: 480px;*/
+#navBook li {
+    height: 60px;
+    line-height: 60px;
+    margin-bottom: 15px;
 
-    /*z-index: 999;*/
-    /*background: url('../img/3.portfolio.png') -397px 0 no-repeat;*/
+    transition: background-position .3s linear;
 
-    /*position: fixed;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    /*top: 0;*/
-    /*bottom: 0;*/
-    /*margin: auto;*/
-/*}*/
+    color: #c3c3c3;
+}
 
-/*#pageG, #pageD {*/
-    /*width: 299px;*/
-    /*height: 423px;*/
-    /*transition: opacity 0.5s;*/
-    /*z-index: 1;*/
-/*}*/
+#navBook li.active a, #navBook a:hover {
+    color: #E31C79;
+}
 
-/*#pageG {position: absolute; left: 28px; top: 28px;}*/
-/*#pageD {position: absolute; left: 382px; top: 28px;}*/
+#navBook a {
+    text-decoration: none;
+    padding-left: 75px;
+    display: block;
+    height: 100%;
 
-/*#openBook.grow {*/
-    /*animation: grow cubic-bezier(1,0,1,1) forwards 0.9s 0.7s;*/
-    /*transition: opacity 0.5s;*/
-/*}*/
+}
 
-/*#openBook.fadeOut, #pageG.fadeOut, #pageD.fadeOut {*/
-    /*opacity: 0;*/
-/*}*/
+.tabSprite {
+    position: absolute;
+    left: 0;
+    background: url('../img/sprites.pole.png') transparent no-repeat;
+}
 
-/*#btnG, #btnD {*/
-    /*position: absolute;*/
-    /*width: 22px;*/
-    /*height: 22px;*/
-    /*bottom: 16px;*/
-    /*background: url('../img/3.portfolio.png') -1110px 0 no-repeat;*/
-    /*z-index: 2;*/
-/*}*/
+#tabDesign {width: 36px; height: 46px; background-position: -167px 0;}
+#liDesign.active #tabDesign, #liDesign a:hover #tabDesign {background-position: -65px 0;}
 
-/*#btnG {left: 18px;}*/
+#tabPhoto {width: 64px; height: 47px; background-position: -102px 0;}
+#liPhoto.active #tabPhoto, #liPhoto a:hover #tabPhoto {background-position: 0 0;}
 
-/*#btnG               {background-position: -1110px -22px;}*/
-/*#btnG.active        {background-position: -1132px -22px;}*/
-/*#btnG.active:hover  {background-position: -1154px -22px;}*/
+#tabWeb {width: 47px; height: 51px; background-position: 0 -48px;}
+#liWeb.active #tabWeb, #liWeb a:hover #tabWeb {background-position: -104px -91px;}
 
-/*#btnD {right: 18px;}*/
+#tabCom {width: 51px; height: 53px; background-position: -152px -89px;}
+#liCom.active #tabCom, #liCom a:hover #tabCom {background-position: -48px -48px;}
 
-/*#btnD               {background-position: -1110px 0;}*/
-/*#btnD.active        {background-position: -1132px 0;}*/
-/*#btnD.active:hover  {background-position: -1154px 0;}*/
+#tabMarketo {width: 47px; height: 42px; background-position: -100px -48px;}
+#liMarketo.active #tabMarketo, #liMarketo a:hover #tabMarketo {background-position: 0 -100px;}
 
-/*#pgNbG {left: 45px;}*/
-/*#pgNbD {right: 45px;}*/
+#tabMarketd {width: 55px; height: 40px; background-position: -148px -48px;}
+#liMarketd.active #tabMarketd, #liMarketd a:hover #tabMarketd {background-position: -48px -102px;}
 
-/*#pgNbG, #pgNbD {*/
-    /*opacity: 0.8;*/
-    /*position: absolute;*/
-    /*bottom: 16px;*/
-    /*height: 20px;*/
-    /*line-height: 20px;*/
-    /*font-size: 0.7em;*/
-    /*z-index: 3;*/
-    /*cursor: default;*/
-/*}*/
+/*** IE BG FIX ***/
+.ieEven {
+    background: url('../img/3.ie.evenBG.png');
+}
 
-/*.fiche h1 {*/
-    /*font-size: 1em;*/
-    /*margin: 42px 5px 5px 5px;*/
-
-    /*line-height: 15px;*/
-
-    /*text-align: center;*/
-/*}*/
-
-/*.fiche div {*/
-    /*font-size: .8em;*/
-    /*margin: 17px 15px 15px 15px;*/
-    /*line-height: 16px;*/
-
-    /*text-align: left;*/
-/*}*/
-
-/*.fiche {*/
-    /*font-family: "MarketingScript", cursive;*/
-    /*width: 164px;*/
-    /*height: 196px;*/
-    /*opacity: 0.75;*/
-    /*transition: opacity 0.5s;*/
-
-    /*position: absolute;*/
-/*}*/
-
-/*#fiche0:hover, #fiche1:hover, #fiche2:hover,*/
-/*#fiche3:hover, #fiche4:hover, #fiche5:hover {*/
-    /*z-index: 99;*/
-    /*opacity: 1;*/
-    /*cursor: pointer;*/
-/*}*/
-
-/*#fiche0 {*/
-    /*z-index: 2;*/
-    /*background: url('../img/3.portfolio.png') -1536px 0 no-repeat;*/
-
-    /*left: 630px;*/
-    /*top: 230px;*/
-
-    /*transform: rotate(8deg) translate3d( 0, 0, 0);*/
-/*}*/
-/*#fiche1 {*/
-    /*z-index: 4;*/
-    /*background: url('../img/3.portfolio.png') -1700px 0 no-repeat;*/
-
-    /*left: 595px;*/
-    /*top: 310px;*/
-
-    /*transform: rotate(-15deg) translate3d( 0, 0, 0);*/
-/*}*/
-/*#fiche2 {*/
-    /*z-index: 5;*/
-    /*background: url('../img/3.portfolio.png') -1862px 0 no-repeat;*/
-
-    /*left: 80px;*/
-    /*top: 200px;*/
-
-    /*transform: rotate(-8deg) translate3d( 0, 0, 0);*/
-/*}*/
-/*#fiche3 {*/
-    /*z-index: 6;*/
-    /*background: url('../img/3.portfolio.png') -2026px 0 no-repeat;*/
-
-    /*left: 155px;*/
-    /*top: 258px;*/
-
-    /*transform: rotate(8deg) translate3d( 0, 0, 0);*/
-/*}*/
-/*#fiche4 {*/
-    /*z-index: 8;*/
-    /*background: url('../img/3.portfolio.png') -2187px 0 no-repeat;*/
-
-    /*left: 210px;*/
-    /*top: 325px;*/
-
-    /*transform: rotate(0deg) translate3d( 0, 0, 0);*/
-/*}*/
-/*#fiche5 {*/
-    /*z-index: 7;*/
-    /*background: url('../img/3.portfolio.png') -2350px 0 no-repeat;*/
-
-    /*left: 310px;*/
-    /*top: 248px;*/
-
-    /*transform: rotate(-2deg) translate3d( 0, 0, 0);*/
-/*}*/
+.ieOdd {
+    background: url('../img/3.ie.oddBG.png');
+}

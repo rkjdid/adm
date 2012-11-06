@@ -3,7 +3,6 @@ var lcdScreen, lcdContext;
 
 var contourDrawn = false;
 
-// TODO : something else
 var mireURL =       "/static/img/5.clients.tvMire.png";
 var contourURL =    "/static/img/5.clients.tvShade.png";
 
@@ -11,7 +10,6 @@ var runningInterval;
 
 window.onload = function ()
 {
-//    defaultDisplay();
     preloadImages();
 };
 
@@ -33,7 +31,6 @@ $(document).ready(function () {
     defaultDisplay();
 });
 
-//TODO: JQuery this
 function preloadImages()
 {
     var menu = document.getElementById("tvIndex");
@@ -57,7 +54,6 @@ function preloadImages()
                 }
         }
     }
-//    alert('Images loaded');
 }
 
 function drawMire()
@@ -69,7 +65,6 @@ function drawMire()
     };
 
     contourDrawn = false;
-//    alert('Mire drawn');
 }
 
 
@@ -99,9 +94,6 @@ function clearDisplay() {
 
 function digitalDisplay(nb, text)
 {
-    // font = 14px -> 13char max
-    // 10 px hauteur (saut de ligne) minimum
-
     if (text.length > 12)
     {
         text = text.substring(0, 12) + '-';
@@ -126,7 +118,7 @@ function zapChannel(nb, nom)
 {
     clearInterval(runningInterval);
     digitalDisplay(nb, nom);
-    drawLogos(nb, 0, false);
+    drawLogos(nb);
 }
 
 function drawContour()
@@ -140,17 +132,50 @@ function drawContour()
     contourDrawn = true;
 }
 
-function drawLogos(cat, firstIndex, yoffset) {
+function drawLogos (cat) {
     var images = $('.cli-cat' + cat);
+    var nbImages = images.length;
 
-    var logoW = 110;
-    var logoH = 84;
+    var gapCol, gapLig, nbCol, nbLig, logoH, logoW, ratio;
 
-    var x = 25;
-    var y = 12 + 30;
+    logoH = 90;
+    logoW = 90;
 
-    if (yoffset)
-        y += logoH + 30;
+    if (nbImages <= 3) {
+        ratio = 1;
+
+        nbLig = 1;
+        nbCol = 3;
+        gapLig = 80;
+        gapCol = 21;
+    } else if (nbImages <= 6) {
+        ratio = 80/logoH;
+        logoH = 80;
+        logoW = 80;
+
+        nbLig = 2;
+        nbCol = 3;
+        gapLig = 30;
+        gapCol = 30;
+    } else if (nbImages <= 12) {
+        ratio = 65/logoH;
+        logoH = logoW = 65;
+
+        nbLig = 3;
+        nbCol = 4;
+        gapLig = 18;
+        gapCol = 19;
+    } else if (nbImages <= 20) {
+        ratio = 50/logoH;
+        logoH = logoW = 50;
+
+        nbLig = 4;
+        nbCol = 5;
+        gapLig = 12;
+        gapCol = 16;
+    } else {
+        alert('Max logo number = 20');
+    }
 
     // Draw contour ombré (only once)
     if (!contourDrawn) // TODO: fadein
@@ -160,103 +185,27 @@ function drawLogos(cat, firstIndex, yoffset) {
     } else // TODO: fadeout
         tvContext.clearRect(18, 18, tvScreen.width - 36, tvScreen.height - 36);
 
-    // Draw page number
-    if (images.length > 3)
-    {
-        var totalPNB;
-        if (images.length%3 != 0)
-            totalPNB = Math.round(images.length/3 + 0.3);
-        else
-            totalPNB = images.length / 3;
-        $('#clientPageNb')[0].innerHTML =  "" + (firstIndex/3 + 1) + "/" + totalPNB;
+    var yOffset = 15;
+    var i = 0;
+
+    for (var l = 0; l < nbLig; l++) {
+        yOffset += gapLig;
+        var xOffset = 15;
+        for (var c = 0; c < nbCol; c++) {
+            xOffset += gapCol;
+
+            if (i == nbImages)
+                break;
+
+            tvContext.drawImage(images[i],
+                                xOffset + (logoW - ratio*images[i].naturalWidth)/2,
+                                yOffset + (logoH - ratio*images[i].naturalHeight)/2,
+                                ratio * images[i].naturalWidth,
+                                ratio * images[i].naturalHeight);
+            i++;
+            xOffset += logoW;
+        }
+
+        yOffset += logoH;
     }
-    else
-        $('#clientPageNb')[0].innerHTML =  "1/1";
-
-    var nbLoop = 3;
-    for (var i = firstIndex; i < images.length && i < firstIndex + nbLoop; i++)
-    {
-
-        // TODO: fadein
-        tvContext.drawImage(images[i],
-                            x + (logoW - images[i].naturalWidth)/2,
-                            y + (logoH - images[i].naturalHeight)/2);
-//        // Write brand name below logo
-//        tvContext.font("sans-serif 12px");
-//        tvContext.fontcolor("green");
-//        tvContext.measureText("...")
-
-//        // Debug rect
-//        tvContext.fillStyle = "rgb(150,29,28)";
-//        tvContext.fillRect(x, y, logoW, logoH);
-        x += logoW + 2;
-
-        if (y > logoH)
-            y -= (logoH + 30);
-        else
-            y += (logoH + 30);
-    }
-
-    // Set buttons values according to the categorie
-    if (images.length > firstIndex + 3)
-    {
-
-        $('#tvButton')[0].setAttribute(
-            "class",
-            "active");
-        $('#tvButton')[0].setAttribute(
-            "onclick",
-            "drawLogos(" + cat + "," + (firstIndex + 3) + "," + (!yoffset) + ");");
-        $('#tvButton2')[0].setAttribute(
-            "class",
-            "active");
-        $('#tvButton2')[0].setAttribute(
-            "onclick",
-            "drawLogos(" + cat + "," + (firstIndex + 3) + "," + (!yoffset) + ");");
-
-    }
-    else if (images.length > 3)
-    {
-        $('#tvButton')[0].setAttribute(
-            "class",
-            "active");
-        $('#tvButton')[0].setAttribute(
-            "onclick",
-            "drawLogos(" + cat + ",0 ," + (!yoffset) + ");");
-        $('#tvButton2')[0].setAttribute(
-            "class",
-            "active");
-        $('#tvButton2')[0].setAttribute(
-            "onclick",
-            "drawLogos(" + cat + ",0 ," + (!yoffset) + ");");
-    }
-    else
-    {
-        $('#tvButton')[0].setAttribute(
-            "class",
-            "");
-        $('#tvButton')[0].setAttribute(
-            "onclick",
-            "");
-        $('#tvButton2')[0].setAttribute(
-            "class",
-            "");
-        $('#tvButton2')[0].setAttribute(
-            "onclick",
-            "");
-    }
-
-//    if (images.length > firstIndex + 3) {
-//        $('.tvButton').not('.active').addClass('active');
-//        $('#tvButton').click(function(){drawLogos(cat, firstIndex + 3, !yoffset);});
-//        $('#tvButton2').click(function(){drawLogos(cat, firstIndex + 3, !yoffset);});
-//    }
-//    else if (images.length > 3){  // Last page && more than 3 logos
-//        $('.tvButton').not('.active').addClass('active');
-//        $('#tvButton').bind('click', function(){drawLogos(cat, 0, !yoffset);});
-//        $('#tvButton2').bind('click', function(){drawLogos(cat, 0, !yoffset);});
-//    }
-//    else {
-//        $('.tvButton').removeClass('active').click(function(){});
-//    }
 }

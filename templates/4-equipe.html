@@ -4,6 +4,7 @@
 
 {% block extrajs %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/equipe.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/jquery.path.js"></script>
 {% endblock %}
 {% block extracss %}
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/equipe.css" />
@@ -41,27 +42,31 @@
             <div id="pb6" class="photoBooth pblayer"></div>
             <div id="pb7" class="photoBooth pblayer"></div>
             {% for m in members %}
-                <div class="descriptionPhoto" id="descriptionPhoto{{ m.id }}"></div>
+{#                <div class="descriptionPhoto" id="descriptionPhoto{{ m.id }}"></div>#}
                 {#            <div id="bubble{{ m.position }}" class="bubble"><h2>{{ m.nom }}</h2><span>{{ m.statut }}</span></div>#}
                 <img class="preload smallPhotoOut" id="smallPhoto{{ m.id }}" src="{{ m.photo.photo.url }}" alt="Photo {{ m.prenom }}"/>
-
+                <div id="desc{{ m.id }}" class="wrapDesc descriptionPhoto">
+                    <h1>{{ m.nom }}</h1>
+                    <h2>{{ m.statut }}</h2>
+                    <p>{{ m.description }}</p>
+                </div>
                 {#            <div id="bigPhotoContainer{{ m.position }}" class="bigPhotoOutContainer">#}
                 {#                <img class="bigPhotoOut" id="bigPhoto{{ m.position }}" src="{{ m.photo.photo.url }}" alt="Photo {{ m.prenom }}"/>#}
                 {#                <span id="photoMore{{ m.position }}" class="photoMore">En savoir plus...</span>#}
                 {#            </div>#}
             {% endfor %}
         </div>
-{% for m in members %}
-    <div id="knowMore{{ m.position }}" class="roundedPop knowMore">
-        <div class="wrapDesc">
-            <h1>{{ m.nom }}</h1>
-            <h2>{{ m.statut }}</h2><br/>
-            <div id="membreDescription{{ m.position }}" class="membreDescription">
-                {{ m.description|linebreaksbr }}
-            </div>
-            <img class="mediumPhotoDesc" id="mediumPhotoDesc{{ m.position }}" src="{{ m.photo.photo.url }}" alt="Photo {{ m.prenom }}"/>
-        </div>
-    </div>
-{% endfor %}
+{#{% for m in members %}#}
+{#    <div id="knowMore{{ m.position }}" class="roundedPop knowMore">#}
+{#        <div class="wrapDesc">#}
+{#            <h1>{{ m.nom }}</h1>#}
+{#            <h2>{{ m.statut }}</h2><br/>#}
+{#            <div id="membreDescription{{ m.position }}" class="membreDescription">#}
+{#                {{ m.description|linebreaksbr }}#}
+{#            </div>#}
+{#            <img class="mediumPhotoDesc" id="mediumPhotoDesc{{ m.position }}" src="{{ m.photo.photo.url }}" alt="Photo {{ m.prenom }}"/>#}
+{#        </div>#}
+{#    </div>#}
+{#{% endfor %}#}
     </div>
 {% endblock %}
