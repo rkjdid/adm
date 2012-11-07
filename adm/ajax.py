@@ -4,9 +4,9 @@ from dajax.core import Dajax
 
 from models import PageBook, Book
 
-@dajaxice_register(method='GET')
-def sayhello(request):
-    return simplejson.dumps({'message':'Hello World'})
+#@dajaxice_register(method='GET')
+#def sayhello(request):
+#    return simplejson.dumps({'message':'Hello World'})
 
 #def getImage(request, selector, pageId, bEven):
 #    dajax = Dajax()
