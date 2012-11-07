@@ -2,6 +2,8 @@ from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from main_site import settings
+
 admin.autodiscover()
 
 from dajaxice.core import dajaxice_autodiscover, dajaxice_config
@@ -28,8 +30,6 @@ urlpatterns = patterns('',
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns += staticfiles_urlpatterns()
-
-import settings
 
 #if settings.DEBUG :
 urlpatterns += patterns('',

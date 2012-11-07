@@ -1,6 +1,6 @@
+from main_site import settings
 from main_site.models import *
 from django.contrib import admin
-import settings
 
 class CommonMedia:
     js = (

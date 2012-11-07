@@ -8,20 +8,20 @@ from models import PageBook, Book
 def sayhello(request):
     return simplejson.dumps({'message':'Hello World'})
 
-def getImage(request, selector, pageId, bEven):
-    dajax = Dajax()
-
-    if bool(bEven):
-        page = PageBook.objects.all()[int(pageId)].pageGauche.url
-    else:
-        page = PageBook.objects.all()[int(pageId)].pageDroite.url
-
-    tag = "<img class=\"pageBook\" alt=\"Photo book\" src=\"" + page + "\" />"
-
-    dajax.remove('#' + selector + ' .loader')
-    dajax.append('#' + selector, 'innerHTML', tag)
-
-    return dajax.json()
+#def getImage(request, selector, pageId, bEven):
+#    dajax = Dajax()
+#
+#    if bool(bEven):
+#        page = PageBook.objects.all()[int(pageId)].pageGauche.url
+#    else:
+#        page = PageBook.objects.all()[int(pageId)].pageDroite.url
+#
+#    tag = "<img class=\"pageBook\" alt=\"Photo book\" src=\"" + page + "\" />"
+#
+#    dajax.remove('#' + selector + ' .loader')
+#    dajax.append('#' + selector, 'innerHTML', tag)
+#
+#    return dajax.json()
 
 def getImage(request, selector, book, page, bEven):
     dajax = Dajax()

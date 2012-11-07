@@ -61,7 +61,7 @@ function populatePage(page, book) {
     // 	Check if the page is already filled in
     if ($('#page-'+page+ ' .loader').length) {
         var data = $('#page-'+page+ ' .data');
-        Dajaxice.ateliers_a.main_site.getImage
+        Dajaxice.main_site.getImage
             (Dajax.process,
              {
                  'selector' : 'page-' + data.find('.dataSelector').html(),
