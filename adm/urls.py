@@ -6,7 +6,7 @@ from adm import settings
 
 admin.autodiscover()
 
-from dajaxice.core import dajaxice_autodiscover#, dajaxice_config
+from dajaxice.core import dajaxice_autodiscover, dajaxice_config
 dajaxice_autodiscover()
 
 urlpatterns = patterns('',
@@ -23,7 +23,7 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # DajaxIce
-#    url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
+    url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
 )
 
 # dajaxice, needed ?
