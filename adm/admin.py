@@ -1,5 +1,5 @@
-from main_site import settings
-from main_site.models import *
+from adm import settings
+from adm.models import *
 from django.contrib import admin
 
 class CommonMedia:

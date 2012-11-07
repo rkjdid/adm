@@ -2,7 +2,7 @@
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 
-from main_site.models    import *
+from adm.models    import *
 
 def index(request):
     members = MembreEquipe.objects.filter(position__gt = 0)

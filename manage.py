@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from django.core.management import execute_manager
 import imp
-from main_site import settings
+from adm import settings
 
 try:
     imp.find_module('settings') # Assumed to be in the same directory.

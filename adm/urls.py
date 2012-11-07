@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-from main_site import settings
+from adm import settings
 
 admin.autodiscover()
 
@@ -11,12 +11,12 @@ dajaxice_autodiscover()
 
 urlpatterns = patterns('',
     # Main pages
-    url(r'^$', 'main_site.views.index', name='index'),
-    url(r'^agence/$', 'main_site.views.agence', name='agence'),
-    url(r'^portfolio/$', 'main_site.views.portfolio', name='portfolio'),
-    url(r'^equipe/$', 'main_site.views.equipe', name='equipe'),
-    url(r'^clients/$', 'main_site.views.clients', name='clients'),
-    url(r'^contact/$', 'main_site.views.contact', name='contact'),
+    url(r'^$', 'adm.views.index', name='index'),
+    url(r'^agence/$', 'adm.views.agence', name='agence'),
+    url(r'^portfolio/$', 'adm.views.portfolio', name='portfolio'),
+    url(r'^equipe/$', 'adm.views.equipe', name='equipe'),
+    url(r'^clients/$', 'adm.views.clients', name='clients'),
+    url(r'^contact/$', 'adm.views.contact', name='contact'),
 
     # Admin stuff
     url(r'^admin/', include(admin.site.urls)),

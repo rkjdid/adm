@@ -1,7 +1,7 @@
 ##-*- coding: utf-8 -*-
 
 from django.db import models
-#from main_site.widgets import AdminImageWidget
+#from adm.widgets import AdminImageWidget
 from django.db.models.signals import  post_save, pre_save
 
 # PIL resizing
