@@ -7,16 +7,9 @@
 
     width: 1000px;
     position: relative;
-    /*overflow: auto;*/
 }
 
 #ruban {
-    /*-webkit-animation: rotaz 5s infinite ease-in-out;*/
-    /*-moz-animation: rotaz 5s infinite ease-in-out;*/
-    /*-ms-animation: rotaz 5s infinite ease-in-out;*/
-    /*-o-animation: rotaz 5s infinite ease-in-out;*/
-    /*animation: rotaz 5s infinite ease-in-out;*/
-
     background: url("../img/2.agence.ruban.png") no-repeat;
     width:350px;
     height:330px;
@@ -33,10 +26,6 @@
     height: 279px;
     position: absolute;
 
-    /*-webkit-animation: pendule2 9s infinite ease-in-out;*/
-    /*-moz-animation: pendule2 9s infinite ease-in-out;*/
-    /*-ms-animation: pendule2 9s infinite ease-in-out;*/
-    /*-o-animation: pendule2 9s infinite ease-in-out;*/
     animation: pendule2 9s infinite ease-in-out;
 }
 
@@ -137,29 +126,6 @@
     padding: 25px;
     border-radius: 25px;
 }
-
-#flamand {
-    background: url('../img/2.agence.png') 0 0 no-repeat;
-    width: 131px;
-    height: 150px;
-
-    position: absolute;
-    bottom:-35px;
-    left: -78px;
-
-    z-index: 3;
-}
-
-#buisson {
-    background: url('../img/2.agence.png') -356px 0 no-repeat;
-    width: 164px;
-    height: 78px;
-
-    position: absolute;
-    right: -35px;
-    bottom: -35px;
-}
-
 
 /*** Transformations - std ***/
 @keyframes shake {

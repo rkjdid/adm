@@ -4,14 +4,6 @@
 }
 
 /*** Transformations - std ***/
-/*@keyframes shake {*/
-    /*0% {transform: rotate(0deg) scale(1);}*/
-    /*20% {transform: rotate(11deg) scale(1.1);}*/
-    /*40%, 80% {transform: rotate(-11deg) scale(1.3);}*/
-    /*60% {transform: rotate(11deg) scale(1.5);}*/
-    /*100% {transform: rotate(0deg) scale(1.15);}*/
-/*}*/
-
 @keyframes shake {
     0% {transform: rotate(0deg) scale(1);}
     25% {transform: rotate(15deg) scale(1.1);}
@@ -36,14 +28,24 @@
 }
 
 @keyframes hshake {
-    0%, 100% {transform: translate(0, 0);}
+    0% {transform: translate(0, 0);}
     20% {transform: translate(3px, 0);}
-    30%, 90% {transform: translate(-4px, 0);}
+    30% {transform: translate(-4px, 0);}
     40% {transform: translate(5px, 0);}
     50% {transform: translate(-6px, 0);}
     60% {transform: translate(8px, 0);}
     70% {transform: translate(-8px, 0);}
     80% {transform: translate(6px, 0);}
+    90% {transform: translate(-4px, 0);}
+    100% {transform: translate(0, 0);}
+}
+
+@keyframes twist {
+    0% {transform: rotate3d(0, 1, 0, 0deg);}
+    50% {transform: rotate3d(0, 1, 0, -600deg);}
+    80% {transform: rotate3d(0, 1, 0, -700deg);}
+    90% {transform: rotate3d(0, 1, 0, -710deg);}
+    100% {transform: rotate3d(0, 1, 0, -720deg);}
 }
 /***** Transforms ******/
 
@@ -77,14 +79,6 @@
     animation: rotaz 5s infinite ease-in-out;
 }
 
-@keyframes twist {
-    0% {transform: rotate3d(0, 1, 0, 0deg);}
-    50% {transform: rotate3d(0, 1, 0, -600deg);}
-    80% {transform: rotate3d(0, 1, 0, -700deg);}
-    90% {transform: rotate3d(0, 1, 0, -710deg);}
-    100% {transform: rotate3d(0, 1, 0, -720deg);}
-}
-
 #copyTurn.twist {
     animation: twist 1s linear;
 }
@@ -102,17 +96,6 @@
 }
 
 /***** Layout *****/
-#indexbg
-{
-    background: url('../img/1.index.bg.png') top center no-repeat;
-    top: 0;
-    height: 560px;
-    min-height: 560px;
-    overflow-x: hidden;
-    text-align: center;
-    position: relative;
-}
-
 #playground
 {
     margin-left: auto;
@@ -122,30 +105,6 @@
     position: relative;
 }
 
-#nuage1
-{
-    background: url('../img/1.index.png') -866px 0 no-repeat;
-    position: absolute;
-    top: 0;
-    left: 12%;
-    width: 110px;
-    height: 155px;
-
-    animation: pendule1 7s infinite ease-in-out;
-}
-
-#nuage2
-{
-    background: url('../img/1.index.png') -976px 0 no-repeat;
-    position: absolute;
-    top: 0;
-    right: 8%;
-    width: 115px;
-    height: 208px;
-
-    animation: pendule2 9s infinite ease-in-out;
-}
-
 #copyright
 {
     width:114px;
@@ -153,60 +112,6 @@
     position: absolute;
     top: 0;
     right: 299px;
-}
-
-#copyTurn {
-    z-index:-1;
-    width: 100%; height: 100%;
-    background: url('../img/1.index.png') -358px 0 no-repeat;
-}
-
-#buisson
-{
-    background: url('../img/1.index.png') -94px 0 no-repeat;
-    position: absolute;
-    left: 678px;
-    bottom: 115px;
-    width: 132px;
-    height: 77px;
-    z-index: 2;
-    overflow:hidden;
-}
-
-#cache
-{
-    background: url('../img/1.index.png') -226px 0 no-repeat;
-    position: absolute;
-    left: 678px;
-    bottom: 0;
-    width: 132px;
-    height: 115px;
-    z-index: 2;
-}
-
-
-#flamand
-{
-    background: url('../img/1.index.png') -10px 0 no-repeat;
-    width: 84px;
-    height: 123px;
-    position: absolute;
-    bottom: 35px;
-    left: 718px;
-    z-index: 1;
-
-    overflow: hidden;
-}
-
-#uh
-{
-    background: url('../img/1.index.png') 0 0 no-repeat;
-    width: 10px;
-    height: 19px;
-    position: absolute;
-    left: 748px;
-    top: 293px;
-    opacity: 0;
 }
 
 #client {
@@ -234,9 +139,104 @@
     cursor: pointer;
 }
 
+#indexbg
+{
+    background: url('../img/1.index.bg.png') top center no-repeat;
+    top: 0;
+    height: 560px;
+    min-height: 560px;
+    overflow-x: hidden;
+    text-align: center;
+    position: relative;
+}
+
+
+#nuage1
+{
+    background: url('../img/sprites.index.png') -702px 0 no-repeat;
+    position: absolute;
+    top: 0;
+    left: 12%;
+    width: 110px;
+    height: 155px;
+
+    animation: pendule1 7s infinite ease-in-out;
+}
+
+#nuage2
+{
+    background: url('../img/sprites.index.png') -586px 0 no-repeat;
+    position: absolute;
+    top: 0;
+    right: 8%;
+    width: 115px;
+    height: 208px;
+
+    animation: pendule2 9s infinite ease-in-out;
+}
+
+#copyTurn {
+    z-index:-1;
+    width: 100%; height: 100%;
+    background: url('../img/sprites.index.png') -813px 0 no-repeat;
+}
+
+#buisson
+{
+    background: url('../img/sprites.index.png') -453px 0 no-repeat;
+    position: absolute;
+    left: 678px;
+    bottom: 115px;
+    width: 132px;
+    height: 77px;
+    z-index: 2;
+    overflow:hidden;
+}
+
+#cache
+{
+    background: url('../img/sprites.index.png') -320px 0 no-repeat;
+    position: absolute;
+    left: 678px;
+    bottom: 0;
+    width: 132px;
+    height: 115px;
+    z-index: 2;
+}
+
+#flamand
+{
+    background: url('../img/sprites.index.png') -213px -81px no-repeat;
+    width: 84px;
+    height: 123px;
+    position: absolute;
+    bottom: 35px;
+    left: 718px;
+    z-index: 1;
+
+    overflow: hidden;
+}
+
+#uh
+{
+    background: url('../img/sprites.index.png') -928px 0 no-repeat;
+    width: 10px;
+    height: 19px;
+    position: absolute;
+    left: 748px;
+    top: 293px;
+    opacity: 0;
+}
+
+
+
+/*.buisson { width: 132px; height: 77px; background-position: -453px 0; }*/
+/*.cache { width: 132px; height: 115px; background-position: -320px 0; }*/
+/*.copyturn { width: 114px; height: 191px; background-position: -813px 0; }*/
+
 #bclients.bulle
 {
-    background: url('../img/1.index.bclient.png') no-repeat;
+    background: url('../img/sprites.index.png') no-repeat -221px 0;
     width: 98px;
     height: 79px;
     left: 680px;
@@ -245,7 +245,7 @@
 
 #bportfolio.bulle
 {
-    background: url('../img/1.index.bportfolio.png') no-repeat;
+    background: url('../img/sprites.index.png') no-repeat 0 -94px;
     width: 120px;
     height: 104px;
     left: 214px;
@@ -254,7 +254,7 @@
 
 #bagence.bulle
 {
-    background: url('../img/1.index.bagence.png') no-repeat;
+    background: url('../img/sprites.index.png') no-repeat 0 0;
     width: 105px;
     height: 93px;
     left: 598px;
@@ -263,7 +263,7 @@
 
 #bcontact.bulle
 {
-    background: url('../img/1.index.bcontact.png') no-repeat;
+    background: url('../img/sprites.index.png') no-repeat -106px 0;
     width: 114px;
     height: 80px;
     left: 449px;
@@ -272,7 +272,7 @@
 
 #bequipe.bulle
 {
-    background: url('../img/1.index.bequipe.png')no-repeat;
+    background: url('../img/sprites.index.png')no-repeat -121px -81px;
     width: 91px;
     height: 90px;
     left: 0px;
@@ -280,7 +280,6 @@
 
     z-index: 20;
 }
-
 
 /********** CUPCAKE ************/
 #cupcake {
@@ -298,15 +297,15 @@
 }
 
 #cupcake0 {
-    background: url('../img/1.index.cupcake.png') 0 0 no-repeat;
+    background: url('../img/sprites.index.png') -298px -116px no-repeat;
 }
 
 #cupcake1 {
-    background: url('../img/1.index.cupcake.png') -94px 0 no-repeat;
+    background: url('../img/sprites.index.png') -392px -116px no-repeat;
 }
 
 #cupcake2 {
-    background: url('../img/1.index.cupcake.png') -188px 0 no-repeat;
+    background: url('../img/sprites.index.png') -486px -116px no-repeat;
 }
 
 /********** CopyCup ********/
@@ -325,7 +324,7 @@
     top: 35px;
     left: 25px;
 
-    background: url('../img/1.index.copycup.png');
+    background: url('../img/sprites.index.png') transparent no-repeat -453px -78px;
 
     opacity: 0;
     transition: opacity .5s;
@@ -343,12 +342,6 @@
 }
 
 /*********** SMALL PHOTOBOOTH ***********/
-
-.photoBooth {
-    width: 165px;
-    height: 181px;
-}
-
 #pbox {
     position: relative;
     left: 47px;
@@ -385,12 +378,20 @@
     100% {opacity: 0; transform: translate(0px, 67px);}
 }
 
-/*** Layering ***/
-#pb0 {background: url("../img/1.index.photobooth.png") 0 0 no-repeat; z-index: 10;}
-#pb3 {background: url("../img/1.index.photobooth.png") -1155px 0 no-repeat; z-index: 11;}
-#pb4 {background: url("../img/1.index.photobooth.png") -495px 0 no-repeat; z-index: 12;}
-#pb5 {background: url("../img/1.index.photobooth.png") -660px 0 no-repeat; z-index: 13; opacity: 0.75;}
-#pb6 {background: url("../img/1.index.photobooth.png") -825px 0 no-repeat; z-index: 14;}
-#pb1 {background: url("../img/1.index.photobooth.png") -165px 0 no-repeat; z-index: 16;}
-#pb2 {background: url("../img/1.index.photobooth.png") -330px 0 no-repeat; z-index: 17;}
-#pb7 {background: url("../img/1.index.photobooth.png") -990px 0 no-repeat; z-index: 15;}
+.photoBooth {
+    width: 165px;
+    height: 181px;
+    background: url('../img/sprites.index.png') transparent no-repeat;
+}
+
+
+/*** Sprites Layering ***/
+#pbox {background: none;}
+#pb0 {background-position: -928px -20px; z-index: 10;}
+#pb3 {background-position: -2083px -20px; z-index: 11;}
+#pb4 {background-position: -1423px -20px; z-index: 12;}
+#pb5 {background-position: -1588px -20px; z-index: 13; opacity: 0.75;}
+#pb6 {background-position: -1753px -20px; z-index: 14;}
+#pb1 {background-position: -1093px -20px; z-index: 16;}
+#pb2 {background-position: -1258px -20px; z-index: 17;}
+#pb7 {background-position: -1918px -20px; z-index: 15;}
