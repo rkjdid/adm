@@ -6,7 +6,7 @@ var contourDrawn = false;
 var mireURL =       "/static/img/5.clients.tvMire.png";
 var contourURL =    "/static/img/5.clients.tvShade.png";
 
-var runningInterval;
+var textInterval, logoInterval;
 
 window.onload = function ()
 {
@@ -31,29 +31,58 @@ $(document).ready(function () {
     defaultDisplay();
 });
 
+var aa =[];
+
+//function preloadJquery() {
+//    var i = 0, j = 0;
+//    for (var channel in $('li.tvIndex')) {
+//        aa[i++] = [];
+//        var logoUrl, li = $('li.tvIndex').eq(channel);
+//        for (var logo in li.children()) {
+//            if (li.eq('logo').is('span')) {
+//                logoUrl = li.eq('logo').html();
+//            }
+//            if (li.eq('logo').is('img')) {
+//                li.eq('logo').load(function() {
+//                    aa[i++][j++] = true;
+//                });
+//                li.eq('logo').attr('src', logoUrl).addClass('cli-' + $('li.tvIndex').eq(channel).attr('value'));
+//            }
+//        }
+//    }
+//}
+
 function preloadImages()
 {
     var menu = document.getElementById("tvIndex");
+
     for (var i=0; i < menu.children.length; i++)
     {
+        aa[i] = [];
         var li = menu.children[i];
 
         var div = document.getElementById(li.getAttribute('value'));
-
+        var spanUrl;
         for (var j = 0; j < div.children.length; j++)
         {
             var span_img = div.children[j];
-            var spanUrl;
+
             if (span_img.tagName == 'SPAN')
                 spanUrl = span_img.innerHTML;
-            if (span_img.tagName == 'IMG')
-                if (span_img.getAttribute('src') == '')
-                {
-                    span_img.setAttribute('src', spanUrl);
-                    span_img.setAttribute('class', 'cli-' + li.getAttribute('value'));
-                }
+            if (span_img.tagName == 'IMG') {
+                setOnLoad (span_img, i, j);
+                span_img.setAttribute('src', spanUrl);
+                span_img.setAttribute('class', 'cli-' + li.getAttribute('value'));
+            }
+
         }
     }
+}
+
+function setOnLoad (img, i, j) {
+    img.onload = function () {
+        aa[i][j] = true;
+    };
 }
 
 function drawMire()
@@ -99,9 +128,9 @@ function digitalDisplay(nb, text)
         text = text.substring(0, 12) + '-';
     }
     var cnt = 0;
-    runningInterval = setInterval(function() {
+    textInterval = setInterval(function() {
         if (cnt > 40) {
-            clearInterval(runningInterval);
+            clearInterval(textInterval);
             return;
         }
 
@@ -116,7 +145,8 @@ function digitalDisplay(nb, text)
 
 function zapChannel(nb, nom)
 {
-    clearInterval(runningInterval);
+    clearInterval(textInterval);
+    clearInterval(logoInterval);
     digitalDisplay(nb, nom);
     drawLogos(nb);
 }
@@ -202,7 +232,9 @@ function drawLogos (cat) {
                                 yOffset + (logoH - ratio*images[i].naturalHeight)/2,
                                 ratio * images[i].naturalWidth,
                                 ratio * images[i].naturalHeight);
+
             i++;
+
             xOffset += logoW;
         }
 

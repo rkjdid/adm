@@ -5,3 +5,5 @@ local_settings.py
 settings.py
 resources
 dataSources.xml
+dajaxice.core.js
+.idea/*
