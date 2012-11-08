@@ -7,3 +7,4 @@ resources
 dataSources.xml
 dajaxice.core.js
 .idea/*
+db.sqlite

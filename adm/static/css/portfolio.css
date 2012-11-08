@@ -181,7 +181,8 @@
 
 /****TABS****/
 #navBook {
-    position: absolute;
+    position: relative;
+    float: right;
     right: -190px;
     height: 435px;
     top: 27px; bottom: 0;margin: auto;
