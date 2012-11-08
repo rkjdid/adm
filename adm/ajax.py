@@ -7,6 +7,7 @@ from models import PageBook, Book
 def getImage(request, selector, book, page, bEven):
     dajax = Dajax()
 
+
     if bool(bEven):
         page = Book.objects.all()[int(book)].pagebooks.all()[int(page)].pageGauche.url
     else:
