@@ -100,9 +100,9 @@ function drawMire()
 function defaultDisplay ()
 {
     var cnt = 0;
-    runningInterval = setInterval(function() {
+    textInterval = setInterval(function() {
         if (cnt > 40) {
-            clearInterval(runningInterval);
+            clearInterval(textInterval);
             return;
         }
 
