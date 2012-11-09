@@ -3,9 +3,10 @@
     font-family: 'digital';
     font-style: normal;
     font-weight: normal;
+    src: url('../font/digital/digital.eot');
     src: local('Digital'),
-         url('../font/digital/digital.ttf')  format('truetype'),
-         url('../font/digital/digital.woff') format('woff');
+         url('../font/digital/digital.ttf')  format('truetype');
+
 }
 /*******FONTS*******/
 
