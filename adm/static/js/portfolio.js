@@ -55,6 +55,17 @@ $(document).ready(function(){
             else if (e.keyCode==39)
                 $('#flipbook').turn('next');
     });
+
+
+    //***** DEBUG BUTTONS ****//
+    $('#buttTabs').click (function () {
+        $('#navTabs').toggleClass('hidden');
+    });
+
+    $('#buttLogos').click (function () {
+        $('#navBook').toggleClass('hidden');
+    });
+
 });
 
 function populatePage(page, book) {
@@ -85,27 +96,33 @@ function loadBook() {
                 $('#bodyContainer').css('overflow', 'hidden');
 
                 /* Book alignment */
-                if(page == $(this).turn('pages'))
+                if(page == $(this).turn('pages')) {
                     $(this).removeClass('first').addClass('last');
-                else if (page > 1)
+                    $('#navTabs').removeClass('open');
+                }
+                else if (page > 1) {
                     $(this).removeClass('first last');
-                else if (page == 1)
-                        $(this).removeClass('last').addClass('first');
+                    $('#navTabs').addClass('open');
+                }
+                else if (page == 1) {
+                    $(this).removeClass('last').addClass('first');
+                    $('#navTabs').removeClass('open');
+                }
 
 
-                $('#navBook li').removeClass('active');
+                $('#navBook li, #navTabs li').removeClass('active');
                 if        (page > 3 && page < bookHandles[1]) {
-                    $('#liDesign').addClass('active');
+                    $('#liDesign, #li2Design').addClass('active');
                 } else if (page >= bookHandles[1] && page < bookHandles[2]) {
-                    $('#liPhoto').addClass('active');
+                    $('#liPhoto, #li2Photo').addClass('active');
                 } else if (page >= bookHandles[2] && page < bookHandles[3]) {
-                    $('#liWeb').addClass('active');
+                    $('#liWeb, #li2Web').addClass('active');
                 } else if (page >= bookHandles[3] && page < bookHandles[4]) {
-                    $('#liCom').addClass('active');
+                    $('#liCom, #li2Com').addClass('active');
                 } else if (page >= bookHandles[4] && page < bookHandles[5]) {
-                    $('#liMarketo').addClass('active');
+                    $('#liMarketo, #li2Marketo').addClass('active');
                 } else if (page >= bookHandles[5] && page < $('#flipbook').turn('pages') - 2) {
-                    $('#liMarketd').addClass('active');
+                    $('#liMarketd, #li2Marketd').addClass('active');
                 }
 
                 window.location = '#page/' + page;

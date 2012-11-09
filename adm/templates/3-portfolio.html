@@ -36,6 +36,12 @@
 
 {% block body %}
     <div id="playground">
+
+        {# TMP DEBUG BUTTONS #}
+        <button id="buttTabs" style="z-index : 55;width: 100px; height: 35px; position: absolute; left: -100px; top: 200px;">Afficher/Masquer Onglets</button>
+        <button id="buttLogos" style="z-index : 55;width: 100px; height: 35px; position: absolute;left: -100px; top: 250px;">Afficher/Masquer Logos</button>
+
+
         <div id="fouet"></div>
         <div id="cupcake"></div>
         <div id="flipbook" class="first">
@@ -96,6 +102,16 @@
             <li id="liMarketo"><a href="#page/{{ b5 }}"><div id="tabMarketo" class="tabSprite"></div>Marketing opérationnel</a></li>
             <li id="liMarketd"><a href="#page/{{ b6 }}"><div id="tabMarketd" class="tabSprite"></div>Marketing direct</a></li>
         </ul>
+
+        <ul id="navTabs" class="">
+            <li id="li2Design"><a href="#page/{{ b1 }}"><div id="tabLiDesign"></div></a></li>
+            <li id="li2Photo"><a href="#page/{{ b2 }}"><div id="tabLiPhoto"></div></a></li>
+            <li id="li2Web"><a href="#page/{{ b3 }}"><div id="tabLiWeb"></div></a></li>
+            <li id="li2Com"><a href="#page/{{ b4 }}"><div id="tabLiCom"></div></a></li>
+            <li id="li2Marketo"><a href="#page/{{ b5 }}"><div id="tabLiMarketo"></div></a></li>
+            <li id="li2Marketd"><a href="#page/{{ b6 }}"><div id="tabLiMarketd"></div></a></li>
+        </ul>
+
         <div class="data" id="bookHandles">
             <div id="bookHandle1">{{ b1 }}</div>
             <div id="bookHandle2">{{ b2 }}</div>

@@ -111,7 +111,7 @@
 }
 
 #flipbook.last {
-    left: 270px;
+    left: 268px;
 }
 
 
@@ -215,10 +215,13 @@
 
 }
 
+
+/* TabV1 (logos) */
 .tabSprite {
     position: absolute;
     left: 0;
-    background: url('../img/sprites.pole.png') transparent no-repeat;
+    background-image: url('../img/sprites.pole.png');
+    background-repeat: no-repeat;
 }
 
 #tabDesign {width: 36px; height: 46px; background-position: -167px 0;}
@@ -238,6 +241,59 @@
 
 #tabMarketd {width: 55px; height: 40px; background-position: -148px -48px;}
 #liMarketd.active #tabMarketd, #liMarketd a:hover #tabMarketd {background-position: -48px -102px;}
+/* Tab V1 */
+
+/* Tab V2 (onglets Nath) */
+#navTabs {
+    /*position: relative;*/
+    /*float: right;*/
+    /*left: 35px;*/
+    /*top: 61px;*/
+    position: absolute;
+    left: 638px; top: 61px;
+
+
+    height: 448px;
+    width: 37px;
+
+    z-index: 10;
+
+    font-size: 1.1em;
+    font-family: 'MarketingScript', Helvetica, sans-serif;
+
+    transition: left .25s ease-out;
+}
+
+#navTabs.open {
+    left: 813px;
+}
+
+#navTabs div {
+    position: relative;
+    left: 0;
+    background-image: url('../img/sprites.pole2.png');
+    background-repeat: no-repeat;
+}
+
+#tabLiDesign {width: 37px; height: 94px; background-position: -37px 0;}
+#navTabs li.active #tabLiDesign, #navTabs a:hover #tabLiDesign {background-position: 0 0;}
+
+#tabLiPhoto {width: 37px; height: 80px; background-position: -37px -94px;}
+#navTabs li.active #tabLiPhoto, #navTabs a:hover #tabLiPhoto {background-position: 0 -94px;}
+
+#tabLiWeb {width: 37px; height: 72px; background-position: -37px -174px;}
+#navTabs li.active #tabLiWeb, #navTabs a:hover #tabLiWeb {background-position: 0 -174px;}
+
+#tabLiCom {width: 37px; height: 74px; background-position: -37px -246px;}
+#navTabs li.active #tabLiCom, #navTabs a:hover #tabLiCom {background-position: 0 -246px;}
+
+#tabLiMarketo {width: 37px; height: 56px; background-position: -37px -320px;}
+#navTabs li.active #tabLiMarketo, #navTabs a:hover #tabLiMarketo {background-position: 0 -320px;}
+
+#tabLiMarketd {width: 37px; height: 72px; background-position: -37px -376px;}
+#navTabs li.active #tabLiMarketd, #navTabs a:hover #tabLiMarketd {background-position: 0 -376px;}
+/*** TabV2 (Nath) ***/
+
 
 /*** IE BG FIX ***/
 .ieEven {
