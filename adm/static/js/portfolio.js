@@ -13,19 +13,19 @@ $(document).ready(function(){
             var page = parts[1];
 
             switch(page) {
-                case 'design':
+                case 'com':
                     page = bookHandles[0];
                     break;
-                case 'photo':
+                case 'marketo':
                     page = bookHandles[1];
                     break;
-                case 'web':
+                case 'photo':
                     page = bookHandles[2];
                     break;
-                case 'com':
+                case 'web':
                     page = bookHandles[3];
                     break;
-                case 'marketo':
+                case 'design':
                     page = bookHandles[4];
                     break;
                 case 'marketd':
