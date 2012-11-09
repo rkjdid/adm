@@ -195,8 +195,6 @@ class FicheRecette (models.Model):
 #-Divers/Signaux---------------------------------------------------
 ###################################################################
 def scaleImg (path, wantedWidth, wantedHeight):
-    import base64, urllib2, urllib
-
     im = Image.open(path)
 
     if im.size[0] <= wantedWidth and im.size[1] <= wantedHeight:
@@ -264,14 +262,12 @@ def tinyCompress (path):
         jData = json.loads(response_data)
         u = urllib2.urlopen(jData['output']['url'])
 
-        #TODO save correctly
-#        localFile = open(path, 'w')
-#        localFile.write(u.read())
-#        localFile.close()
+        localFile = open(path, 'wb')
+        localFile.write(u.read())
+        localFile.close()
     else: # Error LOG
         return
 
-    #########CURL
     return
 
 
@@ -299,16 +295,7 @@ def buildImgURL(sender, instance, **kwargs):
 def resizeImg(sender, instance, **kwargs):
     instance.resizeImg()
 
-## Build image URLs before saving
-#pre_save.connect(buildImgURL, sender=PageBook)
-#pre_save.connect(buildImgURL, sender=Client)
-#pre_save.connect(buildImgURL, sender=PageBook)
-#pre_save.connect(buildImgURL, sender=PhotoMembre)
-
 ## Resize images after saving
-#post_save.connect(buildImgURL, sender=PageBook)
 post_save.connect(resizeImg, sender=Client)
 post_save.connect(resizeImg, sender=PageBook)
 post_save.connect(resizeImg, sender=PhotoMembre)
-#post_save.connect(buildImgURL, sender=FicheRecette)
-#post_save.connect(buildImgURL, sender=PageBook)
