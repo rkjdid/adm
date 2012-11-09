@@ -13,6 +13,8 @@ import os
 import tempfile
 from datetime import datetime
 
+#from django.http import
+
 # Static dimensions - (logo == logos clients - will be resized)
 logoWidth = 90
 logoHeight = 90
@@ -193,8 +195,9 @@ class FicheRecette (models.Model):
 #-Divers/Signaux---------------------------------------------------
 ###################################################################
 def scaleImg (path, wantedWidth, wantedHeight):
+    import base64, urllib2, urllib
+
     im = Image.open(path)
-    #    imgInfo = im.info
 
     if im.size[0] <= wantedWidth and im.size[1] <= wantedHeight:
         return
@@ -204,10 +207,71 @@ def scaleImg (path, wantedWidth, wantedHeight):
     wdiff_h = wantedWidth / imratio
     hdiff_w = wantedHeight * imratio
 
+    newIm = None
+
     if wdiff_h <= wantedHeight:
-        im.convert("RGBA").resize((wantedWidth, int(wdiff_h)), Image.ANTIALIAS).save(path)
+        newIm = im.convert("RGBA").resize((wantedWidth, int(wdiff_h)), Image.ANTIALIAS)
     elif hdiff_w <= wantedWidth:
-        im.convert("RGBA").resize((int(hdiff_w), wantedHeight), Image.ANTIALIAS).save(path)
+        newIm = im.convert("RGBA").resize((int(hdiff_w), wantedHeight), Image.ANTIALIAS)
+
+    # Save resized image
+    newIm.save(path)
+
+    # Check if file is a PNG file
+    _, ext = os.path.splitext(path)
+
+    # Return if no PNG, no more can be done.
+    if ext != '.png':
+        return
+
+    # If .png, use tinyPng.org API to compress it, in a thread
+    import threading
+    threading.Thread(None, tinyCompress, None, (path,)).start()
+
+def tinyCompress (path):
+    # NB: api:Z1NUBU0JCIWQcDYoJnzeg33wrUnghzkJ  expires in nov 2013
+    import pycurl, StringIO
+
+    url = 'http://api.tinypng.org/api/shrink'
+    key = 'api:Z1NUBU0JCIWQcDYoJnzeg33wrUnghzkJ'
+
+    c = pycurl.Curl()
+    c.setopt(pycurl.VERBOSE, 1)
+    c.setopt(pycurl.URL, url)
+    fout = StringIO.StringIO()
+    c.setopt(pycurl.WRITEFUNCTION, fout.write)
+
+
+    c.setopt(pycurl.POST, 1)
+    c.setopt(pycurl.HTTPHEADER, [
+        'Content-Type: image/png',
+        key])
+    filesize = os.path.getsize(path)
+    c.setopt(pycurl.POSTFIELDSIZE, filesize)
+    fin = open(path, 'rb')
+    c.setopt(pycurl.READFUNCTION, fin.read)
+
+
+    c.perform()
+    response_code = c.getinfo(pycurl.RESPONSE_CODE)
+    response_data = fout.getvalue()
+    c.close()
+
+    import json, urllib2
+
+    if response_code == 200: # Success LOG(?)
+        print response_data
+        jData = json.loads(response_data)
+        u = urllib2.urlopen(jData['output']['url'])
+        localFile = open(path, 'w')
+        localFile.write(u.read())
+        localFile.close()
+    else: # Error LOG
+        return
+
+    #########CURL
+    return
+
 
 def uniqueFile(path):
     """
