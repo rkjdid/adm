@@ -263,9 +263,11 @@ def tinyCompress (path):
         print response_data
         jData = json.loads(response_data)
         u = urllib2.urlopen(jData['output']['url'])
-        localFile = open(path, 'w')
-        localFile.write(u.read())
-        localFile.close()
+
+        #TODO save correctly
+#        localFile = open(path, 'w')
+#        localFile.write(u.read())
+#        localFile.close()
     else: # Error LOG
         return
 
