@@ -71,7 +71,7 @@
 
 /************FLIPBOOK************/
 #bookTitle {
-    font-family: "MarketingScript", serif;
+    font-family: "MarketingScript", Helvetica, serif;
     font-size: 1.8em;
 
     color: #e31c79;
@@ -183,11 +183,14 @@
 #navBook {
     position: relative;
     float: right;
-    right: -190px;
+    left: 190px;
     height: 435px;
     top: 70px; bottom: 0;margin: auto;
     text-align: left;
     z-index: 10;
+
+    font-size: 1.1em;
+    font-family: 'MarketingScript', Helvetica, sans-serif;
 }
 
 #navBook li {
