@@ -155,7 +155,8 @@ li.tvIndex {
 }
 
 li.tvIndex:hover,
-p.tvIndex:hover
+p.tvIndex:hover,
+li.tvIndex.active
 {
     color: #e31c79;
     cursor: default;
