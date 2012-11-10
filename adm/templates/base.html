@@ -11,6 +11,10 @@
 
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/base.css" />
     {% block extracss %}{% endblock %}
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/excanvas_r3/excanvas.compiled.js"></script>
+<![endif]-->
 </head>
 <body>
 {% if pageN != 'index' %}
@@ -33,10 +37,6 @@
 {% if pageN == 'index' %}<img class="inblock valignC logo" src="{{ STATIC_URL}}img/logo.nobg.gif" alt="Logo des ateliers" />{% endif %}
     </footer>
 
-<!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <script src="{{ STATIC_URL }}js/lib/excanvas_r3/excanvas.compiled.js"></script>
-<![endif]-->
 {% if modernized == True %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/lib/modernizr.custom.27088.js"></script>
 {% endif %}
