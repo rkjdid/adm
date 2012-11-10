@@ -10,103 +10,99 @@ var textInterval, logoInterval, demoInterval;
 
 window.onload = function ()
 {
-    // Stop demo mode on hover
-    $('#tvIndex').hover(
-        function () {
-            clearInterval(demoInterval);
-            $('#tvIndex').hover(function(){});
-        });
-
-
-    // Start démo, channel blinking
-    var blinkIndex = -1, nbLoop = 0, tempo = 100;
-    demoInterval = setInterval(function() {
-        if (++blinkIndex == $('li.tvIndex').length) {
-            blinkIndex = -1;
-        } else {
-            $('li.tvIndex').eq(blinkIndex).addClass('active');
-            clearActive ($('li.tvIndex').eq(blinkIndex), tempo + 5);
-        }
-    }, tempo);
-    preloadImages();
-};
-
-function clearActive(elem, tempo) {
-    setTimeout (function() {
-        elem.removeClass('active')
-    }, tempo);
-}
-
-$(document).ready(function () {
     tvScreen = $('#tvScreen')[0];
     lcdScreen = $('#tvLcd')[0];
     tvContext = tvScreen.getContext("2d");
     lcdContext = lcdScreen.getContext("2d");
 
     $('li.tvIndex').click(function() {
-        if ($(this).is('li.tvIndex.active'))
-            return;
 
-        $('li.tvIndex.active').removeClass('active');
-        $(this).addClass('active');
     });
 
     drawMire();
     defaultDisplay();
-});
 
-var aa =[];
+    preloadImages();
+};
 
-//function preloadJquery() {
-//    var i = 0, j = 0;
-//    for (var channel in $('li.tvIndex')) {
-//        aa[i++] = [];
-//        var logoUrl, li = $('li.tvIndex').eq(channel);
-//        for (var logo in li.children()) {
-//            if (li.eq('logo').is('span')) {
-//                logoUrl = li.eq('logo').html();
-//            }
-//            if (li.eq('logo').is('img')) {
-//                li.eq('logo').load(function() {
-//                    aa[i++][j++] = true;
-//                });
-//                li.eq('logo').attr('src', logoUrl).addClass('cli-' + $('li.tvIndex').eq(channel).attr('value'));
-//            }
-//        }
-//    }
-//}
+var aa, aaCpt, nbLiActive = 0;
 
 function preloadImages()
 {
     var menu = document.getElementById("tvIndex");
+    aa = new Array(menu.children.length);
+    aaCpt = new Array(menu.children.length);
+
+    // Init array
+    for (var tmp = 0; tmp < aaCpt.length; tmp++)
+        aaCpt[tmp] = 0;
 
     for (var i=0; i < menu.children.length; i++)
     {
-        aa[i] = [];
         var li = menu.children[i];
+        var div = document.getElementById($(li).find('.dataCat').html());
+        aa[i] = new Array(div.children.length);
 
-        var div = document.getElementById(li.getAttribute('value'));
-        var spanUrl;
         for (var j = 0; j < div.children.length; j++)
         {
-            var span_img = div.children[j];
+            var divCont = div.children[j];
 
-            if (span_img.tagName == 'SPAN')
-                spanUrl = span_img.innerHTML;
-            if (span_img.tagName == 'IMG') {
-                setOnLoad (span_img, i, j);
-                span_img.setAttribute('src', spanUrl);
-                span_img.setAttribute('class', 'cli-' + li.getAttribute('value'));
-            }
+            var span = $(divCont).find('span');
+            var img = $(divCont).find('img');
 
+            var url = span.html();
+            setOnLoad(img[0], i, j, li);
+            img[0].setAttribute('src', url);
+            img[0].setAttribute('class', 'cli-cat' + $(li).find('.dataChannelId').text());
         }
     }
 }
 
-function setOnLoad (img, i, j) {
+function setOnLoad (img, i, j, li) {
     img.onload = function () {
         aa[i][j] = true;
+        if (++aaCpt[i] == aa[i].length) { // All images of li loaded
+            $(li).removeClass('loading').click(function(){
+                // Add click handler
+                if ($(this).is('li.tvIndex.active'))
+                    return;
+
+                $('li.tvIndex.active').removeClass('active');
+                $(this).addClass('active');
+
+                zapChannel($(li).find('.dataChannelId').text(), $(li).find('.dataChannelName').text());
+            });
+
+            if (++nbLiActive == aa.length) { // All images of all li loaded
+                // FIRE DEMO (or not ?)
+                // Stop demo mode on hover
+                $('#tvIndex').hover(
+                    function () {
+                        clearInterval(demoInterval);
+                        $('#tvIndex').hover(function(){});
+                });
+
+                // Start démo, channel blinking
+                var blinkIndex = -1, nbLoop = 0, tempo = 100;
+                demoInterval = setInterval(function() {
+                    if (++blinkIndex == $('li.tvIndex').length) {
+                        if(++nbLoop == 3)
+                            clearInterval(demoInterval);
+                        blinkIndex = -1;
+                    } else {
+                        $('li.tvIndex').eq(blinkIndex).addClass('active');
+                        clearActive ($('li.tvIndex').eq(blinkIndex), tempo + 5);
+                    }
+                }, tempo);
+            }
+        }
     };
+}
+
+function clearActive(elem, tempo) {
+    setTimeout (function() {
+        elem.removeClass('active')
+    }, tempo);
 }
 
 function drawMire()

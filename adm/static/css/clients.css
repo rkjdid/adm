@@ -9,6 +9,10 @@
 
 }
 /*******FONTS*******/
+li.tvIndex.loading:hover, li.tvIndex.loading {
+    background: url('../img/5.smallerLoader.gif') left no-repeat;
+    color: #cbcbcb;
+}
 
 .preload {
     display: none;
@@ -99,64 +103,12 @@ canvas#tvLcd
     top: 44px;
 }
 
-div#tvButton, div#tvButton2
-{
-    background: url('../img/5.clients.png') -847px 0 no-repeat;
-    cursor: default;
-    opacity: 0.2;
-}
-
-div#tvButton.active, div#tvButton2.active
-{
-    background: url('../img/5.clients.png') -864px 0 no-repeat;
-    cursor: default;
-    opacity: 1;
-}
-
-div#tvButton.active:hover, div#tvButton2.active:hover
-{
-    background: url('../img/5.clients.png') -881px 0 no-repeat;
-    cursor: default;
-}
-
-div#tvButton, div#tvButton2
-{
-    position: absolute;
-
-    width: 17px;
-    height: 22px;
-}
-
-div#tvButton
-{
-    left: 409px;
-    top: 300px;
-}
-
-div#tvButton2
-{
-    left: 537px;
-    top: 150px;
-}
-
-div#clientPageNb
-{
-    font-family: 'digital', sans-serif;
-    cursor: default;
-    position: absolute;
-
-    right: 260px;
-    top: 305px;
-    height: 15px;
-    width: auto;
-}
-
 li.tvIndex {
+    padding-left: 30px;
     margin-bottom: 10px;
 }
 
 li.tvIndex:hover,
-p.tvIndex:hover,
 li.tvIndex.active
 {
     color: #e31c79;

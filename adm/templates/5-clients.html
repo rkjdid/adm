@@ -24,11 +24,16 @@
 
         <ul class="tvIndex inblock" id="tvIndex">
             {% for catClient in catClients %}
-                <li class="tvIndex" value="cat{{ forloop.counter }}" onclick="zapChannel('{{ forloop.counter }}','{{ catClient.nom }}');return false;">
-                    <p class="tvIndex alignL">&lt; {{ catClient.nom }}</p>
+                <li class="tvIndex loading">
+                    <div class="data">
+                        <div class="dataChannelId">{{ forloop.counter }}</div>
+                        <div class="dataChannelName">{{ catClient.nom }}</div>
+                        <div class="dataCat">cat{{ forloop.counter }}</div>
+                    </div>
+                    <p class="tvIndex alignL">{{ catClient.nom }} </p>
                     <div class="preload" style="z-index:-99;" id="cat{{ forloop.counter }}">
                         {% for client in catClient.clients.all %}
-                            <span>{{ client.logo.url }}</span><img title="{{ client.nom }}" src="" />
+                            <div><span>{{ client.logo.url }}</span><img title="{{ client.nom }}" src="" /></div>
                         {% endfor %}
                     </div>
                 </li>
