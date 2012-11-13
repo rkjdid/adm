@@ -37,6 +37,7 @@ a:hover
 #bodyContainer
 {
     background: url('../img/0.bg.png') no-repeat top;
+    height: auto;
 }
 
 /** Rounded div popups **/
@@ -394,7 +395,7 @@ footer
 
 footer > p
 {
-    position:absolute;
+    position:relative;
     height: 2em;
 }
 
@@ -402,6 +403,7 @@ footer > div
 {
     top: 10px;
     position: relative;
+    margin-left: 50px;
 }
 
 footer.index > div
@@ -411,9 +413,10 @@ footer.index > div
 
 footer > img
 {
-    position: absolute;
+    position: relative;
     height: 70px;
-    right: 10%;
+    right: 50px;
+    float: right;
 }
 /* HEADFOOT */
 

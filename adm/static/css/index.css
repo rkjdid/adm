@@ -115,6 +115,7 @@
 }
 
 #client {
+    background: url('../img/sprites.index.png') -2354px 0 no-repeat;
     position: absolute;
     left: 622px;
     top: 430px;
@@ -145,7 +146,7 @@
     top: 0;
     height: 560px;
     min-height: 560px;
-    overflow-x: hidden;
+    min-width: 1100px;
     text-align: center;
     position: relative;
 }
@@ -310,19 +311,20 @@
 
 /********** CopyCup ********/
 #mug {
+    background: url('../img/sprites.index.png') -2249px 0 no-repeat;
     position: absolute;
     top: 453px;
-    left: 387px;
-    width: 90px;
-    height: 94px;
+    left: 370px;
+    width: 105px;
+    height: 98px;
 }
 
 #cupcopy {
     width: 21px;
     height: 23px;
     position: absolute;
-    top: 35px;
-    left: 25px;
+    top: 37px;
+    left: 32px;
 
     background: url('../img/sprites.index.png') transparent no-repeat -453px -78px;
 
