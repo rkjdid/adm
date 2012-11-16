@@ -5,10 +5,10 @@ from django.contrib import admin
 class CommonMedia:
     js = (
         'http://ajax.googleapis.com/ajax/libs/dojo/1.8.0/dojo/dojo.js',
-        settings.ADMIN_MEDIA_PREFIX + 'js/editor.js',
+        settings.STATIC_URL + 'admin/js/editor.js',
     )
     css = {
-        'all': (settings.ADMIN_MEDIA_PREFIX + 'css/editor.css',),
+        'all': (settings.STATIC_URL + 'admin/css/editor.css',),
     }
 
 class PhotoMembreInline(admin.StackedInline):
@@ -20,8 +20,8 @@ class PhotoMembreInline(admin.StackedInline):
 class MembreEquipeAdmin(admin.ModelAdmin):
     fields = ['nom', 'statut', 'description', 'position']
     list_display = ['nom', 'statut', 'position', 'description']
-    list_display_links = ['description']
-    list_editable = ['nom', 'statut', 'position']
+    list_display_links = ['nom']
+    list_editable = ['statut', 'position', 'description']
     inlines = [PhotoMembreInline]
 
 
@@ -40,13 +40,9 @@ class PageBookInline(admin.StackedInline):
     fields = ['pageGauche', 'pageDroite']
     extra = 1
 
-class FicheRecetteInline(admin.StackedInline):
-    model = FicheRecette
-    fields = ['titre', 'description']
-
 class BookAdmin(admin.ModelAdmin):
     fields = ['theme']
-    inlines = [FicheRecetteInline, PageBookInline]
+    inlines = [PageBookInline]
 
 
 admin.site.register(CategorieClient, CategorieClientAdmin)
