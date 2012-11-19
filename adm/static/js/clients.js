@@ -1,26 +1,42 @@
-var tvScreen, tvContext;
-var lcdScreen, lcdContext;
+/** naturalWidth && naturalHeight fix **/
+// adds .naturalWidth() and .naturalHeight() methods to jQuery
+// for retreaving a normalized naturalWidth and naturalHeight.
+(function($){
+    var
+        props = ['Width', 'Height'],
+        prop;
 
-var contourDrawn = false;
+    while (prop = props.pop()) {
+        (function (natural, prop) {
+            $.fn[natural] = (natural in new Image()) ?
+                function () {
+                    return this[0][natural];
+                } :
+                function () {
+                    var
+                        node = this[0],
+                        img,
+                        value;
 
-var mireURL =       "/static/img/5.clients.tvMire.png";
-var contourURL =    "/static/img/5.clients.tvShade.png";
+                    if (node.tagName.toLowerCase() === 'img') {
+                        img = new Image();
+                        img.src = node.src,
+                            value = img[prop];
+                    }
+                    return value;
+                };
+        }('natural' + prop, prop.toLowerCase()));
+    }
+}(jQuery));
 
-var textInterval, logoInterval, demoInterval;
+
+var demoInterval;
 
 window.onload = function ()
 {
-    tvScreen = $('#tvScreen')[0];
-    lcdScreen = $('#tvLcd')[0];
-//    tvContext = tvScreen.getContext("2d");
-//    lcdContext = lcdScreen.getContext("2d");
-
     $('li.tvIndex').click(function() {
 
     });
-
-//    drawMire();
-//    defaultDisplay();
 
     preloadImages();
 };
@@ -105,46 +121,10 @@ function clearActive(elem, tempo) {
     }, tempo);
 }
 
-function drawMire()
-{
-    var mire = new Image();
-    mire.src = mireURL;
-    mire.onload = function(){
-        tvContext.drawImage(mire, 0, 0);
-    };
-
-    contourDrawn = false;
-}
-
-
-function defaultDisplay ()
-{
-    var cnt = 0;
-    textInterval = setInterval(function() {
-        if (cnt > 40) {
-            clearInterval(textInterval);
-            return;
-        }
-
-        cnt++;
-        clearDisplay();
-        lcdContext.font = "14px digital";
-        //        setTimeout (function (){
-        lcdContext.fillText("/!\\ ERREUR", 17, 28);
-        lcdContext.font = "12px";
-        lcdContext.fillText("---------->", 16, 48);
-        //        }, 800);
-    }, 50);
-}
-
-function clearDisplay() {
-    lcdContext.clearRect(0, 0, lcdScreen.width, lcdScreen.height);
-}
-
 function digitalDisplay(nb, text)
 {
     if (text.length > 12)
-        text = text.substring(0, 12) + '-';
+        text = text.substring(0, 11) + '-';
 
     var lcd = $('#tvLcd');
     var channelNb = $('<p class="channelNb">' + nb + '</p>');
@@ -153,28 +133,10 @@ function digitalDisplay(nb, text)
     $(lcd).empty();
     $(channelNb).appendTo(lcd);
     $(channelName).appendTo(lcd);
-
-
-//    var cnt = 0;
-//    textInterval = setInterval(function() {
-//        if (cnt > 40) {
-//            clearInterval(textInterval);
-//            return;
-//        }
-//
-//        cnt++;
-//        lcdContext.clearRect(0, 0, lcdScreen.width, lcdScreen.height);
-//        lcdContext.font = "36px digital";
-//        lcdContext.fillText(nb, 70, 28);
-//        lcdContext.font = "14px digital";
-//        lcdContext.fillText(text, 2, 49);
-//    }, 50);
 }
 
 function zapChannel(nb, nom)
 {
-    clearInterval(textInterval);
-    clearInterval(logoInterval);
     digitalDisplay(nb, nom);
     drawLogos(nb);
 }
@@ -219,8 +181,16 @@ function drawLogos (cat) {
         nbCol = 5;
         gapLig = 12;
         gapCol = 16;
+    } else if (nbImages <= 30) {
+        ratio = 35/logoH;
+        logoH = logoW = 35;
+
+        nbLig = 5;
+        nbCol = 6;
+        gapLig = 7;
+        gapCol = 11;
     } else {
-        alert('Max logo number = 20');
+        alert('Nombre maximum de clients : 30 par catégorie');
     }
 
     // Draw contour ombré (only once)
@@ -249,17 +219,21 @@ function drawLogos (cat) {
             var cliName = split[0];
             var clientID = split[1];
 
-            $(logo).attr('alt', "logo " + cliName);
-            $(logo).attr('title', cliName);
-            // While we're holding the actual img for sure, set size
-            $(logo).attr('style',
-                         'width:'  + (ratio * images[i].naturalWidth) + 'px;' +
-                         'height:' + (ratio * images[i].naturalHeight) + 'px;');
+            var naturalWidth = $(images[i]).naturalWidth();
+            var naturalHeight = $(images[i]).naturalHeight();
+
+            $(logo).attr({
+                'alt' :     "logo " + cliName,
+                'title' :   cliName,
+                'style' :   ('width:'  + (ratio * naturalWidth) + 'px;' +
+                            'height:' + (ratio * naturalHeight) + 'px;')
+            });
 
             var uri = $('#dataURI' + clientID);
+            var a;
 
             if ($(uri).length == 1) {
-                var a = $('<a href="' + $(uri).text() + '"></a>');
+                a = $('<a href="' + $(uri).text() + '"></a>');
                 $(logo).appendTo(a);
                 logo = a;
             }
@@ -268,23 +242,17 @@ function drawLogos (cat) {
 
             // Get current style, set above, and append positionning
             var styleAppend = $(logo).attr('style');
-            $(logo).attr('style',
-                         'position: absolute; ' +
-                         'left:'   + (xOffset + (logoW - ratio*images[i].naturalWidth)/2) + 'px;' +
-                         'top:'    + (yOffset + (logoH - ratio*images[i].naturalHeight)/2) + 'px;' +
-                         styleAppend);
+            $(logo).attr({
+                'style' :('position:absolute;' +
+                         'left:'   + (xOffset + (logoW - ratio*naturalWidth)/2) + 'px;' +
+                         'top:'    + (yOffset + (logoH - ratio*naturalHeight)/2) + 'px;' +
+                         styleAppend)
+            });
 
             $(logo).addClass('drawnLogo');
             $(logo).appendTo('#tvScreen');
 
-//            tvContext.drawImage(images[i],
-//                                xOffset + (logoW - ratio*images[i].naturalWidth)/2,
-//                                yOffset + (logoH - ratio*images[i].naturalHeight)/2,
-//                                ratio * images[i].naturalWidth,
-//                                ratio * images[i].naturalHeight);
-
             i++;
-
             xOffset += logoW;
         }
 

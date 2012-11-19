@@ -36,7 +36,7 @@
                             <div id="cli-{{ client.id }}">
                                 <span>{{ client.logo.url }}</span>
                                 <img title="{{ client.nom }}#- -#{{ client.id }}" src="" />
-                                {% if client.hasPageBook %}<div id="dataURI{{ client.id }}">/portfolio/{{ client.pagebook.id }}</div>{% endif %}
+                                {% if client.hasPageBook %}<div id="dataURI{{ client.id }}">/portfolio/{{ client.pagebook.id }}/</div>{% endif %}
                             </div>
                         {% endfor %}
                     </div>

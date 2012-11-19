@@ -6,7 +6,7 @@
     {% load dajaxice_templatetags %}{% dajaxice_js_import %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/lib/jquery.dajax.core.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/portfolio.js"></script>
-    <!--[if IE]>
+<!--[if IE]>
     <script type="text/javascript">
         $(document).ready(function(){
             $('.page.even').addClass('ieEven');
@@ -16,20 +16,20 @@
         });
     </script>
 <![endif]-->
-    <!--[if lte IE 8]>
+<!--[if lte IE 8]>
     <script type="text/javascript" src="{{ STATIC_URL }}js/lib/turn.js/turn.html4.min.js"></script>
 <![endif]-->
-    <!--[if gt IE 8]>
+<!--[if gt IE 8]>
     <script type="text/javascript" src="{{ STATIC_URL }}js/lib/turn.js/turn.min.js"></script>
 <![endif]-->
-    <!--[if !IE]><!-->
+<!--[if !IE]><!-->
     <script type="text/javascript" src="{{ STATIC_URL }}js/lib/turn.js/turn.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             loadBook();
         });
     </script>
-    <!--<![endif]-->
+<!--<![endif]-->
     <script type="text/javascript" src="{{ STATIC_URL }}js/lib/turn.js/hash.js"></script>
 {% endblock %}
 

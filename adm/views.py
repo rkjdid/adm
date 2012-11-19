@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.template.context import RequestContext
 
 from adm.models    import *
@@ -31,7 +31,10 @@ def portfolio(request, pagebookId='-1'):
     pageBook = None
 
     if pagebookId != '-1':
-        pageBook = PageBook.objects.get(id=pagebookId)
+        try:
+            pageBook = PageBook.objects.get(id=pagebookId)
+        except PageBook.DoesNotExist:
+            return redirect('/portfolio', context_instance=RequestContext(request))
 
     arguments = {
         'pageN'         : 'portfolio',
@@ -76,3 +79,6 @@ def contact(request):
     return render_to_response('6-contact.html',
                               arguments,
                               context_instance=RequestContext(request))
+
+def redirectHome(request):
+    return redirect('/', context_instance=RequestContext(request))

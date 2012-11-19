@@ -170,7 +170,7 @@ class Client (models.Model):
     nom = models.CharField (max_length=20, default='Client')
     logo = models.ImageField(upload_to= 'clients/')
 
-    pagebook = models.OneToOneField('PageBook', related_name="client", blank=True, null=True)
+    pagebook = models.OneToOneField('PageBook', related_name="client", blank=True, null=True, on_delete=models.SET_NULL)
 
     def hasPageBook (self):
         return not (self.pagebook is None)
