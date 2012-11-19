@@ -87,11 +87,27 @@ li.tvIndex.loading:hover, li.tvIndex.loading {
     z-index: 0;
 }
 
-canvas#tvScreen
+div#tvScreen
 {
     position: absolute;
     left: 65px;
     top: 53px;
+
+    width: 387px;
+    height: 290px;
+    background:url('../img/5.clients.tvMire.png') no-repeat;
+}
+
+div#tvScreen.zap {
+    background:url('../img/5.clients.tvShade.bg.png') no-repeat;
+}
+
+a.drawnLogo img{
+    transition: box-shadow .2s ease-out;
+}
+
+a.drawnLogo:hover img{
+    box-shadow: 3px 3px 4px #e31c79;
 }
 
 canvas#tvLcd

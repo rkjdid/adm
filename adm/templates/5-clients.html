@@ -15,11 +15,9 @@
         <div id="roiReine"></div>
         <div class="inblock valignC" id="tv">
             <div id="whitebg"></div>
-            <canvas id="tvScreen" width="387" height="290"></canvas>
+
+            <div id="tvScreen"></div>
             <canvas id="tvLcd" width="95" height="60"></canvas>
-{#            <div class="tvButton" id="tvButton"></div>#}
-{#            <div class="tvButton" id="tvButton2"></div>#}
-{#            <div id="clientPageNb"></div>#}
         </div>
 
         <ul class="tvIndex inblock" id="tvIndex">
@@ -33,7 +31,11 @@
                     <p class="tvIndex alignL">{{ catClient.nom }} </p>
                     <div class="preload" style="z-index:-99;" id="cat{{ forloop.counter }}">
                         {% for client in catClient.clients.all %}
-                            <div><span>{{ client.logo.url }}</span><img title="{{ client.nom }}" src="" /></div>
+                            <div id="cli-{{ client.id }}">
+                                <span>{{ client.logo.url }}</span>
+                                <img title="{{ client.nom }}#- -#{{ client.id }}" src="" />
+                                {% if client.hasPageBook %}<div id="dataURI{{ client.id }}">/portfolio/{{ client.pagebook.id }}</div>{% endif %}
+                            </div>
                         {% endfor %}
                     </div>
                 </li>

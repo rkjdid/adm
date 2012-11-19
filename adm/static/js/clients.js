@@ -12,14 +12,14 @@ window.onload = function ()
 {
     tvScreen = $('#tvScreen')[0];
     lcdScreen = $('#tvLcd')[0];
-    tvContext = tvScreen.getContext("2d");
+//    tvContext = tvScreen.getContext("2d");
     lcdContext = lcdScreen.getContext("2d");
 
     $('li.tvIndex').click(function() {
 
     });
 
-    drawMire();
+//    drawMire();
     defaultDisplay();
 
     preloadImages();
@@ -193,7 +193,6 @@ function drawLogos (cat) {
 
     if (nbImages <= 3) {
         ratio = 1;
-
         nbLig = 1;
         nbCol = 3;
         gapLig = 80;
@@ -228,12 +227,11 @@ function drawLogos (cat) {
     }
 
     // Draw contour ombré (only once)
-    if (!contourDrawn) // TODO: fadein
-    {
-        tvContext.clearRect(0, 0, tvScreen.width, tvScreen.height);
-        drawContour();
-    } else // TODO: fadeout
-        tvContext.clearRect(18, 18, tvScreen.width - 36, tvScreen.height - 36);
+    if($('#tvScreen.zap').length == 0)
+        $('#tvScreen').addClass('zap');
+
+    // Clear tv Screen
+    $('#tvScreen').empty();
 
     var yOffset = 15;
     var i = 0;
@@ -247,11 +245,46 @@ function drawLogos (cat) {
             if (i == nbImages)
                 break;
 
-            tvContext.drawImage(images[i],
-                                xOffset + (logoW - ratio*images[i].naturalWidth)/2,
-                                yOffset + (logoH - ratio*images[i].naturalHeight)/2,
-                                ratio * images[i].naturalWidth,
-                                ratio * images[i].naturalHeight);
+            var logo = $(images[i]).clone();
+
+            var logoTitle = $(logo).attr('title');
+            var split = logoTitle.split("#- -#");
+            var cliName = split[0];
+            var clientID = split[1];
+
+            $(logo).attr('alt', "logo " + cliName);
+            $(logo).attr('title', cliName);
+            // While we're holding the actual img for sure, set size
+            $(logo).attr('style',
+                         'width:'  + (ratio * images[i].naturalWidth) + 'px;' +
+                         'height:' + (ratio * images[i].naturalHeight) + 'px;');
+
+            var uri = $('#dataURI' + clientID);
+
+            if ($(uri).length == 1) {
+                var a = $('<a href="' + $(uri).text() + '"></a>');
+                $(logo).appendTo(a);
+                logo = a;
+            }
+
+            $(logo).attr('title', cliName);
+
+            // Get current style, set above, and append positionning
+            var styleAppend = $(logo).attr('style');
+            $(logo).attr('style',
+                         'position: absolute; ' +
+                         'left:'   + (xOffset + (logoW - ratio*images[i].naturalWidth)/2) + 'px;' +
+                         'top:'    + (yOffset + (logoH - ratio*images[i].naturalHeight)/2) + 'px;' +
+                         styleAppend);
+
+            $(logo).addClass('drawnLogo');
+            $(logo).appendTo('#tvScreen');
+
+//            tvContext.drawImage(images[i],
+//                                xOffset + (logoW - ratio*images[i].naturalWidth)/2,
+//                                yOffset + (logoH - ratio*images[i].naturalHeight)/2,
+//                                ratio * images[i].naturalWidth,
+//                                ratio * images[i].naturalHeight);
 
             i++;
 
