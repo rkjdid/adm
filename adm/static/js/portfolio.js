@@ -163,4 +163,22 @@ function loadBook() {
             }
         }
     });
+
+    var event;
+    if (document.createEvent) {
+        event = document.createEvent("HTMLEvents");
+        event.initEvent("bookLoaded", true, true);
+    } else {
+        event = document.createEventObject();
+        event.eventType = "bookLoaded";
+    }
+
+    event.eventName = "bookLoaded";
+//    event.memo = memo || { };
+
+    if (document.createEvent) {
+        document.dispatchEvent(event);
+    } else {
+        document.fireEvent("on" + event.eventType, event);
+    }
 }

@@ -27,7 +27,7 @@ class MembreEquipeAdmin(admin.ModelAdmin):
 
 class ClientInline(admin.StackedInline):
     model = Client
-    fields = ['nom', 'logo']
+    fields = ['nom', 'logo', 'pagebook']
     extra = 1
 
 

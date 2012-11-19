@@ -26,13 +26,18 @@ def agence(request):
                               arguments,
                               context_instance=RequestContext(request))
 
-def portfolio(request):
+def portfolio(request, pagebookId='-1'):
     books = Book.objects.all()
+    pageBook = None
+
+    if pagebookId != '-1':
+        pageBook = PageBook.objects.get(id=pagebookId)
 
     arguments = {
         'pageN'         : 'portfolio',
         'request'       : request,
         'books'         : books,
+        'pbook'         : pageBook,
     }
     return render_to_response('3-portfolio.html',
                               arguments,

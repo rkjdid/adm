@@ -6,7 +6,7 @@
     {% load dajaxice_templatetags %}{% dajaxice_js_import %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/lib/jquery.dajax.core.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/portfolio.js"></script>
-<!--[if IE]>
+    <!--[if IE]>
     <script type="text/javascript">
         $(document).ready(function(){
             $('.page.even').addClass('ieEven');
@@ -16,32 +16,29 @@
         });
     </script>
 <![endif]-->
-<!--[if lte IE 8]>
+    <!--[if lte IE 8]>
     <script type="text/javascript" src="{{ STATIC_URL }}js/lib/turn.js/turn.html4.min.js"></script>
 <![endif]-->
-<!--[if gt IE 8]>
+    <!--[if gt IE 8]>
     <script type="text/javascript" src="{{ STATIC_URL }}js/lib/turn.js/turn.min.js"></script>
 <![endif]-->
-<!--[if !IE]><!-->
+    <!--[if !IE]><!-->
     <script type="text/javascript" src="{{ STATIC_URL }}js/lib/turn.js/turn.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){loadBook();});
+        $(document).ready(function(){
+            loadBook();
+        });
     </script>
-<!--<![endif]-->
+    <!--<![endif]-->
     <script type="text/javascript" src="{{ STATIC_URL }}js/lib/turn.js/hash.js"></script>
 {% endblock %}
+
 {% block extracss %}
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/portfolio.css" />
 {% endblock %}
 
 {% block body %}
     <div id="playground">
-
-        {# TMP DEBUG BUTTONS #}
-{#        <button id="buttTabs" style="z-index : 55;width: 100px; height: 35px; position: absolute; left: -100px; top: 200px;">Afficher/Masquer Onglets</button>#}
-{#        <button id="buttLogos" style="z-index : 55;width: 100px; height: 35px; position: absolute;left: -100px; top: 250px;">Afficher/Masquer Logos</button>#}
-
-
         <div id="fouet"></div>
         <div id="cupcake"></div>
         <div id="flipbook" class="first">
@@ -54,7 +51,7 @@
                 <div id="logoAteliers"></div>
             </div>
 
-{% load set %}{% set i = 4 %}
+{% load set %}{% set i = 4 %}{% set pbid = -1 %}
 {% for b in books|slice:":6" %}
     {% if forloop.counter == 1 %}
         {% set b1 = i %}
@@ -70,6 +67,12 @@
         {% set b6 = i %}
     {% endif %}
     {% for pb in b.pagebooks.all %}
+            {% if pb == pbook %}
+                <script type="text/javascript">
+                    window.location = '/portfolio/#page/' + {{ i }};
+                </script>
+                {% set pbid = i %}
+            {% endif %}
             <div id="page-{{ i }}" class='page even'>
                 <div class="loader"></div>
                 <div class="data">
@@ -94,14 +97,6 @@
             <div id="page-{{ i }}" class="hard cover lastBack"></div>
             <div id="back" class="hard cover"></div>
         </div>
-{#        <ul id="navBook" class="">#}
-{#            <li id="liDesign"><a href="#page/{{ b1 }}"><div id="tabDesign" class="tabSprite"></div>Design</a></li>#}
-{#            <li id="liPhoto"><a href="#page/{{ b2 }}"><div id="tabPhoto" class="tabSprite"></div>Photo</a></li>#}
-{#            <li id="liWeb"><a href="#page/{{ b3 }}"><div id="tabWeb" class="tabSprite"></div>Web</a></li>#}
-{#            <li id="liCom"><a href="#page/{{ b4 }}"><div id="tabCom" class="tabSprite"></div>Communication</a></li>#}
-{#            <li id="liMarketo"><a href="#page/{{ b5 }}"><div id="tabMarketo" class="tabSprite"></div>Marketing opérationnel</a></li>#}
-{#            <li id="liMarketd"><a href="#page/{{ b6 }}"><div id="tabMarketd" class="tabSprite"></div>Marketing direct</a></li>#}
-{#        </ul>#}
 
         <ul id="navTabs" class="">
             <li id="li2Design"><a href="#page/{{ b1 }}"><div id="tabLiDesign"></div></a></li>

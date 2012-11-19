@@ -11,21 +11,12 @@
         <div id="ruban"></div>
         <div id="nuage3"></div>
         <div id="agencePop" class="inblock valignC alignL">
-{#            <div id="flamand"></div>#}
-{#            <div id="buisson"></div>#}
 {% for new in news %}
             <p id="newsP">
-{#  {% if new.display %}#}
-{#            <div id="news{{ forloop.counter0 }}" class="news">#}
-{#                <div class="overflow">#}
     {% autoescape off %}
                     {{ new.content }}
     {% endautoescape %}
-{#                    <div id="sign{{ forloop.counter0 }}" class="sign">{{ new.author }} - {{ new.date.day }}/{{ new.date.month }}/{{ new.date.year }}</div>#}
-{#                </div>#}
-{#            </div>#}
             </p>
-{#  {% endif %}#}
 {% endfor %}
         </div>
         <ul id="ulPoles">

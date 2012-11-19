@@ -65,39 +65,6 @@ class Contact (models.Model):
         return '#' + str(self.id) + '.' + self.nom
 
 ###################################################################
-#-Page CLIENT----------------------------------------------------
-###################################################################
-class CategorieClient (models.Model):
-    """
-    Catégories de clients, à droite de la TV (page CLIENT)
-    """
-    class Meta:
-        verbose_name_plural = "(p4/Clients) Catégories client"
-
-    nom = models.CharField (max_length=20, default='Catégorie client')
-
-    def __unicode__(self):
-        return '#' + str(self.id) + '.' + self.nom
-
-class Client (models.Model):
-    """
-    Clients des AdM dans la TV (page CLIENT)
-    """
-    categorie = models.ForeignKey('CategorieClient', related_name='clients')
-
-    nom = models.CharField (max_length=20, default='Client')
-
-    logo = models.ImageField(upload_to= 'clients/')
-
-#    pagebook = models.OneToOneField('PageBook', related_name="client", blank=True, null=True)
-
-    def resizeImg(self):
-        scaleImg(self.logo.path, logoWidth, logoHeight)
-
-    def __unicode__(self):
-        return '#' + str(self.id) + '.' + self.nom + '@' + self.categorie.nom
-
-###################################################################
 #-Page EQUIPE----------------------------------------------------
 ###################################################################
 BUBBLE_POSITION = (
@@ -150,7 +117,8 @@ class Book (models.Model):
     Pole d'activité, book (page PORTFOLIO)
     """
     class Meta:
-        verbose_name_plural = "(p2/Portfolio) Fiches recette/Books"
+        ordering = ['id']
+        verbose_name_plural = "(p2/Portfolio) Books"
 
     theme = models.CharField(max_length=75)
 
@@ -177,19 +145,47 @@ class PageBook (models.Model):
         scaleImg(self.pageDroite.path, pagebookWidth, pagebookHeight)
 
     def __unicode__(self):
-        return self.pageGauche.url
+        return self.book.theme + ': ' + self.pageGauche.url
 
-class FicheRecette (models.Model):
+###################################################################
+#-Page CLIENT----------------------------------------------------
+###################################################################
+class CategorieClient (models.Model):
     """
-    Recette des ateliers (page PORTFOLIO)
+    Catégories de clients, à droite de la TV (page CLIENT)
     """
-    book = models.OneToOneField('Book', related_name='fiche')
+    class Meta:
+        verbose_name_plural = "(p4/Clients) Catégories client"
 
-    titre = models.CharField(max_length=100, default='titre fiche')
-    description = models.TextField(default="description fiche (recette 100g..)")
+    nom = models.CharField (max_length=20, default='Catégorie client')
 
     def __unicode__(self):
-        return '#' + str(self.id) + '.' + self.titre
+        return '#' + str(self.id) + '.' + self.nom
+
+class Client (models.Model):
+    """
+    Clients des AdM dans la TV (page CLIENT)
+    """
+    categorie = models.ForeignKey('CategorieClient', related_name='clients')
+    nom = models.CharField (max_length=20, default='Client')
+    logo = models.ImageField(upload_to= 'clients/')
+
+    pagebook = models.OneToOneField('PageBook', related_name="client", blank=True, null=True)
+
+    def hasPageBook (self):
+        return not (self.pagebook is None)
+
+    def getPageBookID(self):
+        if self.hasPageBook():
+            return self.pagebook.id
+        else:
+            return -1
+
+    def resizeImg(self):
+        scaleImg(self.logo.path, logoWidth, logoHeight)
+
+    def __unicode__(self):
+        return '#' + str(self.id) + '.' + self.nom + '@' + self.categorie.nom
 
 ###################################################################
 #-Divers/Signaux---------------------------------------------------
@@ -294,6 +290,9 @@ def buildImgURL(sender, instance, **kwargs):
 
 def resizeImg(sender, instance, **kwargs):
     instance.resizeImg()
+
+def setPageBookID(sender, instance, **kwargs):
+    instance.setPageBookID()
 
 ## Resize images after saving
 post_save.connect(resizeImg, sender=Client)
