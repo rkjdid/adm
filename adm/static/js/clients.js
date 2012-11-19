@@ -13,14 +13,14 @@ window.onload = function ()
     tvScreen = $('#tvScreen')[0];
     lcdScreen = $('#tvLcd')[0];
 //    tvContext = tvScreen.getContext("2d");
-    lcdContext = lcdScreen.getContext("2d");
+//    lcdContext = lcdScreen.getContext("2d");
 
     $('li.tvIndex').click(function() {
 
     });
 
 //    drawMire();
-    defaultDisplay();
+//    defaultDisplay();
 
     preloadImages();
 };
@@ -144,23 +144,31 @@ function clearDisplay() {
 function digitalDisplay(nb, text)
 {
     if (text.length > 12)
-    {
         text = text.substring(0, 12) + '-';
-    }
-    var cnt = 0;
-    textInterval = setInterval(function() {
-        if (cnt > 40) {
-            clearInterval(textInterval);
-            return;
-        }
 
-        cnt++;
-        lcdContext.clearRect(0, 0, lcdScreen.width, lcdScreen.height);
-        lcdContext.font = "36px digital";
-        lcdContext.fillText(nb, 70, 28);
-        lcdContext.font = "14px digital";
-        lcdContext.fillText(text, 2, 49);
-    }, 50);
+    var lcd = $('#tvLcd');
+    var channelNb = $('<p class="channelNb">' + nb + '</p>');
+    var channelName = $('<p class="channelName">' + text + '</p>');
+
+    $(lcd).empty();
+    $(channelNb).appendTo(lcd);
+    $(channelName).appendTo(lcd);
+
+
+//    var cnt = 0;
+//    textInterval = setInterval(function() {
+//        if (cnt > 40) {
+//            clearInterval(textInterval);
+//            return;
+//        }
+//
+//        cnt++;
+//        lcdContext.clearRect(0, 0, lcdScreen.width, lcdScreen.height);
+//        lcdContext.font = "36px digital";
+//        lcdContext.fillText(nb, 70, 28);
+//        lcdContext.font = "14px digital";
+//        lcdContext.fillText(text, 2, 49);
+//    }, 50);
 }
 
 function zapChannel(nb, nom)
@@ -169,17 +177,6 @@ function zapChannel(nb, nom)
     clearInterval(logoInterval);
     digitalDisplay(nb, nom);
     drawLogos(nb);
-}
-
-function drawContour()
-{
-    var contour = new Image();
-    contour.src = contourURL;
-    contour.onload = function(){
-        tvContext.drawImage(contour, 0, 0);
-    };
-
-    contourDrawn = true;
 }
 
 function drawLogos (cat) {

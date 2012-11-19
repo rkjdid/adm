@@ -110,13 +110,35 @@ a.drawnLogo:hover img{
     box-shadow: 3px 3px 4px #e31c79;
 }
 
-canvas#tvLcd
+div#tvLcd
 {
-    font-family: 'digital', sans-serif;
-    color: #1f2f2f;
+    font-family: 'digital', Helvetica, sans-serif;
+    color: black;
     position: absolute;
     left: 496px;
     top: 44px;
+
+    width:95px;
+    height:60px;
+}
+
+div#tvLcd #lcdArrow {
+    position: absolute;
+    left: 0; right: 0;
+    margin: auto;
+    top: 22px;
+}
+
+div#tvLcd:hover {
+    cursor: default;
+}
+
+.channelNb {
+    position: absolute; right: 10px; top: 0; font-size: 36px;
+}
+
+.channelName {
+    position: absolute; bottom: 3px; left: 0; font-size: 16px;
 }
 
 li.tvIndex {
