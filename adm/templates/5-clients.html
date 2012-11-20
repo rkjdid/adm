@@ -35,7 +35,9 @@
                         {% for client in catClient.clients.all %}
                             <div id="cli-{{ client.id }}">
                                 <span>{{ client.logo.url }}</span>
-                                <img title="{{ client.nom }}#- -#{{ client.id }}" src="" />
+                                <div class="dataCliName">{{ client.nom }}</div>
+                                <div class="dataCliID">{{ client.id }}</div>
+{#                                <img title="{{ client.nom }}#- -#{{ client.id }}" src="" alt="dummy" />#}
                                 {% if client.hasPageBook %}<div id="dataURI{{ client.id }}">/portfolio/{{ client.pagebook.id }}/</div>{% endif %}
                             </div>
                         {% endfor %}

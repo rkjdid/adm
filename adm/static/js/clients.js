@@ -64,12 +64,16 @@ function preloadImages()
             var divCont = div.children[j];
 
             var span = $(divCont).find('span');
-            var img = $(divCont).find('img');
+            var cliName = $(divCont).find('.dataCliName').text();
+            var cliID = $(divCont).find('.dataCliID').text();
+//            var img = $(divCont).find('img');
+            var img = $('<img alt="logo ' + cliName + '" title="'+ cliName +'#- -#' + cliID + '" />');
 
             var url = span.html();
             setOnLoad(img[0], i, j, li);
             img[0].setAttribute('src', url);
             img[0].setAttribute('class', 'cli-cat' + $(li).find('.dataChannelId').text());
+            $(img).appendTo(divCont);
         }
     }
 }
