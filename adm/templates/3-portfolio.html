@@ -73,7 +73,7 @@
                 </script>
                 {% set pbid = i %}
             {% endif %}
-            <div id="page-{{ i }}" class='page even'>
+            <div id="page-{{ i }}" class="page even">
                 <div class="loader"></div>
                 <div class="data">
                     <div class="dataSelector">{{ i }}</div>
@@ -81,8 +81,9 @@
                     <div class="dataPage">{{ forloop.counter0 }}</div>
                     <div class="dataEven">true</div>
                 </div>
+                <div class="arrow even"></div>
             </div>{% increment i %}
-            <div id="page-{{ i }}" class='page odd'>
+            <div id="page-{{ i }}" class="page odd">
                 <div class="loader"></div>
                 <div class="data">
                     <div class="dataSelector">{{ i }}</div>
@@ -90,6 +91,7 @@
                     <div class="dataPage">{{ forloop.counter0 }}</div>
                     <div class="dataEven">false</div>
                 </div>
+                <div class="arrow odd"></div>
             </div>{% increment i %}
     {% endfor %}
 {% endfor %}

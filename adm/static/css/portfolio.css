@@ -116,18 +116,32 @@
 
 
 
-#flipbook .even{
+#flipbook .page.even{
     background-image:-webkit-linear-gradient(left, #FFF 95%, #ddd 100%);
     background-image:-moz-linear-gradient(left, #FFF 95%, #ddd 100%);
     background-image:-o-linear-gradient(left, #FFF 95%, #ddd 100%);
     background-image:-ms-linear-gradient(left, #FFF 95%, #ddd 100%);
 }
 
-#flipbook .odd{
+#flipbook .page.odd{
     background-image:-webkit-linear-gradient(right, #FFF 95%, #ddd 100%);
     background-image:-moz-linear-gradient(right, #FFF 95%, #ddd 100%);
     background-image:-o-linear-gradient(right, #FFF 95%, #ddd 100%);
     background-image:-ms-linear-gradient(right, #FFF 95%, #ddd 100%);
+}
+
+.arrow {z-index: 99; opacity: .60;}
+
+.arrow.even {
+    background: url('../img/3.portfolio.arrows.png') 0 0 no-repeat;
+    width: 16px; height: 16px;
+    position: absolute; bottom: 20px; left: 20px;
+}
+
+.arrow.odd {
+    background: url('../img/3.portfolio.arrows.png') -17px 0 no-repeat;
+    width: 16px; height: 16px;
+    position: absolute; bottom: 20px; right: 20px;
 }
 
 .page img, #logoAteliers {
@@ -275,22 +289,22 @@
     background-repeat: no-repeat;
 }
 
-#tabLiDesign {width: 37px; height: 94px; background-position: 0px 0;}
+#tabLiDesign {width: 37px; height: 94px; background-position: 0 0;}
 #navTabs li.active #tabLiDesign, #navTabs a:hover #tabLiDesign {background-position: -37px 0;}
 
-#tabLiPhoto {width: 37px; height: 80px; background-position: 0px -94px;}
+#tabLiPhoto {width: 37px; height: 80px; background-position: 0 -94px;}
 #navTabs li.active #tabLiPhoto, #navTabs a:hover #tabLiPhoto {background-position: -37px -94px;}
 
-#tabLiWeb {width: 37px; height: 72px; background-position: 0px -174px;}
+#tabLiWeb {width: 37px; height: 72px; background-position: 0 -174px;}
 #navTabs li.active #tabLiWeb, #navTabs a:hover #tabLiWeb {background-position: -37px -174px;}
 
-#tabLiCom {width: 37px; height: 74px; background-position: 0px -246px;}
+#tabLiCom {width: 37px; height: 74px; background-position: 0 -246px;}
 #navTabs li.active #tabLiCom, #navTabs a:hover #tabLiCom {background-position: -37px -246px;}
 
-#tabLiMarketo {width: 37px; height: 56px; background-position: 0px -320px;}
+#tabLiMarketo {width: 37px; height: 56px; background-position: 0 -320px;}
 #navTabs li.active #tabLiMarketo, #navTabs a:hover #tabLiMarketo {background-position: -37px -320px;}
 
-#tabLiMarketd {width: 37px; height: 72px; background-position: 0px -376px;}
+#tabLiMarketd {width: 37px; height: 72px; background-position: 0 -376px;}
 #navTabs li.active #tabLiMarketd, #navTabs a:hover #tabLiMarketd {background-position: -37px -376px;}
 /*** TabV2 (Nath) ***/
 

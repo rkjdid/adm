@@ -25,9 +25,6 @@ urlpatterns = patterns('',
 
     # DajaxIce
     url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
-
-    # redirect other urls
-    url(r'^.*/', 'adm.views.redirectHome', name="redirect"),
 )
 
 # dajaxice, needed ?
@@ -39,4 +36,9 @@ urlpatterns += staticfiles_urlpatterns()
 urlpatterns += patterns('',
     (r'^adm.media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT }),
     (r'^adm.admin.media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.ADMIN_MEDIA_ROOT }),
+)
+
+# Last resort redirection --- avoid 404
+urlpatterns += patterns('',
+    url(r'^.*/', 'adm.views.redirectHome', name="redirect"),
 )
