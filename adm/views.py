@@ -82,3 +82,12 @@ def contact(request):
 
 def redirectHome(request):
     return redirect('/', context_instance=RequestContext(request))
+
+def redirectAgence(request):
+    return redirect('/agence/', context_instance=RequestContext(request))
+
+def redirectPortfolio(request):
+    return redirect('/portfolio/', context_instance=RequestContext(request))
+
+def redirectContact(request):
+    return redirect('/contact/', context_instance=RequestContext(request))

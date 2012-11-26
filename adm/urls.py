@@ -38,6 +38,15 @@ urlpatterns += patterns('',
     (r'^adm.admin.media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.ADMIN_MEDIA_ROOT }),
 )
 
+# Redirect from old website
+urlpatterns += patterns('',
+    url(r'^notre-agence.html$',     'adm.views.redirectAgence', name="redirect"),
+    url(r'^notre-book.html$',       'adm.views.redirectPortfolio', name="redirect"),
+    url(r'^notre-solution.html$',   'adm.views.redirectPortfolio', name="redirect"),
+    url(r'^nos-solutions.html$',    'adm.views.redirectPortfolio', name="redirect"),
+    url(r'^contact.html$',          'adm.views.redirectContact', name="redirect"),
+)
+
 # Last resort redirection --- avoid 404
 urlpatterns += patterns('',
     url(r'^.*/', 'adm.views.redirectHome', name="redirect"),
