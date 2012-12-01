@@ -103,11 +103,15 @@ div#tvScreen.zap {
 }
 
 a.drawnLogo img{
-    transition: box-shadow .2s ease-out;
+    transition: all .2s linear;
 }
 
 a.drawnLogo:hover img{
-    box-shadow: 3px 3px 4px #e31c79;
+    -webkit-filter: drop-shadow(0 1px 5px rgba(227,28,121,1));
+    -moz-filter: drop-shadow(0 1px 5px rgba(227,28,121,1));
+    -ms-filter: drop-shadow(0 1px 5px rgba(227,28,121,1));
+    -o-filter: drop-shadow(0 1px 5px rgba(227,28,121,1));
+    filter: drop-shadow(0 1px 5px rgba(227,28,121,1));
 }
 
 div#tvLcd
