@@ -107,11 +107,11 @@ a.drawnLogo img{
 }
 
 a.drawnLogo:hover img{
-    -webkit-filter: drop-shadow(0 1px 5px rgba(227,28,121,1));
-    -moz-filter: drop-shadow(0 1px 5px rgba(227,28,121,1));
-    -ms-filter: drop-shadow(0 1px 5px rgba(227,28,121,1));
-    -o-filter: drop-shadow(0 1px 5px rgba(227,28,121,1));
-    filter: drop-shadow(0 1px 5px rgba(227,28,121,1));
+    -webkit-filter: drop-shadow(0 1px 5px rgba(115,162,189,1));
+    -moz-filter: drop-shadow(0 1px 5px rgba(115,162,189,1));
+    -ms-filter: drop-shadow(0 1px 5px rgba(115,162,189,1));
+    -o-filter: drop-shadow(0 1px 5px rgba(115,162,189,1));
+    filter: drop-shadow(0 1px 5px rgba(115,162,189,1));
 }
 
 div#tvLcd
