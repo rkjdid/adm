@@ -84,7 +84,9 @@ function ajaxOnLoad(selector, url) {
     $(img)[0].onload = function () {
         $('#' + selector + ' .loader').remove();
         $(img).appendTo('#' + selector);
-        $(img).animate({'opacity': '1'}, 500);
+
+        $(img).css('opacity', '1');
+        $(img).removeClass("loading");
     };
 
     img.attr('src', url);
