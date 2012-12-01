@@ -103,7 +103,7 @@ div#tvScreen.zap {
 }
 
 a.drawnLogo img{
-    transition: all .2s linear;
+    /*transition: all .2s linear;*/
 }
 
 a.drawnLogo:hover img{
