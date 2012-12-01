@@ -73,6 +73,17 @@ function populatePage(page, book) {
     }
 }
 
+function ajaxOnLoad(selector, url) {
+    var img = $('<img class="pageBook" alt="Photo book" />');
+    $(img)[0].onload = function () {
+        $('#' + selector + ' .loader').remove();
+        $(img).appendTo('#' + selector);
+    };
+
+    img.attr('src', url);
+}
+
+
 function loadBook() {
     // FlipBook (flip.js)
     $("#flipbook").turn({
