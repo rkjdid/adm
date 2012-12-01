@@ -47,6 +47,10 @@ urlpatterns += patterns('',
     url(r'^contact.html$',          'adm.views.redirectContact', name="redirect"),
 )
 
+urlpatterns += patterns('',
+    url(r'^robots.txt', 'django.views.static.serve', {'document_root': settings.ROBOTS }),
+)
+
 # Last resort redirection --- avoid 404
 urlpatterns += patterns('',
     url(r'^.*/', 'adm.views.redirectHome', name="redirect"),
