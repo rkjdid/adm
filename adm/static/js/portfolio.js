@@ -80,10 +80,11 @@ function populatePage(page, book) {
 }
 
 function ajaxOnLoad(selector, url) {
-    var img = $('<img class="pageBook" alt="Photo book" />');
+    var img = $('<img class="pageBook loading" alt="Photo book" style="opacity: 0;"/>');
     $(img)[0].onload = function () {
         $('#' + selector + ' .loader').remove();
         $(img).appendTo('#' + selector);
+        $(img).animate({'opacity': '1'}, 500);
     };
 
     img.attr('src', url);

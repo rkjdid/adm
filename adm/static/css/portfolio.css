@@ -169,6 +169,13 @@
     -ms-filter: drop-shadow(0 2px 4px rgba(150,150,150,.5));
     -o-filter: drop-shadow(0 2px 4px rgba(150,150,150,.5));
     filter: drop-shadow(0 2px 4px rgba(150,150,150,.5));
+
+    transition: all .4s linear;
+    opacity: 1;
+}
+
+img.loading {
+    opacity: 0;
 }
 
 
