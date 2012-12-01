@@ -164,11 +164,11 @@
     text-align: center;
     left: 0; right: 0; bottom: 0; top: 0; margin: auto;
 
-    -webkit-filter: drop-shadow(0 1px 3px rgba(150,150,150,.5));
-    -moz-filter: drop-shadow(0 1px 3px rgba(150,150,150,.5));
-    -ms-filter: drop-shadow(0 1px 3px rgba(150,150,150,.5));
-    -o-filter: drop-shadow(0 1px 3px rgba(150,150,150,.5));
-    filter: drop-shadow(0 1px 3px rgba(150,150,150,.5));
+    -webkit-filter: drop-shadow(0 2px 4px rgba(150,150,150,.5));
+    -moz-filter: drop-shadow(0 2px 4px rgba(150,150,150,.5));
+    -ms-filter: drop-shadow(0 2px 4px rgba(150,150,150,.5));
+    -o-filter: drop-shadow(0 2px 4px rgba(150,150,150,.5));
+    filter: drop-shadow(0 2px 4px rgba(150,150,150,.5));
 }
 
 
