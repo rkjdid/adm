@@ -158,6 +158,13 @@
     left: 0;
 }
 
+.page.odd.tmpCenter img, .page.even.tmpCenter img {
+    width: 90%;height: 90%;
+    position: absolute;
+    text-align: center;
+    left: 0; right: 0; bottom: 0; top: 0; margin: auto;
+}
+
 
 #page-1 {
     background: url('../img/sprites.portfolio.png') no-repeat 0 -2048px !important;

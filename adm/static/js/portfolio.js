@@ -58,9 +58,12 @@ $(document).ready(function(){
 });
 
 function populatePage(page, book) {
+    var p = $('#page-'+page);
     // 	Check if the page is already filled in
-    if ($('#page-'+page+ ' .loader').length) {
-        var data = $('#page-'+page+ ' .data');
+    if ($(p).attr('data-load') != '1') {
+        $(p).attr('data-load', '1');
+        var data = $(p).find('.data');
+
         Dajaxice.adm.getImage
             (Dajax.process,
              {
