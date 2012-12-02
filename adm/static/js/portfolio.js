@@ -59,22 +59,31 @@ $(document).ready(function(){
 
 function populatePage(page, book) {
     var p = $('#page-'+page);
-    // 	Check if the page is already filled in
-    if ($(p).attr('data-load') != '1') {
-        var data = $(p).find('.data');
-        if ($(data).length == 0)
-            return;
 
-        Dajaxice.adm.getImage
-            (Dajax.process,
-             {
-                 'selector' : 'page-' + $(data).find('.dataSelector').html(),
-                 'book'     : $(data).find('.dataBook').html(),
-                 'page'     : $(data).find('.dataPage').html(),
-                 'bEven'    : $(data).find('.dataEven').html()=='true'
-             }
-        );
+    var data = $(p).find('.data');
+    if (data.length == 0) // No content to fill
+        return;
+
+    var img = $(p).find('img');
+
+    // Shit happens..
+    if (img.length == 1) {
+        $(p).find('.loader').remove();
+        return;
     }
+
+    if (img.length > 1)
+        $(img[1]).remove();
+
+    Dajaxice.adm.getImage
+        (Dajax.process,
+         {
+             'selector' : 'page-' + $(data).find('.dataSelector').html(),
+             'book'     : $(data).find('.dataBook').html(),
+             'page'     : $(data).find('.dataPage').html(),
+             'bEven'    : $(data).find('.dataEven').html()=='true'
+         }
+    );
 }
 
 function ajaxOnLoad(selector, url, p) {
@@ -91,7 +100,6 @@ function ajaxOnLoad(selector, url, p) {
     };
 
     img.attr('src', url);
-
 }
 
 
