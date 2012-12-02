@@ -48,5 +48,5 @@ class BookAdmin(admin.ModelAdmin):
 admin.site.register(CategorieClient, CategorieClientAdmin)
 admin.site.register(MembreEquipe, MembreEquipeAdmin)
 admin.site.register(Book, BookAdmin)
-admin.site.register(Contact)
+admin.site.register(Contact, Media = CommonMedia)
 admin.site.register(Accueil, Media = CommonMedia)
