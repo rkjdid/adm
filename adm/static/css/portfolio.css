@@ -159,7 +159,7 @@
 }
 
 .page.odd.tmpCenter img, .page.even.tmpCenter img {
-    width: 85%;
+    max-width: 85%; max-height: 85%;
     position: absolute;
     text-align: center;
     left: 0; right: 0; bottom: 0; top: 0; margin: auto;
