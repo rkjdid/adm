@@ -167,7 +167,7 @@ class Client (models.Model):
     Clients des AdM dans la TV (page CLIENT)
     """
     categorie = models.ForeignKey('CategorieClient', related_name='clients')
-    nom = models.CharField (max_length=20, default='Client')
+    nom = models.CharField (max_length=20, default='Client', null=True, blank=True)
     logo = models.ImageField(upload_to= 'clients/')
 
     pagebook = models.OneToOneField('PageBook', related_name="client", blank=True, null=True, on_delete=models.SET_NULL)
