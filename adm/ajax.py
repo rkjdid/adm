@@ -11,7 +11,7 @@ def getImage(request, selector, book, page, bEven):
         page = Book.objects.all()[int(book)].pagebooks.all()[int(page)].pageDroite.url
 
     dajax = Dajax()
-    dajax.script('ajaxOnLoad("'+selector+'", "'+page+'");')
+    dajax.script('ajaxOnLoad("'+selector+'", "'+page+'", $("#'+selector+'"));')
 
     return dajax.json()
 

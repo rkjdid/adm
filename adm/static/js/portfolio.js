@@ -65,8 +65,6 @@ function populatePage(page, book) {
         if ($(data).length == 0)
             return;
 
-        $(p).attr('data-load', '1');
-
         Dajaxice.adm.getImage
             (Dajax.process,
              {
@@ -79,7 +77,7 @@ function populatePage(page, book) {
     }
 }
 
-function ajaxOnLoad(selector, url) {
+function ajaxOnLoad(selector, url, p) {
     var img = $('<img class="pageBook loading" alt="Photo book" style="opacity: 0;"/>');
     $(img)[0].onload = function () {
         $('#' + selector + ' .loader').remove();
@@ -88,9 +86,12 @@ function ajaxOnLoad(selector, url) {
             $(img).css('opacity', '');
             $(img).removeClass("loading");
         }, 50);
+
+        $(p).attr('data-load', '1');
     };
 
     img.attr('src', url);
+
 }
 
 
