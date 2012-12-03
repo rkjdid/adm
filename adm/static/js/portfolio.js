@@ -8,7 +8,7 @@ $(document).ready(function(){
     }
 
     // URIs
-    Hash.on('^page\/([0-9]*|design|photo|web|com|marketo|marketd)$', {
+    Hash.on('^page=([0-9]*|design|photo|web|com|marketo|marketd)$', {
         yep: function(path, parts) {
             var page = parts[1];
 
@@ -108,7 +108,7 @@ function loadBook() {
     $("#flipbook").turn({
         acceleration: true,
         elevation: 50,
-        gradients: true,
+        gradients: !$.isTouch,
         when: {
             turning: function(e, page, view) {
                 // Disable scrollbars during animation
@@ -144,7 +144,7 @@ function loadBook() {
                     $('#liMarketd, #li2Marketd').addClass('active');
                 }
 
-                window.location = '#page/' + page;
+                window.location.hash = 'page=' + page;
             },
 
             turned: function(e, page) {
