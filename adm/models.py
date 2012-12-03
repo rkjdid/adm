@@ -58,8 +58,8 @@ class Contact (models.Model):
     nom = models.CharField (max_length=75, default='Personne à contacter')
 
     # Numéro(s) de contact, contact2 facultatif
-    contact1 = models.CharField (max_length=75, default='Tel')
-    contact2 = models.CharField (max_length=75, default='Mail', blank=True)
+    contact1 = models.TextField (default='small info', blank=True, null=True)
+    contact2 = models.TextField (default='small info', blank=True, null=True)
 
     def __unicode__(self):
         return '#' + str(self.id) + '.' + self.nom

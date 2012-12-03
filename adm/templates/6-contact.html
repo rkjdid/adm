@@ -13,10 +13,16 @@
 {% for c in contacts %}
             <div class="aContacter">
                 <h1>{{ c.nom }}</h1>
+      {% autoescape off %}
                 <h2>{{ c.contact1 }}</h2>
   {% if c.contact2 != "" %}
-                <h2>{{ c.contact2 }}</h2>
+                <h2><p>
+
+                    {{ c.contact2 }}
+
+                </p></h2>
   {% endif %}
+      {% endautoescape %}
             </div>
 {% endfor %}
             <div id="sendButton"><a id="mailContact" href="mailto:romainknezevic@gmail.com">e-mail</a></div>
