@@ -151,9 +151,8 @@ function loadBook() {
             },
 
             start: function(e, pageObject, corner) {
-                if (jQuery.browser.msie)
-                    if (corner == 'tr' || corner == 'tl')
-                        e.preventDefault();
+                if (corner == 'tr' || corner == 'tl')
+                    e.preventDefault();
 
                 // Disable scrollbars during animation
                 $('#bodyContainer').css('overflow', 'hidden');
