@@ -3,13 +3,14 @@ from django.template.context import RequestContext
 
 from adm.models    import *
 
-def index(request):
+def index(request, zoom=100):
     members = MembreEquipe.objects.filter(position__gt = 0)
 
     arguments = {
         'pageN'         : 'index',
         'request'       : request,
         'membres'       : members,
+        'zoom'          : zoom,
     }
     return render_to_response('1-index.html',
                               arguments,

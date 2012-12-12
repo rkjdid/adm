@@ -21,7 +21,7 @@
     <script src="{{ STATIC_URL }}js/lib/excanvas_r3/excanvas.compiled.js"></script>
 <![endif]-->
 </head>
-<body>
+<body {% block bodyAttr %}{% endblock %}>
 {% if pageN != 'index' %}
     <header>
         {% include 'snip/nav.html' %}

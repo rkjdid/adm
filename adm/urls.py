@@ -24,6 +24,9 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
+    # Zoom whole window
+    url(r'^iframe/(?P<zoom>\d+)/?$', 'adm.views.index', name='index'),
+
     # DajaxIce
     url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
 )
