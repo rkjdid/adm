@@ -157,7 +157,7 @@
     background: url('../img/sprites.index.png') -702px 0 no-repeat;
     position: absolute;
     top: 0;
-    left: 12%;
+    left: 0;
     width: 110px;
     height: 155px;
 
@@ -169,7 +169,7 @@
     background: url('../img/sprites.index.png') -586px 0 no-repeat;
     position: absolute;
     top: 0;
-    right: 8%;
+    right: 0;
     width: 115px;
     height: 208px;
 

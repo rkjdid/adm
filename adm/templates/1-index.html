@@ -9,13 +9,16 @@
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/index.css" />
 {% endblock %}
 
+{% block bodyAttr %}style="zoom:{{ zoom }}%;"{% endblock %}
+
 {% block body %}
     <img id="bgPreload" class="preload" src="{{ STATIC_URL }}img/1.index.bg.png" alt="BG"/>
 
     <div id="indexbg">
-        <div id="nuage1"></div>
-        <div id="nuage2"></div>
+
         <div id="playground">
+            <div id="nuage1"></div>
+            <div id="nuage2"></div>
             <div class="indexLink" id="copyright">
                 <a href="/agence/"></a>
                 <div id="copyTurn" class="rotaz"></div>

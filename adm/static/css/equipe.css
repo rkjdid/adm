@@ -209,6 +209,13 @@
     z-index: 999;
 }
 
+#descBox {
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    width: 303px; height: 515px;
+}
+
 .wrapDesc {
     font-family: 'SoupBone', Helvetica, sans-serif;
 
@@ -218,7 +225,6 @@
 
     width: 188px;
     height: 515px;
-    right: -310px;
     top: -5px;
     position: absolute;
 
