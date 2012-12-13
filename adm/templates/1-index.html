@@ -4,12 +4,13 @@
 
 {% block extrajs %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/index.js"></script>
+    <script type="text/javascript">
+
+    </script>
 {% endblock %}
 {% block extracss %}
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/index.css" />
 {% endblock %}
-
-{% block bodyAttr %}style="zoom:{{ zoom }}%;"{% endblock %}
 
 {% block body %}
     <img id="bgPreload" class="preload" src="{{ STATIC_URL }}img/1.index.bg.png" alt="BG"/>
