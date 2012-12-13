@@ -38,7 +38,7 @@
                                 <div class="dataCliName">{{ client.nom }}</div>
                                 <div class="dataCliID">{{ client.id }}</div>
 {#                                <img title="{{ client.nom }}#- -#{{ client.id }}" src="" alt="dummy" />#}
-                                {% if client.hasPageBook %}<div id="dataURI{{ client.id }}">/portfolio/{{ client.pagebook.id }}/</div>{% endif %}
+                                {% if client.hasPageBook %}<div id="dataURI{{ client.id }}">/portfolio/#page={{ client.pagebook.id }}</div>{% endif %}
                             </div>
                         {% endfor %}
                     </div>
