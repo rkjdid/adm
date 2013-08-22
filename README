@@ -1,13 +1,1 @@
-ToDo :::
-
-iPad -> handle double touch for index page (see animations before entering page)
-iPad -> handle 1-finger scrolling for page Agence
-
-deployer -> se renseigner sérieusement
-
-facturer :)
-
-compresser -> css & js, have a look at django-pipeline - looks fresh
-compresser -> coté webserver (compression gzip blabla, wsgi), rien à faire en dév (pensé-je)
-
-manuel imagé pour les naabs
+http://adm.sites.djangoeurope.com/
