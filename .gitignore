@@ -6,5 +6,5 @@ settings.py
 resources
 dataSources.xml
 dajaxice.core.js
-.idea/*
+.idea/
 db.sqlite
