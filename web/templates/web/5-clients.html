@@ -1,0 +1,50 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+{% block title %} - clients{% endblock %}
+
+{% block extrajs %}
+    <script type="text/javascript" src="{% static "web/js/clients.js" %}"></script>
+{% endblock %}
+{% block extracss %}
+    <link rel="stylesheet" type="text/css" href="{% static "web/css/clients.css" %}" />
+{% endblock %}
+
+{% block body %}
+    <div class="preload dummy" style="font-family: 'digital'; z-index:-1; position: absolute; top: -999px;">.</div>
+    <div id="playground">
+        <div id="roiReine"></div>
+        <div class="inblock valignC" id="tv">
+            <div id="whitebg"></div>
+
+            <div id="tvScreen"></div>
+            <div id="tvLcd">
+                <p id="lcdArrow">----------></p>
+            </div>
+        </div>
+
+        <ul class="tvIndex inblock" id="tvIndex">
+            {% for catClient in catClients %}
+                <li class="tvIndex loading">
+                    <div class="data">
+                        <div class="dataChannelId">{{ forloop.counter }}</div>
+                        <div class="dataChannelName">{{ catClient.nom }}</div>
+                        <div class="dataCat">cat{{ forloop.counter }}</div>
+                    </div>
+                    <p class="tvIndex alignL">{{ catClient.nom }} </p>
+                    <div class="preload" style="z-index:-99;" id="cat{{ forloop.counter }}">
+                        {% for client in catClient.clients.all %}
+                            <div id="cli-{{ client.id }}">
+                                <span>{{ client.logo.url }}</span>
+                                <div class="dataCliName">{{ client.nom }}</div>
+                                <div class="dataCliID">{{ client.id }}</div>
+{#                                <img title="{{ client.nom }}#- -#{{ client.id }}" src="" alt="dummy" />#}
+{% if client.hasPageBook %}<div id="dataURI{{ client.id }}">{% url 'portfolio' %}#page={{ client.pagebook.id }}</div>{% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

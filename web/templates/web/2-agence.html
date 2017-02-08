@@ -1,0 +1,62 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+{% block title %} - l'agence{% endblock %}
+
+{% block extracss %}
+    <link rel="stylesheet" type="text/css" href="{% static "web/css/agence.css" %}" />
+{% endblock %}
+
+{% block body %}
+    <div id="playground">
+        <div id="ruban"></div>
+        <div id="nuage3"></div>
+        <div id="agencePop" class="inblock valignC alignL">
+{% for new in news %}
+            <p id="newsP">
+    {% autoescape off %}
+                    {{ new.content }}
+    {% endautoescape %}
+            </p>
+{% endfor %}
+        </div>
+        <ul id="ulPoles">
+            <li class="liPoles marginTop">
+                <a href="{% url "portfolio" %}#page=com">
+                    <div id="poleCom"></div>
+                    <h1>Communication<br>&nbsp;</h1>
+                </a>
+            </li>
+            <li class="liPoles ">
+                <a href="{% url "portfolio" %}#page=marketo">
+                    <div id="poleMarkOp"></div>
+                    <h1>Marketing opérationnel</h1>
+                </a>
+            </li>
+            <li class="liPoles marginTop">
+                <a href="{% url "portfolio" %}#page=photo">
+                    <div id="polePhoto"></div>
+                    <h1>Photo<br>&nbsp;</h1>
+                </a>
+            </li>
+            <li class="liPoles marginTop">
+                <a href="{% url "portfolio" %}#page=web">
+                    <div id="poleWeb"></div>
+                    <h1>Web<br>&nbsp;</h1>
+                </a>
+            </li>
+            <li class="liPoles marginTop">
+                <a href="{% url "portfolio" %}#page=design">
+                    <div id="poleDesign"></div>
+                    <h1>Design<br>&nbsp;</h1>
+                </a>
+            </li>
+            <li class="liPoles ">
+                <a href="{% url "portfolio" %}#page=marketd">
+                    <div id="poleMarkDirect"></div>
+                    <h1>Marketing direct</h1>
+                </a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

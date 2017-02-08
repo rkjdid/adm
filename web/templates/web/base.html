@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Les Ateliers des Marques{% block title %}{% endblock %}</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="description" content="Les Ateliers des Marques, agence de conseil en communication, design, photo, web et marketing." />
+    <meta name="keywords" content="Agence conseil communication, agence com lille, image de marque, design packaging, marketing operationnel, photographie, web, design, marketing direct, Lille, Roubaix, Paris">
+
+    <meta property="og:title" content="Les Ateliers des Marques" />
+    <meta property="og:description" content="Les Ateliers des Marques vous présentent leur nouveau site web : un monde de fantaisies vous attend !" />
+    <meta property="og:image" content="{% static "web/img/facebook.thumbnail.png" %}" />
+
+    <link rel="shortcut icon" href="{% static "web/img/favicon.png" %}" type="image/x-icon" />
+
+    <link rel="stylesheet" type="text/css" href="{% static "web/css/base.css" %}" />
+    {% block extracss %}{% endblock %}
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="{% static "web/js/lib/excanvas_r3/excanvas.compiled.js" %}"></script>
+<![endif]-->
+</head>
+<body>
+{% if pageN != 'index' %}
+    <header>
+        {% include 'web/snip/nav.html' %}
+    </header>
+{% endif %}
+
+{% block prebody %}{% endblock %}
+    <div id="bodyContainer" class="scrollY {{ pageN }}">
+        {% block body %}{% endblock %}
+    </div>
+{% block postbody %}{% endblock %}
+
+    <footer class="{{ pageN }}">
+        <div class="inblock small">
+            <p>1 rue de l'espérance, 59100 Roubaix - Tél : 03.20.72.00.40</p>
+            <p>Copyright (c) 2012 - Tous droits réservés - <a href="{% url "contact" %}">Contact</a></p>
+        </div>
+{% if pageN == 'index' %}<img class="inblock valignC logo" src="{% static "web/img/logo.nobg.gif" %}" alt="Logo des ateliers" />{% endif %}
+    </footer>
+
+    <script type="text/javascript"> {# Google Analytics #}
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36455896-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+{% if modernized == True %}
+    <script type="text/javascript" src="{% static "web/js/lib/modernizr.custom.27088.js" %}"></script>
+{% endif %}
+    <script type="text/javascript" src="{% static "web/js/lib/jquery.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "web/js/lib/prefixfree.min.js" %}"></script>
+{#    <script type="text/javascript" src="{% static "web/js/lib/jquery.cookie.js" %}"></script>#}
+{#    <script type="text/javascript">#}
+{#        if (top === self)#}
+{#            $.cookie("zoom", 100);#}
+{##}
+{#        if (!$.cookie("zoom"))#}
+{#            $.cookie("zoom", 100);#}
+{##}
+{#        var body = $('body');#}
+{#        $(body).css('zoom', $.cookie("zoom") + '%');#}
+{#        $(body).css('-moz-transform', 'scale(' + $.cookie("zoom")/100 + ')');#}
+{#    </script>#}
+{% block extrajs %}{% endblock %}
+</body>
+</html>
